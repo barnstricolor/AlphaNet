@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentidadeAcessoContexto", "IdentidadeAcessoContexto", "{3DEC8353-EF19-4E76-9309-29C9DE57A37A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PassagemAereaContexto", "PassagemAereaContexto", "{C42784ED-B247-4239-BB4F-DC85071CD946}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentidadeAcesso", "IdentidadeAcesso\IdentidadeAcesso.csproj", "{EAE8E1B2-847B-45A2-BD08-181941DEDE44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassagemAerea", "PassagemAerea\PassagemAerea.csproj", "{1E15F899-9BE7-4F35-8750-241696613936}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassagemAereaTest", "PassagemAereaTest\PassagemAereaTest.csproj", "{BFB1CEDB-9BD0-4C72-9A00-FBD83A2F4EF9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{74310322-ADFB-4CA8-A4F5-C1E1A8C4B722}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{F2AA4625-97FE-4000-8A7C-7413A506482D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EAE8E1B2-847B-45A2-BD08-181941DEDE44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAE8E1B2-847B-45A2-BD08-181941DEDE44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAE8E1B2-847B-45A2-BD08-181941DEDE44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAE8E1B2-847B-45A2-BD08-181941DEDE44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E15F899-9BE7-4F35-8750-241696613936}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E15F899-9BE7-4F35-8750-241696613936}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E15F899-9BE7-4F35-8750-241696613936}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E15F899-9BE7-4F35-8750-241696613936}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFB1CEDB-9BD0-4C72-9A00-FBD83A2F4EF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFB1CEDB-9BD0-4C72-9A00-FBD83A2F4EF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFB1CEDB-9BD0-4C72-9A00-FBD83A2F4EF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFB1CEDB-9BD0-4C72-9A00-FBD83A2F4EF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2AA4625-97FE-4000-8A7C-7413A506482D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2AA4625-97FE-4000-8A7C-7413A506482D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2AA4625-97FE-4000-8A7C-7413A506482D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2AA4625-97FE-4000-8A7C-7413A506482D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EAE8E1B2-847B-45A2-BD08-181941DEDE44} = {3DEC8353-EF19-4E76-9309-29C9DE57A37A}
+		{1E15F899-9BE7-4F35-8750-241696613936} = {C42784ED-B247-4239-BB4F-DC85071CD946}
+		{BFB1CEDB-9BD0-4C72-9A00-FBD83A2F4EF9} = {C42784ED-B247-4239-BB4F-DC85071CD946}
+		{F2AA4625-97FE-4000-8A7C-7413A506482D} = {74310322-ADFB-4CA8-A4F5-C1E1A8C4B722}
+	EndGlobalSection
+EndGlobal
