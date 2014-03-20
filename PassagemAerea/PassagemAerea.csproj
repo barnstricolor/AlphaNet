@@ -43,11 +43,14 @@
     <Compile Include="Domain.Model\Aviao\Aviao.cs" />
     <Compile Include="Domain.Model\Aviao\AviaoId.cs" />
     <Compile Include="Domain.Model\Aviao\AviaoRepositorio.cs" />
-    <Compile Include="Port.Adapters\Persistencia\Repositorio\EfAviaoRepositio.cs" />
+    <Compile Include="Domain.Model\Cidade\Cidade.cs" />
+    <Compile Include="Domain.Model\Cidade\CidadeId.cs" />
+    <Compile Include="Domain.Model\Cidade\CidadeRepositorio.cs" />
+    <Compile Include="Port.Adapters\Persistencia\Repositorio\EfCidadeRepositio.cs" />
+    <Compile Include="Port.Adapters\Persistencia\Repositorio\EfAviaoRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Domain.Model\Cidade\" />
     <Folder Include="Domain.Model\Voo\" />
   </ItemGroup>
   <ItemGroup>
