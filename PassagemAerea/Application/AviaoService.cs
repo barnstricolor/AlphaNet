@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AlphaNet.PassagemAerea.Domain.Model.Aviao;
 
-namespace PassagemAerea.Application
+namespace AlphaNet.Application
 {
     public class AviaoService
     {
