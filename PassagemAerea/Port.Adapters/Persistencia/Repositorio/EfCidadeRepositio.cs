@@ -14,5 +14,11 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio
         {
             return new CidadeId( Guid.NewGuid().ToString().ToUpper());
         }
+        public void salvar(Cidade cidade){
+        
+        }
+        public Cidade obterPeloId(CidadeId CidadeId) {
+            return new Cidade(proximaIdentidade(),"RIBEIRAO PRETO","14100");
+        }
     }
 }

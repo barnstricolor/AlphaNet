@@ -14,5 +14,14 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio
         {
             return new AviaoId( Guid.NewGuid().ToString().ToUpper());
         }
+        public void salvar(Aviao aviao)
+        {
+
+        }
+        public Aviao obterPeloId(AviaoId aviaoId)
+        {
+            return new Aviao(proximaIdentidade(),"747",747);
+        }
+
     }
 }

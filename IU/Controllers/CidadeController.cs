@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Http;
-using AlphaNet.
+using AlphaNet.Application;
 
 namespace AlphaNet.IU.Controllers
 {
@@ -12,11 +12,11 @@ namespace AlphaNet.IU.Controllers
     {
         //
         // GET: /Cidade/
-
-        public ActionResult Index()
-        {
-            return View();
+        static readonly AviaoService aviaoService = new AviaoService();
+        
+        [System.Web.Http.HttpGet]
+        public string teste() {
+            return aviaoService.teste("xxxxx");
         }
-
     }
 }

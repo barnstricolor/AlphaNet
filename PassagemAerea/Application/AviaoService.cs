@@ -20,5 +20,8 @@ namespace AlphaNet.Application
             aviao.alterarModelo(modelo);
             aviaoRepositorio.salvar(aviao);
         }
+        public string teste(string str) {
+            return str + " OK";
+        }
     }
 }
