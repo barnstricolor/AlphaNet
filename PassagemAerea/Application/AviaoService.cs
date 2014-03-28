@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AlphaNet.PassagemAerea.Domain.Model.Aviao;
 
-namespace AlphaNet.Application
+namespace AlphaNet.PassagemAerea.Application
 {
     public class AviaoService
     {
@@ -19,9 +19,6 @@ namespace AlphaNet.Application
             Aviao aviao = aviaoRepositorio.obterPeloId(aviaoId);
             aviao.alterarModelo(modelo);
             aviaoRepositorio.salvar(aviao);
-        }
-        public string teste(string str) {
-            return str + " OK";
         }
     }
 }
