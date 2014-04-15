@@ -14,7 +14,8 @@ namespace AlphaNet.PassagemAereaTest.Domain.Model.AviaoTest
         [TestInitialize]
         public void setUpTest()
         {
-            aviaoRepositorio = new EfAviaoRepositio();
+            //aviaoRepositorio = new EfAviaoRepositio();
+            aviaoRepositorio = new MemoriaAviaoRepositorio();
         }
         
         [TestMethod]
@@ -23,6 +24,10 @@ namespace AlphaNet.PassagemAereaTest.Domain.Model.AviaoTest
             Aviao aviao = new Aviao(aviaoRepositorio.proximaIdentidade(),"747",999);
 
             Assert.AreEqual("747",aviao.modelo());
+
+            aviaoRepositorio.salvar(aviao);
+            aviao = aviaoRepositorio.obterPeloId(aviao.aviaoId());
+            
             aviao.alterarModelo("Boeing 747");
             Assert.AreEqual("Boeing 747", aviao.modelo());
             

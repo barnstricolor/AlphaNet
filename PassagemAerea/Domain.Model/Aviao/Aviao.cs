@@ -32,5 +32,8 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Aviao
         public AviaoId aviaoId() {
             return this._aviaoId;
         }
+        public int assentos() {
+            return this._assentos;
+        }
     }
 }
