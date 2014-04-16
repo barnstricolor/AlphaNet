@@ -15,12 +15,12 @@ namespace IU.Controllers
         {
             return View();
         }
-        public ActionResult NovoAviao()
+        public ActionResult Novo()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult NovoAviao(Aviao aviao)
+        public ActionResult Novo(Aviao aviao)
         {
             AviaoService aviaoService = new AviaoService();
 
