@@ -11,6 +11,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Aviao
         AviaoId proximaIdentidade();
         void salvar(Aviao aviao);
         Aviao obterPeloId(AviaoId aviaoId);
+        List<Aviao> todosAvioes();
         void limpar();
     }
 }

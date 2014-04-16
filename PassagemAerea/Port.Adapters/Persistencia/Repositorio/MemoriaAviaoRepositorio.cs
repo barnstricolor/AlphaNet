@@ -34,5 +34,9 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio
         {
             store.Clear();
         }
+        public List<Aviao> todosAvioes() {
+
+            return store.Values.ToList();
+        }
     }
 }

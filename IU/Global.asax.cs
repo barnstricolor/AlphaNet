@@ -6,6 +6,10 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using AlphaNet.PassagemAerea.Domain.Model;
+using AlphaNet.PassagemAerea.Domain.Model.Aviao;
+using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio;
+using Microsoft.Practices.Unity;
 
 namespace IU
 {
@@ -22,6 +26,9 @@ namespace IU
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            DominioRegistro.obterContainer().RegisterInstance<AviaoRepositorio>(new MemoriaAviaoRepositorio());
+
         }
     }
 }

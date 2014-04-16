@@ -1,8 +1,10 @@
-﻿<div id="body">
+﻿@model IEnumerable<IU.Models.Aviao>
+
+<div id="body">
     <section class="featured">
         <div class="content-wrapper">
             <hgroup class="title">
-                <h1>@this.ViewBag</h1>
+                <h1>Lista de Aviões</h1>
             </hgroup>
             <p>
                 Agora vai manoooooooooooooo
@@ -12,6 +14,17 @@
                         <li>@Html.ActionLink("Novo Aviao", "Novo", "Aviao")</li>
                     </ul>
                 </nav>
+                @if (Model != null) {
+                    <table>
+                        @foreach(var aviao in Model)
+                        {            
+                            <tr>    
+                                <td>@aviao.modelo</td>
+                                <td>@aviao.assentos</td>
+                            </tr>        
+                        }
+                    </table>
+                }
         </div>
     </section>
 </div>

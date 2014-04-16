@@ -5,8 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using AlphaNet.PassagemAerea.Domain.Model.Aviao;
 using AlphaNet.PassagemAerea.Domain.Model;
+using AlphaNet.PassagemAerea.Aplicacao.Avioes.Data;
 
-namespace AlphaNet.PassagemAerea.Aplicacao
+
+namespace AlphaNet.PassagemAerea.Aplicacao.Avioes
 {
     public class AviaoService
     {
@@ -23,6 +25,19 @@ namespace AlphaNet.PassagemAerea.Aplicacao
             Aviao aviao = aviaoRepositorio().obterPeloId(new AviaoId(aviaoId));
             aviao.alterarModelo(modelo);
             aviaoRepositorio().salvar(aviao);
+        }
+        public List<AviaoData> todosAvioes() {
+            List<AviaoData> result = new List<AviaoData>();
+
+            foreach (Aviao data in aviaoRepositorio().todosAvioes())
+            {
+                AviaoData aviao = new AviaoData();
+                aviao.modelo = data.modelo();
+                aviao.assentos = data.assentos();
+                result.Add(aviao);
+            }
+
+            return result;
         }
     }
 }

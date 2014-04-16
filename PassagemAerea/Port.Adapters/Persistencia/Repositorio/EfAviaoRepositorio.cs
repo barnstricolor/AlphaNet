@@ -26,6 +26,11 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio
         {
             throw new NotImplementedException();
         }
+        public List<Aviao> todosAvioes()
+        {
+
+            throw new NotImplementedException();
+        }
 
     }
 }

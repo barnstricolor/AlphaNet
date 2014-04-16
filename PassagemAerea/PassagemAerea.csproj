@@ -45,7 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aplicacao\AviaoService.cs" />
+    <Compile Include="Aplicacao\Avioes\AviaoService.cs" />
+    <Compile Include="Aplicacao\Avioes\Data\AviaoData.cs" />
     <Compile Include="Domain.Model\Aviao\Aviao.cs" />
     <Compile Include="Domain.Model\Aviao\AviaoId.cs" />
     <Compile Include="Domain.Model\Aviao\AviaoRepositorio.cs" />
