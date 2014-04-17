@@ -13,5 +13,6 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Aviao
         Aviao obterPeloId(AviaoId aviaoId);
         List<Aviao> todosAvioes();
         void limpar();
+        void excluir(AviaoId aviaoId);
     }
 }

@@ -54,7 +54,6 @@
     <Compile Include="Domain.Model\Cidade\CidadeId.cs" />
     <Compile Include="Domain.Model\Cidade\CidadeRepositorio.cs" />
     <Compile Include="Domain.Model\DominioRegistro.cs" />
-    <Compile Include="Port.Adapters\Persistencia\Repositorio\EfCidadeRepositio.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\EfAviaoRepositorio.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\MemoriaAviaoRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

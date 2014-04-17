@@ -1,4 +1,4 @@
-﻿@model IEnumerable<IU.Models.Aviao>
+﻿@model IEnumerable<AlphaNet.PassagemAerea.Aplicacao.Avioes.Data.AviaoData>
 
 <div id="body">
     <section class="featured">
@@ -11,7 +11,7 @@
             </p>
                 <nav>
                     <ul id="menu02">
-                        <li>@Html.ActionLink("Novo Aviao", "Novo", "Aviao")</li>
+                        <li>@Html.ActionLink("Novo Aviao","Novo", "Aviao")</li>
                     </ul>
                 </nav>
                 @if (Model != null) {
@@ -19,6 +19,8 @@
                         @foreach(var aviao in Model)
                         {            
                             <tr>    
+                                <td>@Html.ActionLink("editar","Editar",new {aviaoId = aviao.aviaoId})</td>
+                                <td>@Html.ActionLink("excluir","Excluir",new {aviaoId = aviao.aviaoId})</td>
                                 <td>@aviao.modelo</td>
                                 <td>@aviao.assentos</td>
                             </tr>        

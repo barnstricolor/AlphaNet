@@ -15,8 +15,8 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Aviao
         public Aviao(AviaoId aviaoId, string modelo, int assentos)
         {
             this._aviaoId = aviaoId;
-            this._modelo = modelo;
-            this._assentos = assentos;
+            setModelo(modelo);
+            setAssentos(assentos);
         }
         public void alterarModelo(string novoModelo){
             setModelo(novoModelo);
@@ -34,6 +34,16 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Aviao
         }
         public int assentos() {
             return this._assentos;
+        }
+        private void setAssentos(int assentos) { 
+            if (assentos>999)
+                throw new InvalidOperationException("Quantidade de assentos não pode ser maior que 999.");
+
+            this._assentos = assentos;
+        }
+        public void alterarAssentos(int novaQuantidade)
+        {
+            setAssentos(novaQuantidade);
         }
     }
 }

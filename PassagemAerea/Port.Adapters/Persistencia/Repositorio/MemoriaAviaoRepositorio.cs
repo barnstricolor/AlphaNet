@@ -38,5 +38,8 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio
 
             return store.Values.ToList();
         }
+        public void excluir(AviaoId aviaoId) {
+            store.Remove(aviaoId.Id);
+        }
     }
 }

@@ -31,6 +31,10 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio
 
             throw new NotImplementedException();
         }
+        public void excluir(AviaoId aviaoId)
+        {
+            throw new NotImplementedException();
+        }
 
     }
 }
