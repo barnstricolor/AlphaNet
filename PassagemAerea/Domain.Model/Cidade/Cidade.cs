@@ -18,30 +18,36 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Cidade
             this._nome = nome;
             this._cep = cep;
         }
-        public void alterarNome(string nome)
-        {
-            setNome(nome);
-        }
-        public void setNome(string nome) {
+        private void setNome(string nome) {
             if (nome == null || nome == "")
                 throw new InvalidOperationException("Nome não pode ser vazio ou nulo.");
             this._nome = nome;
         }
-        public void alterarCep(string cep)
+        public void alterarNome(string nome)
         {
-            setCep(cep);
+            setNome(nome);
         }
         public void setCep(string cep)
         {
             if (cep == null || cep == "")
                 throw new InvalidOperationException("CEP não pode ser vazio ou nulo.");
-            this._cep  = cep;
+            this._cep = cep;
         }
+        public void alterarCep(string cep)
+        {
+            setCep(cep);
+        }
+        
         public string nome() {
             return this._nome;
         }
+        
         public string cep() {
             return this._cep;
+        }
+
+        public CidadeId cidadeId() {
+            return this._cidadeId;
         }
     }
 }

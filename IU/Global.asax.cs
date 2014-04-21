@@ -8,6 +8,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using AlphaNet.PassagemAerea.Domain.Model;
 using AlphaNet.PassagemAerea.Domain.Model.Aviao;
+using AlphaNet.PassagemAerea.Domain.Model.Cidade;
 using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio;
 using Microsoft.Practices.Unity;
 
@@ -28,6 +29,7 @@ namespace IU
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             DominioRegistro.obterContainer().RegisterInstance<AviaoRepositorio>(new MemoriaAviaoRepositorio());
+            DominioRegistro.obterContainer().RegisterInstance<CidadeRepositorio>(new MemoriaCidadeRepositorio());
 
         }
     }

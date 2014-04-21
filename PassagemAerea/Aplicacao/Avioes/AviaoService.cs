@@ -21,21 +21,23 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Avioes
             aviaoRepositorio().salvar(aviao);
             return aviao.aviaoId().Id;
         }
-        public void alterarModelo(String aviaoId,string modelo) {
+        public void alterarModelo(string aviaoId,string modelo) {
             Aviao aviao = aviaoRepositorio().obterPeloId(new AviaoId(aviaoId));
             aviao.alterarModelo(modelo);
             aviaoRepositorio().salvar(aviao);
         }
-        public void alterarDados(String aviaoId, string modelo , int assentos)
+        public void alterarDados(string aviaoId, string modelo , int assentos)
         {
             Aviao aviao = aviaoRepositorio().obterPeloId(new AviaoId(aviaoId));
             aviao.alterarModelo(modelo);
             aviao.alterarAssentos(assentos);
             aviaoRepositorio().salvar(aviao);
         }
-        public void excluirAviao(String aviaoId) {
+
+        public void excluirAviao(string aviaoId) {
             aviaoRepositorio().excluir(new AviaoId(aviaoId));
         }
+
         public List<AviaoData> todosAvioes()
         {
             List<AviaoData> result = new List<AviaoData>();
@@ -51,6 +53,7 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Avioes
 
             return result;
         }
+
         public AviaoData obterAviao(string aviaoId){
             AviaoData result = new AviaoData();
 

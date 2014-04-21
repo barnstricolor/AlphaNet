@@ -1,0 +1,32 @@
+﻿@model IEnumerable<AlphaNet.PassagemAerea.Aplicacao.Cidades.Data.CidadeData>
+
+<div id="body">
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>Lista de Aviões</h1>
+            </hgroup>
+            <p>
+                Lista de Cidades Cadastrados
+            </p>
+                <nav>
+                    <ul id="menu02">
+                        <li>@Html.ActionLink("Novo Cidade","Nova", "Cidade")</li>
+                    </ul>
+                </nav>
+                @if (Model != null) {
+                    <table>
+                        @foreach(var cidade in Model)
+                        {            
+                            <tr>    
+                                <td>@Html.ActionLink("editar","Editar",new {aviaoId = cidade.cidadeId})</td>
+                                <td>@Html.ActionLink("excluir","Excluir",new {aviaoId = cidade.cidadeId})</td>
+                                <td>@cidade.nome</td>
+                                <td>@cidade.cep</td>
+                            </tr>        
+                        }
+                    </table>
+                }
+        </div>
+    </section>
+</div>

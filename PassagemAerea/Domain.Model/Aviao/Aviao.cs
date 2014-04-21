@@ -18,32 +18,44 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Aviao
             setModelo(modelo);
             setAssentos(assentos);
         }
-        public void alterarModelo(string novoModelo){
+
+        private void setModelo(string modelo)
+        {
+            if (modelo == null || modelo == "")
+                throw new InvalidOperationException("Modelo não pode ser vazio ou nulo.");
+            this._modelo = modelo;
+        }
+
+        public void alterarModelo(string novoModelo)
+        {
             setModelo(novoModelo);
         }
-        private void setModelo(string modelo){
-            if(modelo==null || modelo=="")
-                throw new InvalidOperationException("Modelo não pode ser vazio ou nulo.");
-            this._modelo=modelo;
-        }
-        public string modelo(){
-            return this._modelo;
-        }
-        public AviaoId aviaoId() {
-            return this._aviaoId;
-        }
-        public int assentos() {
-            return this._assentos;
-        }
+        
         private void setAssentos(int assentos) { 
             if (assentos>999)
                 throw new InvalidOperationException("Quantidade de assentos não pode ser maior que 999.");
 
             this._assentos = assentos;
         }
+        
         public void alterarAssentos(int novaQuantidade)
         {
             setAssentos(novaQuantidade);
+        }
+
+        public string modelo()
+        {
+            return this._modelo;
+        }
+
+        public AviaoId aviaoId()
+        {
+            return this._aviaoId;
+        }
+
+        public int assentos()
+        {
+            return this._assentos;
         }
     }
 }

@@ -11,5 +11,9 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Cidade
         CidadeId proximaIdentidade();
         void salvar(Cidade cidade);
         Cidade obterPeloId(CidadeId CidadeId);
+        List<Cidade> todasCidades();
+        void limpar();
+        void excluir(CidadeId cidadeId);
+
     }
 }
