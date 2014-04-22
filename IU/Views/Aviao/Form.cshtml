@@ -1,0 +1,21 @@
+﻿@model AlphaNet.PassagemAerea.Aplicacao.Avioes.Data.AviaoData
+
+<div id="body">
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>Aviao</h1>
+            </hgroup>
+            <p>
+                Aviao
+            </p>
+            <form method="post" action="Salvar">
+                <input type="hidden" name="aviaoId" value="@Model.aviaoId"/>
+                <label>Modelo:</label><input type="text" name="modelo" value="@Model.modelo"/>
+                <br>
+                <label>Assento:</label><input type="text" name="assentos" value="@Model.assentos"/>
+                <br><input type="submit" value="Salvar" />
+            </form>
+        </div>
+    </section>
+</div>
