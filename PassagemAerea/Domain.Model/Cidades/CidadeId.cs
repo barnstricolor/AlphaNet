@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using AlphaNet.Common.Domain.Model;
 
-namespace AlphaNet.PassagemAerea.Domain.Model.Aviao
+namespace AlphaNet.PassagemAerea.Domain.Model.Cidades
 {
-    public class AviaoId:Identity
+    public class CidadeId:Identity
     {
-        public AviaoId(string id){
+        public CidadeId(string id){
             this.Id  = id;
         }
+
     }
 }

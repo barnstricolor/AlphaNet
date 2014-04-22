@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AlphaNet.PassagemAerea.Domain.Model.Aviao;
+using AlphaNet.PassagemAerea.Domain.Model.Avioes;
 using AlphaNet.PassagemAerea.Domain.Model;
 using AlphaNet.PassagemAerea.Aplicacao.Avioes.Data;
 

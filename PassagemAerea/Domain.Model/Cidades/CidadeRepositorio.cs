@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AlphaNet.PassagemAerea.Domain.Model.Cidade
+namespace AlphaNet.PassagemAerea.Domain.Model.Cidades
 {
     public interface CidadeRepositorio
     {

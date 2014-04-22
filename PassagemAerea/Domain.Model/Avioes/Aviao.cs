@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AlphaNet.PassagemAerea.Domain.Model.Aviao
+namespace AlphaNet.PassagemAerea.Domain.Model.Avioes
 {
     public class Aviao
     {

@@ -7,8 +7,8 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using AlphaNet.PassagemAerea.Domain.Model;
-using AlphaNet.PassagemAerea.Domain.Model.Aviao;
-using AlphaNet.PassagemAerea.Domain.Model.Cidade;
+using AlphaNet.PassagemAerea.Domain.Model.Avioes;
+using AlphaNet.PassagemAerea.Domain.Model.Cidades;
 using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio;
 using Microsoft.Practices.Unity;
 

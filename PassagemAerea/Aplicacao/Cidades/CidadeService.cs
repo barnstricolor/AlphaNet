@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AlphaNet.PassagemAerea.Domain.Model;
-using AlphaNet.PassagemAerea.Domain.Model.Cidade;
+using AlphaNet.PassagemAerea.Domain.Model.Cidades;
 using AlphaNet.PassagemAerea.Aplicacao.Cidades.Data;
 
 

@@ -7,7 +7,7 @@
     <ProjectGuid>{1E15F899-9BE7-4F35-8750-241696613936}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AlphaNet</RootNamespace>
+    <RootNamespace>AlphaNet.PassagemAerea</RootNamespace>
     <AssemblyName>AlphaNet</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -51,16 +51,21 @@
     <Compile Include="Aplicacao\Avioes\Data\AviaoData.cs" />
     <Compile Include="Aplicacao\Cidades\CidadeService.cs" />
     <Compile Include="Aplicacao\Cidades\Data\CidadeData.cs" />
-    <Compile Include="Domain.Model\Aviao\Aviao.cs" />
-    <Compile Include="Domain.Model\Aviao\AviaoId.cs" />
-    <Compile Include="Domain.Model\Aviao\AviaoRepositorio.cs" />
-    <Compile Include="Domain.Model\Cidade\Cidade.cs" />
-    <Compile Include="Domain.Model\Cidade\CidadeId.cs" />
-    <Compile Include="Domain.Model\Cidade\CidadeRepositorio.cs" />
+    <Compile Include="Aplicacao\Clientes\Data\ClienteData.cs" />
+    <Compile Include="Domain.Model\Avioes\Aviao.cs" />
+    <Compile Include="Domain.Model\Avioes\AviaoId.cs" />
+    <Compile Include="Domain.Model\Avioes\AviaoRepositorio.cs" />
+    <Compile Include="Domain.Model\Cidades\Cidade.cs" />
+    <Compile Include="Domain.Model\Cidades\CidadeId.cs" />
+    <Compile Include="Domain.Model\Cidades\CidadeRepositorio.cs" />
+    <Compile Include="Domain.Model\Clientes\Cliente.cs" />
+    <Compile Include="Domain.Model\Clientes\ClienteId.cs" />
+    <Compile Include="Domain.Model\Clientes\ClienteRepositorio.cs" />
     <Compile Include="Domain.Model\DominioRegistro.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\EfAviaoRepositorio.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\MemoriaAviaoRepositorio.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\MemoriaCidadeRepositorio.cs" />
+    <Compile Include="Port.Adapters\Persistencia\Repositorio\MemoriaClienteRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

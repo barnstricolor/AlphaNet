@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AlphaNet.PassagemAerea.Domain.Model.Cidade;
+using AlphaNet.PassagemAerea.Domain.Model.Cidades;
 
 namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio
 {

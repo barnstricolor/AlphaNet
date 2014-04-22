@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-using AlphaNet.PassagemAerea.Domain.Model.Aviao;
+using AlphaNet.PassagemAerea.Domain.Model.Avioes;
 using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio;
 
 namespace AlphaNet.PassagemAereaTest.Domain.Model.AviaoTest
@@ -15,7 +14,6 @@ namespace AlphaNet.PassagemAereaTest.Domain.Model.AviaoTest
         public void setUpTest()
         {
             aviaoRepositorio = new EfAviaoRepositio();
-            //aviaoRepositorio = new MemoriaAviaoRepositorio();
         }
         
         [TestMethod]

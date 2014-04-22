@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AlphaNet.Common.Domain.Model;
 
-namespace AlphaNet.PassagemAerea.Domain.Model.Cidade
+namespace AlphaNet.PassagemAerea.Domain.Model.Cidades
 {
     public class Cidade
     {
@@ -15,8 +15,8 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Cidade
 
         public Cidade(CidadeId cidadeId, string nome, string cep) {
             this._cidadeId = cidadeId;
-            this._nome = nome;
-            this._cep = cep;
+            setNome(nome);
+            setCep(cep);
         }
         private void setNome(string nome) {
             if (nome == null || nome == "")

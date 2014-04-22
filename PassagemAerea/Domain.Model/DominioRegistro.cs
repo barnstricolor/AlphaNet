@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Practices.Unity;
-using AlphaNet.PassagemAerea.Domain.Model.Aviao;
-using AlphaNet.PassagemAerea.Domain.Model.Cidade;
+using AlphaNet.PassagemAerea.Domain.Model.Avioes;
+using AlphaNet.PassagemAerea.Domain.Model.Cidades;
 
 namespace AlphaNet.PassagemAerea.Domain.Model
 {

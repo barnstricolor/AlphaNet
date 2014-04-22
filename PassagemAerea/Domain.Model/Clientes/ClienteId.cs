@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AlphaNet.Common.Domain.Model;
-
-namespace AlphaNet.PassagemAerea.Domain.Model.Cidade
+namespace AlphaNet.PassagemAerea.Domain.Model.Clientes
 {
-    public class CidadeId:Identity
+    public class ClienteId : Identity
     {
-        public CidadeId(string id){
-            this.Id  = id;
+        public ClienteId(string id)
+        {
+            this.Id = id;
         }
-
     }
 }
