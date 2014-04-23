@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Aplicacao\AviaoServiceTest.cs" />
     <Compile Include="Domain.Model\AviaoTest\AviaoTest.cs" />
+    <Compile Include="Domain.Model\VooTest\VooTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

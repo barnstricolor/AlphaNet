@@ -57,5 +57,10 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Avioes
         {
             return this._assentos;
         }
+
+        public Assento assento(int p)
+        {
+            return new Assento(p);
+        }
     }
 }
