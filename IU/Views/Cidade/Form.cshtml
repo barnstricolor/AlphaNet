@@ -1,0 +1,21 @@
+﻿@model AlphaNet.PassagemAerea.Aplicacao.Cidades.Data.CidadeData
+
+<div id="body">
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>Cidade</h1>
+            </hgroup>
+            <p>
+                Cidade
+            </p>
+            <form method="post" action="Salvar">
+                <input type="hidden" name="cidadeId" value="@Model.cidadeId"/>
+                <label>Nome:</label><input type="text" name="nome" value="@Model.nome"/>
+                <br>
+                <label>C.E.P.:</label><input type="text" name="cep" value="@Model.cep"/>
+                <br><input type="submit" value="Salvar" />
+            </form>
+        </div>
+    </section>
+</div>
