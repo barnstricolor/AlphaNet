@@ -4,6 +4,8 @@ using AlphaNet.PassagemAerea.Domain.Model.Avioes;
 using AlphaNet.PassagemAerea.Domain.Model.Cidades;
 using AlphaNet.PassagemAerea.Domain.Model.Voos;
 using AlphaNet.PassagemAerea.Domain.Model.Clientes;
+using AlphaNet.PassagemAerea.Aplicacao.Voos;
+using AlphaNet.PassagemAerea.Aplicacao.Voos.Data;
 using System.Collections.Generic;
 
 namespace PassagemAereaTest.Domain.Model.VooTest
@@ -88,6 +90,16 @@ namespace PassagemAereaTest.Domain.Model.VooTest
             voo.novaReserva(
                 clienteParaTest("celiao"),
                 aviao.assento(1));
+        }
+        [TestMethod]
+        public void mapaAssentos()
+        {
+            VooService vooService = new VooService();
+            foreach (AssentoData data in vooService.mapaAssentos("1"))
+            {
+                Console.WriteLine("Assento:" + data.numero + " - " + data.reservado);
+            }
+
         }
         private Aviao aviaoParaTest()
         {

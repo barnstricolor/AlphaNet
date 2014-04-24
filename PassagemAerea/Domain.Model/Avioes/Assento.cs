@@ -25,7 +25,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Avioes
         public override int GetHashCode()
         {
             var hash = 17;
-            hash = hash * 3 + (numero != null ? numero.GetHashCode() : 0);
+            hash = hash * 3 + numero.GetHashCode();
             
             return hash;
 

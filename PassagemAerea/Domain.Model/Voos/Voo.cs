@@ -71,6 +71,9 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
 
             reservas.Remove(reserva);
         }
+        public bool assentoReservado(Assento assento) {
+            return assentosReservados().Contains(assento);
+        }
     }
 
 }

@@ -52,6 +52,8 @@
     <Compile Include="Aplicacao\Cidades\CidadeService.cs" />
     <Compile Include="Aplicacao\Cidades\Data\CidadeData.cs" />
     <Compile Include="Aplicacao\Clientes\Data\ClienteData.cs" />
+    <Compile Include="Aplicacao\Voos\Data\AssentoData.cs" />
+    <Compile Include="Aplicacao\Voos\VooService.cs" />
     <Compile Include="Domain.Model\Avioes\Assento.cs" />
     <Compile Include="Domain.Model\Avioes\Aviao.cs" />
     <Compile Include="Domain.Model\Avioes\AviaoId.cs" />
