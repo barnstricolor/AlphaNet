@@ -14,36 +14,63 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
         private Cidade origem;
         private Cidade destino;
         private DateTime partida;
-        private HashSet<Assento> assentosReservados;
-
+        private ISet<Reserva> reservas;
         public Voo(Aviao aviao, Cidade origem, Cidade destino, DateTime partida)
         {
             this.aviao = aviao;
             this.origem = origem;
             this.destino = destino;
             this.partida = partida;
-            this.assentosReservados = new HashSet<Assento>();
+            this.reservas = new HashSet<Reserva>();
         }
 
         public HashSet<Assento> listaAssentosReservados()
         {
-            return new HashSet<Assento>(this.assentosReservados);
+            return new HashSet<Assento>(this.assentosReservados());
         }
 
         public void novaReserva(Cliente cliente, params Assento[] assentos)
         {
-            if (assentosReservados.Intersect(assentos).Any())
-                throw new InvalidOperationException("Assento reservado");
-
             foreach (Assento assento in assentos)
 	        {
-                if (!this.assentosReservados.Contains(assento))
-                    this.assentosReservados.Add(assento);
-                else
-                    throw new InvalidOperationException("Assento reservado");
-		 
+                if (this.assentosReservados().Contains(assento))
+                    throw new InvalidOperationException("Assento Reservado");
 	        }
 
+            reservas.Add(
+                new Reserva(
+                    cliente.clienteId(), 
+                    new HashSet<Assento>(assentos.ToList())));
+        }
+
+        private ISet<Assento> assentosReservados()
+        {   
+            ISet<Assento> result = new HashSet<Assento>();
+            foreach (Reserva reserva in reservas)
+                foreach (Assento assento in reserva.todosAssentos())
+                    result.Add(assento);
+
+            return result;
+
+        }
+
+        private Reserva obterReservaPeloCliente(Cliente cliente)
+        {
+            foreach (Reserva reserva in reservas)
+            {
+                if (reserva.paraCliente(cliente))
+                    return reserva;
+            }
+            return null;
+        }
+        public void cancelarReserva(Cliente cliente)
+        {
+            Reserva reserva = obterReservaPeloCliente(cliente);
+            if (reserva == null)
+                throw new InvalidOperationException("Não existe reserva para este cliente");
+
+            reservas.Remove(reserva);
         }
     }
+
 }

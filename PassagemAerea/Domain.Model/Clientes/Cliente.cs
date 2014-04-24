@@ -136,5 +136,23 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Clientes
             return this._cidade;
         }
 
+        public override bool Equals(object obj)
+        {
+            if (object.ReferenceEquals(this, obj)) return true;
+            if (object.ReferenceEquals(null, obj)) return false;
+            if (this.GetType() != obj.GetType()) return false;
+            var vo = obj as Cliente;
+            return vo.clienteId().Equals(clienteId());
+        }
+
+        public override int GetHashCode()
+        {
+            var hash = 973;
+            hash = hash * 3397 +
+                (clienteId() != null ? clienteId().GetHashCode() : 0);
+
+            return hash;
+
+        }
     }
 }
