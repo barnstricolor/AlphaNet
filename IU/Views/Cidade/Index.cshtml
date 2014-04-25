@@ -19,8 +19,8 @@
                         @foreach(var cidade in Model)
                         {            
                             <tr>    
-                                <td>@Html.ActionLink("editar","Editar",new {aviaoId = cidade.cidadeId})</td>
-                                <td>@Html.ActionLink("excluir","Excluir",new {aviaoId = cidade.cidadeId})</td>
+                                <td>@Html.ActionLink("editar","Editar",new {cidadeId = cidade.cidadeId})</td>
+                                <td>@Html.ActionLink("excluir","Excluir",new {cidadeId = cidade.cidadeId})</td>
                                 <td>@cidade.nome</td>
                                 <td>@cidade.cep</td>
                             </tr>        

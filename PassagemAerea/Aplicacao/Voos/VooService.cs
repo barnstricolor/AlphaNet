@@ -42,7 +42,7 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos
         }
         private Cliente clienteParaTest(string nome)
         {
-            return new Cliente(new ClienteId(nome), nome, "@", "rg", "cpf", cidadeParaTest("rao"));
+            return new Cliente(new ClienteId(nome), nome, "@");
         }
         private Voo vooParaTest(Aviao aviao)
         {

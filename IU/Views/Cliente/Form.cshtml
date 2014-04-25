@@ -1,0 +1,21 @@
+﻿@model AlphaNet.PassagemAerea.Aplicacao.Clientes.Data.ClienteData
+
+<div id="body">
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>Cliente</h1>
+            </hgroup>
+            <p>
+                Cliente
+            </p>
+            <form method="post" action="Salvar">
+                <input type="hidden" name="clienteId" value="@Model.clienteId"/>
+                <label>Nome:</label><input type="text" name="nome" value="@Model.nome"/>
+                <br>
+                <label>Email:</label><input type="text" name="email" value="@Model.email"/>
+                <br><input type="submit" value="Salvar" />
+            </form>
+        </div>
+    </section>
+</div>

@@ -31,14 +31,14 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Clientes
         private string _cep;*/
         private Cidade _cidade;
 
-        public Cliente(ClienteId clienteId,string nome, string email, string rg, string cpf, Cidade cidade)
+        public Cliente(ClienteId clienteId,string nome, string email)
         {
             this._clienteId = clienteId;
             setNome(nome);
             setEmail(email);
-            setRg(rg);
-            setCpf(cpf);
-            this._cidade = cidade;
+            //setRg(rg);
+            //setCpf(cpf);
+            //this._cidade = cidade;
         }
 
         private void setNome(string nome) {
@@ -76,6 +76,14 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Clientes
         public ClienteId clienteId()
         {
             return this._clienteId;
+        }
+        public string nome()
+        {
+            return this._nome;
+        }
+        public string email()
+        {
+            return this._email;
         }
         //refazer com propriedades publicas ou objetos valor
         /*public string ocupacao()

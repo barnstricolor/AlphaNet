@@ -51,6 +51,7 @@
     <Compile Include="Aplicacao\Avioes\Data\AviaoData.cs" />
     <Compile Include="Aplicacao\Cidades\CidadeService.cs" />
     <Compile Include="Aplicacao\Cidades\Data\CidadeData.cs" />
+    <Compile Include="Aplicacao\Clientes\ClienteService.cs" />
     <Compile Include="Aplicacao\Clientes\Data\ClienteData.cs" />
     <Compile Include="Aplicacao\Voos\Data\AssentoData.cs" />
     <Compile Include="Aplicacao\Voos\VooService.cs" />
