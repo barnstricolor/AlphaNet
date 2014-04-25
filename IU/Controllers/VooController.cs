@@ -33,28 +33,14 @@ namespace IU.Controllers
         }
 
         [HttpPost]
-        public ActionResult Salvar(AviaoData aviao)
+        public ActionResult Salvar(VooData voo)
         {
-            AviaoService aviaoService = new AviaoService();
+            VooService vooService = new VooService();
 
-            if (aviao.aviaoId == null)
-            {
-                aviaoService.novoAviao(aviao.modelo, aviao.assentos);
-            }
-            else 
-            {
-                aviaoService.alterarDados(aviao.aviaoId, aviao.modelo, aviao.assentos);
-            }              
+            if (voo.vooId == null)
+                vooService.novoVoo(voo.aviaoId, voo.cidadeOrigemId, voo.cidadeDestinoId, voo.partida);
             
-            return RedirectToAction("Index", "Aviao");
-        }
-
-        public ActionResult Editar(string aviaoId="")
-        {
-            AviaoService aviaoService = new AviaoService();
-            AviaoData aviaoData =  aviaoService.obterAviao(aviaoId);
-
-            return View("Form", aviaoData);
+            return RedirectToAction("Index", "Voo");
         }
 
         public ActionResult Excluir(string aviaoId = "")

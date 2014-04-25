@@ -39,7 +39,27 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos
 
             return result;
         }
+        public VooData novoVoo(string aviaoId , string cidadeOrigemId, string cidadeDestinoId, DateTime partida)
+        {
+            Aviao aviao = aviaoRepositorio().obterPeloId(new AviaoId(aviaoId));
+            Cidade origem = cidadeRepositorio().obterPeloId(new CidadeId(cidadeOrigemId));
+            Cidade destino = cidadeRepositorio().obterPeloId(new CidadeId(cidadeDestinoId));
 
+            Voo voo = new Voo(vooRepositorio().proximaIdentidade(), aviao, origem,destino,partida);
+            vooRepositorio().salvar(voo);
+            
+            VooData data = new VooData();
+            data.vooId = voo.vooId().Id;
+            data.aviaoId = voo.aviaoId().Id;
+            data.aviaoModelo = aviao.modelo();
+            data.partida = voo.partida();
+            data.cidadeOrigemId = voo.origemId().Id;
+            data.cidadeOrigemNome = origem.nome();
+            data.cidadeDestinoId = voo.destinoId().Id;
+            data.cidadeDestinoNome = destino.nome();
+            return data;
+        }
+        
         public List<VooData> todosVoos()
         {
             List<VooData> result = new List<VooData>();
@@ -62,5 +82,6 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos
             }
             return result;
         }
+
     }
 }
