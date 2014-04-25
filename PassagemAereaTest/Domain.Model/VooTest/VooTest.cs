@@ -18,6 +18,7 @@ namespace PassagemAereaTest.Domain.Model.VooTest
         public void novoVoo()
         {
             Voo voo = new Voo(
+                new VooId("123"),
                 aviaoParaTest(),
                 cidadeParaTest("rao"),
                 cidadeParaTest("sao"),
@@ -111,11 +112,12 @@ namespace PassagemAereaTest.Domain.Model.VooTest
         }
         private Cliente clienteParaTest(string nome)
         {
-            return new Cliente(new ClienteId(nome), nome, "@", "rg", "cpf", cidadeParaTest("rao"));
+            return new Cliente(new ClienteId(nome), nome, "@");
         }
         private Voo vooParaTest(Aviao aviao)
         {
             return new Voo(
+                new VooId("123"),
                 aviao,
                 cidadeParaTest("rao"),
                 cidadeParaTest("sao"),

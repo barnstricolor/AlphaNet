@@ -18,13 +18,20 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos
         {
             return DominioRegistro.aviaoRepositorio();
         }
-        public List<AssentoData> mapaAssentos(string vooId)
+        private VooRepositorio vooRepositorio()
         {
+            return DominioRegistro.vooRepositorio();
+        }
+        private CidadeRepositorio cidadeRepositorio()
+        {
+            return DominioRegistro.cidadeRepositorio();
+        }
+        public List<AssentoData> mapaAssentos(string vooId)
+        {            
+            Voo voo = vooRepositorio().obterPeloId(new VooId(vooId));
+            Aviao aviao = aviaoRepositorio().obterPeloId(voo.aviaoId());
+
             List<AssentoData> result = new List<AssentoData>();
-            
-            Aviao aviao = aviaoParaTest();
-            Voo voo = vooParaTest(aviao);
-            voo.novaReserva(clienteParaTest("Ricardo"), aviao.assento(2), aviao.assento(3));
             for (int i = 0; i < aviao.assentos(); i++)
             {
                 result.Add(new AssentoData(i,voo.assentoReservado(aviao.assento(i))));    
@@ -32,25 +39,28 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos
 
             return result;
         }
-        private Aviao aviaoParaTest()
+
+        public List<VooData> todosVoos()
         {
-            return new Aviao(new AviaoId("1"), "Focker", 4);
-        }
-        private Cidade cidadeParaTest(string nome)
-        {
-            return new Cidade(new CidadeId(nome), nome, "14100");
-        }
-        private Cliente clienteParaTest(string nome)
-        {
-            return new Cliente(new ClienteId(nome), nome, "@");
-        }
-        private Voo vooParaTest(Aviao aviao)
-        {
-            return new Voo(
-                aviao,
-                cidadeParaTest("rao"),
-                cidadeParaTest("sao"),
-                new DateTime());
+            List<VooData> result = new List<VooData>();
+            foreach (Voo voo in vooRepositorio().todosVoos())
+            {
+                Aviao aviao = aviaoRepositorio().obterPeloId(voo.aviaoId());
+                Cidade origem = cidadeRepositorio().obterPeloId(voo.origemId());
+                Cidade destino = cidadeRepositorio().obterPeloId(voo.destinoId());
+
+                VooData data=new VooData();
+                data.vooId = voo.vooId().Id;
+                data.aviaoId = voo.aviaoId().Id;
+                data.aviaoModelo = aviao.modelo();
+                data.partida = voo.partida();
+                data.cidadeOrigemId= voo.origemId().Id;
+                data.cidadeOrigemNome = origem.nome();
+                data.cidadeDestinoId= voo.destinoId().Id;
+                data.cidadeDestinoNome = destino.nome();
+                result.Add(data);
+            }
+            return result;
         }
     }
 }

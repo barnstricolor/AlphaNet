@@ -12,6 +12,7 @@ using AlphaNet.PassagemAerea.Domain.Model.Cidades;
 using AlphaNet.PassagemAerea.Domain.Model.Clientes;
 using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio;
 using Microsoft.Practices.Unity;
+using AlphaNet.PassagemAerea.Domain.Model.Voos;
 
 namespace IU
 {
@@ -32,6 +33,7 @@ namespace IU
             DominioRegistro.obterContainer().RegisterInstance<AviaoRepositorio>(new MemoriaAviaoRepositorio());
             DominioRegistro.obterContainer().RegisterInstance<CidadeRepositorio>(new MemoriaCidadeRepositorio());
             DominioRegistro.obterContainer().RegisterInstance<ClienteRepositorio>(new MemoriaClienteRepositorio());
+            DominioRegistro.obterContainer().RegisterInstance<VooRepositorio>(new MemoriaVooRepositorio());
 
         }
     }

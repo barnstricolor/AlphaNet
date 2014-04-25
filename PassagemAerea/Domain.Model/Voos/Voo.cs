@@ -10,17 +10,20 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
 {
     public class Voo
     {
-        private Aviao aviao;
-        private Cidade origem;
-        private Cidade destino;
-        private DateTime partida;
+        private VooId _vooId;
+        private AviaoId _aviaoId;
+        private CidadeId _origemId;
+        private CidadeId _destinoId;
+        private DateTime _partida;
         private ISet<Reserva> reservas;
-        public Voo(Aviao aviao, Cidade origem, Cidade destino, DateTime partida)
+        
+        public Voo(VooId vooId, Aviao aviao, Cidade origem, Cidade destino, DateTime partida)
         {
-            this.aviao = aviao;
-            this.origem = origem;
-            this.destino = destino;
-            this.partida = partida;
+            this._vooId = vooId;
+            this._aviaoId = aviao.aviaoId();
+            this._origemId = origem.cidadeId();
+            this._destinoId = destino.cidadeId();
+            this._partida = partida;
             this.reservas = new HashSet<Reserva>();
         }
 
@@ -73,6 +76,23 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
         }
         public bool assentoReservado(Assento assento) {
             return assentosReservados().Contains(assento);
+        }
+        public VooId vooId() {
+            return this._vooId;
+        }
+        public AviaoId aviaoId() {
+            return this._aviaoId;
+        }
+        public DateTime partida() {
+            return this._partida;    
+        }
+        public CidadeId origemId()
+        {
+            return this._origemId;
+        }
+        public CidadeId destinoId()
+        {
+            return this._destinoId;
         }
     }
 

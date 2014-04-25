@@ -7,6 +7,7 @@ using Microsoft.Practices.Unity;
 using AlphaNet.PassagemAerea.Domain.Model.Avioes;
 using AlphaNet.PassagemAerea.Domain.Model.Cidades;
 using AlphaNet.PassagemAerea.Domain.Model.Clientes;
+using AlphaNet.PassagemAerea.Domain.Model.Voos;
 
 namespace AlphaNet.PassagemAerea.Domain.Model
 {
@@ -31,6 +32,10 @@ namespace AlphaNet.PassagemAerea.Domain.Model
         public static ClienteRepositorio clienteRepositorio()
         {
             return container.Resolve<ClienteRepositorio>();
+        }
+        public static VooRepositorio vooRepositorio()
+        {
+            return container.Resolve<VooRepositorio>();
         }
         
 

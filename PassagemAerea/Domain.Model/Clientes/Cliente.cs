@@ -38,7 +38,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Clientes
             setEmail(email);
             //setRg(rg);
             //setCpf(cpf);
-            //this._cidade = cidade;
+            this._cidade = null;
         }
 
         private void setNome(string nome) {

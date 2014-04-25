@@ -1,0 +1,23 @@
+﻿<div id="body">
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>Aviao</h1>
+            </hgroup>
+            <p>
+                Voos
+            </p>
+            <form method="post" action="Salvar">
+                <input type="hidden" name="vooId" value="@Model.vooId"/>
+                <input type="hidden" name="aviaoId" value="@Model.aviaoId"/>
+                <input type="hidden" name="cidadeOrigemId" value="@Model.cidadeOrigemId"/>
+                <input type="hidden" name="cidadeDestinoId" value="@Model.cidadeDestinoId"/>
+                <label>Avião:</label>@Html.DropDownList("modelo", new SelectList(ViewBag.avioes, "aviaoId", "modelo"));
+                <input type="text" name="aviaoModelo" value="@Model.aviaoModelo"/>
+                <br>
+                <label>Partida:</label><input type="text" name="partida" value="@Model.partida"/>
+                <br><input type="submit" value="Salvar" />
+            </form>
+        </div>
+    </section>
+</div>

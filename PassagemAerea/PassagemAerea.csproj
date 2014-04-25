@@ -54,6 +54,7 @@
     <Compile Include="Aplicacao\Clientes\ClienteService.cs" />
     <Compile Include="Aplicacao\Clientes\Data\ClienteData.cs" />
     <Compile Include="Aplicacao\Voos\Data\AssentoData.cs" />
+    <Compile Include="Aplicacao\Voos\Data\VooData.cs" />
     <Compile Include="Aplicacao\Voos\VooService.cs" />
     <Compile Include="Domain.Model\Avioes\Assento.cs" />
     <Compile Include="Domain.Model\Avioes\Aviao.cs" />
@@ -66,8 +67,11 @@
     <Compile Include="Domain.Model\Clientes\ClienteId.cs" />
     <Compile Include="Domain.Model\Clientes\ClienteRepositorio.cs" />
     <Compile Include="Domain.Model\DominioRegistro.cs" />
+    <Compile Include="Domain.Model\Voos\VooId.cs" />
+    <Compile Include="Domain.Model\Voos\VooRepositorio.cs" />
     <Compile Include="Domain.Model\Voos\Reserva.cs" />
     <Compile Include="Domain.Model\Voos\Voo.cs" />
+    <Compile Include="Port.Adapters\Persistencia\Repositorio\MemoriaVooRepositorio.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\EfAviaoRepositorio.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\MemoriaAviaoRepositorio.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\MemoriaCidadeRepositorio.cs" />
