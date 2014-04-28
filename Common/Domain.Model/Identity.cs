@@ -16,7 +16,7 @@ namespace AlphaNet.Common.Domain.Model
 
         // currently for Entity Framework, set must be protected, not private.
         // will be fixed in EF 6.
-        public string Id { get; protected set; }
+        public string Id { get; set; }
 
         public bool Equals(Identity id)
         {

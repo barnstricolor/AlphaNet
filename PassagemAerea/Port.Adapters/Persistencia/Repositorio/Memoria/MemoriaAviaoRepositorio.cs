@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AlphaNet.PassagemAerea.Domain.Model.Avioes;
 
-namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio
+namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Memoria
 {
     public class MemoriaAviaoRepositorio : AviaoRepositorio
     {

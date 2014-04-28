@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AlphaNet.PassagemAerea.Aplicacao.Avioes;
 using AlphaNet.PassagemAerea.Domain.Model.Avioes;
 using AlphaNet.PassagemAerea.Domain.Model;
-using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio;
+using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Memoria;
 using Microsoft.Practices.Unity;
 
 namespace PassagemAereaTest.Aplicacao

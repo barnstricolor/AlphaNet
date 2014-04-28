@@ -10,9 +10,14 @@ using AlphaNet.PassagemAerea.Domain.Model;
 using AlphaNet.PassagemAerea.Domain.Model.Avioes;
 using AlphaNet.PassagemAerea.Domain.Model.Cidades;
 using AlphaNet.PassagemAerea.Domain.Model.Clientes;
-using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio;
+using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Memoria;
+using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.EF;
+using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle;
 using Microsoft.Practices.Unity;
 using AlphaNet.PassagemAerea.Domain.Model.Voos;
+using System.Data.Entity;
+using Oracle.ManagedDataAccess.Client;
+using System.Data.Common;
 
 namespace IU
 {
@@ -30,11 +35,26 @@ namespace IU
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
+            //this.bancoEmMemoria();
+            //this.bancoEF();
+            this.bancoOracle();
+
+        }
+        private void bancoEmMemoria() {
             DominioRegistro.obterContainer().RegisterInstance<AviaoRepositorio>(new MemoriaAviaoRepositorio());
             DominioRegistro.obterContainer().RegisterInstance<CidadeRepositorio>(new MemoriaCidadeRepositorio());
             DominioRegistro.obterContainer().RegisterInstance<ClienteRepositorio>(new MemoriaClienteRepositorio());
             DominioRegistro.obterContainer().RegisterInstance<VooRepositorio>(new MemoriaVooRepositorio());
-
+        }
+        private void bancoEF()
+        {
+            DominioRegistro.obterContainer().RegisterInstance<System.Data.Entity.DbContext>(new Context());
+            DominioRegistro.obterContainer().RegisterInstance<AviaoRepositorio>(new EfAviaoRepositio(new Context()));
+        }
+        private void bancoOracle()
+        {
+            //DominioRegistro.obterContainer().RegisterInstance<Oracle.ManagedDataAccess.Client.OracleConnection>(Bd());
+            DominioRegistro.obterContainer().RegisterInstance<AviaoRepositorio>(new OracleAviaoRepositorio());
         }
     }
 }

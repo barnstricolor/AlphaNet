@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AlphaNet.PassagemAerea.Domain.Model.Avioes;
-using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio;
+using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.EF;
 
 namespace AlphaNet.PassagemAereaTest.Domain.Model.AviaoTest
 {

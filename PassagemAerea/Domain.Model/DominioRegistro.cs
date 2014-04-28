@@ -37,7 +37,5 @@ namespace AlphaNet.PassagemAerea.Domain.Model
         {
             return container.Resolve<VooRepositorio>();
         }
-        
-
     }
 }

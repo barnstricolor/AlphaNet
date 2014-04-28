@@ -4,12 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AlphaNet.PassagemAerea.Domain.Model.Avioes;
+using System.Data.Entity;
 
 
-namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio
+namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.EF
 {
     public class EfAviaoRepositio:AviaoRepositorio
     {
+        Context context;
+
+        public EfAviaoRepositio(Context context) 
+        {
+            this.context = context;
+        }
+
         public AviaoId proximaIdentidade()
         {
             return new AviaoId( Guid.NewGuid().ToString().ToUpper());
@@ -28,8 +36,8 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio
         }
         public List<Aviao> todosAvioes()
         {
+            return this.context.AVIAO.ToList();
 
-            throw new NotImplementedException();
         }
         public void excluir(AviaoId aviaoId)
         {
