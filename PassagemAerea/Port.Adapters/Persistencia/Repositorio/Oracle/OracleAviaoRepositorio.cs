@@ -50,24 +50,24 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
         }
         private void update(Aviao aviao)
         {
-            updateCommand(aviao, int.Parse(aviao.aviaoId().Id));
+            updateCommand(aviao, aviao.aviaoId().Id);
 
         }
-        protected void updateCommand(Aviao dominio, int id)
+        protected void updateCommand(Aviao dominio, string id)
         {
             executarCommand(montarUpdateById(id), dominio);
         }
-        protected string montarUpdateById(int id)
+        protected string montarUpdateById(string id)
         {
             string[] strAux = new string[colunas().Length];
 
             for (int i = 0; i < colunas().Length; i++)
             {
-                strAux[i] = colunas()[i] + " = ?";
+                strAux[i] = colunas()[i] + " = :" + colunas()[i].ToLower();
             }
 
             string str = "Update " + tabela() + " Set " + string.Join(",", strAux);
-            str += " Where " + colunaId() + " = " + id.ToString();
+            str += " Where " + colunaId() + " = " + Bd.aspas(id);
 
             return str;
         }
@@ -109,7 +109,7 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
         {
             OracleCommand cmd = new OracleCommand(cmdText, obterConexao());
             foreach (var value in d)
-                cmd.Parameters.Add("@" + value.Key, value.Value);
+                cmd.Parameters.Add(":" + value.Key, value.Value);
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = cmdText;
             return cmd;
@@ -117,7 +117,7 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
 
         public Aviao obterPeloId(AviaoId aviaoId)
         {
-            OracleDataReader dr = executeQueryById(int.Parse(aviaoId.Id));
+            OracleDataReader dr = executeQueryById(aviaoId.Id);
 
             if (!dr.HasRows) return null;
 
@@ -160,7 +160,7 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
 
             OracleConnection cnn = obterConexao();
 
-            sql = "Delete " + tabela() + " Where " + colunaId() + " = ?;";
+            sql = "Delete " + tabela() + " Where " + colunaId() + " = '?'";
 
             OracleCommand cmd = new OracleCommand(sql, cnn);
 
@@ -188,13 +188,13 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
         {
             return "Select * from " + tabela();
         }
-        protected OracleDataReader executeQueryById(int id)
+        protected OracleDataReader executeQueryById(string id)
         {
             return executeQuery(montarSelectWhereId(id));
         }
-        protected string montarSelectWhereId(int id)
+        protected string montarSelectWhereId(string id)
         {
-            return montarSelect(colunaId() + " = " + id.ToString());
+            return montarSelect(colunaId() + " = " + Bd.aspas(id));
         }
         protected void valuesMap(Dictionary<string, object> d, Aviao dominio)
         {

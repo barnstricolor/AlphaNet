@@ -53,7 +53,7 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
             return dr;
         }
 
-        public string aspas(string str)
+        public static string aspas(string str)
         {
             return (char)39 + str + (char)39;
         }
