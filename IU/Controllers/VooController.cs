@@ -47,7 +47,7 @@ namespace IU.Controllers
         {
             AviaoService aviaoService = new AviaoService();
             aviaoService.excluirAviao(aviaoId);
-            return RedirectToAction("Index", "Aviao");
+            return RedirectToAction("Index", "Voo");
         }
 
         protected override void OnException(ExceptionContext filterContext)
