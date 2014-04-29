@@ -46,7 +46,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
                     new HashSet<Assento>(assentos.ToList())));
         }
 
-        private ISet<Assento> assentosReservados()
+        public ISet<Assento> assentosReservados()
         {   
             ISet<Assento> result = new HashSet<Assento>();
             foreach (Reserva reserva in reservas)

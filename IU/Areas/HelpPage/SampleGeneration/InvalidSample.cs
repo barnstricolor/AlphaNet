@@ -1,6 +1,6 @@
 using System;
 
-namespace IU.Areas.HelpPage
+namespace AlphaNet.PassagemAerea.IU.Areas.HelpPage
 {
     /// <summary>
     /// This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.

@@ -1,7 +1,7 @@
 using System.Web.Http;
 using System.Web.Mvc;
 
-namespace IU.Areas.HelpPage
+namespace AlphaNet.PassagemAerea.IU.Areas.HelpPage
 {
     public class HelpPageAreaRegistration : AreaRegistration
     {

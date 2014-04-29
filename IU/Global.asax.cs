@@ -35,9 +35,9 @@ namespace IU
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            //this.bancoEmMemoria();
+            this.bancoEmMemoria();
             //this.bancoEF();
-            this.bancoOracle();
+            //this.bancoOracle();
 
         }
         private void bancoEmMemoria() {

@@ -1,6 +1,6 @@
 using System;
 
-namespace IU.Areas.HelpPage
+namespace AlphaNet.PassagemAerea.IU.Areas.HelpPage
 {
     /// <summary>
     /// This represents an image sample on the help page. There's a display template named ImageSample associated with this class.

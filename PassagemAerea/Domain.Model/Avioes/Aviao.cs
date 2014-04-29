@@ -12,6 +12,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Avioes
         private AviaoId _aviaoId;
         private string _modelo;
         private int _assentos;
+        public int _id{get;set;}
 
         public Aviao(AviaoId aviaoId, string modelo, int assentos)
         {

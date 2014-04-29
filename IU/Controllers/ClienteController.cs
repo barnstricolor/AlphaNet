@@ -18,7 +18,7 @@ namespace IU.Controllers
         public ActionResult Index()
         {
             ClienteService cidadeService = new ClienteService();
-            return View(cidadeService.todasCidades());
+            return View(cidadeService.todosClientes());
         }
 
         public ActionResult Novo() {
@@ -41,7 +41,7 @@ namespace IU.Controllers
         public ActionResult Editar(string clienteId = "")
         {
             ClienteService clienteService = new ClienteService();
-            ClienteData clienteData = clienteService.obterCidade(clienteId);
+            ClienteData clienteData = clienteService.obterCliente(clienteId);
             return View("Form", clienteData);
         }
 

@@ -12,8 +12,9 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
     {
         private static Bd persistencia = Bd.Instance;
         protected string tabela() { return "AVIAO"; }
-        protected string colunaId() { return "ID_AVIAO"; }
-        protected string[] colunas() { return new string[] { colunaId(), "NOM_MODELO", "QTD_ASSENTO" }; }
+        protected string colunaId() { return "ID"; }
+        protected string colunaIdExterno() { return "AVIAO_ID"; }
+        protected string[] colunas() { return new string[] { colunaId(), colunaIdExterno(), "NOM_MODELO", "QTD_ASSENTO" }; }
 
         protected Bd obterPersistencia()
         {
@@ -31,7 +32,7 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
 
         public void salvar(Aviao aviao)
         {
-            if (aviao.aviaoId().Id == null)
+            if (aviao._id.Equals(0))
             {
                 insert(aviao);
             }
@@ -43,21 +44,21 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
         }
         private void insert(Aviao aviao)
         {
-            aviao.aviaoId().Id = obterSequencia().ToString();
+            aviao._id = obterSequencia();
 
             insertCommand(aviao);
 
         }
         private void update(Aviao aviao)
         {
-            updateCommand(aviao, aviao.aviaoId().Id);
+            updateCommand(aviao, aviao._id);
 
         }
-        protected void updateCommand(Aviao dominio, string id)
+        protected void updateCommand(Aviao dominio, int id)
         {
             executarCommand(montarUpdateById(id), dominio);
         }
-        protected string montarUpdateById(string id)
+        protected string montarUpdateById(int id)
         {
             string[] strAux = new string[colunas().Length];
 
@@ -67,7 +68,7 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
             }
 
             string str = "Update " + tabela() + " Set " + string.Join(",", strAux);
-            str += " Where " + colunaId() + " = " + Bd.aspas(id);
+            str += " Where " + colunaId() + " = " + id;
 
             return str;
         }
@@ -86,7 +87,7 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
 
             for (int i = 0; i < colunas().Length; i++)
             {
-                strAux[i] = "?";
+                strAux[i] = " :" + colunas()[i].ToLower();
             }
 
             string str = "Insert Into " + tabela() + "(" + string.Join(",", colunas()) + ")";
@@ -117,7 +118,7 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
 
         public Aviao obterPeloId(AviaoId aviaoId)
         {
-            OracleDataReader dr = executeQueryById(aviaoId.Id);
+            OracleDataReader dr = executeQueryByIdExterno(aviaoId.Id);
 
             if (!dr.HasRows) return null;
 
@@ -127,10 +128,12 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
         }
         protected Aviao mapRow(OracleDataReader dr)
         {
-            return new Aviao(
-                new AviaoId(dr["ID_AVIAO"].ToString()), 
-                    dr["NOM_MODELO"].ToString(), 
-                    int.Parse(dr["QTD_ASSENTO"].ToString())); 
+            Aviao aviao = new Aviao(
+                new AviaoId(dr["AVIAO_ID"].ToString()),
+                    dr["NOM_MODELO"].ToString(),
+                    int.Parse(dr["QTD_ASSENTO"].ToString()));
+            aviao._id = int.Parse(dr["ID"].ToString());
+            return aviao; 
         }
 
         public void limpar()
@@ -145,10 +148,11 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
             while (dr.Read())
             {
                 Aviao aviao = new Aviao(
-                    new AviaoId(dr["ID_AVIAO"].ToString()),
+                    new AviaoId(dr["AVIAO_ID"].ToString()),
                         dr["NOM_MODELO"].ToString(),
-                        int.Parse(dr["QTD_ASSENTO"].ToString())
-                    );
+                        int.Parse(dr["QTD_ASSENTO"].ToString()));
+                aviao._id = int.Parse(dr["ID"].ToString());
+
                 lista.Add(aviao);
             }
             dr.Close();
@@ -160,11 +164,11 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
 
             OracleConnection cnn = obterConexao();
 
-            sql = "Delete " + tabela() + " Where " + colunaId() + " = '?'";
+            sql = "Delete " + tabela() + " Where " + colunaIdExterno() + " = :" + colunaIdExterno().ToLower();
 
             OracleCommand cmd = new OracleCommand(sql, cnn);
 
-            cmd.Parameters.Add(":" + colunaId(), aviaoId.Id);
+            cmd.Parameters.Add(":" + colunaIdExterno(), aviaoId.Id);
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = sql;
             cmd.ExecuteNonQuery();
@@ -188,18 +192,19 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
         {
             return "Select * from " + tabela();
         }
-        protected OracleDataReader executeQueryById(string id)
+        protected OracleDataReader executeQueryByIdExterno(string id)
         {
-            return executeQuery(montarSelectWhereId(id));
+            return executeQuery(montarSelectWhereIdExterno(id));
         }
-        protected string montarSelectWhereId(string id)
+        protected string montarSelectWhereIdExterno(string id)
         {
-            return montarSelect(colunaId() + " = " + Bd.aspas(id));
+            return montarSelect(colunaIdExterno() + " = " + Bd.aspas(id));
         }
         protected void valuesMap(Dictionary<string, object> d, Aviao dominio)
         {
             Aviao aviao = dominio;
-            d.Add("ID_AVIAO", aviao.aviaoId().Id);
+            d.Add("ID", aviao._id);
+            d.Add("AVIAO_ID", aviao.aviaoId().Id);
             d.Add("NOM_MODELO", aviao.modelo());
             d.Add("QTD_ASSENTO", aviao.assentos());
 

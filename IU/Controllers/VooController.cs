@@ -8,6 +8,7 @@ using AlphaNet.PassagemAerea.Aplicacao.Avioes.Data;
 using AlphaNet.PassagemAerea.Aplicacao.Voos;
 using AlphaNet.PassagemAerea.Aplicacao.Voos.Data;
 using AlphaNet.PassagemAerea.Aplicacao.Cidades;
+using AlphaNet.PassagemAerea.Aplicacao.Clientes;
 
 namespace IU.Controllers
 {
@@ -41,6 +42,19 @@ namespace IU.Controllers
                 vooService.novoVoo(voo.aviaoId, voo.cidadeOrigemId, voo.cidadeDestinoId, voo.partida);
             
             return RedirectToAction("Index", "Voo");
+        }
+
+        public ActionResult NovaReserva(string vooId)
+        {
+            ClienteService clienteService = new ClienteService();
+            VooService vooService = new VooService();
+            VooData voo = vooService.obterVoo(vooId);
+
+            ViewBag.clientes = clienteService.todosClientes();
+            ViewBag.mapaAssentos = vooService.mapaAssentos(voo.vooId);
+            ViewBag.voo = voo;
+
+            return View("NovaReserva");
         }
 
         public ActionResult Excluir(string aviaoId = "")

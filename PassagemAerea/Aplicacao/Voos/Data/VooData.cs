@@ -16,6 +16,7 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos.Data
         public string cidadeDestinoId { get; set; }
         public string cidadeDestinoNome { get; set; }
         public DateTime partida { get; set; }
-
+        public int totalAssentos { get; set; }
+        public int reservados { get; set; }
     }
 }

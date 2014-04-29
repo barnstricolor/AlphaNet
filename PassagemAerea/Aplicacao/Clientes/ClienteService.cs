@@ -38,7 +38,7 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Clientes
             clienteRepositorio().excluir(new ClienteId(clienteId));
         }
 
-        public List<ClienteData> todasCidades() {
+        public List<ClienteData> todosClientes() {
             List<ClienteData> result = new List<ClienteData>();
 
             foreach (Cliente data in clienteRepositorio().todosClientes()) 
@@ -53,10 +53,10 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Clientes
             return result;
         }
 
-        public ClienteData obterCidade(string cidadeId) {
+        public ClienteData obterCliente(string clienteId) {
             ClienteData result = new ClienteData();
             
-            Cliente cliente = clienteRepositorio().obterPeloId(new ClienteId(cidadeId));
+            Cliente cliente = clienteRepositorio().obterPeloId(new ClienteId(clienteId));
 
             result.clienteId = cliente.clienteId().Id;
             result.nome = cliente.nome();

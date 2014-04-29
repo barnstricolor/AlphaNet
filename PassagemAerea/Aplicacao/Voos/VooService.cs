@@ -78,10 +78,33 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos
                 data.cidadeOrigemNome = origem.nome();
                 data.cidadeDestinoId= voo.destinoId().Id;
                 data.cidadeDestinoNome = destino.nome();
+                data.totalAssentos = aviao.assentos();
+                data.reservados = voo.assentosReservados().Count;
                 result.Add(data);
             }
             return result;
         }
 
+        public VooData obterVoo(string vooId)
+        {
+            Voo voo = vooRepositorio().obterPeloId(new VooId(vooId));
+            
+            Aviao aviao = aviaoRepositorio().obterPeloId(voo.aviaoId());
+            Cidade origem = cidadeRepositorio().obterPeloId(voo.origemId());
+            Cidade destino = cidadeRepositorio().obterPeloId(voo.destinoId());
+
+            VooData data = new VooData();
+            data.vooId = voo.vooId().Id;
+            data.aviaoId = voo.aviaoId().Id;
+            data.aviaoModelo = aviao.modelo();
+            data.partida = voo.partida();
+            data.cidadeOrigemId = voo.origemId().Id;
+            data.cidadeOrigemNome = origem.nome();
+            data.cidadeDestinoId = voo.destinoId().Id;
+            data.cidadeDestinoNome = destino.nome();
+            data.totalAssentos = aviao.assentos();
+            data.reservados = voo.assentosReservados().Count;
+            return data;
+        }
     }
 }
