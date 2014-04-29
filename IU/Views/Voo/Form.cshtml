@@ -8,17 +8,33 @@
                 Voos
             </p>
             <form method="post" action="Salvar">
-                <input type="hidden" name="vooId" value="@Model.vooId"/>
-                <input type="hidden" name="aviaoId" value="@Model.aviaoId"/>
-                <input type="hidden" name="cidadeOrigemId" value="@Model.cidadeOrigemId"/>
-                <input type="hidden" name="cidadeDestinoId" value="@Model.cidadeDestinoId"/>
-                <label>Avião:</label>@Html.DropDownList("modelo", new SelectList(ViewBag.avioes, "aviaoId", "modelo"));
-                <br>
-                <label>Origem:</label>@Html.DropDownList("origem", new SelectList(ViewBag.cidades, "cidadeId", "nome"));
-                <br>
-                <label>Destino:</label>@Html.DropDownList("destino", new SelectList(ViewBag.cidades, "cidadeId", "nome"));                
-                <br>
-                <label>Partida:</label><input type="text" name="partida" value="@Model.partida"/>
+                @Html.Label("Partida")
+                <input type="text" name="partida" value="@Model.partida"/>
+
+                @Html.Label("Origem")
+                @Html.DropDownList(
+                    "cidadeOrigemId", 
+                    new SelectList(
+                        ViewBag.cidades, 
+                        "cidadeId", 
+                        "nome"))
+
+                @Html.Label("Destino")
+                @Html.DropDownList(
+                    "cidadeDestinoId", 
+                    new SelectList(
+                        ViewBag.cidades, 
+                        "cidadeId", 
+                        "nome"))
+
+                @Html.Label("Avião")
+                @Html.DropDownList(
+                    "aviaoId", 
+                    new SelectList(
+                        ViewBag.avioes, 
+                        "aviaoId", 
+                        "modelo"))
+
                 <br><input type="submit" value="Salvar" />
             </form>
         </div>
