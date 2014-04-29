@@ -1,4 +1,8 @@
-﻿using System;
+﻿using AlphaNet.PassagemAerea.Aplicacao.Avioes;
+using AlphaNet.PassagemAerea.Aplicacao.Cidades;
+using AlphaNet.PassagemAerea.Aplicacao.Clientes;
+using AlphaNet.PassagemAerea.Domain.Model.Avioes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -12,6 +16,16 @@ namespace IU.Controllers
         // GET api/values
         public IEnumerable<string> Get()
         {
+            AviaoService aviaoService = new AviaoService();
+            CidadeService cidadeService = new CidadeService();
+            ClienteService clienteService = new ClienteService();
+            for (int i = 1; i <= 100; i++)
+            {
+                aviaoService.novoAviao("BOEING 74" + i, 1);
+                cidadeService.novaCidade("Cidade " + i, i.ToString());
+                clienteService.novoCliente("Cliente " + i, i.ToString() + "@" + i.ToString());
+            }
+            
             return new string[] { "value1", "value2" };
         }
 
@@ -35,5 +49,6 @@ namespace IU.Controllers
         public void Delete(int id)
         {
         }
+
     }
 }

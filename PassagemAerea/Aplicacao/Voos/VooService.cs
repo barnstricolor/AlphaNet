@@ -26,6 +26,10 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos
         {
             return DominioRegistro.cidadeRepositorio();
         }
+        private ClienteRepositorio clienteRepositorio()
+        {
+            return DominioRegistro.clienteRepositorio();
+        }
         public List<AssentoData> mapaAssentos(string vooId)
         {            
             Voo voo = vooRepositorio().obterPeloId(new VooId(vooId));
@@ -105,6 +109,21 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos
             data.totalAssentos = aviao.assentos();
             data.reservados = voo.assentosReservados().Count;
             return data;
+        }
+
+        public void novaReserva(string vooId, string clienteId, params int[] assentos)
+        {
+            Voo voo = vooRepositorio().obterPeloId(new VooId(vooId));
+            Aviao aviao = aviaoRepositorio().obterPeloId(voo.aviaoId());
+            Cliente cliente = clienteRepositorio().obterPeloId(new ClienteId(clienteId));
+            
+            List<Assento> lista = new List<Assento>();
+            foreach (int assento in assentos)
+                lista.Add(aviao.assento(assento));
+
+            voo.novaReserva(
+                cliente,
+                lista.ToArray());
         }
     }
 }

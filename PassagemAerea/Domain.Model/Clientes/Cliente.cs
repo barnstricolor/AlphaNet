@@ -51,6 +51,11 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Clientes
         {
             setNome(nome);
         }
+
+        public void alterarEmail(string email)
+        {
+            setEmail(email);
+        }
         
         private void setEmail(string email)
         {
@@ -162,5 +167,6 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Clientes
             return hash;
 
         }
+
     }
 }

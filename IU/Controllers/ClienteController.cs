@@ -30,7 +30,7 @@ namespace IU.Controllers
             ClienteService clienteService = new ClienteService();
             if (cliente.clienteId == null)
             {
-                clienteService.novaCidade(cliente.nome, cliente.email);
+                clienteService.novoCliente(cliente.nome, cliente.email);
             }
             else {
                 clienteService.alterarDados(cliente.clienteId, cliente.nome, cliente.email);

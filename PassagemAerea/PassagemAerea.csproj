@@ -68,6 +68,7 @@
     <Compile Include="Aplicacao\Clientes\ClienteService.cs" />
     <Compile Include="Aplicacao\Clientes\Data\ClienteData.cs" />
     <Compile Include="Aplicacao\Voos\Data\AssentoData.cs" />
+    <Compile Include="Aplicacao\Voos\Data\VooCommand.cs" />
     <Compile Include="Aplicacao\Voos\Data\VooData.cs" />
     <Compile Include="Aplicacao\Voos\VooService.cs" />
     <Compile Include="Domain.Model\Avioes\Assento.cs" />

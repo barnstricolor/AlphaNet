@@ -16,21 +16,22 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Clientes
             return DominioRegistro.clienteRepositorio();            
         }
 
-        public string novaCidade(string nome,string email) {
+        public string novoCliente(string nome,string email) {
             Cliente cliente = new Cliente(clienteRepositorio().proximaIdentidade(), nome, email);
             clienteRepositorio().salvar(cliente);
             return cliente.clienteId().Id;
         }
 
-        public void alterarNome(string cidadeId, string nome) {
-            Cliente cliente = clienteRepositorio().obterPeloId(new ClienteId(cidadeId));
+        public void alterarNome(string clienteId, string nome) {
+            Cliente cliente = clienteRepositorio().obterPeloId(new ClienteId(clienteId));
             cliente.alterarNome(nome);
             clienteRepositorio().salvar(cliente);
         }
 
-        public void alterarDados(string cidadeId, string nome, string email){
-            Cliente cliente = clienteRepositorio().obterPeloId(new ClienteId(cidadeId));
+        public void alterarDados(string clienteId, string nome, string email){
+            Cliente cliente = clienteRepositorio().obterPeloId(new ClienteId(clienteId));
             cliente.alterarNome(nome);
+            cliente.alterarEmail(email);
             clienteRepositorio().salvar(cliente);
         }
 
