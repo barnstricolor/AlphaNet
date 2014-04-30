@@ -125,5 +125,11 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos
                 cliente,
                 lista.ToArray());
         }
+
+        public void excluir(string vooId) {
+
+            vooRepositorio().excluir(new VooId(vooId));
+        }
+
     }
 }

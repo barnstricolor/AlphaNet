@@ -68,10 +68,10 @@ namespace IU.Controllers
             return RedirectToAction("Index", "Voo");
         }
 
-        public ActionResult Excluir(string aviaoId = "")
+        public ActionResult Excluir(string vooId)
         {
-            AviaoService aviaoService = new AviaoService();
-            aviaoService.excluirAviao(aviaoId);
+            VooService vooService = new VooService();
+            vooService.excluir(vooId);
             return RedirectToAction("Index", "Voo");
         }
 
