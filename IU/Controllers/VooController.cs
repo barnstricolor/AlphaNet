@@ -59,11 +59,17 @@ namespace IU.Controllers
             return View("NovaReserva");
         }
         [HttpPost]
-        public ActionResult NovaReserva(VooCommand parametros)
+        public ActionResult NovaReserva(VooComando comando,bool[] chk)
         {   
             VooService vooService = new VooService();
-            
-            vooService.novaReserva(parametros.vooId, parametros.clienteId , parametros.assentos);
+
+            for (int i = 0; i < chk.Length; i++)
+            {
+                if ((bool)chk.GetValue(i))
+                    comando.assentos.Add(i);
+            }
+
+            vooService.novaReserva(comando);
 
             return RedirectToAction("Index", "Voo");
         }

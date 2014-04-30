@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlphaNet.PassagemAerea.Aplicacao.Voos.Data
 {
-    public class VooCommand
+    public class VooComando
     {
         public string vooId{ get; set;}
         public string clienteId{ get; set;}

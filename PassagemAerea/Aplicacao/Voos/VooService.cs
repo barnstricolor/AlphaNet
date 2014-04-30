@@ -111,14 +111,15 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos
             return data;
         }
 
-        public void novaReserva(string vooId, string clienteId, List<int> assentos)
+        public void novaReserva(VooComando comando)
         {
-            Voo voo = vooRepositorio().obterPeloId(new VooId(vooId));
+            Voo voo = vooRepositorio().obterPeloId(new VooId(comando.vooId));
             Aviao aviao = aviaoRepositorio().obterPeloId(voo.aviaoId());
-            Cliente cliente = clienteRepositorio().obterPeloId(new ClienteId(clienteId));
+            Cliente cliente = clienteRepositorio().obterPeloId(new ClienteId(comando.clienteId));
             
             List<Assento> lista = new List<Assento>();
-            foreach (int assento in assentos)
+
+            foreach (int assento in comando.assentos)
                 lista.Add(aviao.assento(assento));
 
             voo.novaReserva(

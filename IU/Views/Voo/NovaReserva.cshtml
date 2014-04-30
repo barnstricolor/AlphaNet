@@ -25,7 +25,10 @@
                         "nome"))
                 @foreach (AlphaNet.PassagemAerea.Aplicacao.Voos.Data.AssentoData assento in ViewBag.mapaAssentos)
                 {
-                    @Html.CheckBox("chk" + assento.numero.ToString(),assento.reservado)
+                    if (assento.reservado){
+                        @Html.CheckBox( "chk[" + assento.numero.ToString() + "]",assento.reservado,new {disabled = "true"})}
+                    else{
+                        @Html.CheckBox( "chk[" + assento.numero.ToString() + "]",assento.reservado)}
                 }
                 <br><input type="submit" value="Salvar" />
             </form>
