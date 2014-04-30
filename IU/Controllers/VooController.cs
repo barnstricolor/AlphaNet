@@ -63,7 +63,7 @@ namespace IU.Controllers
         {   
             VooService vooService = new VooService();
 
-            for (int i = 0; i < chk.Length; i++)
+            for (int i = 1; i < chk.Length; i++)
             {
                 if ((bool)chk.GetValue(i))
                     comando.assentos.Add(i);

@@ -36,7 +36,7 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos
             Aviao aviao = aviaoRepositorio().obterPeloId(voo.aviaoId());
 
             List<AssentoData> result = new List<AssentoData>();
-            for (int i = 0; i < aviao.assentos(); i++)
+            for (int i = 1; i <= aviao.assentos(); i++)
             {
                 result.Add(new AssentoData(i,voo.assentoReservado(aviao.assento(i))));    
             }

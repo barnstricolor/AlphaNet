@@ -9,7 +9,6 @@
             </p>
             <form method="post" action="NovaReserva">
                 <input type="hidden" name="vooId" value="@ViewBag.voo.vooId" />
-                <input type="hidden" name="assentos" value="1" />
                 @Html.Label("Voo ")
                 @ViewBag.voo.aviaoModelo 
                 @ViewBag.voo.cidadeOrigemNome
@@ -26,9 +25,10 @@
                 @foreach (AlphaNet.PassagemAerea.Aplicacao.Voos.Data.AssentoData assento in ViewBag.mapaAssentos)
                 {
                     if (assento.reservado){
-                        @Html.CheckBox( "chk[" + assento.numero.ToString() + "]",assento.reservado,new {disabled = "true"})}
-                    else{
-                        @Html.CheckBox( "chk[" + assento.numero.ToString() + "]",assento.reservado)}
+                        @Html.Raw("R[" + assento.numero.ToString() + "]")
+                    }else{
+                        @Html.Raw(" [" + assento.numero.ToString() + "]")@Html.CheckBox( "chk[" + assento.numero.ToString() + "]",assento.reservado)
+                    }
                 }
                 <br><input type="submit" value="Salvar" />
             </form>
