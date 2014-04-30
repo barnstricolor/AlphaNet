@@ -8,6 +8,8 @@
                 Nova Reserva
             </p>
             <form method="post" action="NovaReserva">
+                <input type="hidden" name="vooId" value="@ViewBag.voo.vooId" />
+                <input type="hidden" name="assentos" value="1" />
                 @Html.Label("Voo ")
                 @ViewBag.voo.aviaoModelo 
                 @ViewBag.voo.cidadeOrigemNome

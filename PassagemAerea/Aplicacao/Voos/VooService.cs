@@ -111,7 +111,7 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos
             return data;
         }
 
-        public void novaReserva(string vooId, string clienteId, params int[] assentos)
+        public void novaReserva(string vooId, string clienteId, List<int> assentos)
         {
             Voo voo = vooRepositorio().obterPeloId(new VooId(vooId));
             Aviao aviao = aviaoRepositorio().obterPeloId(voo.aviaoId());

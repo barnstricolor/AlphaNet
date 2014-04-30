@@ -15,13 +15,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WEB", "WEB", "{57B5BD31-CC2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IU", "IU\IU.csproj", "{75BB81CA-043A-4543-B97D-DDAB0260AE87}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6BD47BC3-6CB8-42CB-8FCD-CE6CCD8C3BAF}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

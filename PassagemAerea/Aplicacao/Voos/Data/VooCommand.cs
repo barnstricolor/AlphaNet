@@ -10,6 +10,6 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos.Data
     {
         public string vooId{ get; set;}
         public string clienteId{ get; set;}
-        public int[] assentos { get; set; }
+        public List<int> assentos { get; set; }
     }
 }

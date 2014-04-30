@@ -61,15 +61,11 @@ namespace IU.Controllers
         [HttpPost]
         public ActionResult NovaReserva(VooCommand parametros)
         {   
-            ClienteService clienteService = new ClienteService();
             VooService vooService = new VooService();
             
-            VooData voo = vooService.obterVoo(parametros.vooId);
-            ClienteData cliente = clienteService.obterCliente(parametros.clienteId);
+            vooService.novaReserva(parametros.vooId, parametros.clienteId , parametros.assentos);
 
-            vooService.novaReserva(parametros.vooId, cliente, new int[]{parametros.assentos.ToList()});
-
-            return View();
+            return RedirectToAction("Index", "Voo");
         }
 
         public ActionResult Excluir(string aviaoId = "")

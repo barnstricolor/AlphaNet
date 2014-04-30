@@ -13,7 +13,7 @@ namespace AlphaNet.PassagemAereaTest.Domain.Model.AviaoTest
         [TestInitialize]
         public void setUpTest()
         {
-            aviaoRepositorio = new EfAviaoRepositio();
+            //aviaoRepositorio = new EfAviaoRepositio();
         }
         
         [TestMethod]
