@@ -9,6 +9,8 @@
             </p>
             <form method="post" action="NovaReserva">
                 <input type="hidden" name="vooId" value="@ViewBag.voo.vooId" />
+                <input type="hidden" name="quantidadeAssentos" value="@ViewBag.mapaAssentos.Count"/>
+                
                 @Html.Label("Voo ")
                 @ViewBag.voo.aviaoModelo 
                 @ViewBag.voo.cidadeOrigemNome
@@ -27,7 +29,7 @@
                     if (assento.reservado){
                         @Html.Raw("R[" + assento.numero.ToString() + "]")
                     }else{
-                        @Html.Raw(" [" + assento.numero.ToString() + "]")@Html.CheckBox( "chk[" + assento.numero.ToString() + "]",assento.reservado)
+                        @Html.Raw(" [" + assento.numero.ToString() + "]")@Html.CheckBox( "chk" + assento.numero.ToString())
                     }
                 }
                 <br><input type="submit" value="Salvar" />

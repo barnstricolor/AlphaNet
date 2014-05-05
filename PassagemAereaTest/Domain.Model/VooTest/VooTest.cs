@@ -22,20 +22,25 @@ namespace PassagemAereaTest.Domain.Model.VooTest
                 aviaoParaTest(),
                 cidadeParaTest("rao"),
                 cidadeParaTest("sao"),
-                new DateTime());
+                new DateTime(),
+                135.89);
+
+            Assert.AreEqual(135.89, voo.preco());
         }
         [TestMethod]
         public void novaReserva()
         {            
             Aviao aviao = aviaoParaTest();
-            Voo voo = vooParaTest(aviao);
+            Voo voo = vooParaTest(aviao,135.89);
+            Cliente cliente = clienteParaTest("barns");
             voo.novaReserva(
-                clienteParaTest("barns"), 
+                cliente, 
                 aviao.assento(1), 
                 aviao.assento(2), 
                 aviao.assento(3), 
                 aviao.assento(4));
             Assert.IsTrue(voo.listaAssentosReservados().Count == 4);
+            Assert.AreEqual(4 * 135.89, voo.obterReservaPeloCliente(cliente).total());
 
         }
         [TestMethod]
@@ -114,14 +119,19 @@ namespace PassagemAereaTest.Domain.Model.VooTest
         {
             return new Cliente(new ClienteId(nome), nome, "@");
         }
-        private Voo vooParaTest(Aviao aviao)
+        private Voo vooParaTest(Aviao aviao,double preco)
         {
             return new Voo(
                 new VooId("123"),
                 aviao,
                 cidadeParaTest("rao"),
                 cidadeParaTest("sao"),
-                new DateTime());
+                new DateTime(),
+                preco);
+        }
+        private Voo vooParaTest(Aviao aviao)
+        {
+            return vooParaTest(aviao, 52);
         }
         
     }

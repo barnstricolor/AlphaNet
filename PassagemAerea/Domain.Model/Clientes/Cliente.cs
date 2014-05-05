@@ -14,13 +14,13 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Clientes
         private string _email;
         private string _rg;
         private string _cpf;
-        
+        private bool _especial;        
         /*private string _ocupacao;
         private string _renda;
         private string _sexo;
         private string _desconto;
         private bool _promocao;
-        private bool _especial;        
+        
 
         private string _telefone;
         private string _celular;
@@ -39,6 +39,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Clientes
             //setRg(rg);
             //setCpf(cpf);
             this._cidade = null;
+            this._especial = false;
         }
 
         private void setNome(string nome) {
@@ -167,6 +168,19 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Clientes
             return hash;
 
         }
+        public bool estaComoEspecial()
+        {
+            return this._especial;
+        }
 
+        public void definirComoEspecial()
+        {
+            this._especial = true;
+        }
+
+        public void definirComoNormal()
+        {
+            this._especial = false;
+        }
     }
 }

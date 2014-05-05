@@ -11,5 +11,12 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos.Data
         public string vooId{ get; set;}
         public string clienteId{ get; set;}
         public List<int> assentos { get; set; }
+
+        public VooComando(string vooId, string clienteId, List<int> assentos)
+        {
+            this.vooId = vooId;
+            this.clienteId = clienteId;
+            this.assentos = assentos;
+        }
     }
 }

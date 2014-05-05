@@ -10,12 +10,19 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
 {
     public class Reserva
     {
+        private static double DESCONTO=10;
         private ClienteId clienteId;
         private ISet<Assento> assentos;
-        public Reserva(ClienteId clienteId, ISet<Assento> assentos)
+        private double _preco;
+        public Reserva(Cliente cliente, ISet<Assento> assentos, double preco)
         {
-            this.clienteId = clienteId;
+            this.clienteId = cliente.clienteId();
             this.assentos = assentos;
+            if (cliente.estaComoEspecial())
+                this._preco = preco * (1 - DESCONTO / 100);
+            else
+                this._preco = preco;
+            
         }
         
         internal ISet<Assento> todosAssentos()
@@ -48,5 +55,9 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
 
         }
 
+        public object total()
+        {
+            return this._preco * assentos.Count;
+        }
     }
 }

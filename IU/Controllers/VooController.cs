@@ -59,15 +59,20 @@ namespace IU.Controllers
             return View("NovaReserva");
         }
         [HttpPost]
-        public ActionResult NovaReserva(VooComando comando,bool[] chk)
+        public ActionResult NovaReserva(string vooId,string clienteId,int quantidadeAssentos)
         {   
             VooService vooService = new VooService();
+            List<int> assentosReservados = new List<int>();
 
-            for (int i = 1; i < chk.Length; i++)
-            {
-                if ((bool)chk.GetValue(i))
-                    comando.assentos.Add(i);
+            for (int i = 1; i <= quantidadeAssentos; i++)
+            { 
+                var assento = Request.Params["chk"+i];
+                if (assento!=null && assento.StartsWith("true")){
+                    assentosReservados.Add(i);
+                }
             }
+
+            VooComando comando = new VooComando(vooId, clienteId, assentosReservados);
 
             vooService.novaReserva(comando);
 
