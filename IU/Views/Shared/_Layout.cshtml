@@ -1,35 +1,69 @@
-﻿<!DOCTYPE html>
+﻿
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <title>Alphanet</title>
+  @Styles.Render("~/Content/css")
+  @Scripts.Render("~/bundles/modernizr")
+
+
+
+
+
 </head>
 <body>
-    <header>
-        <div class="content-wrapper">
-            <div class="float-left">
-                <p class="site-title">
-                    <a href="~/">Alpha.NET</a></p>
-            </div>
-            <div class="">
-                <nav>
-                    <ul id="menu">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Avião", "Index", "Aviao")</li>
-                        <li>@Html.ActionLink("Cidade", "Index", "Cidade")</li>
-                        <li>@Html.ActionLink("Cliente", "Index", "Cliente")</li>
-                        <li>@Html.ActionLink("Voos", "Index", "Voo")</li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+
+
+<div id="container">
+
+<div id="top">
+<div id="logo"><a href="index.asp"><img src="/Content/themes/base/images/logo_alphanet.png" alt="Alphanet" border="0" ></a></div>
+
+<div id="login">
+<div class="form-login"> <form id="form1" name="form1" method="post" action="">
+
+ <li> <label>Login: <input name="login" type="text" id="login2" size="6"></label>  </li>
+ <li> <label>Senha: <input name="senha" type="text" id="senha" size="6"></label></li>
+  <li> <input type="submit" name="ok" id="ok" value="OK"> </label></li> 
+
+ </form>
+  </div>
+  
+</div>
+</div>
+
+
+<div id="nav">
+
+<div id="institucional"><a href="@Url.Action("Index","Aviao")"><img src="/Content/themes/base/images/institucional.png" border="0"></a></div>
+<div id="voeja"><a href="#"><img src="/Content/themes/base/images/voeja.png" border="0"></a></div>
+<div id="promocoes"><a href="#"><img src="/Content/themes/base/images/promocoes.png" border="0"></a></div>
+<div id="reservas"><a href="#"><img src="/Content/themes/base/images/reservas.png" border="0"></a></div>
+<div id="dicas"><a href="#"><img src="/Content/themes/base/images/dicas.png" border="0"></a></div>
+<div id="cadastre"><a href="#"><img src="/Content/themes/base/images/cadastre.png" border="0"></a></div>
+<div id="contato"><a href="#"><img src="/Content/themes/base/images/contato.png" border="0"></a></div>
+<div id="facebook"><a href="#"><img src="/Content/themes/base/images/facebook.png" border="0"></a></div>
+<div id="twitter"><a href="#"><img src="/Content/themes/base/images/twitter.png" border="0"></a></div>
+<div id="youtube"><a href="#"><img src="/Content/themes/base/images/youtube.png" border="0"></a></div>
+
+</div>
+
+
     @RenderBody()
 
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
+
+<div id="rodape">
+<div id="rodape1"><img src="/Content/themes/base/images/rodape1.png" ></div>
+<div id="cancelamento"><a href="#"><img src="/Content/themes/base/images/cancelamento.png" border="0"></a></div>
+<div id="reclamacoes"><a href="#"><img src="/Content/themes/base/images/reclamacoes.png" border="0"> </a></div>
+<div id="documentacao"><a href="#"><img src="/Content/themes/base/images/documentacao.png" border="0"></a></div>
+<div id="rodape2">@*<img src="/Content/themes/base/images/rodape2.png">*@</div>
+
+</div>
 </body>
 </html>

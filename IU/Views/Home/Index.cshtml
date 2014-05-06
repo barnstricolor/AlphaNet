@@ -1,13 +1,101 @@
-﻿<div id="body">
-    <section class="featured">
-        <div class="content-wrapper">
-            <hgroup class="title">
-                <h1>ALPHANET!</h1>
-                <h2>AlphaNet viagens.</h2>
-            </hgroup>
-            <p>
-                ALPHA.NET
-            </p>
-        </div>
-    </section>
+﻿@{
+    ViewBag.Title = "Alphanet - Index";
+}
+ 	<script>
+ 	    $(function () {
+ 	        $("#data").datepicker();
+ 	    });
+
+	</script>
+    <script>
+        $(function () {
+            $("#retorno").datepicker();
+        });
+
+	</script>
+
+    <div id="conteudo">
+
+<div id="fundo_branco">
+<div id="titulo">PESQUISA RÁPIDA</div>
+
+<div class="form-busca">
+
+  <form name="form2" method="post" action="">
+     <li><label><input type="radio" name="radio" id="idavolta" value="ida">Ida e volta</label></li>
+    <li><label><input type="radio" name="radio" id="ida" value="volta">Somente ida</label></li>
+    <li>  <label>Origem: 
+      <select name="origem" id="origem">
+      <option>--    Selecione    --</option>
+        <option>Ribeirão Preto</option>
+        <option>São Paulo</option>
+        <option>Rio de Janeiro</option>
+      </select>
+    </label></li>
+     <li>  <label>Destino: 
+      <select name="destino" id="destino">
+      <option>--    Selecione    --</option>
+        <option>Ribeirão Preto</option>
+        <option>São Paulo</option>
+        <option>Rio de Janeiro</option>
+      </select>
+    </label></li>
+    <li>
+      <label>Data da partida: <input name="partida" type="text" id="datepicker" size="13"></label></li>
+      <li>
+      <label>Data da retorno: <input name="retorno" type="text" id="retorno" size="13"></label></li>
+      <li>    <label>Adulto<br/>
+      <select name="adulto" id="adulto">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+      </select>
+    </label>  </li> <li><label>Crianças<br/>
+      <select name="criancas" id="criancas">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+      </select>
+    </label></li>
+        <li>  <label>Bebês<br/>
+      <select name="bebes" id="bebes">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+      </select>
+    </label></li>
+          <li><label>
+            <input type="submit" name="button" id="button" value="Pesquisar" align="center">
+          </label>
+        </li>
+  </form>
+
+</div>
+
+
+</div>
+
+<div id="banner"><img src="/Content/themes/base/images/banner1.jpg"></div>
+
 </div>
