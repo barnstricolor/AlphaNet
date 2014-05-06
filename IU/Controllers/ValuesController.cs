@@ -27,7 +27,7 @@ namespace IU.Controllers
                 string aviaoId = aviaoService.novoAviao("BOEING 74" + i, i);
                 string cidadeId = cidadeService.novaCidade("Cidade " + i, i.ToString());
                 clienteService.novoCliente("Cliente " + i, i.ToString() + "@" + i.ToString());
-                vooService.novoVoo(aviaoId,cidadeId,cidadeId,new DateTime());
+                vooService.novoVoo(aviaoId,cidadeId,cidadeId,new DateTime(),105*i);
             }
             
             return new string[] { "value1", "value2" };

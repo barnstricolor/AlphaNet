@@ -38,9 +38,11 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
         {
             return new HashSet<Assento>(this.assentosReservados());
         }
-
         public void novaReserva(Cliente cliente, params Assento[] assentos)
         {
+            if (obterReservaPeloCliente(cliente)!=null)
+                throw new InvalidOperationException("Já existe reserva para esse Cliente.");
+            
             foreach (Assento assento in assentos)
 	        {
                 if (this.assentosReservados().Contains(assento))
@@ -103,7 +105,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
             return this._destinoId;
         }
 
-        public object preco()
+        public double preco()
         {
             return _preco;
         }

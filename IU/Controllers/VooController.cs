@@ -41,7 +41,7 @@ namespace IU.Controllers
             VooService vooService = new VooService();
 
             if (voo.vooId == null)
-                vooService.novoVoo(voo.aviaoId, voo.cidadeOrigemId, voo.cidadeDestinoId, voo.partida);
+                vooService.novoVoo(voo.aviaoId, voo.cidadeOrigemId, voo.cidadeDestinoId, voo.partida, voo.preco);
             
             return RedirectToAction("Index", "Voo");
         }
