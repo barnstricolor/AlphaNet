@@ -112,7 +112,36 @@ namespace PassagemAereaTest.Domain.Model.VooTest
 
             voo.cancelarReserva(celio);
         }
-                
+
+        [TestMethod]
+        public void precoPromocional() {
+            Aviao aviao = aviaoParaTest();
+            Voo voo = vooParaTest(aviao);
+            voo.precoPromocional(10);
+            Assert.AreEqual(10, voo.preco());
+            Assert.IsTrue(voo.promocional());
+        }
+        [TestMethod]
+        public void alterarPreco()
+        {
+            Aviao aviao = aviaoParaTest();
+            Voo voo = vooParaTest(aviao,50);
+            voo.alterarPreco(100);
+            Assert.AreEqual(100, voo.preco());
+            Assert.IsFalse(voo.promocional());
+        }
+        [TestMethod]
+        public void alterarPrecoPromocionalParaPrecoNormal()
+        {
+            Aviao aviao = aviaoParaTest();
+            Voo voo = vooParaTest(aviao, 50);
+            voo.precoPromocional(10);
+            Assert.AreEqual(10, voo.preco());
+            Assert.IsTrue(voo.promocional());
+            voo.alterarPreco(100);
+            Assert.AreEqual(100, voo.preco());
+            Assert.IsFalse(voo.promocional());
+        }
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
         public void assentoReservado()

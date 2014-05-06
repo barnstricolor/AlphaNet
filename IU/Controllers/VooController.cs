@@ -23,6 +23,12 @@ namespace IU.Controllers
             return View(vooService.todosVoos());
         }
 
+        public ActionResult AlterarPreco(string vooId)
+        {
+            VooService vooService = new VooService();
+            return View(vooService.obterVoo(vooId));
+        }
+
         public ActionResult Novo()
         {
             AviaoService aviaoService = new AviaoService();

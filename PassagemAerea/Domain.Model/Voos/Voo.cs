@@ -22,6 +22,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
         private Cidade cidade2;
         private DateTime dateTime;
         private double _preco;
+        private bool _promocional;
 
         public Voo(VooId vooId, Aviao aviao, Cidade origem, Cidade destino, DateTime partida, double preco)
         {
@@ -31,6 +32,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
             this._destinoId = destino.cidadeId();
             this._partida = partida;
             this._preco = preco;
+            this._promocional = false;
             this.reservas = new HashSet<Reserva>();
         }
 
@@ -107,7 +109,22 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
 
         public double preco()
         {
-            return _preco;
+            return this._preco;
+        }
+
+        public void precoPromocional(double preco)
+        {
+            this._preco = preco;
+            this._promocional = true;
+        }
+        public bool promocional() {
+            return this._promocional;
+        }
+
+        public void alterarPreco(double preco)
+        {
+            this._preco = preco;
+            this._promocional = false;
         }
     }
 
