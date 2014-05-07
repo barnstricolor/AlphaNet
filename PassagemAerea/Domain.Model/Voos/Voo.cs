@@ -15,7 +15,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
         private CidadeId _origemId;
         private CidadeId _destinoId;
         private DateTime _partida;
-        private ISet<Reserva> reservas;
+        private ISet<Reserva> _reservas;
         private VooId vooId1;
         private Aviao aviao;
         private Cidade cidade1;
@@ -33,7 +33,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
             this._partida = partida;
             this._preco = preco;
             this._promocional = false;
-            this.reservas = new HashSet<Reserva>();
+            this._reservas = new HashSet<Reserva>();
         }
 
         public HashSet<Assento> listaAssentosReservados()
@@ -51,7 +51,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
                     throw new InvalidOperationException("Assento Reservado");
 	        }
 
-            reservas.Add(
+            _reservas.Add(
                 new Reserva(
                     cliente, 
                     new HashSet<Assento>(assentos.ToList()),
@@ -61,7 +61,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
         public ISet<Assento> assentosReservados()
         {   
             ISet<Assento> result = new HashSet<Assento>();
-            foreach (Reserva reserva in reservas)
+            foreach (Reserva reserva in _reservas)
                 foreach (Assento assento in reserva.todosAssentos())
                     result.Add(assento);
 
@@ -71,7 +71,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
 
         public Reserva obterReservaPeloCliente(Cliente cliente)
         {
-            foreach (Reserva reserva in reservas)
+            foreach (Reserva reserva in _reservas)
             {
                 if (reserva.paraCliente(cliente))
                     return reserva;
@@ -84,7 +84,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
             if (reserva == null)
                 throw new InvalidOperationException("Não existe reserva para este cliente");
 
-            reservas.Remove(reserva);
+            _reservas.Remove(reserva);
         }
         public bool assentoReservado(Assento assento) {
             return assentosReservados().Contains(assento);
@@ -125,6 +125,9 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
         {
             this._preco = preco;
             this._promocional = false;
+        }
+        public ISet<Reserva> reservas() {
+            return this._reservas;
         }
     }
 

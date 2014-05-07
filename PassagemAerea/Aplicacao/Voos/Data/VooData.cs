@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlphaNet.PassagemAerea.Aplicacao.Voos.Data
 {
+
     public class VooData
     {
         public string vooId {get;set;}
@@ -19,5 +20,21 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos.Data
         public int totalAssentos { get; set; }
         public int reservados { get; set; }
         public double preco { get; set; }
+        public bool promocional { get; set; }
+        public List<ReservaData> _reservas = new List<ReservaData>();
+
+        public void addReserva(ReservaData reserva) {
+            this._reservas.Add(reserva);
+        }
+        public List<ReservaData> reservas() {
+            return this._reservas;
+        }
+    }
+
+    public class ReservaData
+    {
+        public string clienteNome { get; set; }
+        public double preco { get; set; }
+        public string assentos { get; set; }
     }
 }

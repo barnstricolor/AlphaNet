@@ -1,0 +1,32 @@
+﻿@model AlphaNet.PassagemAerea.Aplicacao.Voos.Data.VooData
+
+<div id="body">
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>Reservas</h1>
+            </hgroup>
+            <p>
+                Reservas
+            </p>
+                @if (Model != null) {
+                    @Model.aviaoModelo
+                    @Model.cidadeOrigemNome
+                    @Model.cidadeDestinoNome
+                    @Model.partida
+                    @Model.totalAssentos
+                    @Model.reservados
+                    <table>
+                        @foreach(var reserva in Model.reservas())
+                        {            
+                            <tr>                                    
+                                <td>@reserva.clienteNome</td>
+                                <td>@reserva.preco</td>
+                                <td>@reserva.assentos</td>
+                            </tr>        
+                        }
+                    </table>
+                }
+        </div>
+    </section>
+</div>

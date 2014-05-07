@@ -7,11 +7,11 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Avioes
 {
     public class Assento
     {
-        private int numero;
+        private int _numero;
 
         public Assento(int numero)
         {
-            this.numero = numero;
+            this._numero = numero;
         }
         public override bool Equals(object obj)
         {
@@ -19,17 +19,19 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Avioes
             if (object.ReferenceEquals(null, obj)) return false;
             if (this.GetType() != obj.GetType()) return false;
             var vo = obj as Assento;
-            return vo.numero.Equals(numero);
+            return vo._numero.Equals(_numero);
         }
 
         public override int GetHashCode()
         {
             var hash = 17;
-            hash = hash * 3 + numero.GetHashCode();
+            hash = hash * 3 + _numero.GetHashCode();
             
             return hash;
 
         }
-
+        public int assento() {
+            return this._numero;
+        }
     }
 }

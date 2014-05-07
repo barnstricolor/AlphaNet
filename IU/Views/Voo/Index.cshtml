@@ -26,9 +26,14 @@
                                 <td>@voo.partida</td>
                                 <td>@voo.totalAssentos</td>
                                 <td>@voo.reservados</td>
-                                <td>@voo.preco</td>
-                                <td>@Html.ActionLink(voo.preco.ToString(),"AlterarPreco",new {vooId = voo.vooId})</td>
+                                
+                                @if (voo.promocional){
+                                    <td>@Html.ActionLink("(*)  "+voo.preco.ToString(),"AlterarPreco",new {vooId = voo.vooId})</td>
+                                }else{
+                                    <td>@Html.ActionLink(voo.preco.ToString(),"AlterarPreco",new {vooId = voo.vooId})</td>
+                                }                                
                                 <td>@Html.ActionLink("Nova Reserva","NovaReserva",new {vooId = voo.vooId})</td>
+                                <td>@Html.ActionLink("Reservas","Reservas",new {vooId = voo.vooId})</td>
                             </tr>        
                         }
                     </table>

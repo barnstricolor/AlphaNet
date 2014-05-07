@@ -9,18 +9,17 @@
                 Voos
             </p>
             <form method="post" action="AlterarPreco">
-                @Html.Label("Modelo")@Model.aviaoModelo
-                @Html.Label("Origem")@Model.cidadeOrigemNome
-                @Html.Label("Destino")@Model.cidadeDestinoNome
-                @Html.Label("Partida")@Model.partida
-                @Html.Label("Assentos")@Model.totalAssentos
-                @Html.Label("Reservados")@Model.reservados
-                @Html.Label("Preço Atual")@Model.preco
+                <input type="hidden" name="vooId" value="@Model.vooId" />
+                @Html.Label("Modelo: ")@Model.aviaoModelo<br>
+                @Html.Label("Origem: ")@Model.cidadeOrigemNome<br>
+                @Html.Label("Destino: ")@Model.cidadeDestinoNome<br>
+                @Html.Label("Partida: ")@Model.partida<br>
+                @Html.Label("Assentos: ")@Model.totalAssentos<br>
+                @Html.Label("Reservados: ")@Model.reservados<br>
+                @Html.Label("Preço Atual: ")@Model.preco<br>
 
-                @Html.Label("Preço")
-                <input type="text" name="preco" value="@Model.preco"/>
-
-                @Html.Label("Preço Promocional?")@Html.CheckBox("promocional");
+                @Html.Label("Preço: ")<input type="text" name="preco" value="@Model.preco"/><br>
+                @Html.Label("Preço Promocional?")@Html.CheckBox("promocional")
                 <br><input type="submit" value="Salvar" />
             </form>
         </div>

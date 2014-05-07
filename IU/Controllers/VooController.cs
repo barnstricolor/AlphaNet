@@ -28,6 +28,22 @@ namespace IU.Controllers
             VooService vooService = new VooService();
             return View(vooService.obterVoo(vooId));
         }
+        
+        public ActionResult Reservas(string vooId)
+        {
+            VooService vooService = new VooService();
+            return View(vooService.vooComReservas(vooId));
+        }
+
+        [HttpPost]
+        public ActionResult AlterarPreco(string vooId,double preco, bool promocional)
+        {
+            VooService vooService = new VooService();
+
+            vooService.alterarPreco(vooId, preco, promocional);
+
+            return RedirectToAction("Index", "Voo");
+        }
 
         public ActionResult Novo()
         {

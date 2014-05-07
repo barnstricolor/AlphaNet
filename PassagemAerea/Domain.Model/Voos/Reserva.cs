@@ -11,13 +11,20 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
     public class Reserva
     {
         private static double DESCONTO=10;
-        private ClienteId clienteId;
-        private ISet<Assento> assentos;
+        
+        private ClienteId _clienteId;
+        private ISet<Assento> _assentos;
         private double _preco;
+        public ClienteId clienteId() {
+            return this._clienteId;
+        }
+        public ISet<Assento> assentos(){
+            return this._assentos;
+        }
         public Reserva(Cliente cliente, ISet<Assento> assentos, double preco)
         {
-            this.clienteId = cliente.clienteId();
-            this.assentos = assentos;
+            this._clienteId = cliente.clienteId();
+            this._assentos = assentos;
             if (cliente.estaComoEspecial())
                 this._preco = preco * (1 - DESCONTO / 100);
             else
@@ -27,12 +34,12 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
         
         internal ISet<Assento> todosAssentos()
         {
-            return assentos;
+            return _assentos;
         }
 
         internal bool paraCliente(Cliente cliente)
         {
-            return cliente.clienteId().Equals(this.clienteId);
+            return cliente.clienteId().Equals(this._clienteId);
         }
         public override bool Equals(object obj)
         {
@@ -40,24 +47,24 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
             if (object.ReferenceEquals(null, obj)) return false;
             if (this.GetType() != obj.GetType()) return false;
             var vo = obj as Reserva;
-            return vo.clienteId.Equals(clienteId) && 
-                vo.assentos.Equals(assentos);
+            return vo._clienteId.Equals(_clienteId) && 
+                vo._assentos.Equals(_assentos);
         }
 
         public override int GetHashCode()
         {
             var hash = 197;
             hash = hash * 39 + 
-                (clienteId != null ? clienteId.GetHashCode() : 0) +
-                (assentos != null ? assentos.GetHashCode() : 0);
+                (_clienteId != null ? _clienteId.GetHashCode() : 0) +
+                (_assentos != null ? _assentos.GetHashCode() : 0);
 
             return hash;
 
         }
 
-        public object total()
+        public double total()
         {
-            return this._preco * assentos.Count;
+            return this._preco * _assentos.Count;
         }
     }
 }
