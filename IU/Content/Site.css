@@ -66,7 +66,7 @@ textarea {
 body{
 	background-color: #efefef;	
 	margin:0px auto 0px;
-    background-image:url(themes/base/images/top.jpg);
+  
     background-attachment:fixed;
     background-repeat:no-repeat;
     background-position-x:center;
@@ -140,7 +140,7 @@ html {
 
 #nav{
 	width:100%; /* 1000px; */
-	height:5,7px; /* 57x; */
+	height:57px; /* 57x; */
     background-image:url(themes/base/images/filet_menu.jpg);
     background-color:#ddd;
 	display:inline;
@@ -152,7 +152,7 @@ html {
 
 #institucional{
 	width: 138px; /* 138px; */
-	height: 5,7px; /* 57px; */
+	height: 57px; /* 57px; */
 	float: left;
     margin:0px;
     padding:0px;
@@ -162,7 +162,7 @@ html {
 
 #voeja{
 	width: 78px; /* 78px; */
-	height: 5,7px; /* 57px; */
+	height: 57px; /* 57px; */
 	float: left;
     margin:0px;
     padding:0px;
@@ -171,7 +171,7 @@ html {
 
 #promocoes{
 	width: 119px; /* 119px; */
-	height: 5,7px; /* 57px; */
+	height: 57px; /* 57px; */
 	float: left;
      margin:0px;
      padding:0px;
@@ -180,14 +180,14 @@ html {
 
 #reservas{
 	width: 143px; /* 143px; */
-	height: 5,7px; /* 57px; */
+	height: 57px; /* 57px; */
 	float: left;
     padding:0px;
 }
 
 #dicas{
 	width: 144px; /* 144px; */
-	height: 5,7px; /* 57px; */
+	height: 57px; /* 57px; */
 	float: left;
      margin:0px;
      padding:0px;
@@ -195,7 +195,7 @@ html {
 
 #cadastre{
 	width: 113px; /* 113px; */
-	height: 5,7px; /* 57px; */
+	height: 57px; /* 57px; */
 	float: left;
      margin:0px;
      padding:0px;
@@ -203,7 +203,7 @@ html {
 
 #contato{
 	width: 89px; /* 89px; */
-	height: 5,7px; /* 57px; */
+	height: 57px; /* 57px; */
 	float: left;
      margin:0px;
      padding:0px;
@@ -211,7 +211,7 @@ html {
 
 #facebook{
 	width: 66px; /* 66px; */
-	height: 5,7px; /* 57px; */
+	height: 57px; /* 57px; */
 	float: left;
      margin:0px;
      padding:0px;
@@ -219,7 +219,7 @@ html {
 
 #twitter{
 	width: 49px; /* 49px; */
-	height: 5,7px; /* 57px; */
+	height: 57px; /* 57px; */
 	float: left;
      margin:0px;
      padding:0px;
@@ -228,7 +228,7 @@ html {
 
 #youtube{
 	width: 61px; /* 61px; */
-	height: 5,7px; /* 57px; */
+	height: 57px; /* 57px; */
 	float: left;
      margin:0px;
      padding:0px;
