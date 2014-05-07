@@ -18,6 +18,7 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Clientes.Data
         public string email {get; set; }
         public string rg {get; set; }
         
+
         [Required(ErrorMessage = "Campo obrigatório", AllowEmptyStrings = false)]
         [RegularExpression("^[0-9]{1,11}$", ErrorMessage = "Este campo deve conter apenas números")]
         public string cpf {get; set; }
