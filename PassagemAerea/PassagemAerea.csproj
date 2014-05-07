@@ -103,6 +103,7 @@
     <Compile Include="Port.Adapters\Persistencia\Repositorio\Memoria\MemoriaCidadeRepositorio.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\Memoria\MemoriaClienteRepositorio.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\Oracle\Bd.cs" />
+    <Compile Include="Port.Adapters\Persistencia\Repositorio\Oracle\OracleCidadeRepositorio.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\Oracle\OracleAviaoRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

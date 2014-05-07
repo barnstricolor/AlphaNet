@@ -23,6 +23,12 @@ namespace IU.Controllers
             return View(vooService.todosVoos());
         }
 
+        public ActionResult AlterarPreco(string vooId)
+        {
+            VooService vooService = new VooService();
+            return View(vooService.obterVoo(vooId));
+        }
+
         public ActionResult Novo()
         {
             AviaoService aviaoService = new AviaoService();
@@ -41,7 +47,7 @@ namespace IU.Controllers
             VooService vooService = new VooService();
 
             if (voo.vooId == null)
-                vooService.novoVoo(voo.aviaoId, voo.cidadeOrigemId, voo.cidadeDestinoId, voo.partida);
+                vooService.novoVoo(voo.aviaoId, voo.cidadeOrigemId, voo.cidadeDestinoId, voo.partida, voo.preco);
             
             return RedirectToAction("Index", "Voo");
         }

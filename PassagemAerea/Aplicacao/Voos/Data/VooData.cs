@@ -18,5 +18,6 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos.Data
         public DateTime partida { get; set; }
         public int totalAssentos { get; set; }
         public int reservados { get; set; }
+        public double preco { get; set; }
     }
 }

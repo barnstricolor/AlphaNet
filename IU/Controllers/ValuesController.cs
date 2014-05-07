@@ -9,13 +9,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Mvc;
 
 namespace IU.Controllers
 {
-    public class ValuesController : ApiController
+    public class ValuesController : Controller
     {
         // GET api/values
-        public IEnumerable<string> Get()
+        public ActionResult Index()
         {
             VooService vooService = new VooService();
             AviaoService aviaoService = new AviaoService();
@@ -27,10 +28,11 @@ namespace IU.Controllers
                 string aviaoId = aviaoService.novoAviao("BOEING 74" + i, i);
                 string cidadeId = cidadeService.novaCidade("Cidade " + i, i.ToString());
                 clienteService.novoCliente("Cliente " + i, i.ToString() + "@" + i.ToString());
-                vooService.novoVoo(aviaoId,cidadeId,cidadeId,new DateTime());
+                vooService.novoVoo(aviaoId,cidadeId,cidadeId,new DateTime(),105*i);
             }
             
-            return new string[] { "value1", "value2" };
+            //return new string[] { "value1", "value2" };
+            return RedirectToAction("Index", "Home");
         }
 
         // GET api/values/5

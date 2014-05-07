@@ -1,0 +1,28 @@
+﻿@model AlphaNet.PassagemAerea.Aplicacao.Voos.Data.VooData
+<div id="body">
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>Aviao</h1>
+            </hgroup>
+            <p>
+                Voos
+            </p>
+            <form method="post" action="AlterarPreco">
+                @Html.Label("Modelo")@Model.aviaoModelo
+                @Html.Label("Origem")@Model.cidadeOrigemNome
+                @Html.Label("Destino")@Model.cidadeDestinoNome
+                @Html.Label("Partida")@Model.partida
+                @Html.Label("Assentos")@Model.totalAssentos
+                @Html.Label("Reservados")@Model.reservados
+                @Html.Label("Preço Atual")@Model.preco
+
+                @Html.Label("Preço")
+                <input type="text" name="preco" value="@Model.preco"/>
+
+                @Html.Label("Preço Promocional?")@Html.CheckBox("promocional");
+                <br><input type="submit" value="Salvar" />
+            </form>
+        </div>
+    </section>
+</div>

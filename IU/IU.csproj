@@ -389,7 +389,7 @@
     <Content Include="Views\Voo\Form.cshtml" />
     <Content Include="Views\Voo\Index.cshtml" />
     <Content Include="Views\Voo\NovaReserva.cshtml" />
-    <Content Include="Views\Shared\_Layout_adm.cshtml" />
+	    <Content Include="Views\Shared\_Layout_adm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

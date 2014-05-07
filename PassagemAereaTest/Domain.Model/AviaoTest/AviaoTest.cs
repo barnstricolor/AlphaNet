@@ -2,6 +2,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AlphaNet.PassagemAerea.Domain.Model.Avioes;
 using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.EF;
+using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Memoria;
+using Microsoft.Practices.Unity;
+using AlphaNet.PassagemAerea.Domain.Model;
 
 namespace AlphaNet.PassagemAereaTest.Domain.Model.AviaoTest
 {
@@ -13,7 +16,9 @@ namespace AlphaNet.PassagemAereaTest.Domain.Model.AviaoTest
         [TestInitialize]
         public void setUpTest()
         {
-            //aviaoRepositorio = new EfAviaoRepositio();
+            DominioRegistro.obterContainer().RegisterInstance<AviaoRepositorio>(new MemoriaAviaoRepositorio());
+            aviaoRepositorio = DominioRegistro.aviaoRepositorio();
+            aviaoRepositorio.limpar();
         }
         
         [TestMethod]

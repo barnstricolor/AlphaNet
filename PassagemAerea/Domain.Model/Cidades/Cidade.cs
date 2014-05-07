@@ -12,6 +12,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Cidades
         private CidadeId _cidadeId;
         private string _nome;
         private string _cep;
+        public int _id { get; set; }
 
         public Cidade(CidadeId cidadeId, string nome, string cep) {
             this._cidadeId = cidadeId;

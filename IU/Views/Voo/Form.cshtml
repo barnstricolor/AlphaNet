@@ -10,7 +10,8 @@
             <form method="post" action="Salvar">
                 @Html.Label("Partida")
                 <input type="text" name="partida" value="@Model.partida"/>
-
+                @Html.Label("Preço")
+                <input type="text" name="preco" value="@Model.preco"/>
                 @Html.Label("Origem")
                 @Html.DropDownList(
                     "cidadeOrigemId", 
