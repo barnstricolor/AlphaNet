@@ -8,7 +8,7 @@ namespace IU.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index_adm()
         {
             return View();
         }

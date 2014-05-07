@@ -95,13 +95,12 @@ html {
 }
 #top{
 	width: 100%; /* 1000px; */
-	height: 130px; /* 138px; */
+	height: 136px; /* 138px; */
     background-image:url(themes/base/images/top.jpg);
     
 }
 #logo{
 	width: 24.1%; /* 241px; */
-	height: 10%; /* 125px; */
 	margin-top: 0.3%;  
 	margin-left:2%; /* 20px; */
 	float: left;
@@ -113,8 +112,6 @@ html {
 	margin-top:0%;
 	margin-right:0%;
 	float: right;
-
-
 }
 
 .form-login{
@@ -125,8 +122,13 @@ html {
 	font-size:0.8em; /* 13px; */
 	color:#FFF;
 	background-color:#0074bb; 
+    
+}
 
-
+#fca {
+    width: 40%;
+    margin: 4% 15% 0 0;
+	float: right;
 }
 
 
@@ -137,6 +139,7 @@ html {
 	
 	
 }
+
 
 #nav{
 	width:100%; /* 1000px; */
@@ -246,13 +249,51 @@ html {
 }
 
 
+#usuarios{
+	width: 13,8%; /* 143px; */
+	height: 57px; /* 57px; */
+	float: left;
+}
+
+#aviao{
+	width: 18,5%; /* 143px; */
+	height: 57px; /* 57px; */
+	float: left;
+}
+#cliente{
+	width: 17,3%; /* 143px; */
+	height: 57px; /* 57px; */
+	float: left;
+}
+#voo{
+	width: 17,6%; /* 143px; */
+	height: 57px; /* 57px; */
+	float: left;
+}
+#cidade{
+	width: 16,4%; /* 143px; */
+	height: 57px; /* 57px; */
+	float: left;
+}
+#relatorios{
+	width: 16,4%; /* 143px; */
+	height: 57px; /* 57px; */
+	float: left;
+}
 #conteudo{
 	width: 100%; /* 1000px; */
-	height: 423px; /* 423px; */
-	margin: 0;
+	margin: 0px;
 	float:left;
-    background-color: #ddd;
-   
+	background-color: #fff;
+}
+#conteudo-central{
+	width: 80%;
+	min-height: 200px;
+	margin: 4% auto; 
+	font:Verdana, Geneva, sans-serif;
+	font-size: 13px;
+	color:#333;
+	text-align:justify;
 }
 
 #banner{
@@ -296,12 +337,21 @@ html {
 	font-size:1.5em;
 }
 
+
 #rodape{
 	width: 100%;
-	height: 3.2%;
+	height: 47px;
 	margin:0px auto;
 	float:left;
 	background-image:url(themes/base/images/filet_rodape.jpg);
+}
+#rodape-texto{
+	font:Verdana, Geneva, sans-serif;
+	font-size: 0.9em;
+	font-weight:bold;
+	color:#666666;
+	text-align: center;
+	margin: 15px 0 0 0;
 }
 
 #rodape1{
