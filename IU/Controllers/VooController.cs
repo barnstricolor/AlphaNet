@@ -45,6 +45,16 @@ namespace IU.Controllers
             return RedirectToAction("Index", "Voo");
         }
 
+        public ActionResult Cancelar(string vooId, string clienteId)
+        {
+            VooService vooService = new VooService();
+
+            vooService.cancelarReserva(vooId, clienteId);
+
+            return RedirectToAction("Reservas", "Voo", new { vooId = vooId});
+        }
+
+
         public ActionResult Novo()
         {
             AviaoService aviaoService = new AviaoService();

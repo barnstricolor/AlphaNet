@@ -33,6 +33,7 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos.Data
 
     public class ReservaData
     {
+        public string clienteId { get; set; }
         public string clienteNome { get; set; }
         public double preco { get; set; }
         public string assentos { get; set; }

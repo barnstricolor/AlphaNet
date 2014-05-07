@@ -16,13 +16,21 @@
                     @Model.partida
                     @Model.totalAssentos
                     @Model.reservados
-                    <table>
+                    @Html.ActionLink("Nova Reserva","NovaReserva",new {vooId = Model.vooId})
+                    <table border="2">
+                        <tr>
+                            <th></th>
+                            <th>Cliente</th>
+                            <th>Preço</th>
+                            <th>Assentos</th>
+                        </tr>   
                         @foreach(var reserva in Model.reservas())
-                        {            
-                            <tr>                                    
+                        {         
+                            <tr>
+                                <td>@Html.ActionLink("Cancelar","Cancelar",new {vooId = Model.vooId, clienteId = reserva.clienteId})</td>                                    
                                 <td>@reserva.clienteNome</td>
                                 <td>@reserva.preco</td>
-                                <td>@reserva.assentos</td>
+                                <td>@reserva.assentos</td>                                
                             </tr>        
                         }
                     </table>

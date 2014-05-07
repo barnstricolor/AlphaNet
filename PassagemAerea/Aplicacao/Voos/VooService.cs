@@ -56,10 +56,16 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos
                 result.assentos += assento.assento()+" ";
 
             result.preco = reserva.total();
+            result.clienteId = reserva.clienteId().Id;
 
             return result;
 
         }
+
+        public void cancelarReserva(string vooId,string clienteId){
+            voo(vooId).cancelarReserva(cliente(clienteId));
+        }
+
         public VooData vooComReservas(string vooId)
         {
             Voo v = voo(vooId);

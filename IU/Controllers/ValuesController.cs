@@ -25,9 +25,9 @@ namespace IU.Controllers
             
             for (int i = 1; i <= 10; i++)
             {
-                string aviaoId = aviaoService.novoAviao("BOEING 74" + i, i);
-                string cidadeId = cidadeService.novaCidade("Cidade " + i, i.ToString());
-                clienteService.novoCliente("Cliente " + i, i.ToString() + "@" + i.ToString());
+                string aviaoId = aviaoService.novoAviao("BOEING ROLLAN 74" + i, i);
+                string cidadeId = cidadeService.novaCidade("CIDADE - DENISE " + i, i.ToString());
+                clienteService.novoCliente("VIAÇÃO NASSER " + i, i.ToString() + "@" + i.ToString());
                 vooService.novoVoo(aviaoId,cidadeId,cidadeId,new DateTime(),105*i);
             }
             

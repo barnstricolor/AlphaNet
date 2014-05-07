@@ -15,7 +15,19 @@
                     </ul>
                 </nav>
                 @if (Model != null) {
-                    <table>
+                    <table border="0">
+                        <tr>
+                            <th></th>
+                            <th>Modelo</th>
+                            <th>Origem</th>
+                            <th>Destino</th>
+                            <th>Partida</th>
+                            <th>Reservados</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>   
+
                         @foreach(var voo in Model)
                         {            
                             <tr>    
@@ -24,8 +36,7 @@
                                 <td>@voo.cidadeOrigemNome</td>
                                 <td>@voo.cidadeDestinoNome</td>
                                 <td>@voo.partida</td>
-                                <td>@voo.totalAssentos</td>
-                                <td>@voo.reservados</td>
+                                <td>@voo.reservados/@voo.totalAssentos</td>                               
                                 
                                 @if (voo.promocional){
                                     <td>@Html.ActionLink("(*)  "+voo.preco.ToString(),"AlterarPreco",new {vooId = voo.vooId})</td>
