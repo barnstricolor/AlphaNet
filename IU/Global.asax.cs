@@ -36,10 +36,10 @@ namespace IU
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            //this.bancoEmMemoria();
+            this.bancoEmMemoria();
             //this.bancoEF();
             //this.bancoOracle();
-            this.bancoMongo();
+            //this.bancoMongo();
 
         }
         private void bancoEmMemoria() {
