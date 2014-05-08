@@ -287,7 +287,7 @@ html {
 	background-color: #fff;
 }
 #conteudo-central{
-	width: 80%;
+	width: 90%;
 	min-height: 200px;
 	margin: 4% auto; 
 	font:Verdana, Geneva, sans-serif;
@@ -337,6 +337,26 @@ html {
 	font-size:1.5em;
 }
 
+table{
+	width: 100%;
+	background-color:#fff;
+	border-color:#FFF;
+border-collapse: collapse;
+
+
+}
+th{
+	background-color:#666;
+	color:#fff;
+}
+
+tr:nth-child(2n+1) {
+    background-color: #F5F5F5
+}
+th, td {
+	padding:10px;
+	margin: 10px;
+}
 
 #rodape{
 	width: 100%;
@@ -347,19 +367,14 @@ html {
 }
 #rodape-texto{
 	font:Verdana, Geneva, sans-serif;
-	font-size: 0.9em;
+	font-size: 0.92em;
 	font-weight:bold;
-	color:#666666;
+	color:#808080;
 	text-align: center;
 	margin: 15px 0 0 0;
 }
 
-#rodape1{
-	width: 253px; /* 253px; */
-	height: 32px; /* 32px; */
-	float: left;
-    background-image:url(themes/base/images/filet_rodape.jpg);
-}
+
 
 #cancelamento{
 	width: 163px; /* 163px; */
@@ -527,3 +542,4 @@ html {
     }
 
 }
+
