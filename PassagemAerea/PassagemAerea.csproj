@@ -53,6 +53,12 @@
     <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
       <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
     </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\packages\mongocsharpdriver.1.9.0\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\packages\mongocsharpdriver.1.9.0\lib\net35\MongoDB.Driver.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -102,7 +108,14 @@
     <Compile Include="Port.Adapters\Persistencia\Repositorio\Memoria\MemoriaAviaoRepositorio.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\Memoria\MemoriaCidadeRepositorio.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\Memoria\MemoriaClienteRepositorio.cs" />
+    <Compile Include="Port.Adapters\Persistencia\Repositorio\Mongo\AbstractMongoRepositorio.cs" />
+    <Compile Include="Port.Adapters\Persistencia\Repositorio\Mongo\MongoCidadeRepositorio.cs" />
+    <Compile Include="Port.Adapters\Persistencia\Repositorio\Mongo\Entidades\AviaoEntidade.cs" />
+    <Compile Include="Port.Adapters\Persistencia\Repositorio\Mongo\Entidades\CidadeEntidade.cs" />
+    <Compile Include="Port.Adapters\Persistencia\Repositorio\Mongo\Entidades\Entidade.cs" />
+    <Compile Include="Port.Adapters\Persistencia\Repositorio\Mongo\MongoAviaoRepositorio.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\Oracle\Bd.cs" />
+    <Compile Include="Port.Adapters\Persistencia\Repositorio\Oracle\OracleAviaoRepositorioOld.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\Oracle\OracleCidadeRepositorio.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\Oracle\OracleAviaoRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

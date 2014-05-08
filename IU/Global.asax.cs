@@ -13,6 +13,7 @@ using AlphaNet.PassagemAerea.Domain.Model.Clientes;
 using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Memoria;
 using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.EF;
 using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle;
+using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Mongo;
 using Microsoft.Practices.Unity;
 using AlphaNet.PassagemAerea.Domain.Model.Voos;
 using System.Data.Entity;
@@ -35,9 +36,10 @@ namespace IU
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            this.bancoEmMemoria();
+            //this.bancoEmMemoria();
             //this.bancoEF();
             //this.bancoOracle();
+            this.bancoMongo();
 
         }
         private void bancoEmMemoria() {
@@ -55,6 +57,10 @@ namespace IU
         {
             //DominioRegistro.obterContainer().RegisterInstance<Oracle.ManagedDataAccess.Client.OracleConnection>(Bd());
             DominioRegistro.obterContainer().RegisterInstance<AviaoRepositorio>(new OracleAviaoRepositorio());
+        }
+        private void bancoMongo() {
+            DominioRegistro.obterContainer().RegisterInstance<AviaoRepositorio>(new MongoAviaoRepositorio());
+            DominioRegistro.obterContainer().RegisterInstance<CidadeRepositorio>(new MongoCidadeRepositorio());
         }
     }
 }
