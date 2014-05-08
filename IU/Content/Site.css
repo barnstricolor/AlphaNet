@@ -348,6 +348,7 @@ border-collapse: collapse;
 th{
 	background-color:#666;
 	color:#fff;
+    font-size: 1.2em;
 }
 
 tr:nth-child(2n+1) {
