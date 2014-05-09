@@ -97,6 +97,9 @@
     <Compile Include="Domain.Model\Clientes\ClienteId.cs" />
     <Compile Include="Domain.Model\Clientes\ClienteRepositorio.cs" />
     <Compile Include="Domain.Model\DominioRegistro.cs" />
+    <Compile Include="Domain.Model\Publicos\Gestor.cs" />
+    <Compile Include="Domain.Model\Publicos\Publico.cs" />
+    <Compile Include="Domain.Model\Publicos\PublicoService.cs" />
     <Compile Include="Domain.Model\Voos\VooId.cs" />
     <Compile Include="Domain.Model\Voos\VooRepositorio.cs" />
     <Compile Include="Domain.Model\Voos\Reserva.cs" />
@@ -120,6 +123,9 @@
     <Compile Include="Port.Adapters\Persistencia\Repositorio\Oracle\OracleAviaoRepositorioOld.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\Oracle\OracleCidadeRepositorio.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\Oracle\OracleAviaoRepositorio.cs" />
+    <Compile Include="Port.Adapters\Servico\HttpUsuarioNoPapelAdapter.cs" />
+    <Compile Include="Port.Adapters\Servico\TraduzirPublicoService.cs" />
+    <Compile Include="Port.Adapters\Servico\UsuarioNoPapelAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -135,6 +141,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -98,5 +98,11 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Mongo
         private IMongoQuery queryPeloId(ClienteId clienteId) {
             return Query.EQ("clienteId", clienteId.Id);
         }
+
+
+        public Cliente clientePeloEmail(string email)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -421,6 +421,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Acesso\Acesso.csproj">
+      <Project>{7e7e49ed-26fd-4c8b-b0fe-7ae634213c9b}</Project>
+      <Name>Acesso</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PassagemAerea\PassagemAerea.csproj">
       <Project>{1e15f899-9be7-4f35-8750-241696613936}</Project>
       <Name>PassagemAerea</Name>

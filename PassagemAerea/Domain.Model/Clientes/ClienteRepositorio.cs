@@ -14,6 +14,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Clientes
         List<Cliente> todosClientes();
         void limpar();
         void excluir(ClienteId clienteId);
+        Cliente clientePeloEmail(string email);
 
     }
 }

@@ -16,7 +16,7 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Clientes
         public ClienteData novoCliente(string nome,string email) {
             Cliente cliente = new Cliente(clienteRepositorio().proximaIdentidade(), nome, email);
             clienteRepositorio().salvar(cliente);
-            return contruir(cliente);
+            return construir(cliente);
         }
 
         public void alterarNome(string clienteId, string nome) {
@@ -41,13 +41,17 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Clientes
             List<ClienteData> result = new List<ClienteData>();
 
             foreach (Cliente cliente in clienteRepositorio().todosClientes()) 
-                result.Add(contruir(cliente));
+                result.Add(construir(cliente));
 
             return result;
         }
 
         public ClienteData obterCliente(string clienteId) {
-            return contruir(cliente(clienteId));
+            return construir(cliente(clienteId));
+        }
+
+        public ClienteData clientePorEmail(string email) {
+            return construir(clienteRepositorio().clientePeloEmail(email));
         }
 
         private Cliente cliente(string clienteId)
@@ -55,7 +59,7 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Clientes
             return clienteRepositorio().obterPeloId(new ClienteId(clienteId));
         }
 
-        private ClienteData contruir(Cliente cliente) {
+        private ClienteData construir(Cliente cliente) {
 
             ClienteData data = new ClienteData();
 

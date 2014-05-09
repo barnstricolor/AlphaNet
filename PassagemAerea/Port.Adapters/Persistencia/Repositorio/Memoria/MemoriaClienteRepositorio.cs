@@ -45,5 +45,14 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Memoria
         {
             store.Remove(clienteId.Id);
         }
+
+
+        public Cliente clientePeloEmail(string email)
+        {
+            foreach (Cliente cliente in store.Values.ToList())
+                if (email.Equals(cliente.nome()))
+                    return cliente;
+            return null;
+        }
     }
 }
