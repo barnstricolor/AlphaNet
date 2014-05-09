@@ -31,7 +31,8 @@
                         @foreach(var voo in Model)
                         {            
                             <tr>    
-                                <td>@Html.ActionLink("excluir","Excluir",new {vooId = voo.vooId})</td>
+                               @* <td>@Html.ActionLink("excluir","Excluir",new {vooId = voo.vooId})</td>*@
+                                <td><a href="@Url.Action("excluir","Excluir",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/excluir.png" /></a></td>
                                 <td>@voo.aviaoModelo</td>
                                 <td>@voo.cidadeOrigemNome</td>
                                 <td>@voo.cidadeDestinoNome</td>
@@ -42,8 +43,9 @@
                                     <td>@Html.ActionLink("(*)  "+voo.preco.ToString(),"AlterarPreco",new {vooId = voo.vooId})</td>
                                 }else{
                                     <td>@Html.ActionLink(voo.preco.ToString(),"AlterarPreco",new {vooId = voo.vooId})</td>
-                                }                                
-                                <td>@Html.ActionLink("Nova Reserva","NovaReserva",new {vooId = voo.vooId})</td>
+                                }      
+                                                          
+                               <td><a href="@Url.Action("NovaReserva","Voo",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/nova_reserva.png" /></a></td>
                                @* <td>@Html.ActionLink("Reservas","Reservas",new {vooId = voo.vooId})</td>*@
                                  <td><a href="@Url.Action("Reservas","Voo",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/reserva.png" /></a></td>
 

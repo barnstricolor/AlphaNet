@@ -250,33 +250,33 @@ html {
 
 
 #usuarios{
-	width: 13,8%; /* 143px; */
+	width: 13.8%; /* 143px; */
 	height: 57px; /* 57px; */
 	float: left;
 }
 
 #aviao{
-	width: 18,5%; /* 143px; */
+	width: 18.5%; /* 143px; */
 	height: 57px; /* 57px; */
 	float: left;
 }
 #cliente{
-	width: 17,3%; /* 143px; */
+	width: 17.3%; /* 143px; */
 	height: 57px; /* 57px; */
 	float: left;
 }
 #voo{
-	width: 17,6%; /* 143px; */
+	width: 17.6%; /* 143px; */
 	height: 57px; /* 57px; */
 	float: left;
 }
 #cidade{
-	width: 16,4%; /* 143px; */
+	width: 16.4%; /* 143px; */
 	height: 57px; /* 57px; */
 	float: left;
 }
 #relatorios{
-	width: 16,4%; /* 143px; */
+	width: 16.4%; /* 143px; */
 	height: 57px; /* 57px; */
 	float: left;
 }
