@@ -31,7 +31,7 @@
                         @foreach(var voo in Model)
                         {            
                             <tr>    
-                               @* <td>@Html.ActionLink("excluir","Excluir",new {vooId = voo.vooId})</td>*@
+                              
                                 <td><a href="@Url.Action("excluir","Excluir",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/excluir.png" /></a></td>
                                 <td>@voo.aviaoModelo</td>
                                 <td>@voo.cidadeOrigemNome</td>
