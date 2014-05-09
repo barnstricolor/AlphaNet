@@ -76,7 +76,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aplicacao\Avioes\AviaoService.cs" />
+    <Compile Include="Aplicacao\Avioes\AplicacaoAviaoService.cs" />
     <Compile Include="Aplicacao\Avioes\Data\AviaoData.cs" />
     <Compile Include="Aplicacao\Cidades\CidadeService.cs" />
     <Compile Include="Aplicacao\Cidades\Data\CidadeData.cs" />
@@ -109,6 +109,8 @@
     <Compile Include="Port.Adapters\Persistencia\Repositorio\Memoria\MemoriaCidadeRepositorio.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\Memoria\MemoriaClienteRepositorio.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\Mongo\AbstractMongoRepositorio.cs" />
+    <Compile Include="Port.Adapters\Persistencia\Repositorio\Mongo\MongoClienteRepositorio.cs" />
+    <Compile Include="Port.Adapters\Persistencia\Repositorio\Mongo\Entidades\ClienteEntidade.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\Mongo\MongoCidadeRepositorio.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\Mongo\Entidades\AviaoEntidade.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\Mongo\Entidades\CidadeEntidade.cs" />

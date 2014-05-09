@@ -12,14 +12,11 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Clientes
 {
     public class ClienteService
     {
-        private ClienteRepositorio clienteRepositorio() {
-            return DominioRegistro.clienteRepositorio();            
-        }
 
-        public string novoCliente(string nome,string email) {
+        public ClienteData novoCliente(string nome,string email) {
             Cliente cliente = new Cliente(clienteRepositorio().proximaIdentidade(), nome, email);
             clienteRepositorio().salvar(cliente);
-            return cliente.clienteId().Id;
+            return contruir(cliente);
         }
 
         public void alterarNome(string clienteId, string nome) {
@@ -40,30 +37,56 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Clientes
         }
 
         public List<ClienteData> todosClientes() {
+            
             List<ClienteData> result = new List<ClienteData>();
 
-            foreach (Cliente data in clienteRepositorio().todosClientes()) 
-            {
-                ClienteData cliente = new ClienteData();
-                cliente.clienteId = data.clienteId().Id;
-                cliente.nome = data.nome();
-                cliente.email = data.email();
-                result.Add(cliente);
-            }
+            foreach (Cliente cliente in clienteRepositorio().todosClientes()) 
+                result.Add(contruir(cliente));
 
             return result;
         }
 
         public ClienteData obterCliente(string clienteId) {
-            ClienteData result = new ClienteData();
-            
-            Cliente cliente = clienteRepositorio().obterPeloId(new ClienteId(clienteId));
+            return contruir(cliente(clienteId));
+        }
 
-            result.clienteId = cliente.clienteId().Id;
-            result.nome = cliente.nome();
-            result.email = cliente.email();
+        private Cliente cliente(string clienteId)
+        {
+            return clienteRepositorio().obterPeloId(new ClienteId(clienteId));
+        }
 
-            return result;
+        private ClienteData contruir(Cliente cliente) {
+
+            ClienteData data = new ClienteData();
+
+            data.clienteId = cliente.clienteId().Id;
+            data.nome = cliente.nome();
+            data.email = cliente.email();
+
+            data.rg = cliente.rg();
+            data.cpf = cliente.cpf();
+
+            data.ocupacao = cliente.ocupacao();
+            data.renda = cliente.renda();
+            data.sexo = cliente.sexo();
+            data.desconto = cliente.desconto();
+            data.promocao = cliente.promocao();
+            data.especial = cliente.especial();
+
+            data.telefone = cliente.telefone();
+            data.celular = cliente.celular();
+
+            data.endereco = cliente.endereco();
+            data.numeroEndereco = cliente.numeroEndereco();
+            data.bairro = cliente.bairro();
+            data.cep = cliente.cep();
+            data.cadastro = cliente.cadastro();
+
+            return data;
+        }
+        private ClienteRepositorio clienteRepositorio()
+        {
+            return DominioRegistro.clienteRepositorio();
         }
     }
 }

@@ -13,7 +13,7 @@ namespace IU.Controllers
 
         public ActionResult Index()
         {
-            AviaoService aviaoService = new AviaoService();
+            AplicacaoAviaoService aviaoService = new AplicacaoAviaoService();
             /*List<AviaoData> avioes = new List<AviaoData>();
 
             foreach(AviaoData data in aviaoService.todosAvioes()){
@@ -34,7 +34,7 @@ namespace IU.Controllers
         [HttpPost]
         public ActionResult Salvar(AviaoData aviao)
         {
-            AviaoService aviaoService = new AviaoService();
+            AplicacaoAviaoService aviaoService = new AplicacaoAviaoService();
 
             if (aviao.aviaoId == null)
             {
@@ -50,7 +50,7 @@ namespace IU.Controllers
 
         public ActionResult Editar(string aviaoId="")
         {
-            AviaoService aviaoService = new AviaoService();
+            AplicacaoAviaoService aviaoService = new AplicacaoAviaoService();
             AviaoData aviaoData =  aviaoService.obterAviao(aviaoId);
 
             return View("Form", aviaoData);
@@ -58,7 +58,7 @@ namespace IU.Controllers
 
         public ActionResult Excluir(string aviaoId = "")
         {
-            AviaoService aviaoService = new AviaoService();
+            AplicacaoAviaoService aviaoService = new AplicacaoAviaoService();
             aviaoService.excluirAviao(aviaoId);
             return RedirectToAction("Index", "Aviao");
         }

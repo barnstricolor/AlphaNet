@@ -15,12 +15,11 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Clientes
         private string _rg;
         private string _cpf;
         private bool _especial;        
-        /*private string _ocupacao;
+        private string _ocupacao;
         private string _renda;
         private string _sexo;
         private string _desconto;
-        private bool _promocao;
-        
+        private bool _promocao;       
 
         private string _telefone;
         private string _celular;
@@ -28,8 +27,9 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Clientes
         private string _endereco;
         private string _numeroEndereco;
         private string _bairro;
-        private string _cep;*/
+        private string _cep;
         private Cidade _cidade;
+        private DateTime _cadastro;
 
         public Cliente(ClienteId clienteId,string nome, string email)
         {
@@ -92,7 +92,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Clientes
             return this._email;
         }
         //refazer com propriedades publicas ou objetos valor
-        /*public string ocupacao()
+        public string ocupacao()
         {
             return this._ocupacao;
         }
@@ -144,7 +144,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Clientes
         public string cep()
         {
             return this._cep;
-        }*/
+        }
         public Cidade cidade()
         {
             return this._cidade;
@@ -181,6 +181,22 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Clientes
         public void definirComoNormal()
         {
             this._especial = false;
+        }
+
+        public string rg()
+        {
+            return this._rg;
+        }
+
+        public string cpf()
+        {
+            return this._cpf;
+        }
+
+
+        public DateTime cadastro()
+        {
+            return this._cadastro;
         }
     }
 }

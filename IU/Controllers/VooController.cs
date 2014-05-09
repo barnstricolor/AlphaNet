@@ -57,7 +57,7 @@ namespace IU.Controllers
 
         public ActionResult Novo()
         {
-            AviaoService aviaoService = new AviaoService();
+            AplicacaoAviaoService aviaoService = new AplicacaoAviaoService();
             CidadeService cidadeService = new CidadeService();
 
             ViewBag.vooData = new VooData();

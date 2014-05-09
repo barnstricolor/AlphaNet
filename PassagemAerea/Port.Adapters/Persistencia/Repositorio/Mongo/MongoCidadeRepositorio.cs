@@ -36,9 +36,9 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Mongo
         {
             return colecao().FindOne(queryPeloId(cidadeId));
         }
-        public Cidade obterPeloId(CidadeId aviaoId)
+        public Cidade obterPeloId(CidadeId cidadeId)
         {
-            return modeloPelaEntidade(entidadePeloId(aviaoId));
+            return modeloPelaEntidade(entidadePeloId(cidadeId));
         }
 
         public List<Cidade> todasCidades()

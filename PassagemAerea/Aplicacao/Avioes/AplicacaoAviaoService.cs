@@ -10,7 +10,7 @@ using AlphaNet.PassagemAerea.Aplicacao.Avioes.Data;
 
 namespace AlphaNet.PassagemAerea.Aplicacao.Avioes
 {
-    public class AviaoService
+    public class AplicacaoAviaoService
     {
         private AviaoRepositorio aviaoRepositorio() {
             return DominioRegistro.aviaoRepositorio();

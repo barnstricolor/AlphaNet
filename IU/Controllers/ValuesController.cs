@@ -19,7 +19,7 @@ namespace IU.Controllers
         public ActionResult Index()
         {
             VooService vooService = new VooService();
-            AviaoService aviaoService = new AviaoService();
+            AplicacaoAviaoService aviaoService = new AplicacaoAviaoService();
             CidadeService cidadeService = new CidadeService();
             ClienteService clienteService = new ClienteService();
             

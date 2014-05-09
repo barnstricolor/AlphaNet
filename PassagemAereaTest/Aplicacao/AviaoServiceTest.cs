@@ -13,7 +13,7 @@ namespace PassagemAereaTest.Aplicacao
     [TestClass]
     public class AviaoServiceTest
     {
-        AviaoService aviaoService = new AviaoService();
+        AplicacaoAviaoService aviaoService = new AplicacaoAviaoService();
         AviaoRepositorio aviaoRepositorio;
 
         [TestInitialize]

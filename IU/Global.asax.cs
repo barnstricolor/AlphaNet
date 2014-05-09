@@ -61,6 +61,7 @@ namespace IU
         private void bancoMongo() {
             DominioRegistro.obterContainer().RegisterInstance<AviaoRepositorio>(new MongoAviaoRepositorio());
             DominioRegistro.obterContainer().RegisterInstance<CidadeRepositorio>(new MongoCidadeRepositorio());
+            DominioRegistro.obterContainer().RegisterInstance<ClienteRepositorio>(new MongoClienteRepositorio());
         }
     }
 }
