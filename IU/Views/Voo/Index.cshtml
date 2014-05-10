@@ -8,7 +8,7 @@
             </hgroup>
                         <nav>
                     <ul id="menu02">
-                     <li><a href="@Url.Action("Novo", "Voo")"><img src="~/Content/themes/base/images/novo_voo.png" /></a></li>
+                     <li><a href="@Url.Action("Novo", "Voo")"><img src="~/Content/themes/base/images/novo_voo.png" id="bt-novo-voo" /></a></li>
                     </ul>
                 </nav>
                 @if (Model != null) {
@@ -29,7 +29,7 @@
                         {            
                             <tr>    
                               
-                                <td><a href="@Url.Action("excluir","Excluir",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/excluir.png" /></a></td>
+                                <td><a href="@Url.Action("Excluir",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/excluir.png" /></a></td>
                                 <td>@voo.aviaoModelo</td>
                                 <td>@voo.cidadeOrigemNome</td>
                                 <td>@voo.cidadeDestinoNome</td>
@@ -41,8 +41,12 @@
                                 }else{
                                     <td>@Html.ActionLink(voo.preco.ToString(),"AlterarPreco",new {vooId = voo.vooId})</td>
                                 }      
-                                                          
+                                       
+                                
+                                @* VERIFICAR ESSE CÓDIGO *@
+                                                                                   
                                <td><a href="@Url.Action("NovaReserva","Voo",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/nova_reserva.png" /></a></td>
+
                                @* <td>@Html.ActionLink("Reservas","Reservas",new {vooId = voo.vooId})</td>*@
                                  <td><a href="@Url.Action("Reservas","Voo",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/reserva.png" /></a></td>
 

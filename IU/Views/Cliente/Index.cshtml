@@ -11,16 +11,19 @@
             </p>
                 <nav>
                     <ul id="menu02">
-                        <li>@Html.ActionLink("Novo Cliente","Novo", "Cliente")</li>
+                      @*  <li>@Html.ActionLink("Novo Cliente","Novo", "Cliente")</li> *@
+
+                        <li><a href="@Url.Action("Novo", "Cliente")"><img src="~/Content/themes/base/images/novo_cliente.png" id="bt-novo-cliente"/></a></li>
                     </ul>
                 </nav>
                 @if (Model != null) {
                     <table>
                         @foreach(var cliente in Model)
-                        {            
+                        {     
+                            @* VERIFICAR CÓDIGO - MANDA PARA A URL http://localhost:51788/Views/Cliente/Index.cshtml*@       
                             <tr>    
-                                <td>@Html.ActionLink("editar","Editar",new {clienteId = cliente.clienteId})</td>
-                                <td>@Html.ActionLink("excluir","Excluir",new {clienteId = cliente.clienteId})</td>
+                               <td><a href="@Url.Action("Editar",new {clienteId = cliente.clienteId})"><img src="~/Content/themes/base/images/editar.png" id="bt-editar"/></a> </td>                               
+                                <td><a href="@Url.Action("Excluir",new {clienteId = cliente.clienteId})"><img src="~/Content/themes/base/images/excluir.png" id="bt-excluir"/></a></td>                             
                                 <td>@cliente.nome</td>
                                 <td>@cliente.email</td>
                             </tr>        

@@ -361,9 +361,26 @@ th, td {
 }
 
 #menu02 li {
-    width:8%;
     list-style-type:none;
 }
+#bt-nova-reserva {
+    width: 96px;
+}
+
+#bt-novo-voo {
+    width: 73px;
+}
+#bt-excluir {
+    width: 20px;
+}
+
+#bt-editar {
+    width: 25px;
+}
+#bt-novo-cliente {
+    width: 96px;
+}
+
 
 #rodape{
 	width: 100%;

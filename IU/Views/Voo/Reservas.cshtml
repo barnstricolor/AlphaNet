@@ -16,8 +16,11 @@
                     @Model.partida
                     @Model.totalAssentos
                     @Model.reservados
-                    @Html.ActionLink("Nova Reserva","NovaReserva",new {vooId = Model.vooId})
-                    <table border="2">
+                   @* @Html.ActionLink("Nova Reserva","NovaReserva",new {vooId = Model.vooId})*@
+                    
+                 <div> <a href="@Url.Action("NovaReserva",new {vooId = Model.vooId})"><img src="~/Content/themes/base/images/nova_reserva.png" id="bt-nova-reserva"/></a></div>
+                     
+                      <table>
                         <tr>
                             <th></th>
                             <th>Cliente</th>
