@@ -6,15 +6,16 @@
             <hgroup class="title">
                 <h1>Cliente</h1>
             </hgroup>
-            <p>
-                Cliente
-            </p>
+        
             <form method="post" action="Salvar">
+                <fieldset>
+                    <legend>Cadastro de Cliente</legend>
                 <input type="hidden" name="clienteId" value="@Model.clienteId"/>
                 <label>Nome:</label><input type="text" name="nome" value="@Model.nome"/>
                 <br>
-                <label>Email:</label><input type="text" name="email" value="@Model.email"/>
+                <label>Email:     </label><input type="text" name="email" value="@Model.email"/><br />
                 <br><input type="submit" value="Salvar" />
+                </fieldset>
             </form>
         </div>
     </section>

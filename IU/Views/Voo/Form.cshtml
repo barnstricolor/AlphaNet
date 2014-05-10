@@ -2,41 +2,44 @@
     <section class="featured">
         <div class="content-wrapper">
             <hgroup class="title">
-                <h1>Aviao</h1>
+                <h1>Avião</h1>
             </hgroup>
-            <p>
-                Voos
-            </p>
+           
             <form method="post" action="Salvar">
-                @Html.Label("Partida")
-                <input type="text" name="partida" value="@Model.partida"/>
-                @Html.Label("Preço")
-                <input type="text" name="preco" value="@Model.preco"/>
-                @Html.Label("Origem")
+                <fieldset>
+                    <legend>Cadastro de Voo</legend>
+              <p>  @Html.Label("Partida: ")
+                <input type="text" name="partida" value="@Model.partida"/></p>
+
+              <p> @Html.Label("Preço: ")
+                <input type="text" name="preco" value="@Model.preco"/></p>
+
+              <p>@Html.Label("Origem:")
                 @Html.DropDownList(
                     "cidadeOrigemId", 
                     new SelectList(
                         ViewBag.cidades, 
                         "cidadeId", 
-                        "nome"))
+                        "nome"))</p>  
 
-                @Html.Label("Destino")
+              <p>  @Html.Label("Destino:")
                 @Html.DropDownList(
                     "cidadeDestinoId", 
                     new SelectList(
                         ViewBag.cidades, 
                         "cidadeId", 
-                        "nome"))
+                        "nome"))</p>
 
-                @Html.Label("Avião")
+              <p>  @Html.Label("Avião:")
                 @Html.DropDownList(
                     "aviaoId", 
                     new SelectList(
                         ViewBag.avioes, 
                         "aviaoId", 
-                        "modelo"))
+                        "modelo"))</p>
 
-                <br><input type="submit" value="Salvar" />
+               <p><br><input type="submit" value="Salvar" /></p> 
+                    </fieldset>
             </form>
         </div>
     </section>

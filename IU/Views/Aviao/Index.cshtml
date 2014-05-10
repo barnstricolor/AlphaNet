@@ -6,21 +6,24 @@
             <hgroup class="title">
                 <h1>Lista de Aviões</h1>
             </hgroup>
-            <p>
-                Lista de Aviões Cadastrados
-            </p>
+           
                 <nav>
                     <ul id="menu02">
-                        <li>@Html.ActionLink("Novo Aviao","Novo", "Aviao")</li>
+                        <li><a href="@Url.Action("Novo", "Aviao")"><img src="~/Content/themes/base/images/novo_aviao.png" id="bt-novo-aviao"/></a></li>
                     </ul>
                 </nav>
+
+             <p>
+               
+            </p>
                 @if (Model != null) {
                     <table>
+                        <caption> Lista de Aviões Cadastrados</caption>
                         @foreach(var aviao in Model)
                         {            
                             <tr>    
-                                <td>@Html.ActionLink("editar","Editar",new {aviaoId = aviao.aviaoId})</td>
-                                <td>@Html.ActionLink("excluir","Excluir",new {aviaoId = aviao.aviaoId})</td>
+                                <td><a href="@Url.Action("Editar",new {aviaoId = aviao.aviaoId})"><img src="~/Content/themes/base/images/editar.png" id="bt-editar"/></a></td>
+                                <td><a href="@Url.Action("Excluir",new {aviaoId = aviao.aviaoId})"><img src="~/Content/themes/base/images/excluir.png" id="bt-excluir"/></a></td>
                                 <td>@aviao.modelo</td>
                                 <td>@aviao.assentos</td>
                             </tr>        

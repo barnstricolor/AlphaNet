@@ -343,8 +343,17 @@ table{
 	border-color:#FFF;
 border-collapse: collapse;
 
-
 }
+
+caption{
+	background-color:#666;
+    height:25px;
+    padding:10px;
+	color:#fff;
+    font-size: 1.3em;
+    font-weight:bold;
+}
+
 th{
 	background-color:#666;
 	color:#fff;
@@ -358,6 +367,14 @@ th, td {
 	padding:10px;
 	margin: 10px;
     text-align: center;
+}
+fieldset {
+    width: 500px;
+    margin: 2% auto;
+    padding: 5%;
+    text-align: center;
+    align-content:center;
+    
 }
 
 #menu02 li {
@@ -378,6 +395,9 @@ th, td {
     width: 25px;
 }
 #bt-novo-cliente {
+    width: 96px;
+}
+#bt-novo-aviao {
     width: 96px;
 }
 

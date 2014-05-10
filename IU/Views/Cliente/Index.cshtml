@@ -6,9 +6,7 @@
             <hgroup class="title">
                 <h1>Lista de Clientes</h1>
             </hgroup>
-            <p>
-                Lista de Clientes Cadastrados
-            </p>
+         
                 <nav>
                     <ul id="menu02">
                       @*  <li>@Html.ActionLink("Novo Cliente","Novo", "Cliente")</li> *@
@@ -18,6 +16,7 @@
                 </nav>
                 @if (Model != null) {
                     <table>
+                        <caption>Lista de Clientes Cadastrados</caption>
                         @foreach(var cliente in Model)
                         {     
                             @* VERIFICAR CÓDIGO - MANDA PARA A URL http://localhost:51788/Views/Cliente/Index.cshtml*@       

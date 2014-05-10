@@ -29,7 +29,7 @@
                         {            
                             <tr>    
                               
-                                <td><a href="@Url.Action("Excluir",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/excluir.png" /></a></td>
+                                <td><a href="@Url.Action("Excluir",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/excluir.png" id="bt-excluir" /></a></td>
                                 <td>@voo.aviaoModelo</td>
                                 <td>@voo.cidadeOrigemNome</td>
                                 <td>@voo.cidadeDestinoNome</td>
@@ -45,10 +45,10 @@
                                 
                                 @* VERIFICAR ESSE CÓDIGO *@
                                                                                    
-                               <td><a href="@Url.Action("NovaReserva","Voo",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/nova_reserva.png" /></a></td>
+                               <td><a href="@Url.Action("NovaReserva","Voo",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/nova_reserva.png" id="bt-nova-reserva"/></a></td>
 
                                @* <td>@Html.ActionLink("Reservas","Reservas",new {vooId = voo.vooId})</td>*@
-                                 <td><a href="@Url.Action("Reservas","Voo",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/reserva.png" /></a></td>
+                                 <td><a href="@Url.Action("Reservas","Voo",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/reserva.png" id="bt-reserva" /></a></td>
 
                                 
                             </tr>        
