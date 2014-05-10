@@ -6,12 +6,9 @@
             <hgroup class="title">
                 <h1>Lista de Voos</h1>
             </hgroup>
-            <p>
-                Lista de Voos
-            </p>
-                <nav>
+                        <nav>
                     <ul id="menu02">
-                        <li>@Html.ActionLink("Novo Voo","Novo", "Voo")</li>
+                     <li><a href="@Url.Action("Novo", "Voo")"><img src="~/Content/themes/base/images/novo_voo.png" /></a></li>
                     </ul>
                 </nav>
                 @if (Model != null) {
