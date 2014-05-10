@@ -8,9 +8,15 @@ namespace IU.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index_adm()
+        public ActionResult Index()
         {
             return View();
         }
+        public ActionResult Index_admin()
+        {
+            return View();
+        }
+    
+     
     }
 }

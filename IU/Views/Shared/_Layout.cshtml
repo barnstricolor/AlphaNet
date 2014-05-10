@@ -36,7 +36,7 @@
 </div>
 
 
-<div id="nav">
+@*<div id="nav">
 
 <div id="institucional"><a href="@Url.Action("Index","Aviao")"><img src="/Content/themes/base/images/institucional.png" border="0"></a></div>
 <div id="voeja"><a href="#"><img src="/Content/themes/base/images/voeja.png" border="0"></a></div>
@@ -49,21 +49,44 @@
 <div id="twitter"><a href="#"><img src="/Content/themes/base/images/twitter.png" border="0"></a></div>
 <div id="youtube"><a href="#"><img src="/Content/themes/base/images/youtube.png" border="0"></a></div>
 
+</div>*@
+
+    
+<div id="nav">
+
+<div id="home"><a href="@Url.Action("Index","Home")"><img src="/Content/themes/base/images/home.png" border="0"></a></div>
+<div id="institucional"><a href="@Url.Action("Index","Aviao")"><img src="/Content/themes/base/images/institucional.png" border="0"></a></div>
+<div id="voeja"><a href="#"><img src="/Content/themes/base/images/voeja.png" border="0"></a></div>
+<div id="reservas"><a href="#"><img src="/Content/themes/base/images/reservas.png" border="0"></a></div>
+<div id="cadastre"><a href="#"><img src="/Content/themes/base/images/cadastre.png" border="0"></a></div>
+<div id="dicas"><a href="#"><img src="/Content/themes/base/images/dicas.png" border="0"></a></div>
+<div id="contato"><a href="#"><img src="/Content/themes/base/images/contato.png" border="0"></a></div>
+<div id="facebook"><a href="#"><img src="/Content/themes/base/images/facebook.png" border="0"></a></div>
+<div id="twitter"><a href="#"><img src="/Content/themes/base/images/twitter.png" border="0"></a></div>
+<div id="youtube"><a href="#"><img src="/Content/themes/base/images/youtube.png" border="0"></a></div>
+
 </div>
+
+    
+<div id="conteudo">
+
+<div id="conteudo-central">
 
 
     @RenderBody()
 
+    </div>
+    </div>
+
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
 
-<div id="rodape">
-<div id="rodape1"><img src="/Content/themes/base/images/rodape1.png" ></div>
-<div id="cancelamento"><a href="#"><img src="/Content/themes/base/images/cancelamento.png" border="0"></a></div>
-<div id="reclamacoes"><a href="#"><img src="/Content/themes/base/images/reclamacoes.png" border="0"> </a></div>
-<div id="documentacao"><a href="#"><img src="/Content/themes/base/images/documentacao.png" border="0"></a></div>
-<div id="rodape2">@*<img src="/Content/themes/base/images/rodape2.png">*@</div>
 
+
+<div id="rodape">
+<div id="desenvolvimento"><img src="/Content/themes/base/imagesdesenvolvimento.png" ></div>
+<div id="direitos">Todos os Direitos Reservados</div>
+</div>
 </div>
 </body>
 </html>
