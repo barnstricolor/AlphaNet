@@ -56,9 +56,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aplicacao\AutenticacaoAplicacaoService.cs" />
-    <Compile Include="Aplicacao\Data\AcessoAplicacaoService.cs" />
-    <Compile Include="Aplicacao\Data\AutenticarUsuarioComando.cs" />
+    <Compile Include="Aplicacao\AcessoAplicacaoService.cs" />
+    <Compile Include="Aplicacao\AutenticarUsuarioComando.cs" />
     <Compile Include="Aplicacao\Data\UsuarioData.cs" />
+    <Compile Include="Aplicacao\NovoUsuarioComando.cs" />
     <Compile Include="Domain.Model\AutenticacaoService.cs" />
     <Compile Include="Domain.Model\DominioRegistro.cs" />
     <Compile Include="Domain.Model\Usuarios\Papel.cs" />

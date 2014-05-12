@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Alphanet.Acesso.Aplicacao.Data.UsuarioData>
+
+<div id="body">
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>Lista de Usuários</h1>
+            </hgroup>
+           
+                <nav>
+                    <ul id="menu02">
+                        <li><a href="@Url.Action("Novo", "Usuario")"><img src="~/Content/themes/base/images/novo_aviao.png" id="bt-novo-aviao"/></a></li>
+                    </ul>
+                </nav>
+
+             <p>
+               
+            </p>
+                @if (Model != null) {
+                    <table>
+                        <caption> Lista de Usuários Cadastrados</caption>
+                        @foreach(var usuario in Model)
+                        {            
+                            <tr>    
+                                <td><a href="@Url.Action("Editar",new {usuarioId = usuario.usuarioId})"><img src="~/Content/themes/base/images/editar.png" id="bt-editar"/></a></td>
+                                <td><a href="@Url.Action("Excluir",new {usuarioId = usuario.usuarioId})"><img src="~/Content/themes/base/images/excluir.png" id="bt-excluir"/></a></td>
+                                <td>@usuario.email</td>
+                                <td>@usuario.nome</td>
+                            </tr>        
+                        }
+                    </table>
+                }
+        </div>
+    </section>
+</div>
