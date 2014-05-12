@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
+﻿using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -16,9 +12,6 @@ using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle;
 using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Mongo;
 using Microsoft.Practices.Unity;
 using AlphaNet.PassagemAerea.Domain.Model.Voos;
-using System.Data.Entity;
-using Oracle.ManagedDataAccess.Client;
-using System.Data.Common;
 
 namespace IU
 {

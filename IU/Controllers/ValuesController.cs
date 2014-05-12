@@ -32,7 +32,7 @@ namespace IU.Controllers
             }
             
             //return new string[] { "value1", "value2" };
-            return RedirectToAction("Index_adm", "Home");
+            return RedirectToAction("Index", "Home");
         }
 
         // GET api/values/5
