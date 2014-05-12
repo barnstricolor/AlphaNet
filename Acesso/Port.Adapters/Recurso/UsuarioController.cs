@@ -1,4 +1,5 @@
-﻿using Alphanet.Acesso.Aplicacao.Data;
+﻿using Alphanet.Acesso.Aplicacao;
+using Alphanet.Acesso.Aplicacao.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
