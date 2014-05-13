@@ -21,6 +21,27 @@
 
 <div id="top">
 <div id="logo"><a href="index.asp"><img src="/Content/themes/base/images/logo_alphanet.png" alt="Alphanet" border="0" ></a></div>
+<div id="login">
+    <div class="form-login"> 
+        @if (Session["login"]!=null){
+            @Html.Label("usuario:" + Session["login"])
+            <form name="form1" method="post" action="@Url.Action("Logoff","Login")">
+                <input type="submit" name="Logoff" value="Sair">
+            </form>
+        }else{
+            <form name="form1" method="post" action="@Url.Action("Login","Login")">
+                <ul>
+                    <li> <label>Login: <input name="login" type="text" size="6"></label>  </li>
+                    <li> <label>Senha: <input name="senha" type="text" size="6"></label></li>
+                    <li> <input type="submit" name="Login" value="OK"> </li> 
+                    <li>@ViewBag.msgAutenticacao</li>
+                </ul>
+        </form>
+            
+        }
+    </div>  
+</div>
+
 
 <div id="fca"><img src="/Content/themes/base/images/fca.png"></div>
   
@@ -30,7 +51,7 @@
 
 <div id="nav">
 
-<div id="usuarios"><a href="@Url.Action("Index", "Usuarios")"><img src="/Content/themes/base/images/usuarios.png" border="0"></a></div>
+<div id="usuarios"><a href="@Url.Action("Index", "Usuario")"><img src="/Content/themes/base/images/usuarios.png" border="0"></a></div>
 <div id="aviao"><a href="@Url.Action("Index","Aviao")"><img src="/Content/themes/base/images/aviao.png" border="0"></a></div>
 <div id="cliente"><a href="@Url.Action("Index","Cliente")"><img src="/Content/themes/base/images/cliente.png" border="0"></a></div>
 <div id="voo"><a href="@Url.Action("Index","Voo")"><img src="/Content/themes/base/images/voo.png" border="0"></a></div>

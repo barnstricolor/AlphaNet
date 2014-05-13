@@ -7,8 +7,8 @@
     <ProjectGuid>{7E7E49ED-26FD-4C8B-B0FE-7AE634213C9B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Alphanet.Acesso</RootNamespace>
-    <AssemblyName>Alphanet.Acesso</AssemblyName>
+    <RootNamespace>AlphaNet.Acesso</RootNamespace>
+    <AssemblyName>AlphaNet.Acesso</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
