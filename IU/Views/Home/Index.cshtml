@@ -1,27 +1,16 @@
 ﻿@{
     ViewBag.Title = "Alphanet - Index";
 }
- 	<script>
- 	    $(function () {
- 	        $("#data").datepicker();
- 	    });
-
-	</script>
-    <script>
-        $(function () {
-            $("#retorno").datepicker();
-        });
-
-	</script>
+ 	
 
     <div id="conteudo">
-
+        <div id="conteudo_central">
 <div id="fundo_branco">
 <div id="titulo">PESQUISA RÁPIDA</div>
 
 <div class="form-busca">
 
-  <form name="form2" method="post" action="">
+  <form name="form2" method="post" action="pesquisa.asp">
      <li><label><input type="radio" name="radio" id="idavolta" value="ida">Ida e volta</label></li>
     <li><label><input type="radio" name="radio" id="ida" value="volta">Somente ida</label></li>
     <li>  <label>Origem: 
@@ -99,7 +88,10 @@
 <div id="banner"><img src="/Content/themes/base/images/banner1.jpg"></div>
 
 </div>
+        </div>
 
+
+@*
 <!-- Script para controle de data dos campos data inicio, data fim, inscricao inicio, inscricao fim e data certificado -->
         <script type="text/javascript">
 
@@ -218,3 +210,4 @@
             });
         </script>
 
+*@

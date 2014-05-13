@@ -90,6 +90,7 @@ h1{
 	font-size:1.5em;
 	color:#003366;
 
+
 }
 
 #container{
@@ -113,22 +114,22 @@ h1{
  
 }
 #login{
-	width: 33%; /* 418px; */
+	width: 36%; /* 418px; */
 	height: 47%; /* 75px; */
-	margin-top:0%;
-	margin-right:0%;
+	margin:0;
 	float: right;
+
 }
 
 .form-login{
-	width: 90%;
-	margin-top: 0% 0,2% 0,5% 0%;
-	padding: 4%;
+	width: 88%;
+	margin: 0;
+	padding: 2%;
 	float: right;
 	font-size:0.8em; /* 13px; */
 	color:#FFF;
 	background-color:#0074bb; 
-    
+   
 }
 
 #fca {
@@ -158,9 +159,14 @@ h1{
     padding:0px;
 
 }
+#home{
+	width: 84px; /* 138px; */
+	height: 57px; /* 57px; */
+	float: left;
+}
 
 #institucional{
-	width: 138px; /* 138px; */
+	width: 131px; /* 138px; */
 	height: 57px; /* 57px; */
 	float: left;
     margin:0px;
@@ -170,7 +176,7 @@ h1{
 }
 
 #voeja{
-	width: 78px; /* 78px; */
+	width: 88px; /* 78px; */
 	height: 57px; /* 57px; */
 	float: left;
     margin:0px;
@@ -188,14 +194,14 @@ h1{
 }
 
 #reservas{
-	width: 143px; /* 143px; */
+	width: 151px; /* 143px; */
 	height: 57px; /* 57px; */
 	float: left;
     padding:0px;
 }
 
 #dicas{
-	width: 144px; /* 144px; */
+	width: 151px; /* 144px; */
 	height: 57px; /* 57px; */
 	float: left;
      margin:0px;
@@ -203,7 +209,7 @@ h1{
 }
 
 #cadastre{
-	width: 113px; /* 113px; */
+	width: 123px; /* 113px; */
 	height: 57px; /* 57px; */
 	float: left;
      margin:0px;
@@ -211,7 +217,7 @@ h1{
 }
 
 #contato{
-	width: 89px; /* 89px; */
+	width: 96px; /* 89px; */
 	height: 57px; /* 57px; */
 	float: left;
      margin:0px;
@@ -304,6 +310,7 @@ h1{
 
 #banner{
     width: 100%; /* 1000px; */
+    height:423px;
 	margin:0;
 }
 
@@ -415,7 +422,7 @@ legend {
 
 #rodape{
 	width: 100%;
-	height: 47px;
+	height: 48px;
 	margin:0px auto;
 	float:left;
 	background-image:url(themes/base/images/filet_rodape.jpg);
@@ -429,31 +436,20 @@ legend {
 	margin: 15px 0 0 0;
 }
 
-
-
-#cancelamento{
-	width: 163px; /* 163px; */
-	height: 32px; /* 32px; */
+#desenvolvimento{
+	width: 190px; /* 253px; */
+	height: 48px; /* 32px; */
 	float: left;
 }
 
-#reclamacoes{
-	width: 163px; /* 163px; */
-	height: 32px; /* 32px; */
-	float: left;
+#direitos{
+	font-size:0.9em;
+	font-weight:bold;
+	color:#666;
+	text-align:center;
+	margin:15px auto 0;
 }
 
-#documentacao{
-	width: 163px; /* 163px; */
-	height: 32px; /* 32px; */
-	float: left;
-}
-#rodape2{
-	width: 258px; /* 258px; */
-	height: 32px; /* 32px; */
-	float: left;
-    background-image:url(themes/base/images/filet_rodape.jpg);
-}
 
 @media (max-width: 900px) {
 	#logo{

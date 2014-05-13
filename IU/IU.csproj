@@ -203,6 +203,12 @@
     <Compile Include="Controllers\AviaoController.cs" />
     <Compile Include="Controllers\CidadeController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\CadastreSeController.cs" />
+    <Compile Include="Controllers\ContatoController.cs" />
+    <Compile Include="Controllers\DicasController.cs" />
+    <Compile Include="Controllers\MinhasReservasController.cs" />
+    <Compile Include="Controllers\VoeJaController.cs" />
+    <Compile Include="Controllers\InstitucionalController.cs" />
     <Compile Include="Controllers\VooController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -414,6 +420,12 @@
     <Content Include="Views\Home\Index_adm.cshtml" />
     <Content Include="Views\Usuario\Form.cshtml" />
     <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Institucional\Index.cshtml" />
+    <Content Include="Views\VoeJa\Index.cshtml" />
+    <Content Include="Views\MinhasReservas\Index.cshtml" />
+    <Content Include="Views\CadastreSe\Index.cshtml" />
+    <Content Include="Views\Dicas\Index.cshtml" />
+    <Content Include="Views\Contato\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
