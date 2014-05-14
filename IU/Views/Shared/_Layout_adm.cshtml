@@ -22,7 +22,25 @@
 <div id="top">
 <div id="logo_adm"><a href="index.asp"><img src="/Content/themes/base/images/logo_alphanet.png" alt="Alphanet" border="0" ></a></div>
 
-
+ <div class="form-login"> 
+        @if (Session["login"]!=null){
+            @Html.Label("usuario:" + Session["login"])
+            <form name="form1" method="post" action="@Url.Action("Logoff","Login")">
+                <input type="submit" name="Logoff" value="Sair">
+            </form>
+        }else{
+            <form name="form1" method="post" action="@Url.Action("Login","Login")">
+                <ul>
+                    <li> <label>Login: <input name="login" type="text" size="6"></label>  </li>
+                    <li> <label>Senha: <input name="senha" type="text" size="6"></label></li>
+                    <li> <input type="submit" name="Login" value="OK"> </li> 
+                    <li>@ViewBag.msgAutenticacao</li>
+                </ul>
+        </form>
+            
+        }
+    </div>  
+</div>
 
 
 <div id="fca"><img src="/Content/themes/base/images/fca.png"></div>
