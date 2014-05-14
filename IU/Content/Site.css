@@ -106,7 +106,15 @@ h1{
     background-image:url(themes/base/images/top.jpg);
     
 }
+
 #logo{
+	width: 24.1%; /* 241px; */
+	margin-top: 0.3%;  
+	margin-left:2%; /* 20px; */
+	float: left;
+ 
+}
+#logo_adm{
 	width: 24.1%; /* 241px; */
 	margin-top: 0.3%;  
 	margin-left:2%; /* 20px; */
@@ -134,7 +142,7 @@ h1{
 
 #fca {
     width: 40%;
-    margin: 4% 15% 0 0;
+    margin: 2% 10% 0 0;
 	float: right;
 }
 
