@@ -12,11 +12,12 @@ namespace Alphanet.Acesso.Domain.Model.Usuarios
         UsuarioId proximaIdentidade();
         void salvar(Usuario usuario);
         Usuario obterPeloId(UsuarioId usuarioId);
-
+        Usuario obterPeloEmail(string email);
         void limpar();
 
         void remover(UsuarioId usuarioId);
 
         Usuario usuarioPelaCredencialAutenticacao(string usuario, string senha);
+        List<Usuario> obterTodos();
     }
 }

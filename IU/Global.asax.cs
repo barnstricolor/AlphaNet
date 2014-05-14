@@ -12,7 +12,10 @@ using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle;
 using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Mongo;
 using Microsoft.Practices.Unity;
 using AlphaNet.PassagemAerea.Domain.Model.Voos;
-
+using AlphaNet.PassagemAerea.Port.Adapters.Servico;
+using AlphaNet.PassagemAerea.Domain.Model.Publicos;
+using Alphanet.Acesso.Domain.Model.Usuarios;
+using Alphanet.Acesso.Port.Adapters.Persistencia.Repositorio.Memoria;
 namespace IU
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
@@ -34,6 +37,8 @@ namespace IU
             //this.bancoOracle();
             //this.bancoMongo();
 
+            DominioRegistro.obterContainer().RegisterInstance<PublicoService>(new TraduzirPublicoService());
+            AlphaNet.Acesso.Domain.Model.DominioRegistro.obterContainer().RegisterInstance<UsuarioRepositorio>(new MemoriaUsuarioRepositorio());
         }
         private void bancoEmMemoria() {
             DominioRegistro.obterContainer().RegisterInstance<AviaoRepositorio>(new MemoriaAviaoRepositorio());

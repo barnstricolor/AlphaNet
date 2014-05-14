@@ -14,9 +14,10 @@ namespace Alphanet.Acesso.Aplicacao
 
         public UsuarioData autenticar(AutenticarUsuarioComando comando) {
 
-            Usuario usuario = autenticacaoService().autenticar(comando.nome, comando.senha);
-
-            return new UsuarioData(usuario.nome(), usuario.email());
+            Usuario usuario = autenticacaoService().autenticar(comando.login, comando.senha);
+            
+            return usuario == null ? null : 
+                new UsuarioData(usuario.login(), usuario.nome(), usuario.email());
 
         }
 

@@ -16,7 +16,7 @@ namespace IU
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index_adm", id = UrlParameter.Optional }
+                defaults: new { controller = "Values", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

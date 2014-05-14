@@ -1,3 +1,17 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout_adm.cshtml";
+    if (Session["gestor"]!=null)
+    {
+        if ((bool)Session["gestor"]){
+            Layout = "~/Views/Shared/_Layout_adm.cshtml";
+        }
+        else
+        {
+            Layout = "~/Views/Shared/_Layout.cshtml";
+        }
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    
 }

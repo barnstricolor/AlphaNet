@@ -10,9 +10,10 @@ namespace IU.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.msgAutenticacao = TempData["msgAutenticacao"];
             return View();
         }
-        public ActionResult Index_admin()
+        public ActionResult Index_adm()
         {
             return View();
         }

@@ -12,8 +12,14 @@ namespace Alphanet.Acesso.Aplicacao
 {
     public class AcessoAplicacaoService
     {
-        public UsuarioData usuarioNoPapel(string usuario, string papel) {
-            return new UsuarioData(usuario,papel);
+        public UsuarioData usuarioNoPapel(string email, string papel) {
+
+            Usuario usuario = usuarioRepositorio().obterPeloEmail(email);
+
+            if (usuario == null)
+                return null;
+
+            return new UsuarioData(usuario.login(), usuario.nome(), usuario.email());
         }
 
         public string novoUsuario(NovoUsuarioComando comando) {
@@ -42,7 +48,22 @@ namespace Alphanet.Acesso.Aplicacao
         private UsuarioRepositorio usuarioRepositorio() {
             return DominioRegistro.usuarioRepositorio();
         }
+        
+        public List<UsuarioData> todosUsuarios()
+        {
+            List<UsuarioData> result = new List<UsuarioData>();
 
+            foreach (Usuario data in usuarioRepositorio().obterTodos())
+            {
+                UsuarioData usuario = new UsuarioData();
+                usuario.usuarioId = data.usuarioId().Id;
+                usuario.login = data.login();
+                usuario.nome = data.nome();
+                usuario.email = data.email();
+                result.Add(usuario);
+            }
 
+            return result;
+        }
     }
 }

@@ -16,10 +16,15 @@ namespace Alphanet.Acesso.Aplicacao.Data
         public string senha { get; set; }
         public string papel { get; set; }
 
-        public UsuarioData(string nome, string email)
+        public UsuarioData(string login, string nome, string email)
         {
+            this.login = login;
             this.nome = nome;
             this.email = email;
+
+        }
+        public UsuarioData()
+        { 
         }
     }
 }

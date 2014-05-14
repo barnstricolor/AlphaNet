@@ -8,6 +8,7 @@ using AlphaNet.PassagemAerea.Domain.Model.Avioes;
 using AlphaNet.PassagemAerea.Domain.Model.Cidades;
 using AlphaNet.PassagemAerea.Domain.Model.Clientes;
 using AlphaNet.PassagemAerea.Domain.Model.Voos;
+using AlphaNet.PassagemAerea.Domain.Model.Publicos;
 
 namespace AlphaNet.PassagemAerea.Domain.Model
 {
@@ -36,6 +37,10 @@ namespace AlphaNet.PassagemAerea.Domain.Model
         public static VooRepositorio vooRepositorio()
         {
             return container.Resolve<VooRepositorio>();
+        }
+        public static PublicoService publicoService()
+        {
+            return container.Resolve<PublicoService>();
         }
     }
 }

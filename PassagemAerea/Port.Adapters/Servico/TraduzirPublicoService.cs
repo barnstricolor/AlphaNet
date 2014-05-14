@@ -1,4 +1,5 @@
-﻿using AlphaNet.PassagemAerea.Domain.Model.Publicos;
+﻿using AlphaNet.PassagemAerea.Domain.Model;
+using AlphaNet.PassagemAerea.Domain.Model.Publicos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,12 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Servico
 
         public Gestor gestorPela(string identidade)
         {
-            return null;
+            return usuarioNoPapelAdapter().paraGestor(identidade);
+
+        }
+
+        private UsuarioNoPapelAdapter usuarioNoPapelAdapter() {
+            return new HttpUsuarioNoPapelAdapter();
         }
     }
 }

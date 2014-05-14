@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Alphanet.Acesso.Port.Adapters.Persistencia.Repositorio.Memoria
 {
-    public class MemoriaUsuarioRepositorio:UsuarioRepositorio
+    public class MemoriaUsuarioRepositorio : UsuarioRepositorio
     {
         private Dictionary<String, Usuario> store;
 
@@ -50,11 +50,29 @@ namespace Alphanet.Acesso.Port.Adapters.Persistencia.Repositorio.Memoria
         public Usuario usuarioPelaCredencialAutenticacao(string usuario, string senha)
         {
             foreach (Usuario u in store.Values.ToList()) {
-                if (u.nome().Equals(usuario) && u.senha().Equals(senha))
+                if (u.login().Equals(usuario) && u.senha().Equals(senha))
                     return u;
             }
 
             return null;
+        }
+
+
+        public Usuario obterPeloEmail(string email)
+        {
+            foreach (Usuario u in store.Values.ToList())
+            {
+                if (u.email().Equals(email))
+                    return u;
+            }
+
+            return null;
+        }
+
+
+        public List<Usuario> obterTodos()
+        {
+            return store.Values.ToList();
         }
     }
 }

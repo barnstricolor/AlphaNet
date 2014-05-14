@@ -24,6 +24,7 @@
                             <tr>    
                                 <td><a href="@Url.Action("Editar",new {usuarioId = usuario.usuarioId})"><img src="~/Content/themes/base/images/editar.png" id="bt-editar"/></a></td>
                                 <td><a href="@Url.Action("Excluir",new {usuarioId = usuario.usuarioId})"><img src="~/Content/themes/base/images/excluir.png" id="bt-excluir"/></a></td>
+                                <td>@usuario.login</td>
                                 <td>@usuario.email</td>
                                 <td>@usuario.nome</td>
                             </tr>        

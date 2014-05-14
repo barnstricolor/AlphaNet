@@ -11,10 +11,11 @@ using AlphaNet.PassagemAerea.Aplicacao.Cidades;
 using AlphaNet.PassagemAerea.Aplicacao.Clientes;
 using AlphaNet.PassagemAerea.Aplicacao.Clientes.Data;
 using AlphaNet.PassagemAerea.Domain.Model.Clientes;
+using AlphaNet.PassagemAerea.Aplicacao.Publicos;
 
 namespace IU.Controllers
 {
-    public class VooController : Controller
+    public class VooController : AbstractController
     {
 
         public ActionResult Index()
@@ -57,6 +58,9 @@ namespace IU.Controllers
 
         public ActionResult Novo()
         {
+            if(!this.usuarioLogadoGestor())
+                return RedirectToAction("Index", "Home");
+            
             AplicacaoAviaoService aviaoService = new AplicacaoAviaoService();
             CidadeService cidadeService = new CidadeService();
 

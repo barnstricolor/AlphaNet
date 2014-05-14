@@ -8,12 +8,13 @@ namespace Alphanet.Acesso.Aplicacao
 {
     public class AutenticarUsuarioComando
     {
-        public string nome { get; set; }
+        public string login { get; set; }
         public string senha { get; set; }
 
-        public AutenticarUsuarioComando(string nome, string senha) {
-            this.nome = nome;
+        public AutenticarUsuarioComando(string login, string senha) {
+            this.login = login;
             this.senha = senha;
         }
+        public AutenticarUsuarioComando() { }
     }
 }
