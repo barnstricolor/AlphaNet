@@ -139,10 +139,26 @@ h1{
 	background-color:#0074bb; 
    
 }
+#topo-login{
+    width: 15%;
+    background-color: #f00;
+    float: right;
+    background-color:#0074bb; 
+}
+.form-login-adm{
+	width: 60%;
+	margin: 0;
+	padding: 5%;
+	float: right;
+	font-size:1.2em; /* 13px; */
+	color:#FFF;
+
+   
+}
 
 #fca {
     width: 40%;
-    margin: 2% 10% 0 0;
+    margin: 4% 6% 4% 4%;
 	float: right;
 }
 
