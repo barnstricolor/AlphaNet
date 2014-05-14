@@ -143,22 +143,23 @@ h1{
     width: 15%;
     background-color: #f00;
     float: right;
-    background-color:#0074bb; 
+    background-color:#0074bb;
 }
 .form-login-adm{
-	width: 60%;
+	width: 80%;
 	margin: 0;
 	padding: 5%;
 	float: right;
 	font-size:1.2em; /* 13px; */
 	color:#FFF;
+    background-color:#0074bb; 
 
    
 }
 
 #fca {
     width: 40%;
-    margin: 4% 6% 4% 4%;
+    margin: 4% 6% 0 0;
 	float: right;
 }
 
