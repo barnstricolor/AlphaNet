@@ -426,6 +426,10 @@
     <Content Include="Views\CadastreSe\Index.cshtml" />
     <Content Include="Views\Dicas\Index.cshtml" />
     <Content Include="Views\Contato\Index.cshtml" />
+    <Content Include="Views\Voo\IndexPessoal.cshtml" />
+    <Content Include="Views\Voo\LoginNovaReserva.cshtml" />
+    <Content Include="Views\Voo\NovaReservaPessoal.cshtml" />
+    <Content Include="Views\Voo\PreencherDadosCliente.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

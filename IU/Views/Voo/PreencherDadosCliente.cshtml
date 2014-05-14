@@ -1,6 +1,6 @@
 ﻿@model AlphaNet.PassagemAerea.Aplicacao.Clientes.Data.ClienteData
 @{
-    Layout = "~/Views/Shared/_Layout_adm.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div id="body">
@@ -10,13 +10,13 @@
                 <h1>Cliente</h1>
             </hgroup>
         
-            <form method="post" action="Salvar">
+            <form method="post" action="NovoCliente">
                 <fieldset>
                     <legend>Cadastro de Cliente</legend>
-                <input type="hidden" name="clienteId" value="@Model.clienteId"/>
-                <label>Nome: </label><input type="text" name="nome" value="@Model.nome"/>
+                <input type="hidden" name="vooId" value="@ViewBag.vooId"/>
+                <label>Nome: </label><input type="text" name="nome" value="@ViewBag.nome"/>
                 <br>
-                <label>Email: </label><input type="text" name="email" value="@Model.email"/><br />
+                <label>Email: </label><input type="text" name="email" value="@ViewBag.email"/><br />
                 <br><input type="submit" value="Salvar" />
                 </fieldset>
             </form>

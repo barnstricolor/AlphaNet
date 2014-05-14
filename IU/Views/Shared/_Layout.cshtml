@@ -1,5 +1,4 @@
 ﻿
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,9 +25,15 @@
     <div class="form-login"> 
         @if (Session["login"]!=null){
             @Html.Label("usuario:" + Session["login"])
-            <form name="form1" method="post" action="@Url.Action("Logoff","Login")">
+            <form name="form1" method="post" action="@Url.Action("Logoff","Login")">                
                 <input type="submit" name="Logoff" value="Sair">
+                <ul>
+                    <li>
+                        @Html.ActionLink("Administrativo","Index_adm","Home")
+                    </li>
+                </ul>
             </form>
+            
         }else{
             <form name="form1" method="post" action="@Url.Action("Login","Login")">
                 <ul>
@@ -50,7 +55,7 @@
 
 <div id="home"><a href="@Url.Action("Index","Home")"><img src="/Content/themes/base/images/home.png" border="0"></a></div>
 <div id="institucional"><a href="@Url.Action("Index","Institucional")"><img src="/Content/themes/base/images/institucional.png" border="0"></a></div>
-<div id="voeja"><a href="@Url.Action("Index","VoeJa")"><img src="/Content/themes/base/images/voeja.png" border="0"></a></div>
+<div id="voeja"><a href="@Url.Action("IndexPessoal","Voo")"><img src="/Content/themes/base/images/voeja.png" border="0"></a></div>
 <div id="reservas"><a href="@Url.Action("Index","MinhasReservas")"><img src="/Content/themes/base/images/reservas.png" border="0"></a></div>
 <div id="cadastre"><a href="@Url.Action("Index","CadastreSe")"><img src="/Content/themes/base/images/cadastre.png" border="0"></a></div>
 <div id="dicas"><a href="@Url.Action("Index","Dicas")"><img src="/Content/themes/base/images/dicas.png" border="0"></a></div>

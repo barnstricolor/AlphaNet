@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout_adm.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div id="body">
     <section class="featured">
@@ -14,20 +14,16 @@
           
                 <input type="hidden" name="vooId" value="@ViewBag.voo.vooId" />
                 <input type="hidden" name="quantidadeAssentos" value="@ViewBag.mapaAssentos.Count"/>
-                
+                <input type="hidden" name="clienteId" value="@ViewBag.clienteId"/>
                 @Html.Label("Voo ")
                 @ViewBag.voo.aviaoModelo 
                 @ViewBag.voo.cidadeOrigemNome
                 @ViewBag.voo.cidadeDestinoNome
                 @ViewBag.voo.partida
 
-                @Html.Label("Cliente")
-                @Html.DropDownList(
-                    "clienteId", 
-                    new SelectList(
-                        ViewBag.clientes,
-                        "clienteId", 
-                        "nome"))
+                @Html.Label("Cliente ")
+                @ViewBag.nome 
+                @ViewBag.email
                 @foreach (AlphaNet.PassagemAerea.Aplicacao.Voos.Data.AssentoData assento in ViewBag.mapaAssentos)
                 {
                     if (assento.reservado){

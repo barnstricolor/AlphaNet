@@ -24,15 +24,34 @@ namespace AlphaNet.PassagemAerea.IU.Controllers
                 Session["nome"] = data.nome;
                 Session["email"] = data.email;
                 Session["gestor"] = this.usuarioLogadoGestor();
-                if (this.usuarioLogadoGestor())
-                    return RedirectToAction("Index_adm", "Home");
-                else
-                    return RedirectToAction("Index", "Home");
-            } else{
+            } else
                 TempData["msgAutenticacao"] = "Falha no login";
-                return RedirectToAction("Index", "Home");
-            }
+
+            return RedirectToAction("Index", "Home");            
             
+        }
+        [HttpPost]
+        public ActionResult LoginNovaReserva(string login, string senha, string vooId)
+        {
+            AutenticacaoAplicacaoService autenticacaoAplicacaoService = new AutenticacaoAplicacaoService();
+            AutenticarUsuarioComando comando = new AutenticarUsuarioComando(login,senha);
+
+            UsuarioData data = autenticacaoAplicacaoService.autenticar(comando);
+
+            if (data != null)
+            {
+                TempData["vooId"] = vooId;
+
+                Session["login"] = data.login;
+                Session["nome"] = data.nome;
+                Session["email"] = data.email;
+                Session["gestor"] = this.usuarioLogadoGestor();
+            }
+            else
+                TempData["msgAutenticacao"] = "Falha no login";
+
+            return RedirectToAction("NovaReservaPessoal", "Voo");
+
         }
         [HttpPost]
         public ActionResult Logoff()

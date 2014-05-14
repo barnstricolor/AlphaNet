@@ -50,7 +50,7 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Memoria
         public Cliente clientePeloEmail(string email)
         {
             foreach (Cliente cliente in store.Values.ToList())
-                if (email.Equals(cliente.nome()))
+                if (email.Equals(cliente.email()))
                     return cliente;
             return null;
         }

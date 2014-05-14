@@ -1,0 +1,40 @@
+﻿@model IEnumerable<AlphaNet.PassagemAerea.Aplicacao.Voos.Data.VooData>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="body">
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>Lista de Voos</h1>
+            </hgroup>
+                @if (Model != null) {
+                    <table border="0">
+                        <tr>
+                            <th>Modelo</th>
+                            <th>Origem</th>
+                            <th>Destino</th>
+                            <th>Partida</th>
+                            <th>Reservados</th>
+                            <th>Preço</th>
+                            <th></th>
+                        </tr>   
+
+                        @foreach(var voo in Model)
+                        {            
+                            <tr>    
+                                <td>@voo.aviaoModelo</td>
+                                <td>@voo.cidadeOrigemNome</td>
+                                <td>@voo.cidadeDestinoNome</td>
+                                <td>@voo.partida</td>
+                                <td>@voo.reservados/@voo.totalAssentos</td>                               
+                                <td>@voo.preco</td>                                       
+                               <td><a href="@Url.Action("NovaReservaPessoal","Voo",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/nova_reserva.png" id="bt-nova-reserva"/></a></td>
+                            </tr>        
+                        }
+                    </table>
+                }
+        </div>
+    </section>
+</div>

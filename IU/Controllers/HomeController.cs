@@ -17,7 +17,10 @@ namespace IU.Controllers
         {
             return View();
         }
-    
+        public ActionResult LoginNovaReserva()
+        {
+            return View();
+        }
      
     }
 }

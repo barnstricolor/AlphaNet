@@ -20,9 +20,18 @@ namespace IU.Controllers
 
         public ActionResult Index()
         {
+            if (!this.usuarioLogadoGestor()) 
+                return RedirectToAction("IndexPessoal", "Voo");
+
             VooService vooService = new VooService();
             return View(vooService.todosVoos());
         }
+        public ActionResult IndexPessoal()
+        {
+            VooService vooService = new VooService();
+            return View(vooService.todosVoos());
+        }
+
 
         public ActionResult AlterarPreco(string vooId)
         {
@@ -114,7 +123,46 @@ namespace IU.Controllers
 
             return RedirectToAction("Index", "Voo");
         }
+        public ActionResult NovaReservaPessoal(string vooId)
+        {
+            if (!this.usuarioEstaLogado())
+            {
+                ViewBag.vooId = vooId;
+                return View("LoginNovaReserva");
+            }
+            else
+                if (TempData["vooId"]!=null)
+                    vooId = (string)TempData["vooId"];
 
+            ClienteService clienteService = new ClienteService();
+            VooService vooService = new VooService();
+            VooData voo = vooService.obterVoo(vooId);
+
+            ClienteData cliente = clienteService.clientePorEmail((string)Session["email"]);
+            if (cliente == null)
+            {
+                ViewBag.vooId = vooId;
+            
+                ViewBag.email = (string)Session["email"];
+                ViewBag.nome = (string)Session["nome"];
+                return View("PreencherDadosCliente");
+            }
+            ViewBag.clienteId = cliente.clienteId;
+            ViewBag.nome = cliente.nome;
+            ViewBag.email = cliente.email;
+
+            ViewBag.mapaAssentos = vooService.mapaAssentos(voo.vooId);
+            ViewBag.voo = voo;
+
+            return View("NovaReservaPessoal");
+        }
+
+        public ActionResult NovoCliente(string nome, string email, string vooId) {
+            ClienteService clienteService = new ClienteService();
+            ClienteData cliente = clienteService.novoCliente(nome, email);
+            ViewBag.vooId = vooId;
+            return this.NovaReservaPessoal(vooId);
+        }
         public ActionResult Excluir(string vooId)
         {
             VooService vooService = new VooService();

@@ -1,0 +1,25 @@
+﻿@{
+    
+    ViewBag.Title = "login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+
+<div class="form-login"> 
+    @if (Session["login"]!=null){
+        @Html.Label("usuario:" + Session["login"])
+        <form name="form1" method="post" action="@Url.Action("Logoff","Login")">
+            <input type="submit" name="Logoff" value="Sair">
+        </form>
+    }else{
+        <form name="form1" method="post" action="@Url.Action("LoginNovaReserva","Login")">
+            <input type="hidden" name="vooId" value="@ViewBag.vooId"/>
+            <ul>
+                <li> <label>Login: <input name="login" type="text" size="6"></label>  </li>
+                <li> <label>Senha: <input name="senha" type="text" size="6"></label></li>
+                <li> <input type="submit" name="Login" value="OK"> </li> 
+            </ul>
+    </form>
+            
+    }
+</div>  

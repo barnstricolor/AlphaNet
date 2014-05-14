@@ -61,6 +61,9 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Clientes
 
         private ClienteData construir(Cliente cliente) {
 
+            if (cliente == null)
+                return null;
+
             ClienteData data = new ClienteData();
 
             data.clienteId = cliente.clienteId().Id;
