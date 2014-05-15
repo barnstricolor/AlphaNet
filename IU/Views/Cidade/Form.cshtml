@@ -15,10 +15,10 @@
                   <fieldset>
                     <legend>Cadastro de Cidade</legend>
                 <input type="hidden" name="cidadeId" value="@Model.cidadeId"/>
-                <label>Nome:</label><input type="text" name="nome" value="@Model.nome"/>
-                <br>
-                <label>C.E.P.:</label><input type="text" name="cep" value="@Model.cep"/>
-                <br><input type="submit" value="Salvar" /><br /><br />
+                <label>Nome: </label><input type="text" name="nome" value="@Model.nome"/><br />
+              
+                <label>C.E.P.: </label><input type="text" name="cep" value="@Model.cep"/><br />
+               <p> <input type="submit" value="Salvar" /></p>
                       </fieldset>
             </form>
              <a href="@Url.Action("Index","Cidade")"><img src="~/Content/themes/base/images/voltar.png" id="bt-voltar" /></a>  

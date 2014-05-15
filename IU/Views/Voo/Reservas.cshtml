@@ -41,7 +41,7 @@
                         @foreach(var reserva in Model.reservas())
                         {         
                             <tr>
-                                <td>@Html.ActionLink("Cancelar","Cancelar",new {vooId = Model.vooId, clienteId = reserva.clienteId})</td>                                    
+                                <td><a href="@Url.Action("Cancelar",new {vooId = Model.vooId, clienteId = reserva.clienteId})"><img src="~/Content/themes/base/images/excluir.png" id="bt-excluir" /></a></td>                                    
                                 <td>@reserva.clienteNome</td>
                                 <td>@reserva.preco</td>
                                 <td>@reserva.assentos</td>                                
