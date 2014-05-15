@@ -15,6 +15,7 @@ namespace Alphanet.Acesso.Aplicacao.Data
         public string login { get; set; }
         public string senha { get; set; }
         public string papel { get; set; }
+        public string cep { get; set; }
 
         public UsuarioData(string login, string nome, string email)
         {
