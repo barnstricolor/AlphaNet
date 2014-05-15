@@ -129,6 +129,16 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
         public ISet<Reserva> reservas() {
             return this._reservas;
         }
+
+        public bool temReservaParaCliente(ClienteId clienteId)
+        {
+            foreach (Reserva reserva in _reservas)
+            {
+                if (reserva.paraCliente(clienteId))
+                    return true;
+            }
+            return false;
+        }
     }
 
 }

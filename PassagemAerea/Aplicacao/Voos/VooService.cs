@@ -66,6 +66,36 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos
             voo(vooId).cancelarReserva(cliente(clienteId));
         }
 
+        public List<VooReservaData> reservasCliente(string clienteId)
+        {
+            List<VooReservaData> result = new List<VooReservaData>();
+
+            List<Voo> voos = vooRepositorio().voosCliente(new ClienteId(clienteId));
+
+            foreach (Voo voo in voos) {
+                Reserva reserva = voo.obterReservaPeloCliente(cliente(clienteId));
+                result.Add(construirVooReservaData(voo, reserva));
+            }
+
+            return result;
+        }
+        private VooReservaData construirVooReservaData(Voo voo, Reserva reserva) { 
+            VooReservaData result = new VooReservaData();
+
+            result.vooId = voo.vooId().Id;
+            result.aviaoModelo = aviao(voo.aviaoId()).modelo();
+            result.cidadeOrigemNome = cidade(voo.origemId()).nome();
+            result.cidadeDestinoNome = cidade(voo.destinoId()).nome();
+            result.partida = voo.partida();
+            result.clienteId = reserva.clienteId().Id;
+            result.clienteNome = cliente(reserva.clienteId().Id).nome();
+            result.precoReserva = reserva.total();
+            
+            foreach (Assento assento in reserva.assentos())
+                result.assentosReservados += assento.assento()+" ";
+
+            return result;
+        }
         public VooData vooComReservas(string vooId)
         {
             Voo v = voo(vooId);
@@ -97,6 +127,9 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos
         }
         private Aviao aviao(AviaoId aviaoId) {
             return aviaoRepositorio().obterPeloId(aviaoId);
+        }
+        private Cidade cidade(CidadeId cidadeId) {
+            return cidadeRepositorio().obterPeloId(cidadeId);
         }
         public void novaReserva(VooComando comando)
         {
@@ -154,6 +187,7 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos
             data.promocional = voo.promocional();
             return data;
         }
+
 
     }
 }

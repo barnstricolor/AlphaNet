@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AlphaNet.PassagemAerea.Domain.Model.Voos;
+using AlphaNet.PassagemAerea.Domain.Model.Clientes;
 
 namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Memoria
 {
@@ -42,6 +43,18 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Memoria
 
         public void excluir(VooId vooId) {
             store.Remove(vooId.Id);
+        }
+        
+        public List<Voo> voosCliente(ClienteId clienteId)
+        {
+            List<Voo> result = new List<Voo>();
+
+            foreach (Voo voo in store.Values.ToList()) {
+                if (voo.temReservaParaCliente(clienteId))
+                    result.Add(voo);
+            }
+
+            return result;
         }
     }
 }

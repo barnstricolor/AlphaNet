@@ -38,4 +38,19 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos.Data
         public double preco { get; set; }
         public string assentos { get; set; }
     }
+
+    public class VooReservaData
+    {
+        public string vooId { get; set; }
+        public string aviaoModelo { get; set; }
+        public string cidadeOrigemNome { get; set; }
+        public string cidadeDestinoNome { get; set; }
+        public DateTime partida { get; set; }
+        public string clienteId { get; set; }
+        public string clienteNome { get; set; }
+        public double precoReserva { get; set; }
+        public string assentosReservados { get; set; }
+  
+    }
+
 }

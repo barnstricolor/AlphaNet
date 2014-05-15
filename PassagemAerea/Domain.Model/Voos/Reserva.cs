@@ -41,6 +41,10 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
         {
             return cliente.clienteId().Equals(this._clienteId);
         }
+        internal bool paraCliente(ClienteId clienteId)
+        {
+            return clienteId.Equals(this._clienteId);
+        }
         public override bool Equals(object obj)
         {
             if (object.ReferenceEquals(this, obj)) return true;

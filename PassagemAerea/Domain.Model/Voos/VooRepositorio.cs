@@ -1,4 +1,5 @@
-﻿using AlphaNet.PassagemAerea.Domain.Model.Voos;
+﻿using AlphaNet.PassagemAerea.Domain.Model.Clientes;
+using AlphaNet.PassagemAerea.Domain.Model.Voos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
         void limpar();
         void excluir(VooId vooId);
 
+
+        List<Voo> voosCliente(ClienteId clienteId);
     }
 }

@@ -31,8 +31,28 @@ namespace IU.Controllers
             VooService vooService = new VooService();
             return View(vooService.todosVoos());
         }
+        public ActionResult MostrarReservasCliente()
+        {
+            string clienteId = (string)TempData["clienteId"];
 
+            VooService vooService = new VooService();
+            
+            return View("ReservasPessoal", vooService.reservasCliente(clienteId));
+        }
+        public ActionResult MostrarReservasClienteLogado()
+        {
+            if (Session["email"] == null)
+                return RedirectToAction("Index", "Home");
+            
+            ClienteService clienteService = new ClienteService();
 
+            ClienteData cliente = clienteService.clientePorEmail((string)Session["email"]);
+
+            VooService vooService = new VooService();
+
+            return View("ReservasPessoal", vooService.reservasCliente(cliente.clienteId));
+            
+        }
         public ActionResult AlterarPreco(string vooId)
         {
             VooService vooService = new VooService();
@@ -63,7 +83,14 @@ namespace IU.Controllers
 
             return RedirectToAction("Reservas", "Voo", new { vooId = vooId});
         }
+        public ActionResult CancelarReservaPessoal(string vooId, string clienteId)
+        {
+            VooService vooService = new VooService();
 
+            vooService.cancelarReserva(vooId, clienteId);
+
+            return View("ReservasPessoal", vooService.reservasCliente(clienteId));
+        }
 
         public ActionResult Novo()
         {
@@ -155,6 +182,27 @@ namespace IU.Controllers
             ViewBag.voo = voo;
 
             return View("NovaReservaPessoal");
+        }
+        [HttpPost]
+        public ActionResult NovaReservaPessoal(string vooId, string clienteId, int quantidadeAssentos)
+        {
+            VooService vooService = new VooService();
+            List<int> assentosReservados = new List<int>();
+
+            for (int i = 1; i <= quantidadeAssentos; i++)
+            {
+                var assento = Request.Params["chk" + i];
+                if (assento != null && assento.StartsWith("true"))
+                {
+                    assentosReservados.Add(i);
+                }
+            }
+
+            VooComando comando = new VooComando(vooId, clienteId, assentosReservados);
+
+            vooService.novaReserva(comando);
+            TempData["clienteId"] = clienteId;
+            return RedirectToAction("MostrarReservasCliente", "Voo");
         }
 
         public ActionResult NovoCliente(string nome, string email, string vooId) {
