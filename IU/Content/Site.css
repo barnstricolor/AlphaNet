@@ -444,6 +444,18 @@ legend {
     width: 96px;
 }
 
+#bt-voltar {
+    width: 73px;
+   float: right;
+   margin-bottom:3%;
+   
+}
+
+#bt-nova-cidade {
+    width: 96px;
+   
+}
+
 
 #rodape{
 	width: 100%;
@@ -475,6 +487,9 @@ legend {
 	margin:15px auto 0;
 }
 
+Label {
+    font-weight:bold;
+}
 
 @media (max-width: 900px) {
 	#logo{

@@ -9,21 +9,21 @@
             <hgroup class="title">
                 <h1>Lista de Cidades</h1>
             </hgroup>
-            <p>
-                Lista de Cidades Cadastrados
-            </p>
+          
                 <nav>
                     <ul id="menu02">
-                        <li>@Html.ActionLink("Nova Cidade","Nova", "Cidade")</li>
+                        @*<li>@Html.ActionLink("Nova Cidade","Nova", "Cidade")</li>*@
+                        <li><a href="@Url.Action("Nova", "Cidade")"><img src="~/Content/themes/base/images/nova_cidade.png" id="bt-nova-cidade" /></a></li>
                     </ul>
                 </nav>
                 @if (Model != null) {
                     <table>
+                        <caption>Lista de Cidades Cadastrados</caption>
                         @foreach(var cidade in Model)
                         {            
                             <tr>    
-                                <td>@Html.ActionLink("editar","Editar",new {cidadeId = cidade.cidadeId})</td>
-                                <td>@Html.ActionLink("excluir","Excluir",new {cidadeId = cidade.cidadeId})</td>
+                                <td><a href="@Url.Action("Editar",new {cidadeId = cidade.cidadeId})"><img src="~/Content/themes/base/images/editar.png" id="bt-editar" /></a></td>
+                                <td><a href="@Url.Action("Excluir",new {cidadeId = cidade.cidadeId})"><img src="~/Content/themes/base/images/excluir.png" id="bt-excluir" /></a></td>
                                 <td>@cidade.nome</td>
                                 <td>@cidade.cep</td>
                             </tr>        

@@ -9,27 +9,35 @@
             <hgroup class="title">
                 <h1>Reservas</h1>
             </hgroup>
-            <p>
-                Reservas
-            </p>
-                @if (Model != null) {
-                    @Model.aviaoModelo
-                    @Model.cidadeOrigemNome
-                    @Model.cidadeDestinoNome
-                    @Model.partida
-                    @Model.totalAssentos
-                    @Model.reservados
-                 
+           
+          
+
+          
+                @if (Model != null)
+                {
+                    <p>@Html.Label("Modelo: ")@Model.aviaoModelo</p>
+                    <p>@Html.Label("Origem: ")@Model.cidadeOrigemNome</p>
+                    <p>@Html.Label("Destino: ")@Model.cidadeDestinoNome</p>
+                    <p>@Html.Label("Partida: ")@Model.partida</p>
+                    <p>@Html.Label("Total de Assentos: ")@Model.totalAssentos</p>
+                    <p>@Model.reservados</p>
+         
+
                     
                  <div> <a href="@Url.Action("NovaReserva",new {vooId = Model.vooId})"><img src="~/Content/themes/base/images/nova_reserva.png" id="bt-nova-reserva"/></a></div>
                      
-                      <table>
+                   
+                    
+                    <table>
+
+                         @*  POR QUE ESSE CÓDIGO?
                         <tr>
                             <th></th>
                             <th>Cliente</th>
                             <th>Preço</th>
                             <th>Assentos</th>
                         </tr>   
+                    *@
                         @foreach(var reserva in Model.reservas())
                         {         
                             <tr>
@@ -38,9 +46,13 @@
                                 <td>@reserva.preco</td>
                                 <td>@reserva.assentos</td>                                
                             </tr>        
-                        }
+                        }  
+                          
                     </table>
+                    
                 }
+
+            <a href="@Url.Action("Index","vOO")"><img src="~/Content/themes/base/images/voltar.png" id="bt-voltar" /></a>  
         </div>
     </section>
 </div>
