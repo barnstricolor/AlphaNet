@@ -22,13 +22,15 @@
                 @if (Model != null) {
                     <table>
                         <caption> Lista de Aviões Cadastrados</caption>
+                        <tr> <th>Modelo</th><th>Assentos</th><th>Editar</th><th>Excluir</th></tr>
                         @foreach(var aviao in Model)
                         {            
                             <tr>    
-                                <td><a href="@Url.Action("Editar",new {aviaoId = aviao.aviaoId})"><img src="~/Content/themes/base/images/editar.png" id="bt-editar"/></a></td>
-                                <td><a href="@Url.Action("Excluir",new {aviaoId = aviao.aviaoId})"><img src="~/Content/themes/base/images/excluir.png" id="bt-excluir"/></a></td>
+                              
                                 <td>@aviao.modelo</td>
                                 <td>@aviao.assentos</td>
+                                  <td><a href="@Url.Action("Editar",new {aviaoId = aviao.aviaoId})"><img src="~/Content/themes/base/images/editar.png" Alt="Editar" id="bt-editar"/></a></td>
+                                <td><a href="@Url.Action("Excluir",new {aviaoId = aviao.aviaoId})"><img src="~/Content/themes/base/images/excluir.png" id="bt-excluir"/></a></td>
                             </tr>        
                         }
                     </table>

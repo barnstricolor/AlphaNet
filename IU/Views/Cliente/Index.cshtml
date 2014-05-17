@@ -20,14 +20,15 @@
                 @if (Model != null) {
                     <table>
                         <caption>Lista de Clientes Cadastrados</caption>
+                        <tr> <th>Nome</th><th>E-mail</th><th>Editar</th><th>Excluir</th></tr>
                         @foreach(var cliente in Model)
                         {     
-                            @* VERIFICAR CÓDIGO - MANDA PARA A URL http://localhost:51788/Views/Cliente/Index.cshtml*@       
-                            <tr>    
-                               <td><a href="@Url.Action("Editar",new {clienteId = cliente.clienteId})"><img src="~/Content/themes/base/images/editar.png" id="bt-editar"/></a> </td>                               
-                                <td><a href="@Url.Action("Excluir",new {clienteId = cliente.clienteId})"><img src="~/Content/themes/base/images/excluir.png" id="bt-excluir"/></a></td>                             
+                       
+                            <tr>                                  
                                 <td>@cliente.nome</td>
                                 <td>@cliente.email</td>
+                                <td><a href="@Url.Action("Editar",new {clienteId = cliente.clienteId})"><img src="~/Content/themes/base/images/editar.png" id="bt-editar"/></a> </td>                               
+                                <td><a href="@Url.Action("Excluir",new {clienteId = cliente.clienteId})"><img src="~/Content/themes/base/images/excluir.png" id="bt-excluir"/></a></td>                             
                             </tr>        
                         }
                     </table>

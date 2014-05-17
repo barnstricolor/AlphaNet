@@ -19,13 +19,15 @@
                 @if (Model != null) {
                     <table>
                         <caption>Lista de Cidades Cadastrados</caption>
+                         <tr> <th>Cidade</th><th>CEP</th><th>Editar</th><th>Excluir</th></tr>
                         @foreach(var cidade in Model)
                         {            
                             <tr>    
-                                <td><a href="@Url.Action("Editar",new {cidadeId = cidade.cidadeId})"><img src="~/Content/themes/base/images/editar.png" id="bt-editar" /></a></td>
-                                <td><a href="@Url.Action("Excluir",new {cidadeId = cidade.cidadeId})"><img src="~/Content/themes/base/images/excluir.png" id="bt-excluir" /></a></td>
+                                
                                 <td>@cidade.nome</td>
                                 <td>@cidade.cep</td>
+                                <td><a href="@Url.Action("Editar",new {cidadeId = cidade.cidadeId})"><img src="~/Content/themes/base/images/editar.png" id="bt-editar" /></a></td>
+                                <td><a href="@Url.Action("Excluir",new {cidadeId = cidade.cidadeId})"><img src="~/Content/themes/base/images/excluir.png" id="bt-excluir" /></a></td>
                             </tr>        
                         }
                     </table>

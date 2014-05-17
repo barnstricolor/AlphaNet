@@ -384,7 +384,7 @@ border-collapse: collapse;
 }
 
 caption{
-	background-color:#666;
+	background-color:#999;
     height:25px;
     padding:10px;
 	color:#fff;
@@ -393,7 +393,7 @@ caption{
 }
 
 th{
-	background-color:#666;
+	background-color:#ccc;
 	color:#fff;
     font-size: 1.3em;
     }
