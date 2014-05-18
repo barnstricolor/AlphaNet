@@ -117,7 +117,6 @@ h1{
 	margin-top: 0.3%;  
 	margin-left:2%; /* 20px; */
 	float: left;
-    
  
 }
 
@@ -148,9 +147,9 @@ h1{
 .form-login{
 	width: 100%;
 	margin:0;
-	padding: 3%;
+	padding: 1%;
 	float: right;
-	font-size:0.8em; /* 13px; */
+	font-size: 0.8em;
     text-align:center;
 	color:#FFF;
     background-color:#0074bb; 
@@ -160,7 +159,6 @@ h1{
 .form-login a {
     color:#fff;
     font-weight:bold;
-    font-size: 1.5em;
     text-decoration:none;
 }
     
@@ -179,6 +177,7 @@ h1{
 	padding: 5%;
 	font-size:1em; /* 13px; */
     background-color:#a8acad;
+    text-align:center;
     float:right;
     color:#FFF;
    
@@ -192,7 +191,7 @@ h1{
 
 #fca {
     width: 40%;
-    margin: 4% 6% 0 0;
+    margin: 3% 9% 0 0;
 	float: right;
 }
 
@@ -205,7 +204,7 @@ h1{
 
 #nav{
 	width:100%; /* 1000px; */
-    background-color:#c1c1c1;
+    background-color:#ddd;
 	float:left;	
 
 }
@@ -507,13 +506,13 @@ Label {
     background-image:url(themes/base/images/top.jpg);
     
 }
-	#logo{
-		width: 20%; /* 241px; */
-		height: 15%; /* 125px; */
-		margin-top: 0.7%;  
-		margin-left:2%; /* 20px; */
-		float: left;
-	}
+    #logo{
+	    width: 35%; /* 241px; */
+	    margin-top: 0.3%;  
+	    margin-left:2%; /* 20px; */
+	    float: left;
+ 
+    }
     #conteudo{
         width: 100%; /* 1000px; */
         height: 345px; /* 423px; */
@@ -537,11 +536,12 @@ Label {
 }
 
 @media (max-width: 800px) {
-    #logo {
-        margin-top: 0.5%; /* 15px; */
-        margin-left: 0.5%; /* 15px; */
-        position: absolute;
-        font-size: 0.8em;
+    #logo{
+	    width: 40%; /* 241px; */
+	    margin-top: 0.3%;  
+	    margin-left:2%; /* 20px; */
+	    float: left;
+ 
     }
 
         #conteudo{
@@ -580,13 +580,13 @@ Label {
 
 
 @media (max-width: 600px) {
-	#logo{
-		width: 20%; /* 241px; */
-		height: 15%; /* 125px; */
-		margin-top: 0.7%;  
-		margin-left:2%; /* 20px; */
-		float: left;
-	}
+    #logo{
+	    width: 50%; /* 241px; */
+	    margin-top: 0.3%;  
+	    margin-left:2%; /* 20px; */
+	    float: left;
+ 
+    }
         #conteudo{
 	        width: 100%; /* 1000px; */
 	        height: 230px; /* 423px; */
@@ -625,13 +625,13 @@ Label {
 
 }
 @media (max-width: 400px) {
-	#logo{
-		width: 40%; /* 241px; */
-		height: 13%; /* 125px; */
-		margin-top: 0.7%;  
-		margin-left:2%; /* 20px; */
-		float: left;
-	}
+    #logo{
+	    width: 60%; /* 241px; */
+	    margin-top: 0.3%;  
+	    margin-left:2%; /* 20px; */
+	    float: left;
+ 
+    }
 
         #conteudo{
 	    width: 100%; /* 1000px; */
