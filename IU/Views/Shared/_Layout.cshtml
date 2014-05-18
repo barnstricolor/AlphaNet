@@ -24,10 +24,10 @@
 <div id="login">
     <div class="form-login"> 
         @if (Session["login"]!=null){
-            @Html.Label("Usuário: " + Session["login"])
+            @Html.Label("Você está logado com usuário " + Session["login"])
             <form name="form1" method="post" action="@Url.Action("Logoff","Login")">                
               
-                   <input type="submit" name="Logoff" value="Sair">
+                  <p> <input type="submit" name="Logoff" value="Sair"></p>
                      <p> @Html.ActionLink("Administrativo","Index_adm","Home")</p> 
                    
                      </form>

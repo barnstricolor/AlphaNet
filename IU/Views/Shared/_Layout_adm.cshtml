@@ -28,7 +28,7 @@
         @if (Session["login"]!=null){
             @Html.Label("Usuario: " + Session["login"]) 
             <form name="form1" method="post" action="@Url.Action("Logoff","Login")">
-                <input type="submit" name="Logoff" value="Sair">
+             <p>  <input type="submit" name="Logoff" value="Sair"></p> 
                <p> @Html.ActionLink("Público","Index","Home")</p>
             </form>          
         }
