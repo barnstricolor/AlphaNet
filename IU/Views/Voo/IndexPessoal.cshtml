@@ -4,13 +4,15 @@
 }
 
 <div id="body">
+    
     <section class="featured">
-        <div class="content-wrapper">
-            <hgroup class="title">
-                <h1>Lista de Voos</h1>
-            </hgroup>
+    
+          <div id="conteudo">
+            <div id="conteudo-central">
+             
                 @if (Model != null) {
                     <table border="0">
+                        <caption>Lista de Voos</caption>
                         <tr>
                             <th>Modelo</th>
                             <th>Origem</th>
@@ -18,7 +20,7 @@
                             <th>Partida</th>
                             <th>Reservados</th>
                             <th>Preço</th>
-                            <th></th>
+                            <th>Nova Reserva</th>
                         </tr>   
 
                         @foreach(var voo in Model)
@@ -36,5 +38,7 @@
                     </table>
                 }
         </div>
+              </div>
+</div>
     </section>
 </div>

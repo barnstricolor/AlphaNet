@@ -32,26 +32,25 @@
                 @Html.ActionLink("Público","Index","Home")
             </form>          
         }
-    </div>  
+ 
 </div>
-
+    </div>
 
 <div id="fca"><img src="/Content/themes/base/images/fca.png"></div>
   
     </div>
 
-  
+
 
 <div id="nav">
 
-<div id="usuarios"><a href="@Url.Action("Index", "Usuario")"><img src="/Content/themes/base/images/usuarios.png" border="0"></a></div>
-<div id="aviao"><a href="@Url.Action("Index","Aviao")"><img src="/Content/themes/base/images/aviao.png" border="0"></a></div>
-<div id="cliente"><a href="@Url.Action("Index","Cliente")"><img src="/Content/themes/base/images/cliente.png" border="0"></a></div>
-<div id="voo"><a href="@Url.Action("Index","Voo")"><img src="/Content/themes/base/images/voo.png" border="0"></a></div>
-<div id="cidade"><a href="@Url.Action("Index","Cidade")"><img src="/Content/themes/base/images/cidade.png" border="0"></a></div>
-<div id="relatorios"><a href="@Url.Action("Index","Relatorios")"><img src="/Content/themes/base/images/relatorios.png" border="0"></a></div>
+<div class="botao-adm">@Html.ActionLink("USUÁRIO","Index","Usuario")</div>
+<div class="botao-adm">@Html.ActionLink("AVIÃO","Index","Aviao")</div>
+<div class="botao-adm">@Html.ActionLink("CLIENTE","Index","Cliente")</div>
+<div class="botao-adm">@Html.ActionLink("VOO","Index","Voo")</div>
+<div class="botao-adm">@Html.ActionLink("CIDADE","Index","Cidade")</div>
+<div class="botao-adm">@Html.ActionLink("RELATÓRIOS","Index","Relatorios")</div>
 </div>
-
     
  <div id="conteudo">
 

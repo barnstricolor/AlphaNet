@@ -66,10 +66,10 @@ textarea {
 body{
 	background-color: #efefef;	
 	margin:0px auto 0px;
-  
-    background-attachment:fixed;
-    background-repeat:no-repeat;
+    background-image:url(../Content/themes/base/images/top.jpg);
     background-position-x:center;
+    background-repeat:no-repeat; 
+
 }
 
 img, embed, object, video {
@@ -89,8 +89,6 @@ html {
 h1{
 	font-size:1.5em;
 	color:#003366;
-
-
 }
 
 #container{
@@ -102,8 +100,9 @@ h1{
 
 #top{
 	width: 100%; /* 1000px; */
-	height: 136px; /* 138px; */
-    background-image:url(themes/base/images/top.jpg);
+    height:136px;
+    background-color:#ddd;
+    background-image:url(../Content/themes/base/images/top.jpg);
     
 }
 
@@ -112,48 +111,69 @@ h1{
 	margin-top: 0.3%;  
 	margin-left:2%; /* 20px; */
 	float: left;
+    
  
 }
+
+#fca {
+    width: 40%;
+    margin: 4% 6% 0 0;
+	float: right;
+   
+}
+
 #logo_adm{
 	width: 24.1%; /* 241px; */
-	margin-top: 0.3%;  
+	margin-top: 0;  
 	margin-left:2%; /* 20px; */
-	float: left;
+    float:left;
+
+ 
  
 }
 #login{
-	width: 36%; /* 418px; */
-	height: 47%; /* 75px; */
+	width: 30%; /* 418px; */
+	height: 15%; /* 75px; */
 	margin:0;
 	float: right;
 
 }
 
 .form-login{
-	width: 88%;
-	margin: 0;
-	padding: 2%;
+	width: 100%;
+	margin:0;
+	padding: 3%;
 	float: right;
 	font-size:0.8em; /* 13px; */
-	color:#FFF;
-	background-color:#0074bb; 
-   
-}
-#topo-login{
-    width: 15%;
-    background-color: #f00;
-    float: right;
-    background-color:#0074bb;
-}
-.form-login-adm{
-	width: 80%;
-	margin: 0;
-	padding: 5%;
-	float: right;
-	font-size:1.2em; /* 13px; */
+    text-align:center;
 	color:#FFF;
     background-color:#0074bb; 
 
+   
+}
+.form-login a {
+    color:#fff;
+    font-weight:bold;
+    font-size: 1.5em;
+    text-decoration:none;
+}
+    
+
+#topo-login{
+    width: 20%;
+    float: right;
+    background-color:#0074bb; 
+    background-image:url(../Content/themes/base/images/top.jpg);
+
+}
+.form-login-adm{
+	width: 88%;
+	margin: 0;
+	padding: 5%;
+	font-size:1.2em; /* 13px; */
+	color:#FFF;
+    background-color:#0074bb;
+    float:right;
    
 }
 
@@ -166,92 +186,66 @@ h1{
 
 .form-login li{
 	display:inline;
-	float:left;
 	padding:1%;
-	
-	
 }
 
 
 #nav{
 	width:100%; /* 1000px; */
-	height:57px; /* 57x; */
-    background-image:url(themes/base/images/filet_menu.jpg);
-    background-color:#ddd;
-	display:inline;
+    background-color:#c1c1c1;
 	float:left;	
-	margin:0;
-    padding:0px;
 
 }
-#home{
-	width: 84px; /* 138px; */
-	height: 57px; /* 57px; */
-	float: left;
+
+.botao {
+	display: inline-block;
+	background-color: #fff;
+	background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,.30));
+	padding: 2% 5.72%;
+	font-size: 0.8em;
+	border: 0px;
 }
 
-#institucional{
-	width: 131px; /* 138px; */
-	height: 57px; /* 57px; */
-	float: left;
-    margin:0px;
-    padding:0px;
-    line-height: 24px;
-    	
+.botao a {
+	text-decoration: none;
+    color: #333;
+ }
+
+.botao:hover {
+	background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,.60));
+	color:#cc3300;
 }
 
-#voeja{
-	width: 88px; /* 78px; */
-	height: 57px; /* 57px; */
-	float: left;
-    margin:0px;
-    padding:0px;
-   
+#nav-adm{
+	width:100%; /* 1000px; */
+    background-color:#ccc;
+	float:left;	
+
 }
 
-#promocoes{
-	width: 119px; /* 119px; */
-	height: 57px; /* 57px; */
-	float: left;
-     margin:0px;
-     padding:0px;
-    	
+.botao-adm {
+	display: inline-block;
+	background-color: #ccc;
+	background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,.30));
+	padding: 2% 6%;
+	font-size: 0.8em;
+	border: 0px;
 }
 
-#reservas{
-	width: 151px; /* 143px; */
-	height: 57px; /* 57px; */
-	float: left;
-    padding:0px;
-}
+.botao-adm a {
+	text-decoration: none;
+    color: #fff;
+    font-weight:bold;
+ }
 
-#dicas{
-	width: 151px; /* 144px; */
-	height: 57px; /* 57px; */
-	float: left;
-     margin:0px;
-     padding:0px;
-}
-
-#cadastre{
-	width: 123px; /* 113px; */
-	height: 57px; /* 57px; */
-	float: left;
-     margin:0px;
-     padding:0px;
-}
-
-#contato{
-	width: 96px; /* 89px; */
-	height: 57px; /* 57px; */
-	float: left;
-     margin:0px;
-     padding:0px;
+.botao-adm:hover {
+	color:#cc3300;
+    background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,.60));
 }
 
 #facebook{
 	width: 66px; /* 66px; */
-	height: 57px; /* 57px; */
+	height: 5.7%; /* 57px; */
 	float: left;
      margin:0px;
      padding:0px;
@@ -268,7 +262,7 @@ h1{
 
 #youtube{
 	width: 61px; /* 61px; */
-	height: 57px; /* 57px; */
+	height: 5.7%; /* 57px; */
 	float: left;
      margin:0px;
      padding:0px;
@@ -286,37 +280,6 @@ h1{
 }
 
 
-#usuarios{
-	width: 13.8%; /* 143px; */
-	height: 57px; /* 57px; */
-	float: left;
-}
-
-#aviao{
-	width: 18.5%; /* 143px; */
-	height: 57px; /* 57px; */
-	float: left;
-}
-#cliente{
-	width: 17.3%; /* 143px; */
-	height: 57px; /* 57px; */
-	float: left;
-}
-#voo{
-	width: 17.6%; /* 143px; */
-	height: 57px; /* 57px; */
-	float: left;
-}
-#cidade{
-	width: 16.4%; /* 143px; */
-	height: 57px; /* 57px; */
-	float: left;
-}
-#relatorios{
-	width: 16.4%; /* 143px; */
-	height: 57px; /* 57px; */
-	float: left;
-}
 #conteudo{
 	width: 100%; /* 1000px; */
 	margin: 0px;
@@ -331,6 +294,7 @@ h1{
 	font-size: 13px;
 	color:#333;
 	text-align:justify;
+    background-color: #fff;
 }
 
 #banner{
@@ -341,11 +305,12 @@ h1{
 
 #fundo_branco{
 	width: 20%; /* 270px; */ 
-	height: 30%; /* 390px; */
+	height: 55%; /* 390px; */
 	margin-top: 1.7%; /* 15px; */
 	margin-left: 1.7%; /* 15px; */
 	position: absolute;
 	font-size:0.8em;
+    background-color: rgba(255, 255, 255, 0.70);
 }
 #titulo{
 	background:#999;
@@ -364,7 +329,7 @@ h1{
 	padding: 4%;
 	float: right;
 	font-size:0.8em; /* 13px; */
-	background-color: rgba(255, 255, 255, 0.60);
+	
 	
 }
 
@@ -379,8 +344,7 @@ table{
 	width: 100%;
 	background-color:#fff;
 	border-color:#FFF;
-border-collapse: collapse;
-
+    border-collapse: collapse;
 }
 
 caption{
@@ -405,7 +369,9 @@ th, td {
 	padding:10px;
 	margin: 10px;
     text-align: center;
+
 }
+
 fieldset {
     width: 600px;
     margin:2% auto;
@@ -455,7 +421,9 @@ legend {
 #bt-voltar {
     width: 73px;
    float: right;
+   margin-top: 2%;
    margin-bottom:3%;
+
    
 }
 
@@ -474,12 +442,21 @@ legend {
 	background-image:url(themes/base/images/filet_rodape.jpg);
 }
 #rodape-texto{
-	font:Verdana, Geneva, sans-serif;
-	font-size: 0.92em;
+font-size: 0.92em;
 	font-weight:bold;
 	color:#808080;
 	text-align: center;
-	margin: 15px 0 0 0;
+	margin: 5x 0 0 0;
+}
+#rodape-adm {
+   background-color:#fff;
+    background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,.60));
+}
+#rodape-adm-texto {
+    color:#fff;
+    font-weight:bold;
+    text-align: center;
+    padding: 2%;
 }
 
 #desenvolvimento{
@@ -501,6 +478,13 @@ Label {
 }
 
 @media (max-width: 900px) {
+
+    #top{
+	width: 100%; /* 1000px; */
+    height:15%;
+    background-image:url(themes/base/images/top.jpg);
+    
+}
 	#logo{
 		width: 20%; /* 241px; */
 		height: 15%; /* 125px; */
@@ -517,15 +501,17 @@ Label {
   }
 
 
-        #fundo_branco{
+     #fundo_branco{
 	        width: 35%; /* 270px; */ 
 	        height: 2%; /* 390px; */
 	        margin-top: 1%; /* 15px; */
 	        margin-left: 1%; /* 15px; */
 	        position: absolute;
 	        font-size:0.8em;
-            }
+   }
 
+     .botao {
+	  padding: 3% 6%;
 }
 
 @media (max-width: 800px) {
@@ -563,8 +549,13 @@ Label {
             float:left;
             font-size:1.5em;
     }
+        .botao {
+	  padding: 4% 7%;
+}
+
 
 }
+
 
 @media (max-width: 600px) {
 	#logo{
@@ -606,6 +597,9 @@ Label {
             float:left;
             font-size:1.5em;
     }
+        .botao {
+	  padding: 5% 8%;
+}
 
 }
 @media (max-width: 400px) {
@@ -640,6 +634,8 @@ Label {
         font-size: 0.8em; /* 13px; */
         background-color: rgba(239, 239, 239, 0.90);
     }
-
+       .botao {
+	  padding: 6% 9%;
+}
 }
 

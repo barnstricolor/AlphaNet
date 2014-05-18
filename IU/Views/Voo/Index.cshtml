@@ -16,28 +16,30 @@
                 </nav>
                 @if (Model != null) {
                     <table border="0">
+                        <caption>Lista de Voos</caption>
                         <tr>
-                            <th></th>
                             <th>Modelo</th>
                             <th>Origem</th>
                             <th>Destino</th>
                             <th>Partida</th>
                             <th>Reservados</th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
+                            <th>Preço</th>
+                            <th>Nova Reserva</th>
+                            <th>Mapa Assentos</th>
+                            <th>Excluir</th>
                         </tr>   
 
                         @foreach(var voo in Model)
                         {            
                             <tr>    
                               
-                                <td><a href="@Url.Action("Excluir",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/excluir.png" id="bt-excluir" /></a></td>
+                               
                                 <td>@voo.aviaoModelo</td>
                                 <td>@voo.cidadeOrigemNome</td>
                                 <td>@voo.cidadeDestinoNome</td>
                                 <td>@voo.partida</td>
-                                <td>@voo.reservados/@voo.totalAssentos</td>                               
+                                <td>@voo.reservados/@voo.totalAssentos</td>     
+                                 
                                 
                                 @if (voo.promocional){
                                     <td>@Html.ActionLink("(*)  "+voo.preco.ToString(),"AlterarPreco",new {vooId = voo.vooId})</td>
@@ -51,8 +53,8 @@
                                <td><a href="@Url.Action("NovaReserva","Voo",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/nova_reserva.png" id="bt-nova-reserva"/></a></td>
 
                                @* <td>@Html.ActionLink("Reservas","Reservas",new {vooId = voo.vooId})</td>*@
-                                 <td><a href="@Url.Action("Reservas","Voo",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/reserva.png" id="bt-reserva" /></a></td>
-
+                                 <td><a href="@Url.Action("Reservas","Voo",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/mapa_assentos.png" id="bt-reserva" /></a></td>
+                                <td><a href="@Url.Action("Excluir",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/excluir.png" id="bt-excluir" /></a></td>                          
                                 
                             </tr>        
                         }

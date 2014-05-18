@@ -24,12 +24,11 @@
 <div id="login">
     <div class="form-login"> 
         @if (Session["login"]!=null){
-            @Html.Label("usuario:" + Session["login"])
+            @Html.Label("Usuário: " + Session["login"])
             <form name="form1" method="post" action="@Url.Action("Logoff","Login")">                
-                <input type="submit" name="Logoff" value="Sair">
-                <ul>
-                    <li>
-                        @Html.ActionLink("Administrativo","Index_adm","Home")
+               <ul>
+                   <li><input type="submit" name="Logoff" value="Sair"></li>
+                    <li>    @Html.ActionLink("Administrativo","Index_adm","Home")
                     </li>
                 </ul>
             </form>
@@ -37,8 +36,8 @@
         }else{
             <form name="form1" method="post" action="@Url.Action("Login","Login")">
                 <ul>
-                    <li> <label>Login: <input name="login" type="text" size="6"></label>  </li>
-                    <li> <label>Senha: <input name="senha" type="text" size="6"></label></li>
+                    <li> <label>Login: <input name="login" type="text" size="4"></label>  </li>
+                    <li> <label>Senha: <input name="senha" type="text" size="4"></label></li>
                     <li> <input type="submit" name="Login" value="OK"> </li> 
                 </ul>
         </form>
@@ -50,10 +49,11 @@
 
 
 
-    
+ @*   
 <div id="nav">
 
-<div id="home"><a href="@Url.Action("Index","Home")"><img src="/Content/themes/base/images/home.png" border="0"></a></div>
+
+    <div id="home"><a href="@Url.Action("Index","Home")"><img src="/Content/themes/base/images/home.png" border="0"></a></div>
 <div id="institucional"><a href="@Url.Action("Index","Institucional")"><img src="/Content/themes/base/images/institucional.png" border="0"></a></div>
 <div id="voeja"><a href="@Url.Action("IndexPessoal","Voo")"><img src="/Content/themes/base/images/voeja.png" border="0"></a></div>
 <div id="reservas"><a href="@Url.Action("MostrarReservasClienteLogado","Voo")"><img src="/Content/themes/base/images/reservas.png" border="0"></a></div>
@@ -65,8 +65,18 @@
 <div id="youtube"><a href="#"><img src="/Content/themes/base/images/youtube.png" border="0"></a></div>
 
 </div>
+*@
+   <div id="nav">
 
-    
+
+<div class="botao">@Html.ActionLink("HOME","Index","Home")</div>
+<div class="botao">@Html.ActionLink("INSTITUCIONAL","Index","Institucional")</div>
+<div class="botao">@Html.ActionLink("VOE JÁ","IndexPessoal","Voo")</div>
+<div class="botao">@Html.ActionLink("RESERVA","MostrarReservasClienteLogado","Voo")</div>
+<div class="botao">@Html.ActionLink("CADASTRE-SE","Index","CadastreSe")</div>
+<div class="botao">@Html.ActionLink("DICAS","Index","Dicas")</div>
+
+</div> 
 
 
 
