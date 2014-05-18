@@ -105,6 +105,12 @@ h1{
     background-image:url(../Content/themes/base/images/top.jpg);
     
 }
+#top-adm{
+	width: 100%; /* 1000px; */
+    height:136px;
+    background-color:rgba(255, 255, 255, 0.70);
+    
+}
 
 #logo{
 	width: 24.1%; /* 241px; */
@@ -166,14 +172,21 @@ h1{
     background-image:url(../Content/themes/base/images/top.jpg);
 
 }
+
 .form-login-adm{
-	width: 88%;
+	width: 100%;
 	margin: 0;
 	padding: 5%;
-	font-size:1.2em; /* 13px; */
-	color:#FFF;
-    background-color:#0074bb;
+	font-size:1em; /* 13px; */
+    background-color:#a8acad;
     float:right;
+    color:#FFF;
+   
+}
+.form-login-adm a{
+    color:#FFF;
+	text-decoration:none;
+    font-weight:bold;
    
 }
 
@@ -212,7 +225,7 @@ h1{
  }
 
 .botao:hover {
-	background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,.60));
+	background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,.45));
 	color:#cc3300;
 }
 
@@ -225,9 +238,9 @@ h1{
 
 .botao-adm {
 	display: inline-block;
-	background-color: #ccc;
+	background-color: #ddd;
 	background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,.30));
-	padding: 2% 6%;
+	padding: 2% 6.05%;
 	font-size: 0.8em;
 	border: 0px;
 }
@@ -240,12 +253,12 @@ h1{
 
 .botao-adm:hover {
 	color:#cc3300;
-    background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,.60));
+    background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,.45));
 }
 
 #facebook{
-	width: 66px; /* 66px; */
-	height: 5.7%; /* 57px; */
+	width: 49px; /* 66px; */
+	height: 47px; /* 57px; */
 	float: left;
      margin:0px;
      padding:0px;
@@ -253,7 +266,7 @@ h1{
 
 #twitter{
 	width: 49px; /* 49px; */
-	height: 57px; /* 57px; */
+	height: 47px; /* 57px; */
 	float: left;
      margin:0px;
      padding:0px;
@@ -261,8 +274,8 @@ h1{
 }
 
 #youtube{
-	width: 61px; /* 61px; */
-	height: 5.7%; /* 57px; */
+	width: 58px; /* 61px; */
+	height: 47px; /* 57px; */
 	float: left;
      margin:0px;
      padding:0px;
@@ -419,7 +432,7 @@ legend {
 }
 
 #bt-voltar {
-    width: 73px;
+   width: 73px;
    float: right;
    margin-top: 2%;
    margin-bottom:3%;
@@ -436,10 +449,9 @@ legend {
 
 #rodape{
 	width: 100%;
-	height: 48px;
-	margin:0px auto;
 	float:left;
-	background-image:url(themes/base/images/filet_rodape.jpg);
+	background-color: #fff;
+	background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,.30));
 }
 #rodape-texto{
 font-size: 0.92em;
@@ -449,15 +461,23 @@ font-size: 0.92em;
 	margin: 5x 0 0 0;
 }
 #rodape-adm {
-   background-color:#fff;
-    background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,.60));
+    width: 100%;
+    height: 47px;
+    float:left;
+    display: inline;
+    background-color:#acb1b4;
+
+
 }
 #rodape-adm-texto {
     color:#fff;
+    height: 47px;
     font-weight:bold;
     text-align: center;
-    padding: 2%;
+    margin-top: 10px;
+
 }
+
 
 #desenvolvimento{
 	width: 190px; /* 253px; */
@@ -466,11 +486,13 @@ font-size: 0.92em;
 }
 
 #direitos{
+    width: 62.4%;
 	font-size:0.9em;
 	font-weight:bold;
 	color:#666;
 	text-align:center;
 	margin:15px auto 0;
+    float:left;
 }
 
 Label {

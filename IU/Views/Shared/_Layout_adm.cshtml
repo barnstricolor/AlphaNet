@@ -19,17 +19,17 @@
 
 <div id="container">
 
-<div id="top">
+<div id="top-adm">
 <div id="logo_adm"><a href="index.asp"><img src="/Content/themes/base/images/logo_alphanet.png" alt="Alphanet" border="0" ></a></div>
 
     
     <div id="topo-login">
  <div class="form-login-adm"> 
         @if (Session["login"]!=null){
-            @Html.Label("usuario:" + Session["login"])
+            @Html.Label("Usuario: " + Session["login"]) 
             <form name="form1" method="post" action="@Url.Action("Logoff","Login")">
                 <input type="submit" name="Logoff" value="Sair">
-                @Html.ActionLink("Público","Index","Home")
+               <p> @Html.ActionLink("Público","Index","Home")</p>
             </form>          
         }
  
@@ -66,8 +66,8 @@
 
 
 
-<div id="rodape">
-<div id="rodape-texto">Desenvolvimento de Sistemas Web</div>
+<div id="rodape-adm">
+<div id="rodape-adm-texto">Desenvolvimento de Sistemas Web</div>
 </div>
 
 
