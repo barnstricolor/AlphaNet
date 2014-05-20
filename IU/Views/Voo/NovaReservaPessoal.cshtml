@@ -12,23 +12,28 @@
             <hgroup class="title">
                 <h1>Reserva</h1>
             </hgroup>
-            <p>
-                Nova Reserva
-            </p>
+         
             <form method="post" action="NovaReservaPessoal">
+                <fieldset>
+                    <legend>Nova Reserva</legend> 
           
                 <input type="hidden" name="vooId" value="@ViewBag.voo.vooId" />
                 <input type="hidden" name="quantidadeAssentos" value="@ViewBag.mapaAssentos.Count"/>
                 <input type="hidden" name="clienteId" value="@ViewBag.clienteId"/>
                 @Html.Label("Voo ")
-                @ViewBag.voo.aviaoModelo 
-                @ViewBag.voo.cidadeOrigemNome
-                @ViewBag.voo.cidadeDestinoNome
-                @ViewBag.voo.partida
+                @Html.Label("Modelo: ")
+                @ViewBag.voo.aviaoModelo <br />
+                @Html.Label("Cidade de Origem: ")
+                @ViewBag.voo.cidadeOrigemNome<br />
+                @Html.Label("Cidade de Destino: ")
+                @ViewBag.voo.cidadeDestinoNome<br />
+                @Html.Label("Horário de Partida: ")
+                @ViewBag.voo.partida<br />
 
-                @Html.Label("Cliente ")
-                @ViewBag.nome 
-                @ViewBag.email
+                @Html.Label("Cliente: ")
+                @ViewBag.nome <br />
+                @Html.Label("E-mail: ")
+                @ViewBag.email  <br />     
                 @foreach (AlphaNet.PassagemAerea.Aplicacao.Voos.Data.AssentoData assento in ViewBag.mapaAssentos)
                 {
                     if (assento.reservado){
@@ -37,8 +42,8 @@
                         @Html.Raw(" [" + assento.numero.ToString() + "]")@Html.CheckBox( "chk" + assento.numero.ToString())
                     }
                 }
-                <br><input type="submit" value="Salvar" />
-
+                <br><br />  <input type="submit" value="Salvar" />
+                    </fieldset>
             </form>
         </div>
     </section>
