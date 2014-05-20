@@ -38,8 +38,10 @@
                                 <td><a href="@Url.Action("CancelarReservaPessoal", new { vooId = voo.vooId, clienteId = voo.clienteId })"><img src="~/Content/themes/base/images/excluir.png" id="bt-excluir" /></a></td>
                             </tr>        
                         }
+                        
                     </table>
                 }
+            <a href="@Url.Action("IndexPessoal","Voo")"><img src="~/Content/themes/base/images/voltar.png" id="bt-voltar" /></a>  
         </div>
     </section>
 </div>
