@@ -228,7 +228,9 @@ h1{
 	color:#cc3300;
 }
 
-
+.bullet {
+    width: 7px;
+}
 
 #nav-adm{
 	width:100%; /* 1000px; */
