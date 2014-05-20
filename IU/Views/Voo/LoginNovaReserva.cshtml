@@ -4,22 +4,35 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     
 }
+	<div id="conteudo">
 
-<div class="form-login"> 
+         <div id="conteudo-central">
+
+<div class="form-login-dois"> 
+
     @if (Session["login"]!=null){
-        @Html.Label("usuario:" + Session["login"])
+       
+              @Html.Label("usuario:" + Session["login"])
         <form name="form1" method="post" action="@Url.Action("Logoff","Login")">
+             <fieldset>
+                    <legend>Faça seu Login</legend> 
             <input type="submit" name="Logoff" value="Sair">
+             </fieldset>
         </form>
     }else{
         <form name="form1" method="post" action="@Url.Action("LoginNovaReserva","Login")">
+
+            <fieldset>
+                    <legend>Faça seu Login</legend> 
             <input type="hidden" name="vooId" value="@ViewBag.vooId"/>
-            <ul>
-                <li> <label>Login: <input name="login" type="text" size="6"></label>  </li>
-                <li> <label>Senha: <input name="senha" type="text" size="6"></label></li>
-                <li> <input type="submit" name="Login" value="OK"> </li> 
-            </ul>
+          
+                 <label>Usuário: <input name="login" type="text" size="6"></label>  <br />
+                <label>Senha: <input name="senha" type="text" size="6"></label><br /><br />
+               <input type="submit" name="Login" value="OK"> 
+            </fieldset>
     </form>
-            
+       
     }
 </div>  
+</div>
+        </div>
