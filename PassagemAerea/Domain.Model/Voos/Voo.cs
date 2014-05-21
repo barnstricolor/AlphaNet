@@ -5,6 +5,7 @@ using System.Text;
 using AlphaNet.PassagemAerea.Domain.Model.Avioes;
 using AlphaNet.PassagemAerea.Domain.Model.Cidades;
 using AlphaNet.PassagemAerea.Domain.Model.Clientes;
+using AlphaNet.Common.Domain.Model;
 
 namespace AlphaNet.PassagemAerea.Domain.Model.Voos
 {
@@ -116,6 +117,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
         {
             this._preco = preco;
             this._promocional = true;
+            DomainEventPublisher.Instance.Publish(new PrecoPromocionalDefinido(this));
         }
         public bool promocional() {
             return this._promocional;

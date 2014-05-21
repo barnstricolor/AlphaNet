@@ -1,4 +1,6 @@
-﻿using AlphaNet.PassagemAerea.Aplicacao.Voos.Data;
+﻿using AlphaNet.Common.Domain.Model;
+using AlphaNet.Common.Port.Adapters;
+using AlphaNet.PassagemAerea.Aplicacao.Voos.Data;
 using AlphaNet.PassagemAerea.Domain.Model;
 using AlphaNet.PassagemAerea.Domain.Model.Avioes;
 using AlphaNet.PassagemAerea.Domain.Model.Cidades;
@@ -12,8 +14,31 @@ using System.Threading.Tasks;
 
 namespace AlphaNet.PassagemAerea.Aplicacao.Voos
 {
+    public class PrecoPromocionalDefinidoAssinante : IDomainEventSubscriber<IDomainEvent> {
+        void IDomainEventSubscriber<IDomainEvent>.HandleEvent(IDomainEvent domainEvent)
+        {
+            PrecoPromocionalDefinido evento = (PrecoPromocionalDefinido) domainEvent;
+
+            Email email = new Email();
+            email.enviar("ricardo@hadrion.com.br","Voo Promocional: " + evento.voo.preco());
+
+            Twitter twitter = new Twitter();
+            twitter.postar("Voo Promocional: " + evento.voo.preco());
+        }
+
+        Type IDomainEventSubscriber<IDomainEvent>.SubscribedToEventType()
+        {
+            return Type.GetType("AlphaNet.PassagemAerea.Domain.Model.Voos.PrecoPromocionalDefinido");
+        }
+    }
+    
     public class VooService
     {
+        public VooService() {
+            PrecoPromocionalDefinidoAssinante assinante = new PrecoPromocionalDefinidoAssinante();
+            DomainEventPublisher.Instance.Subscribe(assinante);
+        }
+        
         public List<AssentoData> mapaAssentos(string vooId)
         {            
             Voo voo = vooRepositorio().obterPeloId(new VooId(vooId));
