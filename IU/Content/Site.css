@@ -507,61 +507,60 @@ Label {
 
 @media (max-width: 900px) {
 
-    #top{
-	width: 100%; /* 1000px; */
-    height:15%;
-    background-image:url(themes/base/images/top.jpg);
-    
-}
-    #logo{
-	    width: 35%; /* 241px; */
-	    margin-top: 0.3%;  
-	    margin-left:2%; /* 20px; */
-	    float: left;
- 
+    #top {
+        width: 100%; /* 1000px; */
+        height: 15%;
+        background-image: url(themes/base/images/top.jpg);
     }
-    #conteudo{
+
+    #logo {
+        width: 35%; /* 241px; */
+        margin-top: 0.3%;
+        margin-left: 2%; /* 20px; */
+        float: left;
+    }
+
+    #conteudo {
         width: 100%; /* 1000px; */
         height: 345px; /* 423px; */
         margin: 0;
-        float:left;
+        float: left;
         position: relative;
-  }
-
-
-     #fundo_branco{
-	        width: 35%; /* 270px; */ 
-	        height: 2%; /* 390px; */
-	        margin-top: 1%; /* 15px; */
-	        margin-left: 1%; /* 15px; */
-	        position: absolute;
-	        font-size:0.8em;
-   }
-
-     .botao {
-	  padding: 3% 6%;
-}
-
-@media (max-width: 800px) {
-    #logo{
-	    width: 40%; /* 241px; */
-	    margin-top: 0.3%;  
-	    margin-left:2%; /* 20px; */
-	    float: left;
- 
     }
 
-        #conteudo{
-	        width: 100%; /* 1000px; */
-	        height: 310px; /* 423px; */
-	        margin: 0;
-	        float:left;
-	        position: relative;   
-       
-}
-        #fundo_branco{
-	        width:50%; /* 270px; */ 
-	        height: 4%; /* 390px; */
+
+    #fundo_branco {
+        width: 35%; /* 270px; */
+        height: 2%; /* 390px; */
+        margin-top: 1%; /* 15px; */
+        margin-left: 1%; /* 15px; */
+        position: absolute;
+        font-size: 0.8em;
+    }
+
+    .botao {
+        padding: 3% 6%;
+    }
+
+    @media (max-width: 800px) {
+        #logo {
+            width: 40%; /* 241px; */
+            margin-top: 0.3%;
+            margin-left: 2%; /* 20px; */
+            float: left;
+        }
+
+        #conteudo {
+            width: 100%; /* 1000px; */
+            height: 310px; /* 423px; */
+            margin: 0;
+            float: left;
+            position: relative;
+        }
+
+        #fundo_branco {
+            width: 50%; /* 270px; */
+            height: 4%; /* 390px; */
         }
 
         #form-busca {
@@ -571,45 +570,44 @@ Label {
             float: right;
             font-size: 0.8em; /* 13px; */
             background-color: rgba(255, 255, 255, 0.50);
-    }
-         .form-busca li{
-            list-style:none;
+        }
+
+        .form-busca li {
+            list-style: none;
             margin: 1%;
-            float:left;
-            font-size:1.5em;
-    }
+            float: left;
+            font-size: 1.5em;
+        }
+
         .botao {
-	  padding: 4% 7%;
-}
-
-
-}
-
-
-@media (max-width: 600px) {
-    #logo{
-	    width: 50%; /* 241px; */
-	    margin-top: 0.3%;  
-	    margin-left:2%; /* 20px; */
-	    float: left;
- 
+            padding: 4% 7%;
+        }
     }
-        #conteudo{
-	        width: 100%; /* 1000px; */
-	        height: 230px; /* 423px; */
-	        margin: 0;
-	        float:left;
-	        position: relative;  
-   
- }
-        
-        #fundo_branco{
-	        width:98%; /* 270px; */ 
-	        height: 3%; /* 390px; */
-	        margin-top: 0.5%; /* 15px; */
-	        margin-left: 0.5%; /* 15px; */
-	        position: absolute;
-	        font-size:0.8em;
+
+
+    @media (max-width: 600px) {
+        #logo {
+            width: 50%; /* 241px; */
+            margin-top: 0.3%;
+            margin-left: 2%; /* 20px; */
+            float: left;
+        }
+
+        #conteudo {
+            width: 100%; /* 1000px; */
+            height: 230px; /* 423px; */
+            margin: 0;
+            float: left;
+            position: relative;
+        }
+
+        #fundo_branco {
+            width: 98%; /* 270px; */
+            height: 3%; /* 390px; */
+            margin-top: 0.5%; /* 15px; */
+            margin-left: 0.5%; /* 15px; */
+            position: absolute;
+            font-size: 0.8em;
         }
 
         #form-busca {
@@ -619,52 +617,55 @@ Label {
             float: right;
             font-size: 0.8em; /* 13px; */
             background-color: rgba(239, 239, 239, 0.90);
-    }
-         .form-busca li{
-            list-style:none;
+        }
+
+        .form-busca li {
+            list-style: none;
             margin: 1%;
-            float:left;
-            font-size:1.5em;
-    }
+            float: left;
+            font-size: 1.5em;
+        }
+
         .botao {
-	  padding: 5% 8%;
-}
-
-}
-@media (max-width: 400px) {
-    #logo{
-	    width: 60%; /* 241px; */
-	    margin-top: 0.3%;  
-	    margin-left:2%; /* 20px; */
-	    float: left;
- 
+            padding: 5% 8%;
+        }
     }
 
-        #conteudo{
-	    width: 100%; /* 1000px; */
-	    height: 260px; /* 423px; */
-	    margin: 0;
-	    float:left;
-    }
-	
-     #fundo_branco{
-	        width: 98%; /* 270px; */ 
-	        height: 4%; /* 390px; */
-	        margin-top: 1.7%; /* 15px; */
-	        margin-left: 1.7%; /* 15px; */
-	        position: absolute;
-	        font-size:0.8em;
-    }
-    .form-busca {
-        width: 92%;
-        margin-top: 0% 0.2% 0,5% 0%;
-        padding: 4%;
-        float: right;
-        font-size: 0.8em; /* 13px; */
-        background-color: rgba(239, 239, 239, 0.90);
-    }
-       .botao {
-	  padding: 6% 9%;
-}
-}
+    @media (max-width: 400px) {
+        #logo {
+            width: 60%; /* 241px; */
+            margin-top: 0.3%;
+            margin-left: 2%; /* 20px; */
+            float: left;
+        }
 
+        #conteudo {
+            width: 100%; /* 1000px; */
+            height: 260px; /* 423px; */
+            margin: 0;
+            float: left;
+        }
+
+        #fundo_branco {
+            width: 98%; /* 270px; */
+            height: 4%; /* 390px; */
+            margin-top: 1.7%; /* 15px; */
+            margin-left: 1.7%; /* 15px; */
+            position: absolute;
+            font-size: 0.8em;
+        }
+
+        .form-busca {
+            width: 92%;
+            margin-top: 0% 0.2% 0,5% 0%;
+            padding: 4%;
+            float: right;
+            font-size: 0.8em; /* 13px; */
+            background-color: rgba(239, 239, 239, 0.90);
+        }
+
+        .botao {
+            padding: 6% 9%;
+        }
+    }
+}
