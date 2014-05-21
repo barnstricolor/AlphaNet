@@ -431,6 +431,7 @@
     <Content Include="Views\Voo\NovaReservaPessoal.cshtml" />
     <Content Include="Views\Voo\PreencherDadosCliente.cshtml" />
     <Content Include="Views\Voo\ReservasPessoal.cshtml" />
+    <Content Include="Views\Login\RegistrarNovoUsuario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -58,6 +58,7 @@
     <Compile Include="Aplicacao\AutenticacaoAplicacaoService.cs" />
     <Compile Include="Aplicacao\AcessoAplicacaoService.cs" />
     <Compile Include="Aplicacao\AutenticarUsuarioComando.cs" />
+    <Compile Include="Aplicacao\RegistrarNovoUsuarioComando.cs" />
     <Compile Include="Aplicacao\Data\UsuarioData.cs" />
     <Compile Include="Aplicacao\NovoUsuarioComando.cs" />
     <Compile Include="Domain.Model\AutenticacaoService.cs" />
@@ -71,7 +72,11 @@
     <Compile Include="Port.Adapters\Recurso\UsuarioRecurso.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Port.Adapters\Persistencia\Repositorio\EF\" />
+    <Folder Include="Port.Adapters\Persistencia\Repositorio\Mongo\" />
+    <Folder Include="Port.Adapters\Persistencia\Repositorio\Oracle\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{f2aa4625-97fe-4000-8a7c-7413a506482d}</Project>

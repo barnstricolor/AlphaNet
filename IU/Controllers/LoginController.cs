@@ -60,5 +60,29 @@ namespace AlphaNet.PassagemAerea.IU.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+        public ActionResult registrarNovoUsuario() {
+            if (this.usuarioEstaLogado())
+                return RedirectToAction("Index", "Home");
+
+            return View("RegistrarNovoUsuario");
+        }
+        [HttpPost]
+        public ActionResult registrarNovoUsuario(RegistrarNovoUsuarioComando comando)
+        {
+            AcessoAplicacaoService acessoAplicacaoService = new AcessoAplicacaoService();
+
+            acessoAplicacaoService.registrarNovoUsuario(comando);
+
+            this.colocarNaSessao(comando.login, comando.nome, comando.email, false);
+            return RedirectToAction("Index", "Home");
+        }
+        private void colocarNaSessao(string login, string nome, string email, bool gestor)
+        {            
+            Session["login"] = login;
+            Session["nome"] = nome;
+            Session["email"] = email;
+            Session["gestor"] = gestor;            
+        }
     }
 }

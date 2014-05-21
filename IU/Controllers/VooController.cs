@@ -42,7 +42,7 @@ namespace IU.Controllers
         public ActionResult MostrarReservasClienteLogado()
         {
             if (Session["email"] == null)
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home");            
             
             ClienteService clienteService = new ClienteService();
 
@@ -50,7 +50,9 @@ namespace IU.Controllers
 
             VooService vooService = new VooService();
 
-            return View("ReservasPessoal", vooService.reservasCliente(cliente.clienteId));
+            return View("ReservasPessoal", 
+                cliente==null?new List<VooReservaData>():
+                vooService.reservasCliente(cliente.clienteId));
             
         }
         public ActionResult AlterarPreco(string vooId)
