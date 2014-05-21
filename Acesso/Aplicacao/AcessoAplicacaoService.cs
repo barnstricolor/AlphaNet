@@ -16,7 +16,10 @@ namespace Alphanet.Acesso.Aplicacao
 
             Usuario usuario = usuarioRepositorio().obterPeloEmail(email);
 
-            if (usuario == null)
+            if (usuario == null)  
+                return null;
+
+            if(!usuario.desempenhaPapel(new Papel(papel)))
                 return null;
 
             return new UsuarioData(usuario.login(), usuario.nome(), usuario.email());
@@ -35,6 +38,22 @@ namespace Alphanet.Acesso.Aplicacao
             usuarioRepositorio().salvar(usuario);
 
             return usuario.usuarioId().Id;
+        }
+
+        public string registrarNovoUsuario(RegistrarNovoUsuarioComando comando) {
+
+            Usuario usuario = new Usuario(
+                usuarioRepositorio().proximaIdentidade(),
+                comando.login,
+                comando.senha,
+                comando.nome,
+                comando.email,
+                new Papel("Usuario"));
+
+            usuarioRepositorio().salvar(usuario);
+
+            return usuario.usuarioId().Id;
+
         }
 
         public void alterarSenha(string usuarioId, string novaSenha) {

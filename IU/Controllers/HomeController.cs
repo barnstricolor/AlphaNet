@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace IU.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : AbstractController
     {
         public ActionResult Index()
         {
@@ -15,6 +15,8 @@ namespace IU.Controllers
         }
         public ActionResult Index_adm()
         {
+            if (!usuarioLogadoGestor())
+                return RedirectToAction("Index", "Home");
             return View();
         }
         public ActionResult LoginNovaReserva()

@@ -38,6 +38,7 @@
                     <li> <label>Login: <input name="login" type="text" size="4"></label>  </li>
                     <li> <label>Senha: <input name="senha" type="text" size="4"></label></li>
                     <li> <input type="submit" name="Login" value="OK"> </li> 
+                    <li>@Html.ActionLink("Registrar-se","RegistrarNovoUsuario","Login")</li> 
                 </ul>
         </form>
             
@@ -53,7 +54,7 @@
 <div class="botao">@Html.ActionLink("INSTITUCIONAL","Index","Institucional")</div>
 <div class="botao">@Html.ActionLink("VOE JÁ","IndexPessoal","Voo")</div>
 <div class="botao">@Html.ActionLink("RESERVA","MostrarReservasClienteLogado","Voo")</div>
-<div class="botao">@Html.ActionLink("CADASTRE-SE","Index","CadastreSe")</div>
+<div class="botao">@Html.ActionLink("CADASTRE-SE","RegistrarNovoUsuario","Login")</div>
 <div class="botao">@Html.ActionLink("DICAS","Index","Dicas")</div>
 
 </div> 
