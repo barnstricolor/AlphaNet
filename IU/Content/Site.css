@@ -152,7 +152,7 @@ h1{
 	font-size: 0.8em;
     text-align:center;
 	color:#FFF;
-    background-color:#0074bb; 
+    background-color:#4087c6; 
    
 }
 
@@ -178,7 +178,7 @@ h1{
 #topo-login{
     width: 20%;
     float: right;
-    background-color:#0074bb; 
+    background-color:#4087c6; 
     background-image:url(../Content/themes/base/images/top.jpg);
 
 }
