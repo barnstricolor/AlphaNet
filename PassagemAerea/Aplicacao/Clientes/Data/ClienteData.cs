@@ -14,15 +14,26 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Clientes.Data
 
         [Required(ErrorMessage = "Campo obrigatório", AllowEmptyStrings = false)]
         [RegularExpression("^[a-zA-ZãÃáÁàÀêÊéÉèÈíÍìÌôÔõÕóÓòÒúÚùÙûÛçÇºª' ']{1,60}$", ErrorMessage = "Este campo deve conter apenas letras")]
+        [Display(Name = "Nome completo")]
         public string nome {get; set; }
+
+        [Required(ErrorMessage = "Campo obrigatório")]
+        [RegularExpression(@"[\w-]+@([\w-]+\.)+[\w-]+", ErrorMessage = "O e-mail informado não é valido")]
+        [Display(Name = "E-mail")]
         public string email {get; set; }
+
+        [Required(ErrorMessage = "Campo obrigatório", AllowEmptyStrings = false)]
+        [RegularExpression("^[0-9]{1,11}$", ErrorMessage = "Este campo deve conter apenas números")]
+        [Display(Name  = "RG")]
         public string rg {get; set; }
         
 
         [Required(ErrorMessage = "Campo obrigatório", AllowEmptyStrings = false)]
         [RegularExpression("^[0-9]{1,11}$", ErrorMessage = "Este campo deve conter apenas números")]
+        [Display(Name = "CPF")]
         public string cpf {get; set; }
 
+        [Required(ErrorMessage = "O
         public string ocupacao {get; set; }
         public string renda {get; set; }
         public string sexo {get; set; }
