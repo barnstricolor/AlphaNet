@@ -151,8 +151,9 @@ h1{
 	float: right;
 	font-size: 0.8em;
     text-align:center;
-	color:#FFF;
-    background-color:#4087c6; 
+	color:#666;
+    background-color: rgba(255, 255, 255, 0.60);
+
    
 }
 
@@ -169,7 +170,7 @@ h1{
 }
 
 .form-login a {
-    color:#fff;
+    color:#666;
     font-weight:bold;
     text-decoration:none;
 }
@@ -178,7 +179,7 @@ h1{
 #topo-login{
     width: 20%;
     float: right;
-    background-color:#4087c6; 
+    background-color:#e6ebf1; 
     background-image:url(../Content/themes/base/images/top.jpg);
 
 }
@@ -213,6 +214,14 @@ h1{
 	padding:1%;
 }
 
+a {
+	text-decoration: none;
+    color: #333;
+ }
+
+a:hover {
+	color:#cc3300;
+}
 
 #nav{
 	width:100%; /* 1000px; */
@@ -225,7 +234,7 @@ h1{
 	display: inline-block;
 	background-color: #fff;
 	background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,.30));
-	padding: 2% 5.77%;
+	padding: 2% 4.52%;
 	font-size: 0.8em;
 	border: 0px;
 }
@@ -289,11 +298,12 @@ h1{
 }
 
 #youtube{
-	width: 58px; /* 61px; */
+	width: 45px; /* 61px; */
 	height: 47px; /* 57px; */
 	float: left;
      margin:0px;
      padding:0px;
+
 }
 
 
@@ -391,7 +401,7 @@ th, td {
 }
 
 fieldset {
-    width: 600px;
+    width: 60%;
     margin:2% auto;
     padding: 3%;
     text-align: center;
