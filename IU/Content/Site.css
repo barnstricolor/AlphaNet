@@ -178,8 +178,8 @@ h1{
 #topo-login{
     width: 10%;
     float: right;
-    background-color:#000; 
-    background-image:url(../Content/themes/base/images/top.jpg);
+
+
 
 }
 
@@ -188,7 +188,7 @@ h1{
 	margin: 0;
 	padding: 1%;
 	font-size:1em; /* 13px; */
-    background-color:#a8acad;
+    background-color:rgba(153, 153, 153, 0.30);
     text-align:center;
     float:right;
     color:#FFF;
