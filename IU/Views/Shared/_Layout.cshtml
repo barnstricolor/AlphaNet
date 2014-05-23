@@ -24,7 +24,7 @@
 <div id="login">
     <div class="form-login"> 
         @if (Session["login"]!=null){
-            @Html.Label("Você está logado com usuário " + Session["login"])
+           <p> @Html.Label("Você está logado com usuário " + Session["login"])</p>
             <form name="form1" method="post" action="@Url.Action("Logoff","Login")">                
               
                   <p> <input type="submit" name="Logoff" value="Sair"></p>
@@ -37,8 +37,8 @@
                 <ul>
                     <li> <label>Login: <input name="login" type="text" size="4"></label>  </li>
                     <li> <label>Senha: <input name="senha" type="text" size="4"></label></li>
-                    <li> <input type="submit" name="Login" value="OK"> </li> 
-                    <li>@Html.ActionLink("Registrar-se","RegistrarNovoUsuario","Login")</li> 
+                    <li> <input type="submit" name="Login" value="OK"> <br /></li> 
+                    <li><br />@Html.ActionLink("Cadastre-se","RegistrarNovoUsuario","Login")</li> 
                 </ul>
         </form>
             
