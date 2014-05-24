@@ -17,16 +17,17 @@
                 @if (Model != null)
                 {    <fieldset>
                     <legend>Reserva</legend>
-                    @Html.Label("Modelo: ")@Model.aviaoModelo<br />
-                    @Html.Label("Origem: ")@Model.cidadeOrigemNome<br />
-                    @Html.Label("Destino: ")@Model.cidadeDestinoNome<br />
-                    @Html.Label("Partida: ")@Model.partida<br />
-                    @Html.Label("Total de Assentos: ")@Model.totalAssentos<br />
-                    @Html.Label("Assentos Reservados: ")@Model.reservados<br /><br />
+                    @Html.Label("Voo")
+                  <p>@Html.Label("Modelo: ")@Model.aviaoModelo</p>
+                   <p>@Html.Label("Origem: ")@Model.cidadeOrigemNome</p>
+                   <p> @Html.Label("Destino: ")@Model.cidadeDestinoNome</p>
+                   <p> @Html.Label("Partida: ")@Model.partida</p>
+                   <p> @Html.Label("Total de Assentos: ")@Model.totalAssentos</p>
+                   <p> @Html.Label("Assentos Reservados: ")@Model.reservados</p><br />
          
 
                     
-                <a href="@Url.Action("NovaReserva",new {vooId = Model.vooId})"><img src="~/Content/themes/base/images/nova_reserva.png" id="bt-nova-reserva"/></a>
+               <a href="@Url.Action("NovaReserva",new {vooId = Model.vooId})"><img src="~/Content/themes/base/images/nova_reserva.png" id="bt-nova-reserva"/></a>
                   
                      </fieldset>
           
@@ -53,4 +54,3 @@
             <a href="@Url.Action("Index","vOO")"><img src="~/Content/themes/base/images/voltar.png" id="bt-voltar" /></a>  
         </div>
     </section>
-</div>

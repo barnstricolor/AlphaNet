@@ -17,10 +17,11 @@
                 <input type="hidden" name="vooId" value="@ViewBag.voo.vooId" />
                 <input type="hidden" name="quantidadeAssentos" value="@ViewBag.mapaAssentos.Count"/>
                 
-               <p> @Html.Label("Voo: ")
-               @ViewBag.voo.aviaoModelo </p>
-               <p> @Html.Label("Cidade de origem: ") @ViewBag.voo.cidadeOrigemNome</>
-               <p> @Html.Label("Cidade de destino: ")@ViewBag.voo.cidadeDestinoNome</p>
+                @Html.Label("Voo")
+              <p> @Html.Label("Aeronave: ")
+                  @ViewBag.voo.aviaoModelo </p>
+               <p> @Html.Label("Origem: ") @ViewBag.voo.cidadeOrigemNome</>
+               <p> @Html.Label("Destino: ")@ViewBag.voo.cidadeDestinoNome</p>
                <p>@Html.Label("Parida: ") @ViewBag.voo.partida</p>
 
                 @Html.Label("Cliente")
@@ -33,12 +34,10 @@
               <div> @foreach (AlphaNet.PassagemAerea.Aplicacao.Voos.Data.AssentoData assento in ViewBag.mapaAssentos)
                 {
                     if (assento.reservado){
-                        @*<div><img src="~/Content/themes/base/images/assento_off.png" class="assento" />*@
-                        <p id="assento-off">@Html.Raw("[" + assento.numero.ToString() + "]")</p>
+                     <p id="assento-off">@Html.Raw("[" + assento.numero.ToString() + "]")</p>
                    
                     }else{
-                        @*<div><img src="~/Content/themes/base/images/assento.png" class="assento" /><br />*@
-                       <p id="assento">@Html.Raw("[" + assento.numero.ToString() + "]")@Html.CheckBox( "chk" + assento.numero.ToString())</p>
+                      <p id="assento">@Html.Raw("[" + assento.numero.ToString() + "]")@Html.CheckBox( "chk" + assento.numero.ToString())</p>
                     
                     }
                 }</div>
