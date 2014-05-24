@@ -30,19 +30,23 @@
                         ViewBag.clientes,
                         "clienteId", 
                         "nome"))
-               <p> @foreach (AlphaNet.PassagemAerea.Aplicacao.Voos.Data.AssentoData assento in ViewBag.mapaAssentos)
+              <div> @foreach (AlphaNet.PassagemAerea.Aplicacao.Voos.Data.AssentoData assento in ViewBag.mapaAssentos)
                 {
                     if (assento.reservado){
-                        @Html.Raw("Assento: [" + assento.numero.ToString() + "]")
+                        @*<div><img src="~/Content/themes/base/images/assento_off.png" class="assento" />*@
+                        <p id="assento-off">@Html.Raw("[" + assento.numero.ToString() + "]")</p>
+                   
                     }else{
-                        @Html.Raw("Assento:  [" + assento.numero.ToString() + "]")@Html.CheckBox( "chk" + assento.numero.ToString())
+                        @*<div><img src="~/Content/themes/base/images/assento.png" class="assento" /><br />*@
+                       <p id="assento">@Html.Raw("[" + assento.numero.ToString() + "]")@Html.CheckBox( "chk" + assento.numero.ToString())</p>
+                    
                     }
-                }</p>
-                <br><input type="submit" value="Salvar" />
+                }</div>
+                <div id="assentos"><input type="submit" value="Salvar" /></div>
 </fieldset>
             </form>
-
-             <a href="@Url.Action("Index","vOO")"><img src="~/Content/themes/base/images/voltar.png" id="bt-voltar" /></a>  
+                   
+              <a href="@Url.Action("Index","vOO")"><img src="~/Content/themes/base/images/voltar.png" id="bt-voltar" /></a>  
         </div>
             </div>
         </div>

@@ -459,7 +459,34 @@ legend {
     margin-bottom:3%;
    
 }
+#assento {
+    width:16%;
+    height:32px;
+    margin:3%;
+    padding:1%;
+    text-align: left;
+    background-image:url(../Content/themes/base/images/assento.png);
+    background-repeat:no-repeat;
+    background-position:right;
+    float:left;
+}
 
+#assento-off {
+    width:13%;
+    height:32px;
+    margin:3%;
+    text-align:left;
+    background-image:url(../Content/themes/base/images/assento_off.png);
+    background-repeat:no-repeat;
+    background-position:right;
+    float:left;
+}
+#assentos {
+    width: 100%;
+    float:left;
+    clear:both;
+
+}
 
 #rodape{
 	width: 100%;
