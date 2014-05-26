@@ -140,6 +140,7 @@
     <Compile Include="Port.Adapters\Persistencia\Repositorio\Mongo\Entidades\Entidade.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\Mongo\MongoAviaoRepositorio.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\Oracle\Bd.cs" />
+    <Compile Include="Port.Adapters\Persistencia\Repositorio\Oracle\OracleClienteRepositorio.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\Oracle\OracleAviaoRepositorioOld.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\Oracle\OracleCidadeRepositorio.cs" />
     <Compile Include="Port.Adapters\Persistencia\Repositorio\Oracle\OracleAviaoRepositorio.cs" />

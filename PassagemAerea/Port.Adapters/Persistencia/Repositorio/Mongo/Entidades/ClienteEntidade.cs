@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using AlphaNet.PassagemAerea.Aplicacao.Cidades.Data;
+using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,9 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Mongo.En
         public string cpf { get; set; }
 
         public string ocupacao { get; set; }
-        public string renda { get; set; }
+        public double renda { get; set; }
         public string sexo { get; set; }
-        public string desconto { get; set; }
+        public double desconto { get; set; }
         public bool promocao { get; set; }
         public bool especial { get; set; }
 
@@ -30,8 +31,8 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Mongo.En
         public string numeroEndereco { get; set; }
         public string bairro { get; set; }
         public string cep { get; set; }
-        public DateTime cadastro { get; set; }
-        //public CidadeData _cidade { get; set; }
+        public DateTime dataCadastro { get; set; }
+        public CidadeData _cidade { get; set; }
 
     }
 }

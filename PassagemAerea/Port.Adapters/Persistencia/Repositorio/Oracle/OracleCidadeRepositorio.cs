@@ -5,219 +5,136 @@ using System.Text;
 using System.Threading.Tasks;
 using AlphaNet.PassagemAerea.Domain.Model.Cidades;
 using Oracle.ManagedDataAccess.Client;
+using System.Data;
 
 namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
 {
     public class OracleCidadeRepositorio : CidadeRepositorio
     {
-        private static Bd persistencia = Bd.Instance;
-        protected string tabela() { return "CIDADE"; }
-        protected string colunaId() { return "ID"; }
-        protected string colunaIdExterno() { return "CIDADE_ID"; }
-        protected string[] colunas() { return new string[] { colunaId(), colunaIdExterno(), "NOM_CIDADE", "NUM_CEP" }; }
+        private DataTable dt;
 
-        protected Bd obterPersistencia()
-        {
-            return persistencia;
-        }
-        protected OracleConnection obterConexao()
-        {
-            return this.obterPersistencia().obterConexao();
+        public OracleCidadeRepositorio() { 
+            dt = new DataTable("CIDADE");
+            dt.Columns.Add(new DataColumn("CIDADE_ID",typeof(string)));
+            dt.Columns.Add(new DataColumn("NOM_CIDADE", typeof(string)));
+            dt.Columns.Add(new DataColumn("NUM_CEP", typeof(int)));
+            dt.Columns.Add(new DataColumn("ID", typeof(int)));
         }
 
-        public CidadeId proximaIdentidade()
+        private void insert(Cidade cidade) {
+
+            OracleDataAdapter da = obterAdapter(null);
+
+            DataRow row = dt.NewRow();
+            
+            cidade._id = obterSequencia();
+
+            preencherEntidade(row, cidade);
+
+            dt.Rows.Add(row);            
+
+            da.Update(dt);
+
+        }
+        private void update(Cidade aviao)
         {
-            return new CidadeId(Guid.NewGuid().ToString().ToUpper());
+            OracleDataAdapter da = obterAdapter(new CidadeId(aviao.cidadeId().Id));
+
+            DataRow row = dt.Rows[0];
+            
+            preencherEntidade(row, aviao);
+
+            da.Update(dt);
+
         }
 
         public void salvar(Cidade cidade)
         {
             if (cidade._id.Equals(0))
-            {
                 insert(cidade);
-            }
             else
-            {
-                update(cidade);
-            }
-
-        }
-        private void insert(Cidade cidade)
-        {
-            cidade._id = obterSequencia();
-
-            insertCommand(cidade);
-
-        }
-        private void update(Cidade cidade)
-        {
-            updateCommand(cidade, cidade._id);
-
-        }
-        protected void updateCommand(Cidade dominio, int id)
-        {
-            executarCommand(montarUpdateById(id), dominio);
-        }
-        protected string montarUpdateById(int id)
-        {
-            string[] strAux = new string[colunas().Length];
-
-            for (int i = 0; i < colunas().Length; i++)
-            {
-                strAux[i] = colunas()[i] + " = :" + colunas()[i].ToLower();
-            }
-
-            string str = "Update " + tabela() + " Set " + string.Join(",", strAux);
-            str += " Where " + colunaId() + " = " + id;
-
-            return str;
-        }
-
-        private int obterSequencia()
-        {
-            return obterPersistencia().obterSequencia("SQ_CIDADE");
-        }
-        protected void insertCommand(Cidade cidade)
-        {
-            executarCommand(montarInsert(), cidade);
-        }
-        protected string montarInsert()
-        {
-            string[] strAux = new string[colunas().Length];
-
-            for (int i = 0; i < colunas().Length; i++)
-            {
-                strAux[i] = " :" + colunas()[i].ToLower();
-            }
-
-            string str = "Insert Into " + tabela() + "(" + string.Join(",", colunas()) + ")";
-            str += " Values (" + string.Join(",", strAux) + ")";
-
-            return str;
-        }
-        private Dictionary<string, object> criarDictionary()
-        {
-            return new Dictionary<string, object>();
-        }
-
-        protected void executarCommand(string cmdText, Cidade dominio)
-        {
-            Dictionary<string, object> d = criarDictionary();
-            valuesMap(d, dominio);
-            montarCommand(cmdText, d).ExecuteNonQuery();
-        }
-        protected OracleCommand montarCommand(string cmdText, Dictionary<string, object> d)
-        {
-            OracleCommand cmd = new OracleCommand(cmdText, obterConexao());
-            foreach (var value in d)
-                cmd.Parameters.Add(":" + value.Key, value.Value);
-            cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = cmdText;
-            return cmd;
+                update(cidade);            
         }
 
         public Cidade obterPeloId(CidadeId aviaoId)
         {
-            OracleDataReader dr = executeQueryByIdExterno(aviaoId.Id);
+            OracleDataAdapter da = obterAdapter(aviaoId);
 
-            if (!dr.HasRows) return null;
-
-            dr.Read();
-
-            return mapRow(dr);
+            return modeloPelaEntidade(dt.Rows[0]);
         }
-        protected Cidade mapRow(OracleDataReader dr)
+
+        private OracleDataAdapter obterAdapter(CidadeId cidadeId)
+        {            
+            string str = "select * from CIDADE";
+                        
+            if (cidadeId!=null)
+                str += " Where CIDADE_ID = " + Bd.aspas(cidadeId.Id);
+
+            dt.Clear();
+            
+            OracleDataAdapter da = new OracleDataAdapter(str, Bd.Instance.obterConexao());
+
+            OracleCommandBuilder cb = new OracleCommandBuilder(da);
+            
+            da.Fill(dt);
+
+            return da;
+        }
+
+        public List<Cidade> todasCidades()
         {
-            Cidade cidade = new Cidade(
-                new CidadeId(dr["CIDADE_ID"].ToString()),
-                    dr["NOM_CIDADE"].ToString(),
-                    dr["NUM_CEP"].ToString());
-            cidade._id = int.Parse(dr["ID"].ToString());
-            return cidade; 
+            OracleDataAdapter da = obterAdapter(null);
+
+            List<Cidade> result = new List<Cidade>();
+
+            foreach (DataRow dr in dt.Rows) {
+                Cidade cidade = modeloPelaEntidade(dr);
+                result.Add(cidade);
+            }
+
+            return result;
         }
 
         public void limpar()
         {
-        }
-        public List<Cidade> todasCidades() {
-            
-            OracleDataReader dr = executeQuery(montarSelect());
-
-            List<Cidade> lista = new List<Cidade>();
-
-            while (dr.Read())
-            {
-                Cidade cidade = new Cidade(
-                    new CidadeId(dr["CIDADE_ID"].ToString()),
-                        dr["NOM_CIDADE"].ToString(),
-                        dr["NUM_CEP"].ToString());
-                cidade._id = int.Parse(dr["ID"].ToString());
-
-                lista.Add(cidade);
-            }
-            dr.Close();
-            return lista;
+            throw new NotImplementedException();
         }
 
-        public void excluir(CidadeId cidadeId) {
-            string sql;
-
-            OracleConnection cnn = obterConexao();
-
-            sql = "Delete " + tabela() + " Where " + colunaIdExterno() + " = :" + colunaIdExterno().ToLower();
-
-            OracleCommand cmd = new OracleCommand(sql, cnn);
-
-            cmd.Parameters.Add(":" + colunaIdExterno(), cidadeId.Id);
-            cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = sql;
-            cmd.ExecuteNonQuery();
-            cmd.Dispose();
-
-        }
-        protected OracleDataReader executeQuery(string str)
+        public void excluir(CidadeId cidadeId)
         {
-            OracleDataReader dr = this.obterPersistencia().obterQuery(str);
-            return dr;
-        }
-        protected string montarSelect(string where)
-        {
-            string str = montarSelect();
+            OracleDataAdapter da = obterAdapter(cidadeId);
 
-            if (!string.IsNullOrEmpty(where))
-                str += " Where " + where;
-            return str;
-        }
-        protected string montarSelect()
-        {
-            return "Select * from " + tabela();
-        }
-        protected OracleDataReader executeQueryByIdExterno(string id)
-        {
-            return executeQuery(montarSelectWhereIdExterno(id));
-        }
-        protected string montarSelectWhereIdExterno(string id)
-        {
-            return montarSelect(colunaIdExterno() + " = " + Bd.aspas(id));
-        }
-        protected void valuesMap(Dictionary<string, object> d, Cidade dominio)
-        {
-            Cidade cidade = dominio;
-            d.Add("ID", cidade._id);
-            d.Add("CIDADE_ID", cidade.cidadeId().Id);
-            d.Add("NOM_CIDADE", cidade.nome());
-            d.Add("NUM_CEP", cidade.cep());
+            dt.Rows[0].Delete();
+
+            da.Update(dt);
 
         }
-        public object[] extrairValores(Cidade dominio)
+        public CidadeId proximaIdentidade()
         {
-            Cidade cidade = dominio;
-            return new object[] { cidade.cidadeId(), cidade.nome(), cidade.cep()};
+            return new CidadeId(Guid.NewGuid().ToString().ToUpper());
         }
-        public string montarWhereByFiltroString(string filtro)
+        private int obterSequencia()
         {
-            return "NOM_CIDADE LIKE '%" + filtro + "%'";
+            return Bd.Instance.obterSequencia("SQ_CIDADE");
         }
+        private void preencherEntidade(DataRow entidade, Cidade cidade)
+        {
+            entidade["CIDADE_ID"] = cidade.cidadeId().Id;
+            entidade["NOM_CIDADE"] = cidade.nome();
+            entidade["NUM_CEP"] = cidade.cep();
+            entidade["ID"] = cidade._id;
+        }
+        private Cidade modeloPelaEntidade(DataRow entidade)
+        {
+            Cidade cidade = new Cidade(new CidadeId(entidade["CIDADE_ID"].ToString()),
+                                    entidade["NOM_CIDADE"].ToString(),
+                                    entidade["NUM_CEP"].ToString());
+            cidade._id = int.Parse(entidade["ID"].ToString());
+            return cidade;
+
+        }
+
+
 
     }
 }

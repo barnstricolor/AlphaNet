@@ -75,7 +75,7 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Mongo
             entidade.nome = cliente.nome();
             entidade.email = cliente.email();
             entidade.rg = cliente.rg();
-            entidade.cpf = cliente.cpf();
+            entidade.cpf = cliente.cpf().ToString();
 
             entidade.ocupacao = cliente.ocupacao();
             entidade.renda = cliente.renda();
@@ -91,7 +91,7 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Mongo
             entidade.numeroEndereco = cliente.numeroEndereco();
             entidade.bairro = cliente.bairro();
             entidade.cep = cliente.cep();
-            entidade.cadastro = cliente.cadastro();
+            entidade.dataCadastro = cliente.dataCadastro();
 
         }
 
@@ -101,6 +101,12 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Mongo
 
 
         public Cliente clientePeloEmail(string email)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public List<Cliente> clientesParaPromocao()
         {
             throw new NotImplementedException();
         }

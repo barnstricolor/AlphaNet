@@ -33,7 +33,7 @@ namespace IU.Controllers
                 clienteService.novoCliente(cliente.nome, cliente.email);
             }
             else {
-                clienteService.alterarDados(cliente.clienteId, cliente.nome, cliente.email);
+                clienteService.alterarDados(cliente);
             }
             return RedirectToAction("Index", "Cliente");
         }

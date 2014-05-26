@@ -17,13 +17,10 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
         private CidadeId _destinoId;
         private DateTime _partida;
         private ISet<Reserva> _reservas;
-        private VooId vooId1;
-        private Aviao aviao;
-        private Cidade cidade1;
-        private Cidade cidade2;
-        private DateTime dateTime;
         private double _preco;
         private bool _promocional;
+        
+        public int _id { get; set; }
 
         public Voo(VooId vooId, Aviao aviao, Cidade origem, Cidade destino, DateTime partida, double preco)
         {

@@ -1,85 +1,74 @@
-﻿
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Alphanet</title>
-  @Styles.Render("~/Content/css")
-  @Scripts.Render("~/bundles/modernizr")
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Alphanet</title>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" />
+        <script src="http://code.jquery.com/jquery-2.1.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/jqueryui")
+    </head>
 
-
-
-
-
-</head>
-<body>
-
-
-<div id="container">
-
-<div id="top">
-<div id="logo"><a href="@Url.Action("Index","Home")"><img src="/Content/themes/base/images/logo_fca.png" alt="Alphanet" border="0" ></a></div>
-
-<div id="login">
-    <div class="form-login"> 
-        @if (Session["login"]!=null){
-           <p> @Html.Label("Você está logado com usuário " + Session["login"])</p>
-            <form name="form1" method="post" action="@Url.Action("Logoff","Login")">                
+    <body>
+        <div id="container">
+        <div id="top">
+        <div id="logo"><a href="@Url.Action("Index","Home")"><img src="/Content/themes/base/images/logo_fca.png" alt="Alphanet" border="0" ></a></div>
+        <div id="login">
+            <div class="form-login"> 
+                @if (Session["login"]!=null){
+                   <p> @Html.Label("Você está logado com usuário " + Session["login"])</p>
+                    <form name="form1" method="post" action="@Url.Action("Logoff","Login")">                
               
-                  <p> <input type="submit" name="Logoff" value="Sair"></p>
-                     <p> @Html.ActionLink("Administrativo","Index_adm","Home")</p> 
-                   
-                     </form>
+                          <p> <input type="submit" name="Logoff" value="Sair"></p>
+                              
+                                @if ((bool)Session["gestor"]){                                 
+                                    <p>@Html.ActionLink("Administrativo","Index","Voo")</p> 
+                                }
+                             </form>
             
-        }else{
-            <form name="form1" method="post" action="@Url.Action("Login","Login")">
-                <ul>
-                    <li> <label>Login: <input name="login" type="text" size="4"></label>  </li>
-                    <li> <label>Senha: <input name="senha" type="text" size="4"></label></li>
-                    <li> <input type="submit" name="Login" value="OK"> <br /></li> 
-                    <li><br />@Html.ActionLink("Cadastre-se","RegistrarNovoUsuario","Login")</li> 
-                </ul>
-        </form>
+                }else{
+                    <form name="form1" method="post" action="@Url.Action("Login","Login")">
+                        <ul>
+                            <li> <label>Login: <input name="login" type="text" size="4"></label>  </li>
+                            <li> <label>Senha: <input name="senha" type="text" size="4"></label></li>
+                            <li> <input type="submit" name="Login" value="OK"> <br /></li> 
+                            <li><br />@Html.ActionLink("Cadastre-se","RegistrarNovoUsuario","Login")</li> 
+                        </ul>
+                </form>
             
-        }
-    </div>  
-</div>
+                }
+            </div>  
+        </div>
+        </div>
+            </div>
+           <div id="nav">
 
 
-   <div id="nav">
+        <div class="botao">@Html.ActionLink("HOME","Index","Home")</div>
+        <div class="botao">@Html.ActionLink("INSTITUCIONAL","Index","Institucional")</div>
+        <div class="botao">@Html.ActionLink("VOE JÁ","IndexPessoal","Voo")</div>
+        <div class="botao">@Html.ActionLink("RESERVA","MostrarReservasClienteLogado","Voo")</div>
+        <div class="botao">@Html.ActionLink("CADASTRE-SE","RegistrarNovoUsuario","Login")</div>
+        <div class="botao">@Html.ActionLink("DICAS","Index","Dicas")</div>
+        <div class="botao">@Html.ActionLink("CONTATO","Index","Contato")</div>
 
+        </div> 
 
-<div class="botao">@Html.ActionLink("HOME","Index","Home")</div>
-<div class="botao">@Html.ActionLink("INSTITUCIONAL","Index","Institucional")</div>
-<div class="botao">@Html.ActionLink("VOE JÁ","IndexPessoal","Voo")</div>
-<div class="botao">@Html.ActionLink("RESERVA","MostrarReservasClienteLogado","Voo")</div>
-<div class="botao">@Html.ActionLink("CADASTRE-SE","RegistrarNovoUsuario","Login")</div>
-<div class="botao">@Html.ActionLink("DICAS","Index","Dicas")</div>
-<div class="botao">@Html.ActionLink("CONTATO","Index","Contato")</div>
+            @RenderBody()
+            @RenderSection("scripts", required: false)
 
-</div> 
-
-
-
-    @RenderBody()
-
-
-    @Scripts.Render("~/bundles/jquery")
-    @RenderSection("scripts", required: false)
-
-
-
-<div id="rodape">
-<div id="desenvolvimento"><img src="/Content/themes/base/images/desenvolvimento.png" ></div>
-<div id="direitos">Todos os Direitos Reservados</div>
-<div id="facebook"><a href="#"><img src="/Content/themes/base/images/bt_facebook.png" border="0"></a></div>
-<div id="twitter"><a href="#"><img src="/Content/themes/base/images/bt_twitter.png" border="0"></a></div>
-<div id="youtube"><a href="#"><img src="/Content/themes/base/images/btyoutube.png" border="0"></a></div>
-</div>
-
-
-    </div>
-</body>
+        <div id="rodape">
+        <div id="desenvolvimento"><img src="/Content/themes/base/images/desenvolvimento.png" ></div>
+        <div id="direitos">Todos os Direitos Reservados</div>
+        <div id="facebook"><a href="#"><img src="/Content/themes/base/images/bt_facebook.png" border="0"></a></div>
+        <div id="twitter"><a href="#"><img src="/Content/themes/base/images/bt_twitter.png" border="0"></a></div>
+        <div id="youtube"><a href="#"><img src="/Content/themes/base/images/btyoutube.png" border="0"></a></div>
+        </div>
+    </body>
 </html>
 

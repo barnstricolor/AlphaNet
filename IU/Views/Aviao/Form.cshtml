@@ -1,27 +1,35 @@
-﻿@model AlphaNet.PassagemAerea.Aplicacao.Avioes.Data.AviaoData
+﻿
+@model AlphaNet.PassagemAerea.Aplicacao.Avioes.Data.AviaoData
+
 @{
     Layout = "~/Views/Shared/_Layout_adm.cshtml";
 }
+@using (Html.BeginForm("Salvar","Aviao")) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Cadastro de Avião</legend>
 
-<div id="body">
-    <section class="featured">
-        <div class="content-wrapper">
-            <hgroup class="title">
-                <h1>Avião</h1>
-            </hgroup>
-         
-            <form method="post" action="Salvar">
-                <fieldset>
-                    <legend>Cadastro de Avião</legend>
-                <input type="hidden" name="aviaoId" value="@Model.aviaoId"/>
-                <label>Modelo: </label><input type="text" name="modelo" value="@Model.modelo"/>
-                <br>
-                <label>Assento: </label><input type="text" name="assentos" value="@Model.assentos"/>
-                <br><input type="submit" value="Salvar" />
-                    </fieldset>
-            </form>
-         <a href="@Url.Action("Index","Aviao")"><img src="~/Content/themes/base/images/voltar.png" id="bt-voltar" /></a>  
+        <div id="body">
+            <section class="featured">
+                <div class="content-wrapper">
+                    <hgroup class="title">
+                        <h1>Avião</h1>
+                    </hgroup>
+                        <input type="hidden" name="aviaoId" value="@Model.aviaoId"/>
+
+                        @Html.LabelFor(model => model.modelo)
+                        @Html.EditorFor(model => model.modelo)
+                        @Html.ValidationMessageFor(model => model.modelo)
+                        <br>
+                        @Html.LabelFor(model => model.assentos)
+                        @Html.EditorFor(model => model.assentos)
+                        @Html.ValidationMessageFor(model => model.assentos)
+                        <br>
+                        <input type="submit" value="Salvar" />
+                 <a href="@Url.Action("Index","Aviao")"><img src="~/Content/themes/base/images/voltar.png" id="bt-voltar" /></a>  
+                </div>
+            </section>
         </div>
-    </section>
-</div>
-        
+    </fieldset>
+}        

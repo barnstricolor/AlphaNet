@@ -3,25 +3,30 @@
     Layout = "~/Views/Shared/_Layout_adm.cshtml";
 }
 
-<div id="body">
-    <section class="featured">
-        <div class="content-wrapper">
-            <hgroup class="title">
-                <h1>Cidade</h1>
-            </hgroup>
-         
-            <form method="post" action="Salvar">
-
-                  <fieldset>
-                    <legend>Cadastro de Cidade</legend>
-                <input type="hidden" name="cidadeId" value="@Model.cidadeId"/>
-                <label>Nome: </label><input type="text" name="nome" value="@Model.nome"/><br />
-              
-                <label>C.E.P.: </label><input type="text" name="cep" value="@Model.cep"/><br />
-               <p> <input type="submit" value="Salvar" /></p>
-                      </fieldset>
-            </form>
-             <a href="@Url.Action("Index","Cidade")"><img src="~/Content/themes/base/images/voltar.png" id="bt-voltar" /></a>  
+@using (Html.BeginForm("Salvar","Cidade")) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Cadastro de Cidade</legend>
+        <div id="body">
+            <section class="featured">
+                <div class="content-wrapper">
+                    <hgroup class="title">
+                        <h1>Cidade</h1>
+                    </hgroup>         
+                        <input type="hidden" name="cidadeId" value="@Model.cidadeId"/>
+                        @Html.LabelFor(model => model.nome)
+                        @Html.EditorFor(model => model.nome)
+                        @Html.ValidationMessageFor(model => model.nome)
+                        <br>
+                        @Html.LabelFor(model => model.cep)
+                        @Html.EditorFor(model => model.cep)
+                        @Html.ValidationMessageFor(model => model.cep)
+                       <p> <input type="submit" value="Salvar" /></p>
+                     <a href="@Url.Action("Index","Cidade")"><img src="~/Content/themes/base/images/voltar.png" id="bt-voltar" /></a>  
+                </div>
+            </section>
         </div>
-    </section>
-</div>
+
+    </fieldset>
+}

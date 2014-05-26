@@ -1,75 +1,59 @@
-﻿
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Alphanet</title>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" />
+        <script src="http://code.jquery.com/jquery-2.1.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/jqueryui")
+    </head>
+    <body>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Alphanet</title>
-  @Styles.Render("~/Content/css")
-  @Scripts.Render("~/bundles/modernizr")
-
-
-
-
-
-</head>
-<body>
-
-
-<div id="container">
-
-<div id="top-adm">
-<div id="logo_adm"><img src="/Content/themes/base/images/logo_alphanet.png" alt="Alphanet" border="0" ></a></div>
-
-    
-    <div id="topo-login">
- <div class="form-login-adm"> 
-        @if (Session["login"]!=null){
-            @Html.Label("Usuário: " + Session["login"]) 
-            <form name="form1" method="post" action="@Url.Action("Logoff","Login")">
-             <p>  <input type="submit" name="Logoff" value="Sair"></p> 
-               <p> @Html.ActionLink("Público","Index","Home")</p>
-            </form>          
-        }
+        <div id="container">
+        <div id="top-adm">
+        <div id="logo_adm"><img src="/Content/themes/base/images/logo_alphanet.png" alt="Alphanet" border="0" ></a></div>
  
-</div>
-    </div>
+                <div id="topo-login">
+                     <div class="form-login-adm"> 
+                            @if (Session["login"]!=null){
+                                @Html.Label("Usuário: " + Session["login"]) 
+                                <form name="form1" method="post" action="@Url.Action("Logoff","Login")">
+                                 <p>  <input type="submit" name="Logoff" value="Sair"></p> 
+                                   <p> @Html.ActionLink("Público","Index","Home")</p>
+                                </form>          
+                            }
+                        </div>
+                </div>
+            </div>
+        <div id="fca"><img src="/Content/themes/base/images/fca_adm.png"></div>
+        </div>
+        <div id="nav">
 
-<div id="fca"><img src="/Content/themes/base/images/fca_adm.png"></div>
-  
-    </div>
-
-
-
-<div id="nav">
-
-<div class="botao-adm">@Html.ActionLink("VOO","Index","Voo")</div>
-<div class="botao-adm">@Html.ActionLink("USUÁRIO","Index","Usuario")</div>
-<div class="botao-adm">@Html.ActionLink("AVIÃO","Index","Aviao")</div>
-<div class="botao-adm">@Html.ActionLink("CLIENTE","Index","Cliente")</div>
-<div class="botao-adm">@Html.ActionLink("CIDADE","Index","Cidade")</div>
-<div class="botao-adm">@Html.ActionLink("RELATÓRIOS","Index","Relatorios")</div>
-</div>
+        <div class="botao-adm">@Html.ActionLink("VOO","Index","Voo")</div>
+        <div class="botao-adm">@Html.ActionLink("USUÁRIO","Index","Usuario")</div>
+        <div class="botao-adm">@Html.ActionLink("AVIÃO","Index","Aviao")</div>
+        <div class="botao-adm">@Html.ActionLink("CLIENTE","Index","Cliente")</div>
+        <div class="botao-adm">@Html.ActionLink("CIDADE","Index","Cidade")</div>
+        <div class="botao-adm">@Html.ActionLink("RELATÓRIOS","Index","Relatorios")</div>
+        </div>
     
- <div id="conteudo">
+         <div id="conteudo">
 
-<div id="conteudo-central">
+        <div id="conteudo-central">
 
-    @RenderBody()
+            @RenderBody()
 
-</div>
-</div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @RenderSection("scripts", required: false)
-
-
-
-<div id="rodape-adm">
-<div id="rodape-adm-texto">Desenvolvimento de Sistemas Web</div>
-</div>
-
-
-</body>
+        </div>
+        </div>            
+            @RenderSection("scripts", required: false)
+        <div id="rodape-adm">
+        <div id="rodape-adm-texto">Desenvolvimento de Sistemas Web</div>
+        </div>
+    </body>
 </html>

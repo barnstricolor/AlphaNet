@@ -95,6 +95,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain.Model\CPF.cs" />
     <Compile Include="Domain.Model\DomainEventPublisher.cs" />
     <Compile Include="Domain.Model\Identity.cs" />
     <Compile Include="Domain.Model\IDomainEvent.cs" />

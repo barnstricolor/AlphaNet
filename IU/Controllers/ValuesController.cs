@@ -3,7 +3,9 @@ using Alphanet.Acesso.Domain.Model.Usuarios;
 using AlphaNet.PassagemAerea.Aplicacao.Avioes;
 using AlphaNet.PassagemAerea.Aplicacao.Cidades;
 using AlphaNet.PassagemAerea.Aplicacao.Clientes;
+using AlphaNet.PassagemAerea.Aplicacao.Clientes.Data;
 using AlphaNet.PassagemAerea.Aplicacao.Voos;
+using AlphaNet.PassagemAerea.Domain.Model;
 using AlphaNet.PassagemAerea.Domain.Model.Avioes;
 using System;
 using System.Collections.Generic;
@@ -21,23 +23,56 @@ namespace IU.Controllers
         // GET api/values
         public ActionResult Index()
         {
-            VooService vooService = new VooService();
-            AplicacaoAviaoService aviaoService = new AplicacaoAviaoService();
-            CidadeService cidadeService = new CidadeService();
-            ClienteService clienteService = new ClienteService();
-            
+            /*
 
-            for (int i = 1; i <= 10; i++)
-            {
-                string aviaoId = aviaoService.novoAviao("BOEING ROLLAN 74" + i, i);
-                string cidadeId = cidadeService.novaCidade("CIDADE - DENISE " + i, i.ToString());
+                string aviaoId = DominioRegistro.aplicacaoAviaoService().novoAviao("BOEING 747", 342);
+                string cidadeIdOrigem = DominioRegistro.cidadeService().novaCidade("RIBEIRÃO PRETO - SP", "14100");
+                string cidadeIdDestino = DominioRegistro.cidadeService().novaCidade("SÃO PAULO - SP", "14000");
+
                 clienteService.novoCliente("VIAÇÃO NASSER " + i, i.ToString() + "@" + i.ToString());
                 vooService.novoVoo(aviaoId,cidadeId,cidadeId,new DateTime(),105*i);
-            }
-
+            */
             novoUsuario("martin", "martin123", "Martin Fowler", "martin@venus.com", "Gestor");
             novoUsuario("kent", "kent123", "Kent Beck", "kent@frio.com", "Atendente");
             novoUsuario("pi", "pi", "pi", "pi@pi.com", "Gestor");
+
+            string aviaoId = DominioRegistro.aplicacaoAviaoService().novoAviao("BOEING 747", 342);
+            string cidadeIdOrigem = DominioRegistro.cidadeService().novaCidade("RIBEIRÃO PRETO - SP", "14100");
+            string cidadeIdDestino = DominioRegistro.cidadeService().novaCidade("SÃO PAULO - SP", "14000");
+
+            ClienteData cliente = DominioRegistro.clienteService().novoCliente("RICARDO","HDR_RICARDO@HOTMAIL.COM");
+            cliente.especial = true;
+            cliente.promocao = true;
+            cliente.desconto = 10;
+            DominioRegistro.clienteService().alterarDados(cliente);
+
+            cliente = DominioRegistro.clienteService().novoCliente("ROLLAN", "rollan_paiva@hotmail.com");
+            cliente.especial = true;
+            cliente.promocao = true;
+            cliente.desconto = 15;
+            DominioRegistro.clienteService().alterarDados(cliente);
+
+            cliente = DominioRegistro.clienteService().novoCliente("THIAGO", "thiago.marega@gmail.com");
+            cliente.especial = true;
+            cliente.promocao = true;
+            cliente.desconto = 20;
+            DominioRegistro.clienteService().alterarDados(cliente);
+
+            cliente = DominioRegistro.clienteService().novoCliente("Francisco", "fcnfilho@gmail.com");
+            cliente.especial = true;
+            cliente.promocao = true;
+            cliente.desconto = 25;
+            DominioRegistro.clienteService().alterarDados(cliente);
+
+            cliente = DominioRegistro.clienteService().novoCliente("Denise", "denisemcastro@hotmail.com");
+            cliente.especial = true;
+            cliente.promocao = true;
+            cliente.desconto = 30;
+            DominioRegistro.clienteService().alterarDados(cliente);
+
+            DominioRegistro.vooService().novoVoo(aviaoId, cidadeIdOrigem, cidadeIdDestino, new DateTime(), 999.99);
+            DominioRegistro.vooService().novoVoo(aviaoId, cidadeIdDestino, cidadeIdOrigem, new DateTime().AddDays(1), 999.99);
+
 
             return RedirectToAction("Index", "Home");
         }

@@ -54,5 +54,14 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Memoria
                     return cliente;
             return null;
         }
+
+        public List<Cliente> clientesParaPromocao()
+        {
+            List<Cliente> result = new List<Cliente>();
+            foreach (Cliente cliente in store.Values.ToList())
+                if (cliente.promocao())
+                    result.Add(cliente);
+            return result;
+        }
     }
 }

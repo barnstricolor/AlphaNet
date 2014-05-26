@@ -16,6 +16,10 @@ using AlphaNet.PassagemAerea.Port.Adapters.Servico;
 using AlphaNet.PassagemAerea.Domain.Model.Publicos;
 using Alphanet.Acesso.Domain.Model.Usuarios;
 using Alphanet.Acesso.Port.Adapters.Persistencia.Repositorio.Memoria;
+using AlphaNet.PassagemAerea.Aplicacao.Voos;
+using AlphaNet.PassagemAerea.Aplicacao.Avioes;
+using AlphaNet.PassagemAerea.Aplicacao.Cidades;
+using AlphaNet.PassagemAerea.Aplicacao.Clientes;
 namespace IU
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
@@ -39,6 +43,14 @@ namespace IU
 
             DominioRegistro.obterContainer().RegisterInstance<PublicoService>(new TraduzirPublicoService());
             AlphaNet.Acesso.Domain.Model.DominioRegistro.obterContainer().RegisterInstance<UsuarioRepositorio>(new MemoriaUsuarioRepositorio());
+
+            //SERVICOS
+            DominioRegistro.obterContainer().RegisterInstance<VooService>(new VooService());
+            DominioRegistro.obterContainer().RegisterInstance<AplicacaoAviaoService>(new AplicacaoAviaoService());
+            DominioRegistro.obterContainer().RegisterInstance<CidadeService>(new CidadeService());
+            DominioRegistro.obterContainer().RegisterInstance<ClienteService>(new ClienteService());
+
+
         }
         private void bancoEmMemoria() {
             DominioRegistro.obterContainer().RegisterInstance<AviaoRepositorio>(new MemoriaAviaoRepositorio());
@@ -55,6 +67,7 @@ namespace IU
         {
             //DominioRegistro.obterContainer().RegisterInstance<Oracle.ManagedDataAccess.Client.OracleConnection>(Bd());
             DominioRegistro.obterContainer().RegisterInstance<AviaoRepositorio>(new OracleAviaoRepositorio());
+            DominioRegistro.obterContainer().RegisterInstance<CidadeRepositorio>(new OracleCidadeRepositorio());
         }
         private void bancoMongo() {
             DominioRegistro.obterContainer().RegisterInstance<AviaoRepositorio>(new MongoAviaoRepositorio());

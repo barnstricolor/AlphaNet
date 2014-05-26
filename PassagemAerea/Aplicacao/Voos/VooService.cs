@@ -1,5 +1,6 @@
 ﻿using AlphaNet.Common.Domain.Model;
 using AlphaNet.Common.Port.Adapters;
+using AlphaNet.PassagemAerea.Aplicacao.Clientes.Data;
 using AlphaNet.PassagemAerea.Aplicacao.Voos.Data;
 using AlphaNet.PassagemAerea.Domain.Model;
 using AlphaNet.PassagemAerea.Domain.Model.Avioes;
@@ -19,11 +20,18 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos
         {
             PrecoPromocionalDefinido evento = (PrecoPromocionalDefinido) domainEvent;
 
-            Email email = new Email();
-            email.enviar("ricardo@hadrion.com.br","Voo Promocional: " + evento.voo.preco());
-
             Twitter twitter = new Twitter();
             twitter.postar("Voo Promocional: " + evento.voo.preco());
+
+            foreach (ClienteData cliente in DominioRegistro.clienteService().todosClientesPromocao())
+            {
+                Email email = new Email();
+                email.enviar(cliente.email,"Voo Promocional: " + evento.voo.preco() + 
+                                            "Saida: " + DominioRegistro.cidadeRepositorio().obterPeloId(evento.voo.origemId()).nome() +
+                                            "Chegada: " + DominioRegistro.cidadeRepositorio().obterPeloId(evento.voo.destinoId()).nome()
+                            );
+            }
+        
         }
 
         Type IDomainEventSubscriber<IDomainEvent>.SubscribedToEventType()

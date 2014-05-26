@@ -28,11 +28,11 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Clientes.Data
         public string ocupacao {get; set; }
 
         [Required(ErrorMessage= "Campo obrigatório")]
-        public string renda {get; set; }
+        public double renda {get; set; }
 
         
         public string sexo {get; set; }
-        public string desconto {get; set; }
+        public double desconto {get; set; }
         public bool promocao {get; set; }
         public bool especial {get; set; }
 
@@ -49,8 +49,8 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Clientes.Data
         [Required(ErrorMessage = "Campo obrigatório", AllowEmptyStrings = false)]
         [DataType(DataType.Date, ErrorMessage = "Data inválida.")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime cadastro { get; set; }
-        public CidadeData _cidade {get; set; }
+        public DateTime dataCadastro { get; set; }
+        public CidadeData cidade {get; set; }
 
     }
 }

@@ -15,9 +15,9 @@ namespace AlphaNet.Common.Port.Adapters
         public void enviar(string email,string texto)
         {
             MailMessage mensagem = new MailMessage(
-                "er4aerea@gmail.com",
+                "fcaairlines@gmail.com",
                 email,
-                "Saldão ER4Aerea - Passagens Nacionais até pela metade do preço‏",
+                "Saldão AlphaNet - Aqui não tem Crocket!",
                 texto);
             
             //Attachment anexo = new Attachment(((ListBoxItem)item).Content.ToString());
@@ -26,8 +26,8 @@ namespace AlphaNet.Common.Port.Adapters
             SmtpClient envio = new SmtpClient("smtp.gmail.com",587);
             //envio.Port = 25;
             //envio.Timeout = 10;
-            
-            envio.Credentials = new NetworkCredential("er4aerea","peludinha");
+
+            envio.Credentials = new NetworkCredential("fcaairlines", "fca123456");
             
             envio.EnableSsl = true;
             //envio.SendAsync(mensagem,null);
