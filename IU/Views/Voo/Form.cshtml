@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IU.Models.VooData
+@{
     Layout = "~/Views/Shared/_Layout_adm.cshtml";
 }
 <div id="body">
@@ -11,11 +12,14 @@
             <form method="post" action="Salvar">
                 <fieldset>
                     <legend>Cadastro de Voo</legend>
-              <p>  @Html.Label("Partida: ")
-                <input type="text" name="partida" value="@Model.partida"/></p>
-
-              <p> @Html.Label("Preço: ")
-                <input type="text" name="preco" value="@Model.preco"/></p>
+                @Html.LabelFor(model => model.partida)
+                @Html.EditorFor(model => model.partida)
+                @Html.ValidationMessageFor(model => model.partida)
+                <br>
+                @Html.LabelFor(model => model.preco)
+                @Html.EditorFor(model => model.preco)
+                @Html.ValidationMessageFor(model => model.preco)
+                <br>
 
               <p>@Html.Label("Origem:")
                 @Html.DropDownList(

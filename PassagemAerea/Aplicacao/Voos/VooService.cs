@@ -1,6 +1,7 @@
 ﻿using AlphaNet.Common.Domain.Model;
 using AlphaNet.Common.Port.Adapters;
 using AlphaNet.PassagemAerea.Aplicacao.Clientes.Data;
+using AlphaNet.PassagemAerea.Aplicacao.Voos.Comando;
 using AlphaNet.PassagemAerea.Aplicacao.Voos.Data;
 using AlphaNet.PassagemAerea.Domain.Model;
 using AlphaNet.PassagemAerea.Domain.Model.Avioes;

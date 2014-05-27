@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Alphanet.Acesso.Aplicacao.Data
+namespace IU.Models
 {
     public class UsuarioData
     {  

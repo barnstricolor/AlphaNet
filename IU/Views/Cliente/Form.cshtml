@@ -1,4 +1,4 @@
-﻿@model AlphaNet.PassagemAerea.Aplicacao.Clientes.Data.ClienteData
+﻿@model IU.Models.ClienteData
 @{
     Layout = "~/Views/Shared/_Layout_adm.cshtml";
 }
@@ -14,9 +14,77 @@
                 <fieldset>
                     <legend>Cadastro de Cliente</legend>
                 <input type="hidden" name="clienteId" value="@Model.clienteId"/>
-                <label>Nome: </label><input type="text" name="nome" value="@Model.nome"/>
+                @Html.LabelFor(model => model.nome)
+                @Html.EditorFor(model => model.nome)
+                @Html.ValidationMessageFor(model => model.nome)
                 <br>
-                <label>Email: </label><input type="text" name="email" value="@Model.email"/><br />
+                @Html.LabelFor(model => model.email)
+                @Html.EditorFor(model => model.email)
+                @Html.ValidationMessageFor(model => model.email)
+                <br>
+                @Html.LabelFor(model => model.rg)
+                @Html.EditorFor(model => model.rg)
+                @Html.ValidationMessageFor(model => model.rg)
+                <br>
+                @Html.LabelFor(model => model.cpf)
+                @Html.EditorFor(model => model.cpf)
+                @Html.ValidationMessageFor(model => model.cpf)
+                <br>
+                @Html.LabelFor(model => model.renda)
+                @Html.EditorFor(model => model.renda)
+                @Html.ValidationMessageFor(model => model.renda)
+                <br>
+                @Html.LabelFor(model => model.desconto)
+                @Html.EditorFor(model => model.desconto)
+                @Html.ValidationMessageFor(model => model.desconto)
+                <br>
+                @Html.LabelFor(model => model.sexo)
+                @Html.EditorFor(model => model.sexo)
+                @Html.ValidationMessageFor(model => model.sexo)
+                <br>
+                @Html.LabelFor(model => model.promocao)
+                @Html.EditorFor(model => model.promocao)
+                @Html.ValidationMessageFor(model => model.promocao)
+                <br>
+                @Html.LabelFor(model => model.especial)
+                @Html.EditorFor(model => model.especial)
+                @Html.ValidationMessageFor(model => model.especial)
+                <br>
+                @Html.LabelFor(model => model.telefone)
+                @Html.EditorFor(model => model.telefone)
+                @Html.ValidationMessageFor(model => model.telefone)
+                <br>
+                @Html.LabelFor(model => model.celular)
+                @Html.EditorFor(model => model.celular)
+                @Html.ValidationMessageFor(model => model.celular)
+                <br>
+                @Html.LabelFor(model => model.endereco)
+                @Html.EditorFor(model => model.endereco)
+                @Html.ValidationMessageFor(model => model.endereco)
+                <br>
+                @Html.LabelFor(model => model.numeroEndereco)
+                @Html.EditorFor(model => model.numeroEndereco)
+                @Html.ValidationMessageFor(model => model.numeroEndereco)
+                <br>
+                @Html.LabelFor(model => model.bairro)
+                @Html.EditorFor(model => model.bairro)
+                @Html.ValidationMessageFor(model => model.bairro)
+                <br>
+                @Html.LabelFor(model => model.cep)
+                @Html.EditorFor(model => model.cep)
+                @Html.ValidationMessageFor(model => model.cep)
+                <br>
+                @Html.LabelFor(model => model.ocupacao)
+                @Html.EditorFor(model => model.ocupacao)
+                @Html.ValidationMessageFor(model => model.ocupacao)
+                <br>
+                @Html.LabelFor(model => model.dataCadastro)
+                @Html.EditorFor(model => model.dataCadastro)
+                @Html.ValidationMessageFor(model => model.dataCadastro)
+                <br>
+                @Html.LabelFor(model => model.cidade)
+                @Html.EditorFor(model => model.cidade)
+                @Html.ValidationMessageFor(model => model.cidade)
                 <br><input type="submit" value="Salvar" />
                 </fieldset>
             </form>

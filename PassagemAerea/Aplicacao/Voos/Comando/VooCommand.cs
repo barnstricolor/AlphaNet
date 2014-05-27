@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AlphaNet.PassagemAerea.Aplicacao.Voos.Data
+namespace AlphaNet.PassagemAerea.Aplicacao.Voos.Comando
 {
     public class VooComando
     {

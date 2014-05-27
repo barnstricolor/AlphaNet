@@ -6,13 +6,12 @@ using System.Web.Mvc;
 using AlphaNet.PassagemAerea.Aplicacao.Avioes;
 using AlphaNet.PassagemAerea.Aplicacao.Avioes.Data;
 using AlphaNet.PassagemAerea.Aplicacao.Voos;
-using AlphaNet.PassagemAerea.Aplicacao.Voos.Data;
 using AlphaNet.PassagemAerea.Aplicacao.Cidades;
 using AlphaNet.PassagemAerea.Aplicacao.Clientes;
-using AlphaNet.PassagemAerea.Aplicacao.Clientes.Data;
 using AlphaNet.PassagemAerea.Domain.Model.Clientes;
 using AlphaNet.PassagemAerea.Aplicacao.Publicos;
-
+using IU.Models;
+using AlphaNet.PassagemAerea.Aplicacao.Voos.Comando;
 namespace IU.Controllers
 {
     public class VooController : AbstractController
@@ -46,13 +45,13 @@ namespace IU.Controllers
             
             ClienteService clienteService = new ClienteService();
 
-            ClienteData cliente = clienteService.clientePorEmail((string)Session["email"]);
+            ClienteData cliente = converterClienteParaIu(clienteService.clientePorEmail((string)Session["email"]));
 
             VooService vooService = new VooService();
 
             return View("ReservasPessoal", 
                 cliente==null?new List<VooReservaData>():
-                vooService.reservasCliente(cliente.clienteId));
+                converterReservaParaIu(vooService.reservasCliente(cliente.clienteId)));
             
         }
         public ActionResult AlterarPreco(string vooId)
@@ -124,7 +123,7 @@ namespace IU.Controllers
         {
             ClienteService clienteService = new ClienteService();
             VooService vooService = new VooService();
-            VooData voo = vooService.obterVoo(vooId);
+            VooData voo = converterVooParaIu(vooService.obterVoo(vooId));
 
             ViewBag.clientes = clienteService.todosClientes();
             ViewBag.mapaAssentos = vooService.mapaAssentos(voo.vooId);
@@ -165,9 +164,9 @@ namespace IU.Controllers
 
             ClienteService clienteService = new ClienteService();
             VooService vooService = new VooService();
-            VooData voo = vooService.obterVoo(vooId);
+            VooData voo = converterVooParaIu(vooService.obterVoo(vooId));
 
-            ClienteData cliente = clienteService.clientePorEmail((string)Session["email"]);
+            ClienteData cliente = converterClienteParaIu(clienteService.clientePorEmail((string)Session["email"]));
             if (cliente == null)
             {
                 ViewBag.vooId = vooId;
@@ -209,7 +208,7 @@ namespace IU.Controllers
 
         public ActionResult NovoCliente(string nome, string email, string vooId) {
             ClienteService clienteService = new ClienteService();
-            ClienteData cliente = clienteService.novoCliente(nome, email);
+            ClienteData cliente = converterClienteParaIu(clienteService.novoCliente(nome, email));
             ViewBag.vooId = vooId;
             return this.NovaReservaPessoal(vooId);
         }
@@ -224,6 +223,107 @@ namespace IU.Controllers
         {
             base.OnException(filterContext);
         }
+        private ClienteData converterClienteParaIu(AlphaNet.PassagemAerea.Aplicacao.Clientes.Data.ClienteData data)
+        {
+            ClienteData result = new ClienteData();
 
+            result.clienteId = data.clienteId;
+            result.nome = data.nome;
+            result.email = data.email;
+            result.rg = data.rg;
+            result.cpf = data.cpf;
+            result.ocupacao = data.ocupacao;
+            result.renda = data.renda;
+            result.sexo = data.sexo;
+            result.desconto = data.desconto;
+            result.promocao = data.promocao;
+            result.especial = data.especial;
+            result.telefone = data.telefone;
+            result.celular = data.celular;
+            result.endereco = data.endereco;
+            result.numeroEndereco = data.numeroEndereco;
+            result.bairro = data.bairro;
+            result.cep = data.cep;
+            result.dataCadastro = data.dataCadastro;
+            if (data.cidade != null)
+            {
+                result.cidade.cep = data.cidade.cep;
+                result.cidade.cidadeId = data.cidade.cidadeId;
+                result.cidade.nome = data.cidade.nome;
+            }
+
+            return result;
+        }
+        private AlphaNet.PassagemAerea.Aplicacao.Clientes.Data.ClienteData converterParaServico(ClienteData data)
+        {
+            AlphaNet.PassagemAerea.Aplicacao.Clientes.Data.ClienteData result = new AlphaNet.PassagemAerea.Aplicacao.Clientes.Data.ClienteData();
+
+            result.clienteId = data.clienteId;
+            result.nome = data.nome;
+            result.email = data.email;
+            result.rg = data.rg;
+            result.cpf = data.cpf;
+            result.ocupacao = data.ocupacao;
+            result.renda = data.renda;
+            result.sexo = data.sexo;
+            result.desconto = data.desconto;
+            result.promocao = data.promocao;
+            result.especial = data.especial;
+            result.telefone = data.telefone;
+            result.celular = data.celular;
+            result.endereco = data.endereco;
+            result.numeroEndereco = data.numeroEndereco;
+            result.bairro = data.bairro;
+            result.cep = data.cep;
+            result.dataCadastro = data.dataCadastro;
+            if (data.cidade != null)
+            {
+                result.cidade.cep = data.cidade.cep;
+                result.cidade.cidadeId = data.cidade.cidadeId;
+                result.cidade.nome = data.cidade.nome;
+            }
+            return result;
+        }
+        private VooData converterVooParaIu(AlphaNet.PassagemAerea.Aplicacao.Voos.Data.VooData data)
+        {
+            VooData result = new VooData();
+
+            result.aviaoId = data.aviaoId;
+            result.vooId = data.vooId;
+            result.aviaoId = data.aviaoId;
+            result.aviaoModelo = data.aviaoModelo;
+            result.cidadeOrigemId = data.cidadeOrigemId;
+            result.cidadeOrigemNome = data.cidadeOrigemNome;
+            result.cidadeDestinoId = data.cidadeDestinoId;
+            result.cidadeDestinoNome = data.cidadeDestinoNome;
+            result.partida = data.partida;
+            result.totalAssentos = data.totalAssentos;
+            result.reservados = data.reservados;
+            result.preco = data.preco;
+            result.promocional = data.promocional;
+            //public List<ReservaData> _reservas = new List<ReservaData>();
+
+            return result;
+        }
+
+        private List<VooReservaData> converterReservaParaIu(List<AlphaNet.PassagemAerea.Aplicacao.Voos.Data.VooReservaData> lista)
+        {
+            List<VooReservaData> result = new List<VooReservaData>();
+            foreach (AlphaNet.PassagemAerea.Aplicacao.Voos.Data.VooReservaData data in lista)
+            {
+                VooReservaData reserva = new VooReservaData();
+                reserva.vooId = data.vooId;
+                reserva.aviaoModelo = data.aviaoModelo;
+                reserva.cidadeOrigemNome = data.cidadeOrigemNome;
+                reserva.cidadeDestinoNome = data.cidadeDestinoNome;
+                reserva.partida = data.partida;
+                reserva.clienteId = data.clienteId;
+                reserva.clienteNome = data.clienteNome;
+                reserva.precoReserva = data.precoReserva;
+                reserva.assentosReservados = data.assentosReservados;
+                result.Add(reserva);
+            }
+            return result;
+        }
     }
 }

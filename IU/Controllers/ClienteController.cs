@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AlphaNet.PassagemAerea.Aplicacao.Clientes;
-using AlphaNet.PassagemAerea.Aplicacao.Clientes.Data;
+using IU.Models;
 
 
 
@@ -33,7 +33,7 @@ namespace IU.Controllers
                 clienteService.novoCliente(cliente.nome, cliente.email);
             }
             else {
-                clienteService.alterarDados(cliente);
+                clienteService.alterarDados(converterParaServico(cliente));
             }
             return RedirectToAction("Index", "Cliente");
         }
@@ -41,7 +41,7 @@ namespace IU.Controllers
         public ActionResult Editar(string clienteId = "")
         {
             ClienteService clienteService = new ClienteService();
-            ClienteData clienteData = clienteService.obterCliente(clienteId);
+            ClienteData clienteData = converterParaIu(clienteService.obterCliente(clienteId));
             return View("Form", clienteData);
         }
 
@@ -55,6 +55,68 @@ namespace IU.Controllers
         protected override void OnException(ExceptionContext filterContext)
         {
             base.OnException(filterContext);
+        }
+
+        private ClienteData converterParaIu(AlphaNet.PassagemAerea.Aplicacao.Clientes.Data.ClienteData data)
+        {
+            ClienteData result = new ClienteData();
+
+            result.clienteId = data.clienteId;
+            result.nome = data.nome;
+            result.email = data.email;
+            result.rg = data.rg;
+            result.cpf = data.cpf;
+            result.ocupacao = data.ocupacao;
+            result.renda = data.renda;
+            result.sexo = data.sexo;
+            result.desconto = data.desconto;
+            result.promocao = data.promocao;
+            result.especial = data.especial;
+            result.telefone = data.telefone;
+            result.celular = data.celular;
+            result.endereco = data.endereco;
+            result.numeroEndereco = data.numeroEndereco;
+            result.bairro = data.bairro;
+            result.cep = data.cep;
+            result.dataCadastro = data.dataCadastro;
+            if (data.cidade != null)
+            {
+                result.cidade.cep = data.cidade.cep;
+                result.cidade.cidadeId = data.cidade.cidadeId;
+                result.cidade.nome = data.cidade.nome;
+            }
+
+            return result;
+        }
+        private AlphaNet.PassagemAerea.Aplicacao.Clientes.Data.ClienteData converterParaServico(ClienteData data)
+        {
+            AlphaNet.PassagemAerea.Aplicacao.Clientes.Data.ClienteData result = new AlphaNet.PassagemAerea.Aplicacao.Clientes.Data.ClienteData();
+
+            result.clienteId = data.clienteId;
+            result.nome = data.nome;
+            result.email = data.email;
+            result.rg = data.rg;
+            result.cpf = data.cpf;
+            result.ocupacao = data.ocupacao;
+            result.renda = data.renda;
+            result.sexo = data.sexo;
+            result.desconto = data.desconto;
+            result.promocao = data.promocao;
+            result.especial = data.especial;
+            result.telefone = data.telefone;
+            result.celular = data.celular;
+            result.endereco = data.endereco;
+            result.numeroEndereco = data.numeroEndereco;
+            result.bairro = data.bairro;
+            result.cep = data.cep;
+            result.dataCadastro = data.dataCadastro;
+            if (data.cidade != null)
+            {
+                result.cidade.cep = data.cidade.cep;
+                result.cidade.cidadeId = data.cidade.cidadeId;
+                result.cidade.nome = data.cidade.nome;
+            }
+            return result;
         }
     }
 }

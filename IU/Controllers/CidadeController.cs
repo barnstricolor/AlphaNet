@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AlphaNet.PassagemAerea.Aplicacao.Cidades;
-using AlphaNet.PassagemAerea.Aplicacao.Cidades.Data;
+using IU.Models;
 
 
 namespace IU.Controllers
@@ -40,7 +40,7 @@ namespace IU.Controllers
         public ActionResult Editar(string cidadeId = "")
         {
             CidadeService cidadeService = new CidadeService();
-            CidadeData cidadeData = cidadeService.obterCidade(cidadeId);
+            CidadeData cidadeData = converterParaIu(cidadeService.obterCidade(cidadeId));
             return View("Form", cidadeData);
         }
 
@@ -54,6 +54,16 @@ namespace IU.Controllers
         protected override void OnException(ExceptionContext filterContext)
         {
             base.OnException(filterContext);
+        }
+        private CidadeData converterParaIu(AlphaNet.PassagemAerea.Aplicacao.Cidades.Data.CidadeData data)
+        {
+            CidadeData result = new CidadeData();
+
+            result.cep = data.cep;
+            result.cidadeId = data.cidadeId;
+            result.nome = data.nome;
+
+            return result;
         }
     }
 }

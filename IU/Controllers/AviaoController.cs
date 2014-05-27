@@ -4,8 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AlphaNet.PassagemAerea.Aplicacao.Avioes;
-using AlphaNet.PassagemAerea.Aplicacao.Avioes.Data;
-
+using IU.Models;
 namespace IU.Controllers
 {
     public class AviaoController : Controller
@@ -14,15 +13,6 @@ namespace IU.Controllers
         public ActionResult Index()
         {
             AplicacaoAviaoService aviaoService = new AplicacaoAviaoService();
-            /*List<AviaoData> avioes = new List<AviaoData>();
-
-            foreach(AviaoData data in aviaoService.todosAvioes()){
-                AviaoData aviao = new AviaoData();
-                aviao.modelo = data.modelo;
-                aviao.assentos = data.assentos;
-                avioes.Add(aviao);
-            }
-            */
             return View(aviaoService.todosAvioes());
         }
 
@@ -51,7 +41,7 @@ namespace IU.Controllers
         public ActionResult Editar(string aviaoId="")
         {
             AplicacaoAviaoService aviaoService = new AplicacaoAviaoService();
-            AviaoData aviaoData =  aviaoService.obterAviao(aviaoId);
+            AviaoData aviaoData = converterParaIu(aviaoService.obterAviao(aviaoId));
 
             return View("Form", aviaoData);
         }
@@ -67,6 +57,14 @@ namespace IU.Controllers
         {
             base.OnException(filterContext);
         }
+        private AviaoData converterParaIu(AlphaNet.PassagemAerea.Aplicacao.Avioes.Data.AviaoData data) {
+            AviaoData result = new AviaoData();
 
+            result.assentos = data.assentos;
+            result.aviaoId = data.aviaoId;
+            result.modelo = data.modelo;
+
+            return result;
+        }
     }
 }

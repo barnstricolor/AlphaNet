@@ -36,7 +36,7 @@ namespace IU.Controllers
             novoUsuario("kent", "kent123", "Kent Beck", "kent@frio.com", "Atendente");
             novoUsuario("pi", "pi", "pi", "pi@pi.com", "Gestor");
 
-            string aviaoId = DominioRegistro.aplicacaoAviaoService().novoAviao("BOEING 747", 342);
+            string aviaoId = DominioRegistro.aplicacaoAviaoService().novoAviao("BOEING 747", 30);
             string cidadeIdOrigem = DominioRegistro.cidadeService().novaCidade("RIBEIRÃO PRETO - SP", "14100");
             string cidadeIdDestino = DominioRegistro.cidadeService().novaCidade("SÃO PAULO - SP", "14000");
 
