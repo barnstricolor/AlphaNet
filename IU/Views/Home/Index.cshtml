@@ -12,73 +12,32 @@
 <div class="form-busca">
 
   <form name="form2" method="post" action="pesquisa.asp">
-     <li><label><input type="radio" name="radio" id="idavolta" value="ida">Ida e volta</label></li>
+  <ol>
+    <li><label><input type="radio" name="radio" id="idavolta" value="ida">Ida e volta</label></li>
     <li><label><input type="radio" name="radio" id="ida" value="volta">Somente ida</label></li>
     <li>  <label>Origem: 
-      <select name="origem" id="origem">
-      <option>--    Selecione    --</option>
-        <option>Ribeirão Preto</option>
-        <option>São Paulo</option>
-        <option>Rio de Janeiro</option>
-      </select>
+        @Html.DropDownList(
+            "origem", 
+            new SelectList(
+                ViewBag.cidades, 
+                "cidadeId", 
+                "nome"))
     </label></li>
      <li>  <label>Destino: 
-      <select name="destino" id="destino">
-      <option>--    Selecione    --</option>
-        <option>Ribeirão Preto</option>
-        <option>São Paulo</option>
-        <option>Rio de Janeiro</option>
-      </select>
-    </label></li>
-    <li>
-      <label>Data da partida: <input name="partida" type="text" id="datepicker" size="13"></label></li>
-      <li>
-      <label>Data da retorno: <input name="retorno" type="text" id="retorno" size="13"></label></li>
-      <li>    <label>Adulto<br/>
-      <select name="adulto" id="adulto">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>6</option>
-        <option>7</option>
-        <option>8</option>
-        <option>9</option>
-        <option>10</option>
-      </select>
-    </label>  </li> <li><label>Crianças<br/>
-      <select name="criancas" id="criancas">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>6</option>
-        <option>7</option>
-        <option>8</option>
-        <option>9</option>
-        <option>10</option>
-      </select>
-    </label></li>
-        <li>  <label>Bebês<br/>
-      <select name="bebes" id="bebes">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>6</option>
-        <option>7</option>
-        <option>8</option>
-        <option>9</option>
-        <option>10</option>
-      </select>
-    </label></li>
-          <li><label>
-            <input type="submit" name="button" id="button" value="Pesquisar" align="center">
-          </label>
-        </li>
+        @Html.DropDownList(
+            "destino", 
+            new SelectList(
+                ViewBag.cidades, 
+                "cidadeId", 
+                "nome"))</label>     
+
+     </li>
+      <li><label>Partida <input type="text" id="partida" /></label></li> 
+      <li><label>Chegada <input type="text" id="chegada" /></label></li> 
+      <li><label>Assentos @Html.TextBox("assentos")</label></li>
+      <li><label><input type="submit" name="button" id="button" value="Pesquisar" align="center"></label>
+    </li>
+  </ol>
   </form>
 
 </div>
@@ -91,6 +50,31 @@
 </div>
         </div>
 
+
+<script type="text/javascript">
+        $(function () {
+            $("[id$=partida]").datepicker({
+                showOn: "button",/*
+                buttonImage: "calendario.png",
+                buttonImageOnly: true*/
+                changeMonth: true,
+                changeYear: true,
+                showOtherMonths: true,
+                selectOtherMonths: true,
+                dateFormat: 'dd/mm/yy',
+                dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
+                dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+                dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+                monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+                monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
+            });
+            $("[id$=chegada]").datepicker({
+                showOn: "button"/*,
+                buttonImage: "calendario.png",
+                buttonImageOnly: true*/
+            });
+        });
+    </script>
 
 @*
 <!-- Script para controle de data dos campos data inicio, data fim, inscricao inicio, inscricao fim e data certificado -->

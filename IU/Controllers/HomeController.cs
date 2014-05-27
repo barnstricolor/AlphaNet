@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AlphaNet.PassagemAerea.Domain.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,7 @@ namespace IU.Controllers
         public ActionResult Index()
         {
             ViewBag.msgAutenticacao = TempData["msgAutenticacao"];
+            ViewBag.cidades = DominioRegistro.cidadeService().todasCidades();
             return View();
         }
         public ActionResult Index_adm()
