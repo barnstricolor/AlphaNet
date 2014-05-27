@@ -140,13 +140,14 @@ h1{
 	width: 30%; /* 418px; */
 	height: 15%; /* 75px; */
 	margin:0px;
-	float: right;
+    float: right;
 
 }
 
 .form-login{
 	width: 100%;
-	margin:0px;
+	margin:0;
+    padding: 1%;
 	float: right;
 	font-size: 0.8em;
     text-align:center;
@@ -233,7 +234,7 @@ a:hover {
 	display: inline-block;
 	background-color: #fff;
 	background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,.30));
-	padding: 2% 4.52%;
+	padding: 2% 4.15%;
 	font-size: 0.8em;
 	border: 0px;
 }
@@ -520,6 +521,36 @@ font-size: 0.92em;
 
 }
 
+/* formulário */
+
+
+	#aform label{
+		display: inline-block;
+		width: 30%;
+		text-align: right;
+		font-size: 1.1em;
+		font-family:Verdana, Geneva, sans-serif;
+        font-weight: normal;
+		
+	}
+
+    fieldset {
+    width: 70%;
+    margin:2% auto;
+    padding: 3%;
+    text-align: center;
+    align-content:center;
+  
+}
+	#aform li{
+		margin-top: 2%;
+        list-style-type:none;
+	}
+
+
+
+
+/* fim form */
 
 #desenvolvimento{
 	width: 190px; /* 253px; */

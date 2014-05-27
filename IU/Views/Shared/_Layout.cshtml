@@ -27,7 +27,7 @@
                           <p> <input type="submit" name="Logoff" value="Sair"></p>
                               
                                 @if ((bool)Session["gestor"]){                                 
-                                    <p>@Html.ActionLink("Administrativo","Index","Voo")</p> 
+                                    <p>@Html.ActionLink("Área Administrativa","Index","Voo")</p> 
                                 }
                              </form>
             
@@ -35,9 +35,9 @@
                     <form name="form1" method="post" action="@Url.Action("Login","Login")">
                         <ul>
                             <li> <label>Login: <input name="login" type="text" size="4"></label>  </li>
-                            <li> <label>Senha: <input name="senha" type="text" size="4"></label></li>
+                            <li> <label>Senha: <input name="senha" type="password" size="4"></label></li>
                             <li> <input type="submit" name="Login" value="OK"> <br /></li> 
-                            <li><br />@Html.ActionLink("Cadastre-se","RegistrarNovoUsuario","Login")</li> 
+                           @* <li><br />@Html.ActionLink("Cadastre-se","RegistrarNovoUsuario","Login")</li> *@
                         </ul>
                 </form>
             
@@ -52,7 +52,7 @@
         <div class="botao">@Html.ActionLink("HOME","Index","Home")</div>
         <div class="botao">@Html.ActionLink("INSTITUCIONAL","Index","Institucional")</div>
         <div class="botao">@Html.ActionLink("VOE JÁ","IndexPessoal","Voo")</div>
-        <div class="botao">@Html.ActionLink("RESERVA","MostrarReservasClienteLogado","Voo")</div>
+        <div class="botao">@Html.ActionLink(" MINHAS RESERVAS","MostrarReservasClienteLogado","Voo")</div>
         <div class="botao">@Html.ActionLink("CADASTRE-SE","RegistrarNovoUsuario","Login")</div>
         <div class="botao">@Html.ActionLink("DICAS","Index","Dicas")</div>
         <div class="botao">@Html.ActionLink("CONTATO","Index","Contato")</div>
