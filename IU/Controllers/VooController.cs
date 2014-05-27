@@ -245,12 +245,12 @@ namespace IU.Controllers
             result.bairro = data.bairro;
             result.cep = data.cep;
             result.dataCadastro = data.dataCadastro;
-            if (data.cidade != null)
+            /*if (data.cidade != null)
             {
                 result.cidade.cep = data.cidade.cep;
                 result.cidade.cidadeId = data.cidade.cidadeId;
                 result.cidade.nome = data.cidade.nome;
-            }
+            }*/
 
             return result;
         }
@@ -276,12 +276,12 @@ namespace IU.Controllers
             result.bairro = data.bairro;
             result.cep = data.cep;
             result.dataCadastro = data.dataCadastro;
-            if (data.cidade != null)
+            /*if (data.cidade != null)
             {
                 result.cidade.cep = data.cidade.cep;
                 result.cidade.cidadeId = data.cidade.cidadeId;
                 result.cidade.nome = data.cidade.nome;
-            }
+            }*/
             return result;
         }
         private VooData converterVooParaIu(AlphaNet.PassagemAerea.Aplicacao.Voos.Data.VooData data)

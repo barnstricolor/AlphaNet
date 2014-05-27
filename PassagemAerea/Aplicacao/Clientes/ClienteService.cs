@@ -8,6 +8,7 @@ using AlphaNet.PassagemAerea.Domain.Model.Clientes;
 using AlphaNet.PassagemAerea.Aplicacao.Clientes.Data;
 using Common.Domain.Model;
 using AlphaNet.PassagemAerea.Domain.Model.Cidades;
+using AlphaNet.PassagemAerea.Aplicacao.Cidades.Data;
 
 
 namespace AlphaNet.PassagemAerea.Aplicacao.Clientes
@@ -36,9 +37,9 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Clientes
             cliente.alterarPromocao(comando.promocao);
             if (comando.endereco != cliente.endereco()) 
                 cliente.alterarEndereco(comando.endereco);
-            if (comando.cpf != null && comando.cpf != cliente.cpf().ToString())
+            if (comando.cpf != null)// && cliente.cpf()!= null && comando.cpf != cliente.cpf().ToString())
                 cliente.alterarCpf(new CPF(comando.cpf));
-            if (comando.cidade != null && comando.cidade.cidadeId != cliente.cidade().Id)
+            if (comando.cidade != null)// && cliente.cidade() != null && comando.cidade.cidadeId != cliente.cidade().Id)
                 cliente.alterarCidade(new CidadeId(comando.cidade.cidadeId));
             if (comando.telefone != cliente.telefone())
                 cliente.alterarTelefone(comando.telefone);
@@ -64,6 +65,8 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Clientes
                 cliente.alterarCep(comando.cep);
             if (comando.desconto!= cliente.desconto())
                 cliente.alterarDesconto(comando.desconto);
+            if (comando.dataCadastro != cliente.dataCadastro())
+                cliente.alterarDataCadastro(comando.dataCadastro);
 
             clienteRepositorio().salvar(cliente);
         }
@@ -119,27 +122,32 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Clientes
             if (cliente.cpf()!=null)
                 data.cpf = cliente.cpf().ToString();
             
-            if (cliente.ocupacao() != "")
+            if (cliente.ocupacao() != null)
                 data.ocupacao = cliente.ocupacao();
             if (!cliente.renda().Equals(0))
                 data.renda = cliente.renda();
-            if (cliente.sexo() != "")
+            if (cliente.sexo() != null)
                 data.sexo = cliente.sexo();
             if (!cliente.desconto().Equals(0))
                 data.desconto = cliente.desconto();
             data.promocao = cliente.promocao();
             data.especial = cliente.especial();
-            if (cliente.telefone() != "")
+            if (cliente.telefone() != null)
                 data.telefone = cliente.telefone();
-            if (cliente.celular() != "")
+            if (cliente.celular() != null)
                 data.celular = cliente.celular();
-            if (cliente.endereco() != "")
+            if (cliente.endereco() != null)
                 data.endereco = cliente.endereco();
-                data.numeroEndereco = cliente.numeroEndereco();
-                data.bairro = cliente.bairro();
-                data.cep = cliente.cep();
-                data.dataCadastro = cliente.dataCadastro();
-
+            data.numeroEndereco = cliente.numeroEndereco();
+            data.bairro = cliente.bairro();
+            data.cep = cliente.cep();
+            data.dataCadastro = cliente.dataCadastro();
+            if (cliente.cidade() != null)
+            {
+                CidadeData cidade = new CidadeData();
+                cidade.cidadeId = cliente.cidade().Id;
+                data.cidade = cidade;
+            }
             return data;
         }
         private ClienteRepositorio clienteRepositorio()

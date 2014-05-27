@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using AlphaNet.PassagemAerea.Aplicacao.Cidades;
 using IU.Models;
+using AlphaNet.PassagemAerea.Domain.Model;
 
 
 namespace IU.Controllers
@@ -16,8 +17,7 @@ namespace IU.Controllers
 
         public ActionResult Index()
         {
-            CidadeService cidadeService = new CidadeService();
-            return View(cidadeService.todasCidades());
+            return View(DominioRegistro.cidadeService().todasCidades());
         }
 
         public ActionResult Nova() {
@@ -26,28 +26,25 @@ namespace IU.Controllers
 
         [HttpPost]
         public ActionResult Salvar(CidadeData cidade) {
-            CidadeService cidadeService = new CidadeService();
             if (cidade.cidadeId == null)
             {
-                cidadeService.novaCidade(cidade.nome, cidade.cep);
+                DominioRegistro.cidadeService().novaCidade(cidade.nome, cidade.cep);
             }
             else {
-                cidadeService.alterarDados(cidade.cidadeId, cidade.nome, cidade.cep);
+                DominioRegistro.cidadeService().alterarDados(cidade.cidadeId, cidade.nome, cidade.cep);
             }
             return RedirectToAction("Index", "Cidade");
         }
 
         public ActionResult Editar(string cidadeId = "")
         {
-            CidadeService cidadeService = new CidadeService();
-            CidadeData cidadeData = converterParaIu(cidadeService.obterCidade(cidadeId));
+            CidadeData cidadeData = converterParaIu(DominioRegistro.cidadeService().obterCidade(cidadeId));
             return View("Form", cidadeData);
         }
 
         public ActionResult Excluir(string cidadeId = "")
         {
-            CidadeService cidadeService = new CidadeService();
-            cidadeService.excluirCidade(cidadeId);
+            DominioRegistro.cidadeService().excluirCidade(cidadeId);
             return RedirectToAction("Index", "Cidade");
         }
 

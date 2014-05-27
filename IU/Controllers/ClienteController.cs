@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using AlphaNet.PassagemAerea.Aplicacao.Clientes;
 using IU.Models;
+using AlphaNet.PassagemAerea.Domain.Model;
 
 
 
@@ -17,38 +18,38 @@ namespace IU.Controllers
 
         public ActionResult Index()
         {
-            ClienteService cidadeService = new ClienteService();
-            return View(cidadeService.todosClientes());
+            return View(DominioRegistro.clienteService().todosClientes());
         }
 
         public ActionResult Novo() {
+            ViewBag.cidades = DominioRegistro.cidadeService().todasCidades();
             return View("Form", new ClienteData());
         }
 
         [HttpPost]
         public ActionResult Salvar(ClienteData cliente) {
-            ClienteService clienteService = new ClienteService();
+            ClienteData novo = new ClienteData();
+
             if (cliente.clienteId == null)
             {
-                clienteService.novoCliente(cliente.nome, cliente.email);
+                novo = converterParaIu(DominioRegistro.clienteService().novoCliente(cliente.nome, cliente.email));
+                cliente.clienteId = novo.clienteId;
             }
-            else {
-                clienteService.alterarDados(converterParaServico(cliente));
-            }
+            DominioRegistro.clienteService().alterarDados(converterParaServico(cliente));
+            
             return RedirectToAction("Index", "Cliente");
         }
 
         public ActionResult Editar(string clienteId = "")
         {
-            ClienteService clienteService = new ClienteService();
-            ClienteData clienteData = converterParaIu(clienteService.obterCliente(clienteId));
+            ClienteData clienteData = converterParaIu(DominioRegistro.clienteService().obterCliente(clienteId));
+            ViewBag.cidades = DominioRegistro.cidadeService().todasCidades();
             return View("Form", clienteData);
         }
 
         public ActionResult Excluir(string clienteId = "")
         {
-            ClienteService clienteService = new ClienteService();
-            clienteService.excluirCliente(clienteId);
+            DominioRegistro.clienteService().excluirCliente(clienteId);
             return RedirectToAction("Index", "Cliente");
         }
 
@@ -81,9 +82,7 @@ namespace IU.Controllers
             result.dataCadastro = data.dataCadastro;
             if (data.cidade != null)
             {
-                result.cidade.cep = data.cidade.cep;
-                result.cidade.cidadeId = data.cidade.cidadeId;
-                result.cidade.nome = data.cidade.nome;
+                result.cidade = data.cidade.cidadeId;
             }
 
             return result;
@@ -112,9 +111,9 @@ namespace IU.Controllers
             result.dataCadastro = data.dataCadastro;
             if (data.cidade != null)
             {
-                result.cidade.cep = data.cidade.cep;
-                result.cidade.cidadeId = data.cidade.cidadeId;
-                result.cidade.nome = data.cidade.nome;
+                AlphaNet.PassagemAerea.Aplicacao.Cidades.Data.CidadeData cidade = new AlphaNet.PassagemAerea.Aplicacao.Cidades.Data.CidadeData();
+                cidade.cidadeId = data.cidade;
+                result.cidade = cidade;
             }
             return result;
         }

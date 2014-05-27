@@ -29,6 +29,5 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Clientes.Data
         public string cep {get; set; }
         public DateTime dataCadastro { get; set; }
         public CidadeData cidade {get; set; }
-
     }
 }

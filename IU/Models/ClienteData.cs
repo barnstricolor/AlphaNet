@@ -50,7 +50,7 @@ namespace IU.Models
         [DataType(DataType.Date, ErrorMessage = "Data inválida.")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime dataCadastro { get; set; }
-        public CidadeData cidade {get; set; }
+        public string cidade {get; set; }
 
     }
 }
