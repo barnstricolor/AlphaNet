@@ -27,9 +27,12 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos
             foreach (ClienteData cliente in DominioRegistro.clienteService().todosClientesPromocao())
             {
                 Email email = new Email();
-                email.enviar(cliente.email,"Voo Promocional: " + evento.voo.preco() + 
-                                            "Saida: " + DominioRegistro.cidadeRepositorio().obterPeloId(evento.voo.origemId()).nome() +
-                                            "Chegada: " + DominioRegistro.cidadeRepositorio().obterPeloId(evento.voo.destinoId()).nome()
+                email.enviar(cliente.email,"Vôo Promocional: " + "Preço: R$ " + evento.voo.preco() + (char)13+
+                                            "Saída: " + DominioRegistro.cidadeRepositorio().obterPeloId(evento.voo.origemId()).nome() +
+                                            "  Data/Hora de partida: " + evento.voo.partida() + (char)13 + 
+                                            "Chegada: " + DominioRegistro.cidadeRepositorio().obterPeloId(evento.voo.destinoId()).nome() +
+                                            "  Data/Hora prevista de chegada: "
+                              
                             );
             }
         

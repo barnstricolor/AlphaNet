@@ -13,6 +13,10 @@ namespace Alphanet.Acesso.Domain.Model.Usuarios
         public Papel(string nome) {
             this._nome = nome;
         }
+        public override string ToString()
+        {
+            return this._nome;
+        }
         public override bool Equals(object obj)
         {
             if (object.ReferenceEquals(this, obj)) return true;

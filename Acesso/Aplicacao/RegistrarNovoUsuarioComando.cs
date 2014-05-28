@@ -12,12 +12,16 @@ namespace Alphanet.Acesso.Aplicacao
         public string senha { get; set; }
         public string nome {get; set;}
         public string email {get; set;}
+        public string papel { get; set; }
+        
         public RegistrarNovoUsuarioComando(){}
-        public RegistrarNovoUsuarioComando(string login, string senha, string nome, string email) {
+
+        public RegistrarNovoUsuarioComando(string login, string senha, string nome, string email, string papelPadrao) {
             this.login = login;
             this.senha = senha;
             this.nome = nome;
             this.email = email;
+            this.papel = papelPadrao;
         }
 
     }

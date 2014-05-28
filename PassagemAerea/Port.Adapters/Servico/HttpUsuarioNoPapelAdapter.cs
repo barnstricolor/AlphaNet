@@ -26,5 +26,19 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Servico
 
             return response.Data.paraGestor();
         }
+        public Outros obterPapel(string identidade)
+        {
+            RestClient client = new RestClient("http://localhost:51788");
+            RestRequest request = new RestRequest("api/usuario/", Method.GET);
+            request.AddParameter("nome", identidade);
+
+            var response = client.Execute<PublicoTradutor>(request);
+            var content = response.Content;
+
+            if (response.Data == null)
+                return null;
+
+            return response.Data.obterPapel();
+        }
     }
 }

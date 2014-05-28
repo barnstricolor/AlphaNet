@@ -27,6 +27,20 @@ namespace Alphanet.Acesso.Port.Adapters.Recurso
             usuario.email = data.email;
             return usuario;
         }
+        public UsuarioRecurso Get(string nome)
+        {
+            AcessoAplicacaoService acessoAplicacaoService = new AcessoAplicacaoService();
+
+            UsuarioData data = acessoAplicacaoService.papel(nome);
+            if (data == null)
+                return null;
+
+            UsuarioRecurso usuario = new UsuarioRecurso();
+            usuario.nome = data.nome;
+            usuario.email = data.email;
+            usuario.papel = data.papel;
+            return usuario;
+        }
 
     }
 }

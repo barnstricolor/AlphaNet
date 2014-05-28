@@ -17,7 +17,7 @@ namespace AlphaNet.Common.Port.Adapters
             MailMessage mensagem = new MailMessage(
                 "fcaairlines@gmail.com",
                 email,
-                "Saldão AlphaNet - Aqui não tem Crocket!",
+                "Promoção Relâmpago FCAirlaines!",
                 texto);
             
             //Attachment anexo = new Attachment(((ListBoxItem)item).Content.ToString());

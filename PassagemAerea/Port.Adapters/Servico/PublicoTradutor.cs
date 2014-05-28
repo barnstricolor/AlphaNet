@@ -11,10 +11,15 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Servico
     {
         public string nome { get; set; }
         public string email { get; set; }
-
+        public string papel { get; set; }
+        
         public Gestor paraGestor() {
 
-            return new Gestor(email, nome, email);
+            return new Gestor(email, nome, email, "Gestor");
+        }
+        public Outros obterPapel()
+        {
+            return new Outros(email, nome, email, papel);
         }
     }
 }

@@ -11,11 +11,13 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Publicos
         protected string _nome;
         protected string _identidade;
         protected string _email;
+        protected string _papel;
 
-        public Publico(string identidade, string nome, string email) {
+        public Publico(string identidade, string nome, string email, string papel) {
             this._identidade = identidade;
             this._nome = nome;
             this._email = email;
+            this._papel = papel;
         }
 
         public string identidade() {
@@ -29,6 +31,9 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Publicos
         public string email() {
             return this._email;
         }
-
+        public string papel()
+        {
+            return this._papel;
+        }
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace AlphaNet.PassagemAerea.Domain.Model.Publicos
 {
-    public class Gestor: Publico
+    public class Outros: Publico
     {
-        public Gestor(string identidade, string nome, string email,string papel) : 
+        public Outros(string identidade, string nome, string email, string papel) : 
             base(identidade, nome, email, papel) {}
 
         public override bool Equals(object obj)
@@ -16,7 +16,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Publicos
             if (object.ReferenceEquals(this, obj)) return true;
             if (object.ReferenceEquals(null, obj)) return false;
             if (this.GetType() != obj.GetType()) return false;
-            var vo = obj as Gestor;
+            var vo = obj as Outros;
             return vo._identidade.Equals(_identidade) &&
                 vo._nome.Equals(_nome) &&
                 vo._email.Equals(_email);

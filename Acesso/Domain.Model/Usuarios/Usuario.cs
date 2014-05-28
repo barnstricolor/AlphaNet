@@ -68,5 +68,9 @@ namespace AlphaNet.Acesso.Domain.Model.Usuarios
         {
             return this._email;
         }
+        public Papel papel()
+        {
+            return this._papel;
+        }
     }
 }
