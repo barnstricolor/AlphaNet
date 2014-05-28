@@ -1,5 +1,4 @@
-﻿using Alphanet.Acesso.Aplicacao;
-using Alphanet.Acesso.Domain.Model.Usuarios;
+﻿using Alphanet.Acesso.Domain.Model.Usuarios;
 using AlphaNet.PassagemAerea.Aplicacao.Avioes;
 using AlphaNet.PassagemAerea.Aplicacao.Cidades;
 using AlphaNet.PassagemAerea.Aplicacao.Clientes;
@@ -14,12 +13,11 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Mvc;
-
+using IU.Models;
 namespace IU.Controllers
 {
-    public class ValuesController : Controller
+    public class ValuesController : AbstractController
     {
-        AcessoAplicacaoService acessoAplicacaoService = new AcessoAplicacaoService();
         // GET api/values
         public ActionResult Index()
         {
@@ -40,7 +38,7 @@ namespace IU.Controllers
             string cidadeIdOrigem = DominioRegistro.cidadeService().novaCidade("RIBEIRÃO PRETO - SP", "14100");
             string cidadeIdDestino = DominioRegistro.cidadeService().novaCidade("SÃO PAULO - SP", "14000");
 
-            ClienteData cliente = DominioRegistro.clienteService().novoCliente("RICARDO","HDR_RICARDO@HOTMAIL.COM");
+            AlphaNet.PassagemAerea.Aplicacao.Clientes.Data.ClienteData cliente = DominioRegistro.clienteService().novoCliente("RICARDO","HDR_RICARDO@HOTMAIL.COM");
             cliente.especial = true;
             cliente.promocao = true;
             cliente.desconto = 10;
@@ -80,7 +78,7 @@ namespace IU.Controllers
         private void novoUsuario(string login, string senha,string nome, string email , string papel) {
             NovoUsuarioComando comando = new NovoUsuarioComando(login, senha, nome, email, papel);
 
-            acessoAplicacaoService.novoUsuario(comando);
+            acessoAplicacaoService.novoUsuario(converterParaServico(comando));
         }
         // GET api/values/5
         public string Get(int id)
@@ -103,5 +101,40 @@ namespace IU.Controllers
         {
         }
 
+        private NovoUsuarioComando converterParaIu(Alphanet.Acesso.Aplicacao.NovoUsuarioComando data)
+        {
+            return new NovoUsuarioComando(data.login, data.senha, data.nome, data.email, data.papel);
+        }
+        private Alphanet.Acesso.Aplicacao.NovoUsuarioComando converterParaServico(NovoUsuarioComando data)
+        {
+            return new Alphanet.Acesso.Aplicacao.NovoUsuarioComando(data.login, data.senha, data.nome, data.email, data.papel);
+        }
+        /*private UsuarioData converterParaIu(Alphanet.Acesso.Aplicacao.Data.UsuarioData data)
+        {
+            UsuarioData result = new UsuarioData();
+
+            result.usuarioId = data.usuarioId;
+            result.login = data.login;
+            result.nome = data.nome;
+            result.email = data.email;
+            result.senha = data.senha;
+            result.papel = data.papel;
+
+            return result;
+        }
+        private Alphanet.Acesso.Aplicacao.Data.UsuarioData converterParaServico(UsuarioData data)
+        {
+            Alphanet.Acesso.Aplicacao.Data.UsuarioData result = new Alphanet.Acesso.Aplicacao.Data.UsuarioData();
+
+            result.usuarioId = data.usuarioId;
+            result.login = data.login;
+            result.nome = data.nome;
+            result.email = data.email;
+            result.senha = data.senha;
+            result.papel = data.papel;
+
+            return result;
+        }
+        */
     }
 }

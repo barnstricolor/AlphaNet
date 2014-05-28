@@ -1,27 +1,56 @@
-﻿@model Alphanet.Acesso.Aplicacao.Data.UsuarioData
+﻿@model IU.Models.UsuarioData
 @{
     Layout = "~/Views/Shared/_Layout_adm.cshtml";
 }
-
-<div id="body">
-    <section class="featured">
-        <div class="content-wrapper">
-            <hgroup class="title">
-                <h1>Usuário</h1>
-            </hgroup>
-         
-            <form method="post" action="Salvar">
-                <fieldset>
-                    <legend>Cadastro de Usuários</legend>
-                    <input type="hidden" name="usuarioId" value="@Model.usuarioId"/>
-                    <label>Login: </label><input type="text" name="login" value="@Model.login"/>
-                    <br><label>Nome: </label><input type="text" name="nome" value="@Model.nome"/>
-                    <br><label>Email: </label><input type="text" name="email" value="@Model.email"/>
-                    <br><input type="submit" value="Salvar" />
-                </fieldset>
-            </form>
-           <a href="@Url.Action("Index","Usuario")"><img src="~/Content/themes/base/images/voltar.png" id="bt-voltar" /></a>
+@using (Html.BeginForm("Salvar","Usuario")) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Cadastro de Usuários</legend>
+        <div id="body">
+            <section class="featured">
+                <div class="content-wrapper">
+                    <hgroup class="title">
+                        <h1>Usuário</h1>
+                    </hgroup>
+                        <input type="hidden" name="usuarioId" value="@Model.usuarioId"/>
+                        <br>
+                        @Html.LabelFor(model => model.login)
+                        @Html.EditorFor(model => model.login)
+                        @Html.ValidationMessageFor(model => model.login)
+                        <br>
+                        @Html.LabelFor(model => model.nome)
+                        @Html.EditorFor(model => model.nome)
+                        @Html.ValidationMessageFor(model => model.nome)
+                        <br>
+                        @Html.LabelFor(model => model.email)
+                        @Html.EditorFor(model => model.email)
+                        @Html.ValidationMessageFor(model => model.email)
+                        <br>
+                        @Html.LabelFor(model => model.senha)
+                        @Html.EditorFor(model => model.senha)
+                        @Html.ValidationMessageFor(model => model.senha)
+                        <br>
+                        @Html.LabelFor(model => model.papel)
+                        @Html.DropDownListFor(
+                            model => model.papel, 
+                                new SelectList(
+                                    new List<object>{ 
+                                        new { value = "Gestor" , text = "Gestor"  },
+                                        new { value = "Atendente" , text = "Atendente" },
+                                        new { value = "Cliente" , text = "Cliente"},
+                                        new { value = "Usuario" , text = "Usuário"}
+                                    },
+                                "value",
+                                "text",
+                                Model.papel))
+                        @Html.ValidationMessageFor(model => model.login)
+                        <br>
+                        <input type="submit" value="Salvar" />
+                   <a href="@Url.Action("Index","Usuario")"><img src="~/Content/themes/base/images/voltar.png" id="bt-voltar" /></a>
+                </div>
+            </section>
         </div>
-    </section>
-</div>
+    </fieldset>
+}
         

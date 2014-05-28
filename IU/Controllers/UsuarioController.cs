@@ -6,19 +6,21 @@ using System.Web.Mvc;
 using AlphaNet.PassagemAerea.Aplicacao.Cidades;
 using AlphaNet.PassagemAerea.Aplicacao.Cidades.Data;
 using Alphanet.Acesso.Aplicacao;
-using Alphanet.Acesso.Aplicacao.Data;
+using IU.Models;
 
 
 namespace IU.Controllers
 {
-    public class UsuarioController : Controller
+    public class UsuarioController : AbstractController
     {
         //
         // GET: /Cidade/
 
         public ActionResult Index()
         {
-            AcessoAplicacaoService acessoAplicacaoService = new AcessoAplicacaoService();
+            if ((string)Session["papel"] != "Gestor")
+                return RedirectToAction("Index_adm", "Home");
+            
             return View(acessoAplicacaoService.todosUsuarios());
         }
 
@@ -27,35 +29,51 @@ namespace IU.Controllers
         }
 
         [HttpPost]
-        public ActionResult Salvar(CidadeData cidade) {
-            CidadeService cidadeService = new CidadeService();
-            if (cidade.cidadeId == null)
+        public ActionResult Salvar(UsuarioData usuario) {
+            
+            if (usuario.usuarioId == null)
+                acessoAplicacaoService.novoUsuario(converterParaServico(usuario));
+            else
             {
-                cidadeService.novaCidade(cidade.nome, cidade.cep);
-            }
-            else {
-                cidadeService.alterarDados(cidade.cidadeId, cidade.nome, cidade.cep);
-            }
-            return RedirectToAction("Index", "Cidade");
+                acessoAplicacaoService.alterarDados(usuario.usuarioId ,converterParaServico(usuario));
+            }              
+                
+            return RedirectToAction("Index", "Usuario");
         }
 
-        public ActionResult Editar(string cidadeId = "")
+        public ActionResult Editar(string usuarioId = "")
         {
-            CidadeService cidadeService = new CidadeService();
-            CidadeData cidadeData = cidadeService.obterCidade(cidadeId);
-            return View("Form", cidadeData);
+            UsuarioData usuario = converterParaIu(acessoAplicacaoService.UsuarioPeloId(usuarioId));
+            return View("Form", usuario);
         }
 
-        public ActionResult Excluir(string cidadeId = "")
+        public ActionResult Excluir(string usuarioId = "")
         {
-            CidadeService cidadeService = new CidadeService();
-            cidadeService.excluirCidade(cidadeId);
-            return RedirectToAction("Index", "Cidade");
+            acessoAplicacaoService.excluirUsuario(usuarioId);
+            return RedirectToAction("Index", "Usuario");
         }
 
         protected override void OnException(ExceptionContext filterContext)
         {
             base.OnException(filterContext);
+        }
+        private UsuarioData converterParaIu(Alphanet.Acesso.Aplicacao.Data.UsuarioData data)
+        {
+            UsuarioData result = new UsuarioData(data.login, data.nome, data.email);
+            result.senha = data.senha;
+            result.papel = data.papel;
+            return result;
+        }
+        /*/private Alphanet.Acesso.Aplicacao.Data.UsuarioData converterParaServico(UsuarioData data)
+        {   
+            Alphanet.Acesso.Aplicacao.Data.UsuarioData result = new Alphanet.Acesso.Aplicacao.Data.UsuarioData(data.login, data.nome, data.email);
+            result.senha = data.senha;
+            result.papel = data.papel;
+            return result;
+        }*/
+        private Alphanet.Acesso.Aplicacao.NovoUsuarioComando converterParaServico(UsuarioData data)
+        {
+            return new Alphanet.Acesso.Aplicacao.NovoUsuarioComando(data.login, data.senha, data.nome, data.email, data.papel);
         }
     }
 }

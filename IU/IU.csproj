@@ -204,6 +204,7 @@
     <Compile Include="Models\CidadeData.cs" />
     <Compile Include="Models\ClienteData.cs" />
     <Compile Include="Models\Contato.cs" />
+    <Compile Include="Models\NovoUsuarioComando.cs" />
     <Compile Include="Models\UsuarioData.cs" />
     <Compile Include="Models\VooData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

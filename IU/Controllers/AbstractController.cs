@@ -1,4 +1,5 @@
-﻿using AlphaNet.PassagemAerea.Aplicacao.Publicos;
+﻿using Alphanet.Acesso.Aplicacao;
+using AlphaNet.PassagemAerea.Aplicacao.Publicos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,9 @@ namespace IU.Controllers
 {
     public class AbstractController : Controller
     {
-        PublicoAplicacaoService publicoAplicacaoService = new PublicoAplicacaoService();
+        protected PublicoAplicacaoService publicoAplicacaoService = new PublicoAplicacaoService();
+        protected AcessoAplicacaoService acessoAplicacaoService = new AcessoAplicacaoService();
+
         protected bool usuarioEstaLogado()
         {
             return usuarioLogin() != null;
@@ -29,5 +32,6 @@ namespace IU.Controllers
         {
             return publicoAplicacaoService.papel(usuarioEmail());
         }
+
     }
 }

@@ -72,5 +72,20 @@ namespace AlphaNet.Acesso.Domain.Model.Usuarios
         {
             return this._papel;
         }
+
+        internal void alterarPapel(Papel novoPapel)
+        {
+            this._papel = novoPapel;
+        }
+
+        internal void alterarEmail(string email)
+        {
+            this._email = email;
+        }
+
+        internal void alterarLogin(string login)
+        {
+            this._login = login;
+        }
     }
 }

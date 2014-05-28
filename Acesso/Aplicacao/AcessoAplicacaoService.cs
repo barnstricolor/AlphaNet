@@ -36,6 +36,18 @@ namespace Alphanet.Acesso.Aplicacao
             result.papel = usuario.papel().ToString();
             return result;
         }
+        public UsuarioData UsuarioPeloId(string usuarioId)
+        {
+            Usuario usuario = usuarioRepositorio().obterPeloId(new UsuarioId(usuarioId));
+
+            if (usuario == null)
+                return null;
+
+            UsuarioData result = new UsuarioData(usuario.login(), usuario.nome(), usuario.email());
+            result.senha = usuario.senha();
+            result.papel = usuario.papel().ToString();
+            return result;
+        }
 
         public string novoUsuario(NovoUsuarioComando comando) {
 
@@ -60,7 +72,7 @@ namespace Alphanet.Acesso.Aplicacao
                 comando.senha,
                 comando.nome,
                 comando.email,
-                new Papel("Usuario"));
+                new Papel(comando.papel));
 
             usuarioRepositorio().salvar(usuario);
 
@@ -70,6 +82,19 @@ namespace Alphanet.Acesso.Aplicacao
 
         public void alterarSenha(string usuarioId, string novaSenha) {
             Usuario usuario = usuarioPeloId(usuarioId);
+            usuario.alterarSenha(novaSenha);
+            DominioRegistro.usuarioRepositorio().salvar(usuario);
+        }
+
+        public void alterarDados(string usuarioId, NovoUsuarioComando comando) {
+            Usuario usuario = usuarioPeloId(usuarioId);
+            usuario.alterarLogin(comando.login);
+            usuario.alterarNome(comando.nome);          
+            usuario.alterarSenha(comando.senha);
+            usuario.alterarEmail(comando.email);
+            usuario.alterarPapel(new Papel(comando.papel));
+            DominioRegistro.usuarioRepositorio().salvar(usuario);
+           
         }
 
         private Usuario usuarioPeloId(string usuarioId) {
@@ -79,7 +104,11 @@ namespace Alphanet.Acesso.Aplicacao
         private UsuarioRepositorio usuarioRepositorio() {
             return DominioRegistro.usuarioRepositorio();
         }
-        
+        public void excluirUsuario(string usuarioId)
+        {
+            DominioRegistro.usuarioRepositorio().remover(new UsuarioId(usuarioId));
+        }
+
         public List<UsuarioData> todosUsuarios()
         {
             List<UsuarioData> result = new List<UsuarioData>();

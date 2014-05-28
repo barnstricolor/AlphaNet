@@ -19,7 +19,7 @@ namespace IU.Controllers
 
         public ActionResult Index()
         {
-            if (!this.usuarioLogadoGestor()) 
+            if ((string)Session["papel"] != "Gestor" & (string)Session["papel"] != "Atendente") 
                 return RedirectToAction("IndexPessoal", "Voo");
 
             VooService vooService = new VooService();
@@ -41,8 +41,12 @@ namespace IU.Controllers
         public ActionResult MostrarReservasClienteLogado()
         {
             if (Session["email"] == null)
+                return RedirectToAction("Index", "Home");
+
+            if ((string)Session["papel"] != "Cliente")
                 return RedirectToAction("Index", "Home");            
-            
+
+
             ClienteService clienteService = new ClienteService();
 
             ClienteData cliente = converterClienteParaIu(clienteService.clientePorEmail((string)Session["email"]));
@@ -225,6 +229,8 @@ namespace IU.Controllers
         }
         private ClienteData converterClienteParaIu(AlphaNet.PassagemAerea.Aplicacao.Clientes.Data.ClienteData data)
         {
+            if (data == null)
+                new ClienteData();
             ClienteData result = new ClienteData();
 
             result.clienteId = data.clienteId;

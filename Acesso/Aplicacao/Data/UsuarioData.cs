@@ -21,7 +21,6 @@ namespace Alphanet.Acesso.Aplicacao.Data
             this.login = login;
             this.nome = nome;
             this.email = email;
-
         }
         public UsuarioData()
         { 
