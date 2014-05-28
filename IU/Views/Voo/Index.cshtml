@@ -11,7 +11,7 @@
             </hgroup>
                         <nav>
                     <ul id="menu02">
-                     <li><a href="@Url.Action("Novo", "Voo")"><img src="~/Content/themes/base/images/novo_voo.png" id="bt-novo-voo" /></a></li>
+                     <li><a href="@Url.Action("Novo", "Voo")"><img src="~/Content/themes/base/images/novo_voo.png" id="bt-novo-voo" border="0" /></a></li>
                     </ul>
                 </nav>
                 @if (Model != null) {
@@ -50,11 +50,11 @@
                                 
                                 @* VERIFICAR ESSE CÓDIGO *@
                                                                                    
-                               <td><a href="@Url.Action("NovaReserva","Voo",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/nova_reserva.png" id="bt-nova-reserva"/></a></td>
+                               <td><a href="@Url.Action("NovaReserva","Voo",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/nova_reserva.png" id="bt-nova-reserva" border="0"/></a></td>
 
                                @* <td>@Html.ActionLink("Reservas","Reservas",new {vooId = voo.vooId})</td>*@
-                                 <td><a href="@Url.Action("Reservas","Voo",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/mapa_assentos.png" id="bt-reserva" /></a></td>
-                                <td><a href="@Url.Action("Excluir",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/excluir.png" id="bt-excluir" /></a></td>                          
+                                 <td><a href="@Url.Action("Reservas","Voo",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/mapa_assentos.png" id="bt-reserva" border="0" /></a></td>
+                                <td><a href="@Url.Action("Excluir",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/excluir.png" id="bt-excluir" border="0" /></a></td>                          
                                 
                             </tr>        
                         }
