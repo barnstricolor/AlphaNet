@@ -6,11 +6,9 @@
 
     <div id="conteudo">
         <div id="conteudo_central">
-<div id="fundo_branco">
-<div id="titulo">PESQUISA RÁPIDA</div>
-
 <div class="form-busca">
-
+<div id="titulo">PESQUISA RÁPIDA</div>
+    
   <form name="form2" method="post" action="pesquisa.asp">
   <ol>
     <li><label><input type="radio" name="radio" id="idavolta" value="ida">Ida e volta</label></li>
@@ -32,15 +30,15 @@
                 "nome"))</label>     
 
      </li>
-      <li><label>Partida: <input type="text" id="partida" /></label></li> 
-      <li><label>Volta: <input type="text" id="chegada" /></label></li> 
-      <li><label>Assentos @Html.TextBox("assentos")</label></li>
-      <li><label><input type="submit" name="button" id="button" value="Pesquisar" align="center"></label>
+      <li><label>Partida:</label> <input type="text" id="partida" /></li> 
+      <li><label>Volta: </label> <input type="text" id="chegada" /></li> 
+      <li><label> No. passagens:</label><input type="text" id="assentos" name="assentos" size="4" /></li>
+      <li><p><input type="submit" name="button" id="button" value="Pesquisar"   align="center"></p></li>
     </li>
   </ol>
   </form>
 
-</div>
+
 
 
 </div>

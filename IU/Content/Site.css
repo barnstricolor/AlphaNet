@@ -140,21 +140,22 @@ h1{
 }
 #login{
 	width: 30%; /* 418px; */
-	height: 15%; /* 75px; */
 	margin:0px;
     float: right;
+    background-color: rgba(255, 255, 255, 0.60);
 
 }
 
 .form-login{
 	width: 100%;
-	margin:0;
+    height:10%; /* 75px; */
+	margin:0 5% 0 0;
     padding: 1%;
 	float: right;
 	font-size: 0.8em;
     text-align:center;
 	color:#666;
-    background-color: rgba(255, 255, 255, 0.60);
+    
 
    
 }
@@ -333,15 +334,17 @@ a:hover {
 	margin:0;
 }
 
-#fundo_branco{
-	width: 20%; /* 270px; */ 
-	height: 55%; /* 390px; */
-	margin-top: 1.7%; /* 15px; */
-	margin-left: 1.7%; /* 15px; */
+.form-busca{
+	width: 22%; /* 270px; */ 
+	height: 45%; /* 390px; */
+	margin: 2% 0 0 1%;
 	position: absolute;
 	font-size:0.8em;
     background-color: rgba(255, 255, 255, 0.70);
 }
+.form-busca ol {
+        list-style-type:none;
+    }
 #titulo{
 	background:#999;
 	color:#FFF;
@@ -352,23 +355,20 @@ a:hover {
 	letter-spacing:0.1em;
 }
 
-
-.form-busca{
-	width: 92%;
-    margin-top: 0% 0.2% 0,5% 0%;
-	padding: 4%;
-	float: right;
-	font-size:0.8em; /* 13px; */
-	
-	
-}
-
 .form-busca li{
-	list-style:none;
-	margin: 3%;
+	padding: 3% 2% 3% 0;
 	float:left;
-	font-size:1.5em;
+	font-size:1em;
 }
+
+
+.form-busca label{
+	font-size: 1.1em;
+	font-family:Verdana, Geneva, sans-serif;
+    font-weight: normal;
+
+}
+
 
 table{
 	width: 100%;
@@ -536,7 +536,7 @@ font-size: 0.92em;
 		
 	}
 
-    fieldset {
+    #aform fieldset {
     width: 70%;
     margin:2% auto;
     padding: 3%;
@@ -549,10 +549,9 @@ font-size: 0.92em;
         list-style-type:none;
 	}
 
-
-
-
+    
 /* fim form */
+
 
 #desenvolvimento{
 	width: 190px; /* 253px; */
@@ -590,6 +589,15 @@ Label {
         margin-left: 2%; /* 20px; */
         float: left;
     }
+    .form-busca{
+	width: 30%; /* 270px; */ 
+	height: 70%; /* 390px; */
+	margin: 2% 0 0 1%;
+	position: absolute;
+	font-size:0.8em;
+    background-color: rgba(255, 255, 255, 0.70);
+}
+ 
 
     #conteudo {
         width: 100%; /* 1000px; */
@@ -600,14 +608,6 @@ Label {
     }
 
 
-    #fundo_branco {
-        width: 35%; /* 270px; */
-        height: 2%; /* 390px; */
-        margin-top: 1%; /* 15px; */
-        margin-left: 1%; /* 15px; */
-        position: absolute;
-        font-size: 0.8em;
-    }
 
     .botao {
         padding: 3% 6%;
@@ -629,26 +629,7 @@ Label {
             position: relative;
         }
 
-        #fundo_branco {
-            width: 50%; /* 270px; */
-            height: 4%; /* 390px; */
-        }
 
-        #form-busca {
-            width: 92%;
-            margin-top: 0% 0.2% 0,5% 0%;
-            padding: 2%;
-            float: right;
-            font-size: 0.8em; /* 13px; */
-            background-color: rgba(255, 255, 255, 0.50);
-        }
-
-        .form-busca li {
-            list-style: none;
-            margin: 1%;
-            float: left;
-            font-size: 1.5em;
-        }
 
         .botao {
             padding: 4% 7%;
@@ -672,30 +653,6 @@ Label {
             position: relative;
         }
 
-        #fundo_branco {
-            width: 98%; /* 270px; */
-            height: 3%; /* 390px; */
-            margin-top: 0.5%; /* 15px; */
-            margin-left: 0.5%; /* 15px; */
-            position: absolute;
-            font-size: 0.8em;
-        }
-
-        #form-busca {
-            width: 92%;
-            margin-top: 0% 0.2% 0,5% 0%;
-            padding: 2%;
-            float: right;
-            font-size: 0.8em; /* 13px; */
-            background-color: rgba(239, 239, 239, 0.90);
-        }
-
-        .form-busca li {
-            list-style: none;
-            margin: 1%;
-            float: left;
-            font-size: 1.5em;
-        }
 
         .botao {
             padding: 5% 8%;
@@ -717,23 +674,6 @@ Label {
             float: left;
         }
 
-        #fundo_branco {
-            width: 98%; /* 270px; */
-            height: 4%; /* 390px; */
-            margin-top: 1.7%; /* 15px; */
-            margin-left: 1.7%; /* 15px; */
-            position: absolute;
-            font-size: 0.8em;
-        }
-
-        .form-busca {
-            width: 92%;
-            margin-top: 0% 0.2% 0,5% 0%;
-            padding: 4%;
-            float: right;
-            font-size: 0.8em; /* 13px; */
-            background-color: rgba(239, 239, 239, 0.90);
-        }
 
         .botao {
             padding: 6% 9%;
