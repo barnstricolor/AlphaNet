@@ -24,7 +24,10 @@ legend {
 }
 
 textarea {
-    min-height: 75px;
+    min-height: 76px;
+    min-width: 298px;
+    margin-left: 0px;
+    font-family:Arial;
 }
 
 .editor-label {
@@ -33,6 +36,34 @@ textarea {
 
 .editor-field {
     margin: 0.5em 0 0 0;
+}
+/*Formulário de contato*/
+input#nome, #email, #telefone, #assunto {
+    width:300px;
+    height:35px;
+    margin-top:3px;
+}
+input#cidade {
+    height:35px;
+    width:247px;
+    margin-top:3px;
+}
+input#uf {
+    height: 35px;
+    width: 45px;
+    text-align: center;
+    margin-right: 236px;
+}
+input#obervacao {
+    width:300px;
+}
+input#enviar {
+    display:block;
+}
+.validation-summary-errors {
+    float: right;
+    margin-right: -14px;
+    margin-top: -8px;
 }
 
 

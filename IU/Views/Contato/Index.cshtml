@@ -1,14 +1,32 @@
-﻿@{
+﻿@model AlphaNet.PassagemAerea.IU.Models.Contato
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @{
     ViewBag.Title = "Contato";
 }
+@using (Html.BeginForm("Index", "Contato"))
+        {
+            @Html.AntiForgeryToken()
+            
+           <fieldset>
+              <legend>Contato</legend>
  	<div id="conteudo">
 
          <div id="conteudo-central">
-
-           <h1>Contato</h1>
+             @Html.ValidationSummary(false)
+             @Html.TextBoxFor(a => a.nome, new {@placeholder = "Nome" })
+             @Html.TextBoxFor(a => a.email, new {@placeholder = "E-mail"})
+             @Html.TextBoxFor(a => a.telefone, new { @placeholder = "Telefone"})
+             @Html.TextBoxFor(a => a.cidade, new {@placeholder = "Cidade" })
+             @Html.TextBoxFor(a => a.uf, new{@placeholder = "UF"})
+             @Html.TextBoxFor(a => a.assunto, new {@placeholder = "Assunto" })
+             @Html.TextAreaFor(a => a.observacao, new{@placeholder = "Observação"})
+             <input type="hidden" id="email" value="fcaairlines@gmail.com" />
+             <input type="submit" id="enviar" value="Enviar" />
+             <!--<img src="~/Images/contato.png" style="float:right; max-width:400px; float: right; max-width: 400px; 
+margin-top: -390px; margin-right: 70px;"/>-->
          </div>
 
  	</div>
+              </fieldset> }

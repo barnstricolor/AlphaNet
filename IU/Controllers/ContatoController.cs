@@ -12,6 +12,12 @@ namespace IU.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult Index(string nome, string email, string telefone, string cidade, string uf, string assunto,
+            string observacoes)
+        {
+            return View();
+        }
     
      
     }

@@ -203,6 +203,7 @@
     <Compile Include="Models\AviaoData.cs" />
     <Compile Include="Models\CidadeData.cs" />
     <Compile Include="Models\ClienteData.cs" />
+    <Compile Include="Models\Contato.cs" />
     <Compile Include="Models\UsuarioData.cs" />
     <Compile Include="Models\VooData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -332,6 +333,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Images\contato.png" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.10.4.js" />
