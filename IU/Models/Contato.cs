@@ -23,5 +23,6 @@ namespace AlphaNet.PassagemAerea.IU.Models
         public string assunto { get; set; }
         public string observacao { get; set; }
 
+
     }
 }
