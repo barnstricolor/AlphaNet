@@ -25,7 +25,7 @@
                 <div id="topo-login">
                      <div class="form-login-adm"> 
                             @if (Session["login"]!=null){
-                                @Html.Label("Usuário: " + Session["login"]) 
+                                @Html.Label("Usuário: " + Session["login"]+"("+Session["papel"]+")") 
                                 <form name="form1" method="post" action="@Url.Action("Logoff","Login")">
                                  <p>  <input type="submit" name="Logoff" value="Sair"></p> 
                                    <p> @Html.ActionLink("Público","Index","Home")</p>

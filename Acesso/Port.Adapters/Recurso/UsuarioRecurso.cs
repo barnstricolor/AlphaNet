@@ -10,6 +10,6 @@ namespace Alphanet.Acesso.Port.Adapters.Recurso
     {
         public string nome { get; set; }
         public string email { get; set; }
-
+        public string papel { get; set; }
     }
 }

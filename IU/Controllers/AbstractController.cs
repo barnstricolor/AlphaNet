@@ -8,8 +8,10 @@ using System.Web.Mvc;
 namespace IU.Controllers
 {
     public class AbstractController : Controller
-    {               
-        protected bool usuarioEstaLogado() {
+    {
+        PublicoAplicacaoService publicoAplicacaoService = new PublicoAplicacaoService();
+        protected bool usuarioEstaLogado()
+        {
             return usuarioLogin() != null;
         }
         protected string usuarioLogin()
@@ -21,8 +23,11 @@ namespace IU.Controllers
             return (string)Session["email"];
         }
         protected bool usuarioLogadoGestor() {
-            PublicoAplicacaoService publicoAplicacaoService = new PublicoAplicacaoService();
             return publicoAplicacaoService.gestor(usuarioEmail());
+        }
+        protected string usuarioPapel()
+        {
+            return publicoAplicacaoService.papel(usuarioEmail());
         }
     }
 }

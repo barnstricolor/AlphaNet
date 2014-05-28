@@ -116,6 +116,7 @@
     <Compile Include="Domain.Model\Clientes\ClienteId.cs" />
     <Compile Include="Domain.Model\Clientes\ClienteRepositorio.cs" />
     <Compile Include="Domain.Model\DominioRegistro.cs" />
+    <Compile Include="Domain.Model\Publicos\Outros.cs" />
     <Compile Include="Domain.Model\Publicos\Gestor.cs" />
     <Compile Include="Domain.Model\Publicos\Publico.cs" />
     <Compile Include="Domain.Model\Publicos\PublicoService.cs" />

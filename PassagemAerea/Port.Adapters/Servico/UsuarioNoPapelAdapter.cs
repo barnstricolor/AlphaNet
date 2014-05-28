@@ -10,5 +10,6 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Servico
     public interface UsuarioNoPapelAdapter
     {
         Gestor paraGestor(string identidade);
+        Outros obterPapel(string identidade);
     }
 }

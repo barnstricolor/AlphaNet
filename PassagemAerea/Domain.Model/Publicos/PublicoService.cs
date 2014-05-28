@@ -9,5 +9,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Publicos
     public interface PublicoService
     {
         Gestor gestorPela(string identidade);
+        Outros obterPapel(string identidade);
+
     }
 }

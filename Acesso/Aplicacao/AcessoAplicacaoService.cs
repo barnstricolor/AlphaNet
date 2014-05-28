@@ -25,6 +25,18 @@ namespace Alphanet.Acesso.Aplicacao
             return new UsuarioData(usuario.login(), usuario.nome(), usuario.email());
         }
 
+        public UsuarioData papel(string email)
+        {
+            Usuario usuario = usuarioRepositorio().obterPeloEmail(email);
+
+            if (usuario == null)
+                return null;
+
+            UsuarioData result = new UsuarioData(usuario.login(), usuario.nome(), usuario.email());
+            result.papel = usuario.papel().ToString();
+            return result;
+        }
+
         public string novoUsuario(NovoUsuarioComando comando) {
 
             Usuario usuario = new Usuario(

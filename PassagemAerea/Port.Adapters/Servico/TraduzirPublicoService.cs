@@ -20,5 +20,11 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Servico
         private UsuarioNoPapelAdapter usuarioNoPapelAdapter() {
             return new HttpUsuarioNoPapelAdapter();
         }
+
+
+        public Outros obterPapel(string identidade)
+        {
+            return usuarioNoPapelAdapter().obterPapel(identidade);
+        }
     }
 }

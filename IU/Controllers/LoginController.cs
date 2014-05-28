@@ -24,6 +24,7 @@ namespace AlphaNet.PassagemAerea.IU.Controllers
                 Session["nome"] = data.nome;
                 Session["email"] = data.email;
                 Session["gestor"] = this.usuarioLogadoGestor();
+                Session["papel"] = this.usuarioPapel();
             } else
                 TempData["msgAutenticacao"] = "Falha no login";
 
@@ -46,6 +47,7 @@ namespace AlphaNet.PassagemAerea.IU.Controllers
                 Session["nome"] = data.nome;
                 Session["email"] = data.email;
                 Session["gestor"] = this.usuarioLogadoGestor();
+                Session["papel"] = this.usuarioPapel();
             }
             else
                 TempData["msgAutenticacao"] = "Falha no login";
@@ -74,15 +76,16 @@ namespace AlphaNet.PassagemAerea.IU.Controllers
 
             acessoAplicacaoService.registrarNovoUsuario(comando);
 
-            this.colocarNaSessao(comando.login, comando.nome, comando.email, false);
+            this.colocarNaSessao(comando.login, comando.nome, comando.email, comando.papel == "Gestor", "Usuario");
             return RedirectToAction("Index", "Home");
         }
-        private void colocarNaSessao(string login, string nome, string email, bool gestor)
+        private void colocarNaSessao(string login, string nome, string email, bool gestor,string papel)
         {            
             Session["login"] = login;
             Session["nome"] = nome;
             Session["email"] = email;
-            Session["gestor"] = gestor;            
+            Session["gestor"] = gestor;
+            Session["papel"] = papel;
         }
     }
 }

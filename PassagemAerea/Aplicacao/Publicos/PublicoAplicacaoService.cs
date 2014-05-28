@@ -15,5 +15,11 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Publicos
             return DominioRegistro.publicoService().gestorPela(identidade) != null;
 
         }
+        public string papel(string identidade)
+        {
+
+            return DominioRegistro.publicoService().obterPapel(identidade).papel();
+
+        }
     }
 }
