@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<AlphaNet.PassagemAerea.Aplicacao.Voos.Data.VooData>
+@{
     ViewBag.Title = "Alphanet - Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -9,9 +10,9 @@
 <div class="form-busca">
 <div id="titulo">PESQUISA RÁPIDA</div>
     
-  <form name="form2" method="post" action="pesquisa.asp">
+  <form name="form2" method="post">
   <ol>
-    <li><label><input type="radio" name="radio" id="idavolta" value="ida">Ida e volta</label></li>
+    <li><label><input type="radio" name="radio" id="idavolta" value="ida" checked="checked">Ida e volta</label></li>
     <li><label><input type="radio" name="radio" id="ida" value="volta">Somente ida</label></li>
     <li>  <label>Origem: 
         @Html.DropDownList(
@@ -30,17 +31,47 @@
                 "nome"))</label>     
 
      </li>
-      <li><label>Partida:</label> <input type="text" id="partida" /></li> 
-      <li><label>Volta: </label> <input type="text" id="chegada" /></li> 
-      <li><label> No. passagens:</label><input type="text" id="assentos" name="assentos" size="3" /></li>
-      <li><p><input type="submit" name="button" id="button" value="Pesquisar"  ></p></li>
-   
+      <li><label>Partida:</label> <input type="text" name="partida" id="partida" value="@DateTime.Today.ToShortDateString()"/></li> 
+      <li><label>Retorno: </label> <input type="text" name="retorno" id="retorno" value="@DateTime.Today.AddDays(1).ToShortDateString()"/></li> 
+      <li><label> No. passagens:</label><input type="text" name="assentos" id="assentos" value="1" size="4" /></li>
+      <li><p><input type="submit" name="button" id="button" value="Pesquisar"></p></li>
+    </li>
   </ol>
   </form>
 
 
-    
 
+
+</div>
+
+<div>
+    @if (Model != null) {
+        <table border="0">
+            <caption>Lista de Voos</caption>
+            <tr>
+                <th>Modelo</th>
+                <th>Origem</th>
+                <th>Destino</th>
+                <th>Partida</th>
+                <th>Reservados</th>
+                <th>Preço</th>
+                <th>Nova Reserva</th>
+            </tr>   
+
+            @foreach(var voo in Model)
+            {            
+                <tr>
+                    <td>@voo.aviaoModelo</td>
+                    <td>@voo.cidadeOrigemNome</td>
+                    <td>@voo.cidadeDestinoNome</td>
+                    <td>@voo.partida</td>
+                    <td>@voo.reservados/@voo.totalAssentos</td>     
+                    <td>@voo.preco.ToString()</td>
+                    <td><a href="@Url.Action("NovaReserva","Voo",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/nova_reserva.png" id="bt-nova-reserva" border="0"/></a></td>
+                </tr>        
+            }
+        </table>
+    }
 </div>
 
 <div id="banner"><img src="/Content/themes/base/images/banner1.jpg"></div>
@@ -48,149 +79,37 @@
 </div>
         </div>
 
+<script>
+    $(function () {
+        var spinner = $("#assentos").spinner({ min: 1, max: 999 });
+    });
+</script>
+
 <script type="text/javascript">
-        $(function () {
-            $("[id$=partida]").datepicker({
-                showOn: "button",/*
-                buttonImage: "calendario.png",
-                buttonImageOnly: true*/
-                changeMonth: true,
-                changeYear: true,
-                showOtherMonths: true,
-                selectOtherMonths: true,
-                dateFormat: 'dd/mm/yy hh:mm:ss ',
-                dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
-                dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
-                dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
-                monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-                monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
-            });
-            $("[id$=chegada]").datepicker({
-                showOn: "button"/*,
-                buttonImage: "calendario.png",
-                buttonImageOnly: true*/
-            });
+    $(function () {
+        $("[id$=partida]").datepicker({
+            //changeMonth: true,
+            //changeYear: true,
+            showOtherMonths: true,
+            selectOtherMonths: true,
+            dateFormat: 'dd/mm/yy',
+            dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
+            dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
+            dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+            monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+            monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
         });
+        $("[id$=retorno]").datepicker({
+            //changeMonth: true,
+            //changeYear: true,
+            showOtherMonths: true,
+            selectOtherMonths: true,
+            dateFormat: 'dd/mm/yy',
+            dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
+            dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
+            dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+            monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+            monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
+        });
+    });
     </script>
-
-
-@*
-<!-- Script para controle de data dos campos data inicio, data fim, inscricao inicio, inscricao fim e data certificado -->
-        <script type="text/javascript">
-
-            $(function () {
-                $("#Data_Inicio").datepicker({
-                    dateFormat: 'dd/mm/yy',
-                    dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
-                    dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
-                    dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
-                    monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-                    monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-                    nextText: 'Próximo',
-                    prevText: 'Anterior',
-                    separator: ' ',
-                    defaultDate: "+1w",
-                    changeMonth: true,
-                    numberOfMonths: 1,
-                    minDate: "@DateTime.Now",
-                    showAnim: "show",
-                    onSelect: function () {
-                        var d2 = $(this).datepicker("getDate");
-                        d2.setDate(d2.getDate() + 5);
-                        var d3 = $(this).datepicker("getDate");
-                        d3.setDate(d3.getDate());
-                        $("#Data_Fim").datepicker("setDate", d2);
-                        $("#Data_Fim").datepicker("option", "minDate", d2);
-                        $("#Data_Certificado").datepicker("option", "minDate", d2);
-                        $("#Inscricao_Inicio").datepicker("option", "maxDate", d3);
-                        $("#Inscricao_Fim").datepicker("option", "maxDate", d3);
-                    }
-                });
-
-                $("#Data_Fim").datepicker({
-                    dateFormat: 'dd/mm/yy',
-                    dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
-                    dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
-                    dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
-                    monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-                    monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-                    nextText: 'Próximo',
-                    prevText: 'Anterior',
-                    separator: ' ',
-                    changeMonth: true,
-                    changeYear: true,
-                    numberOfMonths: 1,
-                    showAnim: "show",
-                    disabled: true,
-                    onSelect: function () {
-                        var d2 = $(this).datepicker("getDate");
-                        d2.setDate(d2.getDate());
-                        $("#Data_Certificado").datepicker("setDate", null);
-                        $("#Data_Certificado").datepicker("option", "minDate", d2);
-                    }
-
-                });
-
-                $("#Inscricao_Inicio").datepicker({
-                    dateFormat: 'dd/mm/yy',
-                    dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
-                    dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
-                    dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
-                    monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-                    monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-                    nextText: 'Próximo',
-                    prevText: 'Anterior',
-                    separator: ' ',
-                    defaultDate: "+1w",
-                    changeMonth: true,
-                    numberOfMonths: 1,
-                    showAnim: "show",
-                    onSelect: function () {
-                        var d2 = $(this).datepicker("getDate");
-                        d2.setDate(d2.getDate());
-                        $("#Inscricao_Fim").datepicker("setDate", null);
-                        $("#Inscricao_Fim").datepicker("option", "minDate", d2);
-                    }
-
-
-                });
-
-                $("#Inscricao_Fim").datepicker({
-                    dateFormat: 'dd/mm/yy',
-                    dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
-                    dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
-                    dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
-                    monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-                    monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-                    nextText: 'Próximo',
-                    prevText: 'Anterior',
-                    separator: ' ',
-                    defaultDate: "+1w",
-                    changeMonth: true,
-                    numberOfMonths: 1,
-                    minDate: "#Inscricao_Inicio",
-                    showAnim: "show",
-                });
-
-                $("#Data_Certificado").datepicker({
-                    dateFormat: 'dd/mm/yy',
-                    dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
-                    dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
-                    dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
-                    monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-                    monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-                    nextText: 'Próximo',
-                    prevText: 'Anterior',
-                    separator: ' ',
-                    changeMonth: true,
-                    changeYear: true,
-                    numberOfMonths: 1,
-                    yearRange: "2013:2020",
-                    showAnim: "show",
-                    disabled: false,
-
-                });
-            });
-        </script>
-
-*@
