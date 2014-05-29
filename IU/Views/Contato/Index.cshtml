@@ -16,24 +16,79 @@
             
            <fieldset>
               <legend>Contato</legend>
- 	<div id="conteudo">
 
-         <div id="conteudo-central">
-             @Html.ValidationSummary(false)
-             @Html.TextBoxFor(a => a.nome, new {@placeholder = "Nome" })
-             @Html.TextBoxFor(a => a.email, new {@placeholder = "E-mail"})
-             @Html.TextBoxFor(a => a.telefone, new { @placeholder = "Telefone"})
-             @Html.TextBoxFor(a => a.cidade, new {@placeholder = "Cidade" })
-             @Html.TextBoxFor(a => a.uf, new{@placeholder = "UF"})
-             @Html.TextBoxFor(a => a.assunto, new {@placeholder = "Assunto" })
-             @Html.TextAreaFor(a => a.observacao, new{@placeholder = "Observação"})
+                <ul id="aform"> 
+ 	
+            @Html.ValidationSummary(false)
+             @* <p>
+             @Html.LabelFor(a => a.nome)
+             @Html.TextBoxFor(a => a.nome)</p>
+
+             <p>
+             @Html.LabelFor(a => a.email)
+             @Html.TextBoxFor(a => a.email)</p>
+
+             <p>
+             @Html.LabelFor(a => a.telefone)
+             @Html.TextBoxFor(a => a.telefone)</p>
+
+             <p>
+             @Html.LabelFor(a => a.cidade)
+             @Html.TextBoxFor(a => a.cidade)</p>
+
+             <p>
+             @Html.LabelFor(a => a.uf)
+             @Html.TextBoxFor(a => a.uf)</p>
+
+             <p>
+             @Html.LabelFor(a => a.assunto)
+             @Html.TextBoxFor(a => a.assunto)</p>
+
+             <p>
+             @Html.LabelFor(a => a.observacao)
+             @Html.TextAreaFor(a => a.observacao)</p>*@
+
+
+               <li> 
+               @Html.LabelFor(model => model.nome)
+               @Html.EditorFor(model => model.nome)
+               @Html.ValidationMessageFor(model => model.nome)</li>
+
+               <li> 
+               @Html.LabelFor(model => model.email)
+               @Html.EditorFor(model => model.email)
+               @Html.ValidationMessageFor(model => model.email)</li>
+
+               <li> 
+               @Html.LabelFor(model => model.telefone)
+               @Html.EditorFor(model => model.telefone)
+               @Html.ValidationMessageFor(model => model.telefone)</li>
+
+               <li> 
+               @Html.LabelFor(model => model.cidade)
+               @Html.EditorFor(model => model.cidade)
+               @Html.ValidationMessageFor(model => model.cidade)</li>
+
+               <li> 
+               @Html.LabelFor(model => model.uf)
+               @Html.EditorFor(model => model.uf)
+               @Html.ValidationMessageFor(model => model.uf)</li>
+
+               <li> 
+               @Html.LabelFor(model => model.assunto)
+               @Html.EditorFor(model => model.assunto)
+               @Html.ValidationMessageFor(model => model.assunto)</li>
+
+               <li> 
+               @Html.LabelFor(model => model.observacao)
+               @Html.EditorFor(model => model.observacao)
+               @Html.ValidationMessageFor(model => model.observacao)</li>
+
+            </ul>
              <input type="hidden" id="email" value="fcaairlines@gmail.com" />
-             <input type="submit" id="enviar" value="Enviar" />
-             <!--<img src="~/Images/contato.png" style="float:right; max-width:400px; float: right; max-width: 400px; 
-margin-top: -390px; margin-right: 70px;"/>-->
-         </div>
+            <p> <input type="submit" id="enviar" value="Enviar" /></p>
 
- 	</div>
+   
               </fieldset> }
              </div>
 
