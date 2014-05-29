@@ -11,14 +11,16 @@
             <section class="featured">
                 <div class="content-wrapper">
                     <hgroup class="title">
-                        <h1>Usuário</h1>
+                    
                     </hgroup>
                     <input type="hidden" name="usuarioId" value="@Model.usuarioId"/>
-                    <ul id="aform">                        
-                        <li>
+                    <ul id="aform">     
+                        
+                         <li>
                             @Html.LabelFor(model => model.login)
-                            @Html.EditorFor(model => model.login)
-                            @Html.ValidationMessageFor(model => model.login)</li>
+                           @Html.EditorFor(model => model.login)
+                            @Html.ValidationMessageFor(model => model.login)</li>                  
+                      
                         <li>
                             @Html.LabelFor(model => model.nome)
                             @Html.EditorFor(model => model.nome)
@@ -51,10 +53,12 @@
                         <li>
                             <input type="submit" value="Salvar" />
                     </ul>
-                   <a href="@Url.Action("Index","Usuario")"><img src="~/Content/themes/base/images/voltar.png" id="bt-voltar" /></a>
+                  
                 </div>
             </section>
+           
         </div>
     </fieldset>
+      <a href="@Url.Action("Index","Usuario")"><img src="~/Content/themes/base/images/voltar.png" id="bt-voltar" /></a>
 }
         

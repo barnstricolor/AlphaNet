@@ -10,8 +10,8 @@ header, footer, nav, section {
 }
 
 
-/* Styles for basic forms
------------------------------------------------------------*/
+/* Styles for basic forms------*/
+
 fieldset {
     border: 1px solid #ddd;
     padding: 0 1.4em 1.4em 1.4em;
@@ -24,8 +24,8 @@ legend {
 }
 
 textarea {
-    min-height: 76px;
-    min-width: 298px;
+    min-height: 50px;
+    min-width: 200px;
     margin-left: 0px;
     font-family:Arial;
 }
@@ -170,7 +170,7 @@ h1{
  
  
 }
-#login{
+#f-login{
 	width: 30%; /* 418px; */
 	margin:0px;
     height:50%;
