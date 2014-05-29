@@ -32,14 +32,14 @@
      </li>
       <li><label>Partida:</label> <input type="text" id="partida" /></li> 
       <li><label>Volta: </label> <input type="text" id="chegada" /></li> 
-      <li><label> No. passagens:</label><input type="text" id="assentos" name="assentos" size="4" /></li>
-      <li><p><input type="submit" name="button" id="button" value="Pesquisar"   align="center"></p></li>
-    </li>
+      <li><label> No. passagens:</label><input type="text" id="assentos" name="assentos" size="3" /></li>
+      <li><p><input type="submit" name="button" id="button" value="Pesquisar"  ></p></li>
+   
   </ol>
   </form>
 
 
-
+    
 
 </div>
 
@@ -47,7 +47,6 @@
 
 </div>
         </div>
-
 
 <script type="text/javascript">
         $(function () {
@@ -59,7 +58,7 @@
                 changeYear: true,
                 showOtherMonths: true,
                 selectOtherMonths: true,
-                dateFormat: 'dd/mm/yy',
+                dateFormat: 'dd/mm/yy hh:mm:ss ',
                 dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
                 dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
                 dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
@@ -73,6 +72,7 @@
             });
         });
     </script>
+
 
 @*
 <!-- Script para controle de data dos campos data inicio, data fim, inscricao inicio, inscricao fim e data certificado -->

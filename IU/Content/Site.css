@@ -145,7 +145,7 @@ h1{
 
 #logo{
 	width: 24.1%; /* 241px; */
-	margin-top: 0.3%;  
+	margin-top: 1.3%;  
 	margin-left:2%; /* 20px; */
 	float: left;
  
@@ -186,9 +186,7 @@ h1{
 	font-size: 0.8em;
     text-align:center;
 	color:#666;
-   
-
-   
+      
 }
 
 .form-login-dois{
@@ -337,9 +335,7 @@ a:hover {
 	float: left;
      margin:0px;
      padding:0px;
-
 }
-
 
 
 #conteudo{
@@ -621,21 +617,22 @@ Label {
         float: left;
     }
     .form-busca{
-	width: 30%; /* 270px; */ 
-	height: 70%; /* 390px; */
-	margin: 2% 0 0 1%;
-	position: absolute;
-	font-size:0.8em;
-    background-color: rgba(255, 255, 255, 0.70);
+	    width: 35%; /* 270px; */ 
+	    height: 95%; /* 390px; */
+	    margin: 2% 0 0 1%;
+	    position: absolute;
+	    font-size:0.8em;
+        background-color: rgba(255, 255, 255, 0.70);
+      
 }
  
-
     #conteudo {
         width: 100%; /* 1000px; */
-        height: 345px; /* 423px; */
+        height: 360px; /* 423px; */
         margin: 0;
         float: left;
         position: relative;
+        background-color: #f9f9f9;
     }
 
 
@@ -652,15 +649,24 @@ Label {
             float: left;
         }
 
-        #conteudo {
-            width: 100%; /* 1000px; */
-            height: 310px; /* 423px; */
-            margin: 0;
-            float: left;
-            position: relative;
-        }
+    #conteudo {
+        width: 100%; /* 1000px; */
+        height: 330px; /* 423px; */
+        margin: 0;
+        float: left;
+        position: relative;
+        background-color: #f9f9f9;
+    }
 
+    .form-busca{
+	    width: 40%; /* 270px; */ 
+	    height: 95%; /* 390px; */
+	    margin: 2% 0 0 1%;
+	    position: absolute;
+	    font-size:0.8em;
+        background-color: rgba(255, 255, 255, 0.70);
 
+}
 
         .botao {
             padding: 4% 7%;
@@ -676,14 +682,23 @@ Label {
             float: left;
         }
 
-        #conteudo {
-            width: 100%; /* 1000px; */
-            height: 230px; /* 423px; */
-            margin: 0;
-            float: left;
-            position: relative;
-        }
-
+    #conteudo {
+        width: 100%; /* 1000px; */
+        height: 270px; /* 423px; */
+        margin: 0;
+        float: left;
+        position: relative;
+        background-color: #f9f9f9;
+    }
+       .form-busca{
+	        width: 98%; /* 270px; */ 
+	        height: 95%; /* 390px; */
+	        margin: 2% 0 0 1%;
+	        position: absolute;
+	        font-size:0.8em;
+            background-color: rgba(255, 255, 255, 0.90);
+        
+}
 
         .botao {
             padding: 5% 8%;
@@ -698,13 +713,23 @@ Label {
             float: left;
         }
 
-        #conteudo {
-            width: 100%; /* 1000px; */
-            height: 260px; /* 423px; */
-            margin: 0;
-            float: left;
-        }
+    #conteudo {
+        width: 100%; /* 1000px; */
+        height: 340px; /* 423px; */
+        margin: 0;
+        float: left;
+        position: relative;
+        background-color: #f9f9f9;
+    }
 
+       .form-busca{
+	        width: 98%; /* 270px; */ 
+	        height: 100%; /* 390px; */
+	        margin: 2% 0 0 1%;
+	        position: absolute;
+	        font-size:0.8em;
+            background-color: rgba(255, 255, 255, 0.95);
+}
 
         .botao {
             padding: 6% 9%;

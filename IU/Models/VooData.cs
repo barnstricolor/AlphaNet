@@ -22,8 +22,13 @@ namespace IU.Models
         public string cidadeDestinoNome { get; set; }
         [Required(ErrorMessage = "Campo obrigatório", AllowEmptyStrings = false)]
         [DataType(DataType.Date, ErrorMessage = "Data inválida.")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:yyyy/dd/MM/ hh:mm}",  ApplyFormatInEditMode = true)]
         public DateTime partida { get; set; }
+
+        [Required ( ErrorMessage  =  "Campo obrigatório Formato HH:. MM (24 horas time)" )] 
+        [DisplayFormat ( ApplyFormatInEditMode  =  true ,  DataFormatString  =  "{0:HH:mm}" )] 
+        public  TimeSpan  horario {  get ;  set ;  }
+
         public int totalAssentos { get; set; }
         public int reservados { get; set; }
         [Required(ErrorMessage = "Campo obrigatório", AllowEmptyStrings = false)]
