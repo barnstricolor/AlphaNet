@@ -1,0 +1,26 @@
+﻿@model IEnumerable<AlphaNet.PassagemAerea.Aplicacao.Avioes.Data.AviaoData>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Lista de Avioes</h2>
+    <table width="100%">
+        <tr>
+            <td>Modelo</td>           
+            <td>Assentos</td>
+        </tr>
+        @if (Model != null) {
+            foreach(var m in Model)
+            {     
+            <tr>
+                <td>@m.modelo</td>           
+                <td>@m.assentos</td>
+            </tr>
+            }
+        }
+    </table>
+</body>
+</html>

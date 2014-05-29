@@ -1,0 +1,26 @@
+﻿@model IEnumerable<AlphaNet.PassagemAerea.Aplicacao.Clientes.Data.ClienteData>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Lista de Clientes</h2>
+    <table width="100%">
+        <tr>
+            <td>Nome</td>           
+            <td>EmailName</td>
+        </tr>
+        @if (Model != null) {
+            foreach(var cliente in Model)
+            {     
+            <tr>
+                <td>@cliente.nome</td>           
+                <td>@cliente.email</td>
+            </tr>
+            }
+        }
+    </table>
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<AlphaNet.PassagemAerea.Aplicacao.Cidades.Data.CidadeData>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Lista de Cidades</h2>
+    <table width="100%">
+        <tr>
+            <td>Nome</td>           
+            <td>Cep</td>
+        </tr>
+        @if (Model != null) {
+            foreach(var m in Model)
+            {     
+            <tr>
+                <td>@m.nome</td>           
+                <td>@m.cep</td>
+            </tr>
+            }
+        }
+    </table>
+</body>
+</html>

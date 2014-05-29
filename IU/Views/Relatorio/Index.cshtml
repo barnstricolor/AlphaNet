@@ -1,0 +1,20 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout_adm.cshtml";
+}
+@using (Html.BeginForm()) {
+    <fieldset>
+        <legend>Relatorios</legend>
+        <div id="body">
+            <section class="featured">
+                <div class="content-wrapper">
+                    <hgroup class="title">
+                        <h1>Relatorios</h1>
+                    </hgroup>
+                    @Html.ActionLink("Relatorio de Clientes","Clientes")
+                    @Html.ActionLink("Relatorio de Cidades","Cidades")
+                    @Html.ActionLink("Relatorio de Avioes","Avioes")
+                </div>
+            </section>
+        </div>
+    </fieldset>
+}
