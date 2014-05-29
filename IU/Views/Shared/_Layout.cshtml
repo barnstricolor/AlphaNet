@@ -24,11 +24,11 @@
                    <p> @Html.Label("Você está logado com usuário " + Session["login"]+"("+Session["papel"]+")")</p>
                     <form name="form1" method="post" action="@Url.Action("Logoff","Login")">                
               
-                          <p> <input type="submit" name="Logoff" value="Sair"></p>
+                           <input type="submit" name="Logoff" value="Sair">
                               
                                 @if (Session["papel"].Equals("Gestor") || Session["papel"].Equals("Atendente"))
                                 {                                 
-                                    <p>@Html.ActionLink("Área Administrativa","Index","Voo")</p> 
+                                   @Html.ActionLink("Área Administrativa","Index","Voo") 
                                 }
                              </form>
             

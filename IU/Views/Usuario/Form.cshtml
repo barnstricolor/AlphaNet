@@ -13,24 +13,25 @@
                     <hgroup class="title">
                         <h1>Usuário</h1>
                     </hgroup>
+                     <ul id="aform">
                         <input type="hidden" name="usuarioId" value="@Model.usuarioId"/>
-                        <br>
+                       <li>
                         @Html.LabelFor(model => model.login)
                         @Html.EditorFor(model => model.login)
-                        @Html.ValidationMessageFor(model => model.login)
-                        <br>
+                        @Html.ValidationMessageFor(model => model.login)</li>
+                        <li>
                         @Html.LabelFor(model => model.nome)
                         @Html.EditorFor(model => model.nome)
-                        @Html.ValidationMessageFor(model => model.nome)
-                        <br>
+                        @Html.ValidationMessageFor(model => model.nome)</li>
+                        <li>
                         @Html.LabelFor(model => model.email)
                         @Html.EditorFor(model => model.email)
-                        @Html.ValidationMessageFor(model => model.email)
-                        <br>
+                        @Html.ValidationMessageFor(model => model.email)</li>
+                        <li>
                         @Html.LabelFor(model => model.senha)
                         @Html.EditorFor(model => model.senha)
-                        @Html.ValidationMessageFor(model => model.senha)
-                        <br>
+                        @Html.ValidationMessageFor(model => model.senha)</li>
+                        <li>
                         @Html.LabelFor(model => model.papel)
                         @Html.DropDownListFor(
                             model => model.papel, 
@@ -45,8 +46,10 @@
                                 "text",
                                 Model.papel))
                         @Html.ValidationMessageFor(model => model.login)
-                        <br>
-                        <input type="submit" value="Salvar" />
+                        <br></li>
+                        <li><input type="submit" value="Salvar" />
+
+                         </ul>
                    <a href="@Url.Action("Index","Usuario")"><img src="~/Content/themes/base/images/voltar.png" id="bt-voltar" /></a>
                 </div>
             </section>
