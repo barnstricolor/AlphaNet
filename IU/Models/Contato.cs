@@ -29,7 +29,7 @@ namespace AlphaNet.PassagemAerea.IU.Models
         public string uf { get; set; }
 
         [Required(ErrorMessage = "O campo ASSUNTO é obrigatório!", AllowEmptyStrings = false)]
-        [Display(Name = "Assnto")]
+        [Display(Name = "Assunto")]
         public string assunto { get; set; }
 
         [Display(Name = "Observação")]

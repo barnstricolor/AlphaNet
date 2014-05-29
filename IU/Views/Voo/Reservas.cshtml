@@ -33,12 +33,12 @@
           
                  
                     <table>
-
+                        <caption>Mapa de Assentos</caption>
+                         <tr> 
+                                <th>Cliente</th><th>Preço</th><th>Assentos</th><th>Excluir</th></tr>
                  
                         @foreach(var reserva in Model.reservas())
-                        {        <caption>Mapa de Assentos</caption> 
-                            <tr>
-                                <th>Cliente</th><th>Preço</th><th>Assentos</th><th>Excluir</th></tr>
+                        {                                   
                             <tr>
                                 <td>@reserva.clienteNome</td>
                                 <td>@reserva.preco</td>
