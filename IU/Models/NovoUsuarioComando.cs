@@ -8,6 +8,7 @@ namespace IU.Models
 {
     public class NovoUsuarioComando
     {
+        public string usuarioId { get; set; }
         public string login {get; set;}
         public string senha { get; set; }
         public string nome {get; set;}

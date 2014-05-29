@@ -44,6 +44,7 @@ namespace Alphanet.Acesso.Aplicacao
                 return null;
 
             UsuarioData result = new UsuarioData(usuario.login(), usuario.nome(), usuario.email());
+            result.usuarioId = usuarioId;
             result.senha = usuario.senha();
             result.papel = usuario.papel().ToString();
             return result;

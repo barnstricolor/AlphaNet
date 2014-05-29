@@ -23,7 +23,7 @@ namespace Alphanet.Acesso.Port.Adapters.Persistencia.Repositorio.Memoria
 
         public void salvar(Usuario usuario)
         {
-            this.store.Add(usuario.usuarioId().Id, usuario);
+            store[usuario.usuarioId().Id] = usuario;
         }
 
         public Usuario obterPeloId(UsuarioId usuarioId)

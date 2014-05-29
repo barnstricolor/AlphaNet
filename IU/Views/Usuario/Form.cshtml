@@ -13,28 +13,28 @@
                     <hgroup class="title">
                         <h1>Usuário</h1>
                     </hgroup>
-                     <ul id="aform">
-                        <input type="hidden" name="usuarioId" value="@Model.usuarioId"/>
-                       <li>
-                        @Html.LabelFor(model => model.login)
-                        @Html.EditorFor(model => model.login)
-                        @Html.ValidationMessageFor(model => model.login)</li>
+                    <input type="hidden" name="usuarioId" value="@Model.usuarioId"/>
+                    <ul id="aform">                        
                         <li>
-                        @Html.LabelFor(model => model.nome)
-                        @Html.EditorFor(model => model.nome)
-                        @Html.ValidationMessageFor(model => model.nome)</li>
+                            @Html.LabelFor(model => model.login)
+                            @Html.EditorFor(model => model.login)
+                            @Html.ValidationMessageFor(model => model.login)</li>
                         <li>
-                        @Html.LabelFor(model => model.email)
-                        @Html.EditorFor(model => model.email)
-                        @Html.ValidationMessageFor(model => model.email)</li>
+                            @Html.LabelFor(model => model.nome)
+                            @Html.EditorFor(model => model.nome)
+                            @Html.ValidationMessageFor(model => model.nome)</li>
                         <li>
-                        @Html.LabelFor(model => model.senha)
-                        @Html.EditorFor(model => model.senha)
-                        @Html.ValidationMessageFor(model => model.senha)</li>
+                            @Html.LabelFor(model => model.email)
+                            @Html.EditorFor(model => model.email)
+                            @Html.ValidationMessageFor(model => model.email)</li>
                         <li>
-                        @Html.LabelFor(model => model.papel)
-                        @Html.DropDownListFor(
-                            model => model.papel, 
+                            @Html.LabelFor(model => model.senha)
+                            @Html.EditorFor(model => model.senha)
+                            @Html.ValidationMessageFor(model => model.senha)</li>
+                        <li>
+                            @Html.LabelFor(model => model.papel)
+                            @Html.DropDownListFor(
+                            model => model.papel,
                                 new SelectList(
                                     new List<object>{ 
                                         new { value = "Gestor" , text = "Gestor"  },
@@ -45,11 +45,12 @@
                                 "value",
                                 "text",
                                 Model.papel))
-                        @Html.ValidationMessageFor(model => model.login)
-                        <br></li>
-                        <li><input type="submit" value="Salvar" />
-
-                         </ul>
+                            @Html.ValidationMessageFor(model => model.login)
+                            <br>
+                        </li>
+                        <li>
+                            <input type="submit" value="Salvar" />
+                    </ul>
                    <a href="@Url.Action("Index","Usuario")"><img src="~/Content/themes/base/images/voltar.png" id="bt-voltar" /></a>
                 </div>
             </section>

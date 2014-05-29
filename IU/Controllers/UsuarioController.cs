@@ -60,6 +60,7 @@ namespace IU.Controllers
         private UsuarioData converterParaIu(Alphanet.Acesso.Aplicacao.Data.UsuarioData data)
         {
             UsuarioData result = new UsuarioData(data.login, data.nome, data.email);
+            result.usuarioId = data.usuarioId;
             result.senha = data.senha;
             result.papel = data.papel;
             return result;
@@ -72,8 +73,10 @@ namespace IU.Controllers
             return result;
         }*/
         private Alphanet.Acesso.Aplicacao.NovoUsuarioComando converterParaServico(UsuarioData data)
-        {
-            return new Alphanet.Acesso.Aplicacao.NovoUsuarioComando(data.login, data.senha, data.nome, data.email, data.papel);
+        {   
+            Alphanet.Acesso.Aplicacao.NovoUsuarioComando result = new Alphanet.Acesso.Aplicacao.NovoUsuarioComando(data.login, data.senha, data.nome, data.email, data.papel);
+            result.usuarioId = data.usuarioId;
+            return result;
         }
     }
 }
