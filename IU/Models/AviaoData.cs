@@ -11,12 +11,12 @@ namespace IU.Models
     {
         public string aviaoId { get; set; }
 
-        [Required(ErrorMessage = "O campo Modelo é obrigatório", AllowEmptyStrings = false)]
-        [RegularExpression("^[a-zA-ZãÃáÁàÀêÊéÉèÈíÍìÌôÔõÕóÓòÒúÚùÙûÛçÇºª' '0123456789]{1,60}$", ErrorMessage = "Este campo deve conter apenas letras e números")]
+        [Required(ErrorMessage = "O campo MODELO deve ser preenchido.")]
+        [RegularExpression(@"[a-zA-Z0-9]{3,40}", ErrorMessage = "O campo MODELO deve conter de 3 à 40 caracteres.")]
         public string modelo { get; set; }
 
-        [Required(ErrorMessage = "O campo Assentos obrigatório", AllowEmptyStrings = false)]
-        [RegularExpression("^[0-9]{1,3}$", ErrorMessage = "Este campo deve conter apenas números")]
+        [Required(ErrorMessage = "O campo ASSENTOS deve se preenchido corretamente, use apenas números.")]
+        [RegularExpression(@"[0-9]{1,5}", ErrorMessage = "O campo ASSENTOS deve conter apenas números e de 1 à 5 caracteres")]
         public int assentos { get; set; }
 
     }

@@ -10,12 +10,12 @@ namespace IU.Models
     {
         public string cidadeId { get; set; }
 
-        [Required(ErrorMessage = "O campo Nome é obrigatório", AllowEmptyStrings = false)]
-        //[RegularExpression("^[a-zA-ZãÃáÁàÀêÊéÉèÈíÍìÌôÔõÕóÓòÒúÚùÙûÛçÇºª' ', 0-9]{1,40}$", ErrorMessage = "Este campo não deve conter caracteres especiais")]
+        [Required(ErrorMessage = "O campo NOME deve ser preenchido.")]
+        [RegularExpression(@"{1,50}", ErrorMessage = "O campo NOME deve conter até 50 caracteres.")]
         public string nome { get; set; }
 
-        [Required(ErrorMessage = "O campo CEP é obrigatório", AllowEmptyStrings = false)]
-        [RegularExpression("^[0-9]{1,7}$", ErrorMessage = "Este campo deve conter apenas números")]
+        [Required(ErrorMessage = "O campo CEP deve ser preenchido.")]
+        [RegularExpression("@[0-9]{8,8}$", ErrorMessage = "Preencha o CEP de forma correta.")]
         public string cep { get; set; }
 
     }
