@@ -51,35 +51,37 @@
 
 </div>
 
-<div id="resultado" >
-    @if (Model != null) {
-        <table border="0" >
-            <caption>Lista de Voos</caption>
-            <tr>
-                @*<th>Modelo</th>
-                <th>Origem</th>
-                <th>Destino</th>*@
-                <th>Partida</th>
-                <th>Reservados</th>
-                <th>Preço</th>
-                <th>Nova Reserva</th>
-            </tr>   
-
-            @foreach(var voo in Model)
-            {            
+@if (Model != null) {
+    if (Model.Count() > 0){
+        <div id="resultado" >
+            <table border="0" >
+                <caption>Lista de Voos</caption>
                 <tr>
-                   @* <td>@voo.aviaoModelo</td>
-                    <td>@voo.cidadeOrigemNome</td>
-                    <td>@voo.cidadeDestinoNome</td>*@
-                    <td>@voo.partida</td>
-                    <td>@voo.reservados/@voo.totalAssentos</td>     
-                    <td>@voo.preco.ToString()</td>
-                    <td><a href="@Url.Action("NovaReserva","Voo",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/nova_reserva.png" id="bt-nova-reserva" border="0"/></a></td>
-                </tr>        
-            }
-        </table>
+                    @*<th>Modelo</th>
+                    <th>Origem</th>
+                    <th>Destino</th>*@
+                    <th>Partida</th>
+                    <th>Reservados</th>
+                    <th>Preço</th>
+                    <th>Nova Reserva</th>
+                </tr>   
+
+                @foreach(var voo in Model)
+                {            
+                    <tr>
+                       @* <td>@voo.aviaoModelo</td>
+                        <td>@voo.cidadeOrigemNome</td>
+                        <td>@voo.cidadeDestinoNome</td>*@
+                        <td>@voo.partida</td>
+                        <td>@voo.reservados/@voo.totalAssentos</td>     
+                        <td>@voo.preco.ToString()</td>
+                        <td><a href="@Url.Action("NovaReserva","Voo",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/nova_reserva.png" id="bt-nova-reserva" border="0"/></a></td>
+                    </tr>        
+                }
+            </table>
+        </div>
     }
-</div>
+}
                 </div>
 
 <div id="banner"><img src="/Content/themes/base/images/banner1.jpg"></div>

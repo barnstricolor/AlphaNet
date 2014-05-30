@@ -17,7 +17,7 @@ namespace IU.Models
 
         [Required(ErrorMessage = "O campo Código do Avião é obrigatório", AllowEmptyStrings = false)]
         [Display(Name = "Código do Avião")]
-        [RegularExpression("^[0-9]{1,11}$", ErrorMessage = "Este campo deve conter apenas números")]
+        //[RegularExpression("^[0-9]{1,11}$", ErrorMessage = "Este campo deve conter apenas números")]
         public string aviaoId { get; set; }
 
         [Required(ErrorMessage = "O campo Modelo do Avião é obrigatório", AllowEmptyStrings = false)]
@@ -26,22 +26,22 @@ namespace IU.Models
 
         [Required(ErrorMessage = "Campo Código da Cidade de origem", AllowEmptyStrings = false)]
         [Display(Name = "Código da Cidade de origem")]
-        [RegularExpression("^[0-9]{1,11}$", ErrorMessage = "Este campo deve conter apenas números")]
+        //[RegularExpression("^[0-9]{1,11}$", ErrorMessage = "Este campo deve conter apenas números")]
         public string cidadeOrigemId { get; set; }
 
         [Required(ErrorMessage = "Campo Cidade de origem", AllowEmptyStrings = false)]
         [Display(Name = "Cidade de origem")]
-        [RegularExpression("^[a-zA-ZãÃáÁàÀêÊéÉèÈíÍìÌôÔõÕóÓòÒúÚùÙûÛçÇºª' ']{1,60}$", ErrorMessage = "Este campo deve conter apenas letras")]
+        //[RegularExpression("^[a-zA-ZãÃáÁàÀêÊéÉèÈíÍìÌôÔõÕóÓòÒúÚùÙûÛçÇºª' ']{1,60}$", ErrorMessage = "Este campo deve conter apenas letras")]
         public string cidadeOrigemNome { get; set; }
 
         [Required(ErrorMessage = "Campo Código da Cidade de destino", AllowEmptyStrings = false)]
         [Display(Name = "Código da Cidade de destino")]
-        [RegularExpression("^[0-9]{1,11}$", ErrorMessage = "Este campo deve conter apenas números")]
+        //[RegularExpression("^[0-9]{1,11}$", ErrorMessage = "Este campo deve conter apenas números")]
         public string cidadeDestinoId { get; set; }
 
         [Required(ErrorMessage = "Campo Cidade de destino", AllowEmptyStrings = false)]
         [Display(Name = "Cidade de destino")]
-        [RegularExpression("^[a-zA-ZãÃáÁàÀêÊéÉèÈíÍìÌôÔõÕóÓòÒúÚùÙûÛçÇºª' ']{1,60}$", ErrorMessage = "Este campo deve conter apenas letras")]
+        //[RegularExpression("^[a-zA-ZãÃáÁàÀêÊéÉèÈíÍìÌôÔõÕóÓòÒúÚùÙûÛçÇºª' ']{1,60}$", ErrorMessage = "Este campo deve conter apenas letras")]
         public string cidadeDestinoNome { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório", AllowEmptyStrings = false)]

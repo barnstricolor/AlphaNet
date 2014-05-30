@@ -134,9 +134,12 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
             insert(voo);
         }
 
-        public Voo obterPeloId(VooId aviaoId)
+        public Voo obterPeloId(VooId vooId)
         {
-            OracleDataAdapter da = obterAdapter(aviaoId);
+            OracleDataAdapter da = obterAdapter(vooId);
+
+            if (dt.Rows.Count == 0)
+                return null;
 
             return modeloPelaEntidade(dt.Rows[0]);
         }
@@ -144,9 +147,11 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
         private OracleDataAdapter obterAdapter(VooId aviaoId)
         {            
             string str = "select * from VOO";
-                        
-            if (aviaoId!=null)
+
+            if (aviaoId != null)
                 str += " Where VOO_ID = " + Bd.aspas(aviaoId.Id);
+            else
+                str += " Where VOO_ID = '-1'";
 
             dt.Clear();
             
@@ -219,11 +224,21 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
         }
         public List<Voo> todosVoos()
         {
-            OracleDataAdapter da = obterAdapter(null);
+            DataTable dtTodos = dt;
+            
+            string str = "select * from VOO";
+
+            dtTodos.Clear();
+
+            OracleDataAdapter da = new OracleDataAdapter(str, Bd.Instance.obterConexao());
+
+            OracleCommandBuilder cb = new OracleCommandBuilder(da);
+
+            da.Fill(dtTodos);
 
             List<Voo> result = new List<Voo>();
 
-            foreach (DataRow dr in dt.Rows)
+            foreach (DataRow dr in dtTodos.Rows)
             {
                 Voo voo  = modeloPelaEntidade(dr);
                 result.Add(voo);
