@@ -100,9 +100,13 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos
         }
 
         public void cancelarReserva(string vooId,string clienteId){
-            voo(vooId).cancelarReserva(cliente(clienteId));
-        }
+            Cliente c = cliente(clienteId);
+            Voo v = voo(vooId);
+            v.cancelarReserva(c);
 
+            vooRepositorio().cancelarReservaCliente(v, c);
+
+        }  
         public List<VooReservaData> reservasCliente(string clienteId)
         {
             List<VooReservaData> result = new List<VooReservaData>();

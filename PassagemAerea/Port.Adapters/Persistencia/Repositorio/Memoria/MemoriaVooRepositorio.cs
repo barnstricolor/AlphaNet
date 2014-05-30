@@ -62,5 +62,11 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Memoria
         {
             throw new NotImplementedException();
         }
+
+
+        public void cancelarReservaCliente(Voo voo, Cliente cliente)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

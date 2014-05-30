@@ -21,5 +21,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
 
         List<Voo> voosCliente(ClienteId clienteId);
         void salvarReservas(Voo voo);
+
+        void cancelarReservaCliente(Voo voo, Cliente cliente);
     }
 }

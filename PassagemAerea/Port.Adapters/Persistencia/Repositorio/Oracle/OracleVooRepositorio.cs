@@ -39,6 +39,27 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
             dtReservas.Columns.Add(new DataColumn("QTD_ASSENTO", typeof(string)));
             dtReservas.Columns.Add(new DataColumn("ID_CLIENTE", typeof(string)));
         }
+
+        public void cancelarReservaCliente(Voo voo, Cliente cliente)
+        {
+            string str = "select * from RESERVA Where ID_VOO = " + voo._id + " And ID_cliente = " + Bd.aspas(cliente.clienteId().Id);
+
+            dtReservas.Clear();
+
+            OracleDataAdapter da = new OracleDataAdapter(str, Bd.Instance.obterConexao());
+
+            OracleCommandBuilder cb = new OracleCommandBuilder(da);
+
+            da.Fill(dtReservas);
+
+            foreach (DataRow dr in dtReservas.Rows)
+            {
+                dr.Delete();
+            }
+
+            da.Update(dtReservas);
+        }
+
         public void salvarReservas(Voo voo) {
 
             string str = "select * from RESERVA Where ID_VOO = " + voo._id;
@@ -259,5 +280,7 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
 
             return result;
         }
+
+
     }
 }
