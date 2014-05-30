@@ -74,7 +74,7 @@ namespace AlphaNet.Acesso.Domain.Model.Usuarios
             return this._papel;
         }
 
-        internal void alterarPapel(Papel novoPapel)
+        public void alterarPapel(Papel novoPapel)
         {
             this._papel = novoPapel;
         }

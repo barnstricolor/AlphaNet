@@ -15,14 +15,13 @@
                      <table border="0">
                         <input type="hidden" name="vooId" value="@ViewBag.vooId"/>
                         <input type="hidden" name="clienteId" value="@Model.clienteId"/>
+                         <input type="hidden" name="email" value="@Model.email"/>
                         <li> @Html.LabelFor(model => model.nome)
                         @Html.EditorFor(model => model.nome)
                         @Html.ValidationMessageFor(model => model.nome)</li>
-                      
-                       <li> @Html.LabelFor(model => model.email)
-                        @Html.EditorFor(model => model.email)
-                        @Html.ValidationMessageFor(model => model.email)</li>
-                        
+                      <li>
+                        @Html.DisplayFor(model => model.email)
+                          </li>
                         <li>
                         @Html.LabelFor(model => model.rg)
                         @Html.EditorFor(model => model.rg)

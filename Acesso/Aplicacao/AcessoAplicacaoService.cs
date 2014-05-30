@@ -36,6 +36,10 @@ namespace Alphanet.Acesso.Aplicacao
             result.papel = usuario.papel().ToString();
             return result;
         }
+        private Usuario usuarioPeloId(string usuarioId)
+        {
+            return usuarioRepositorio().obterPeloId(new UsuarioId(usuarioId));
+        }
         public UsuarioData UsuarioPeloId(string usuarioId)
         {
             Usuario usuario = usuarioRepositorio().obterPeloId(new UsuarioId(usuarioId));
@@ -86,6 +90,13 @@ namespace Alphanet.Acesso.Aplicacao
             usuario.alterarSenha(novaSenha);
             DominioRegistro.usuarioRepositorio().salvar(usuario);
         }
+        public void alterarPapel(string email, string papel)
+        {
+
+            Usuario usuario = usuarioRepositorio().obterPeloEmail(email);
+            usuario.alterarPapel(new Papel(papel));
+            DominioRegistro.usuarioRepositorio().salvar(usuario);
+        }
 
         public void alterarDados(string usuarioId, NovoUsuarioComando comando) {
             Usuario usuario = usuarioPeloId(usuarioId);
@@ -98,9 +109,6 @@ namespace Alphanet.Acesso.Aplicacao
            
         }
 
-        private Usuario usuarioPeloId(string usuarioId) {
-            return usuarioRepositorio().obterPeloId(new UsuarioId(usuarioId));
-        }
 
         private UsuarioRepositorio usuarioRepositorio() {
             return DominioRegistro.usuarioRepositorio();

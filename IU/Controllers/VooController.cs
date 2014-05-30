@@ -25,7 +25,7 @@ namespace IU.Controllers
         {
             string clienteId = (string)TempData["clienteId"];
 
-            return View("ReservasPessoal", vooService.reservasCliente(clienteId));
+            return View("ReservasPessoal", converterReservaParaIu(vooService.reservasCliente(clienteId)));
         }
         public ActionResult MostrarReservasClienteLogado()
         {
@@ -186,10 +186,15 @@ namespace IU.Controllers
             ClienteData novo = new ClienteData();
 
             novo = converterParaIu(DominioRegistro.clienteService().novoCliente(cliente.nome, cliente.email));
+            
             cliente.clienteId = novo.clienteId;
+            
             DominioRegistro.clienteService().alterarDados(converterParaServico(cliente));
-            Session["papel"] = "Cliente";
+            
             ViewBag.vooId = vooId;
+
+            acessoAplicacaoService.alterarPapel((string)Session["email"], "Cliente");
+            Session["papel"] = "Cliente";  
             
             return this.NovaReservaPessoal(vooId);
         }
