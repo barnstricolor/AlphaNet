@@ -8,6 +8,7 @@ using Oracle.ManagedDataAccess.Client;
 using System.Data;
 using AlphaNet.PassagemAerea.Domain.Model.Cidades;
 using Common.Domain.Model;
+using AlphaNet.PassagemAerea.Domain.Model;
 
 namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
 {
@@ -53,13 +54,13 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
             da.Update(dt);
 
         }
-        private void update(Cliente aviao)
+        private void update(Cliente cliente)
         {
-            OracleDataAdapter da = obterAdapter(new ClienteId(aviao.clienteId().Id));
+            OracleDataAdapter da = obterAdapter(new ClienteId(cliente.clienteId().Id));
 
             DataRow row = dt.Rows[0];
-            
-            preencherEntidade(row, aviao);
+
+            preencherEntidade(row, cliente);
 
             da.Update(dt);
 
@@ -76,7 +77,8 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
         public Cliente obterPeloId(ClienteId clienteId)
         {
             OracleDataAdapter da = obterAdapter(clienteId);
-
+            if (dt.Rows.Count == 0)
+                return null;
             return modeloPelaEntidade(dt.Rows[0]);
         }
 
@@ -141,7 +143,9 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
             entidade["NOM_CLIENTE"] = cliente.nome();
             entidade["NOM_EMAIL"] = cliente.email();
             entidade["NOM_ENDERECO"] = cliente.endereco();
-            entidade["NUM_CPF"] = cliente.cpf();
+            if (cliente.cpf() != null)
+                entidade["NUM_CPF"] = cliente.cpf().ToString();
+            if (cliente.cidade() != null)
             entidade["ID_CIDADE"] = cliente.cidade().Id;
             entidade["NUM_CELULAR"] = cliente.celular();
             entidade["VAL_RENDA"] = cliente.renda();
@@ -164,35 +168,35 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
                 entidade["NOM_EMAIL"].ToString());
             
             cliente.alterarPromocao(bool.Parse(entidade["FLG_PROMOCAO"].ToString()));
-            if (entidade["NOM_ENDERECO"] != null)
+            if (!string.IsNullOrWhiteSpace(entidade["NOM_ENDERECO"].ToString()))
                 cliente.alterarEndereco(entidade["NOM_ENDERECO"].ToString());
-            if (entidade["NUM_CPF"] != null)
+            if (!string.IsNullOrWhiteSpace(entidade["NUM_CPF"].ToString()))
                 cliente.alterarCpf(new CPF(entidade["NUM_CPF"].ToString()));
-            if (entidade["ID_CIDADE"] != null)
+            if (!string.IsNullOrWhiteSpace(entidade["ID_CIDADE"].ToString()))
                 cliente.alterarCidade(new CidadeId(entidade["ID_CIDADE"].ToString()));
-            if (entidade["NUM_CELULAR"] != null)
+            if (!string.IsNullOrWhiteSpace(entidade["NUM_CELULAR"].ToString()))
                 cliente.alterarCelular(entidade["NUM_CELULAR"].ToString());
-            if (entidade["VAL_RENDA"] != null)
+            if (!((double)entidade["VAL_RENDA"]).Equals(0))
                 cliente.alterarRenda(double.Parse(entidade["VAL_RENDA"].ToString()));
-            if (entidade["NOM_OCUPACAO"] != null)
+            if (!string.IsNullOrWhiteSpace(entidade["NOM_OCUPACAO"].ToString()))
                 cliente.alterarOcupacao(entidade["NOM_OCUPACAO"].ToString());
-            if (entidade["FLG_ESPECIAL"] != null) 
+            if (!string.IsNullOrWhiteSpace(entidade["FLG_ESPECIAL"].ToString()))
                 if(entidade["FLG_ESPECIAL"].ToString()=="S")
                     cliente.definirComoEspecial();
 
-            if (entidade["NUM_RG"] != null)
+            if (!string.IsNullOrWhiteSpace(entidade["NUM_RG"].ToString()))
                 cliente.alterarRg(entidade["NUM_RG"].ToString());
-            if (entidade["SEXO"] != null)
+            if (!string.IsNullOrWhiteSpace(entidade["SEXO"].ToString()))
                 cliente.alterarSexo(entidade["SEXO"].ToString());
-            if (entidade["NUM_END"] != null)
+            if (!string.IsNullOrWhiteSpace(entidade["NUM_END"].ToString()))
                 cliente.alterarNumeroEndereco(entidade["NUM_END"].ToString());
-            if (entidade["NOM_BAIRRO"] != null)
+            if (!string.IsNullOrWhiteSpace(entidade["NOM_BAIRRO"].ToString()))
                 cliente.alterarBairro(entidade["NOM_BAIRRO"].ToString());
-            if (entidade["CAD_CEP"] != null)
+            if (!string.IsNullOrWhiteSpace(entidade["CAD_CEP"].ToString()))
                 cliente.alterarCep(entidade["CAD_CEP"].ToString());
-            if (entidade["NUM_TELEFONE"] != null)
+            if (!string.IsNullOrWhiteSpace(entidade["NUM_TELEFONE"].ToString()))
                 cliente.alterarTelefone(entidade["NUM_TELEFONE"].ToString());
-            if (entidade["PER_DESCONTO"] != null)
+            if (!((double)entidade["PER_DESCONTO"]).Equals(0))
                 cliente.alterarDesconto((double)entidade["PER_DESCONTO"]);
 
             cliente._id = int.Parse(entidade["ID"].ToString());

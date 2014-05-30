@@ -60,6 +60,9 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
         {
             OracleDataAdapter da = obterAdapter(aviaoId);
 
+            if (dt.Rows.Count == 0)
+                return null;
+
             return modeloPelaEntidade(dt.Rows[0]);
         }
 

@@ -20,16 +20,8 @@ namespace IU.Controllers
     {
         // GET api/values
         public ActionResult Index()
-        {
+        {            
             /*
-
-                string aviaoId = DominioRegistro.aplicacaoAviaoService().novoAviao("BOEING 747", 342);
-                string cidadeIdOrigem = DominioRegistro.cidadeService().novaCidade("RIBEIRÃO PRETO - SP", "14100");
-                string cidadeIdDestino = DominioRegistro.cidadeService().novaCidade("SÃO PAULO - SP", "14000");
-
-                clienteService.novoCliente("VIAÇÃO NASSER " + i, i.ToString() + "@" + i.ToString());
-                vooService.novoVoo(aviaoId,cidadeId,cidadeId,new DateTime(),105*i);
-            */
             novoUsuario("martin", "martin123", "Martin Fowler", "martin@venus.com", "Gestor");
             novoUsuario("kent", "kent123", "Kent Beck", "kent@frio.com", "Atendente");
             novoUsuario("pi", "pi", "pi", "pi@pi.com", "Gestor");
@@ -70,7 +62,7 @@ namespace IU.Controllers
 
             DominioRegistro.vooService().novoVoo(aviaoId, cidadeIdOrigem, cidadeIdDestino, new DateTime(), 999.99);
             DominioRegistro.vooService().novoVoo(aviaoId, cidadeIdDestino, cidadeIdOrigem, new DateTime().AddDays(1), 999.99);
-
+            */
 
             return RedirectToAction("Index", "Home");
         }

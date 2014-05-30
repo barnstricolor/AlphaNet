@@ -1,25 +1,26 @@
-﻿using System.Web.Http;
-using System.Web.Mvc;
-using System.Web.Optimization;
-using System.Web.Routing;
+﻿using Alphanet.Acesso.Domain.Model.Usuarios;
+using Alphanet.Acesso.Port.Adapters.Persistencia.Repositorio.Memoria;
+using Alphanet.Acesso.Port.Adapters.Persistencia.Repositorio.Oracle;
+using AlphaNet.PassagemAerea.Aplicacao.Avioes;
+using AlphaNet.PassagemAerea.Aplicacao.Cidades;
+using AlphaNet.PassagemAerea.Aplicacao.Clientes;
+using AlphaNet.PassagemAerea.Aplicacao.Voos;
 using AlphaNet.PassagemAerea.Domain.Model;
 using AlphaNet.PassagemAerea.Domain.Model.Avioes;
 using AlphaNet.PassagemAerea.Domain.Model.Cidades;
 using AlphaNet.PassagemAerea.Domain.Model.Clientes;
-using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Memoria;
-using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.EF;
-using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle;
-using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Mongo;
-using Microsoft.Practices.Unity;
-using AlphaNet.PassagemAerea.Domain.Model.Voos;
-using AlphaNet.PassagemAerea.Port.Adapters.Servico;
 using AlphaNet.PassagemAerea.Domain.Model.Publicos;
-using Alphanet.Acesso.Domain.Model.Usuarios;
-using Alphanet.Acesso.Port.Adapters.Persistencia.Repositorio.Memoria;
-using AlphaNet.PassagemAerea.Aplicacao.Voos;
-using AlphaNet.PassagemAerea.Aplicacao.Avioes;
-using AlphaNet.PassagemAerea.Aplicacao.Cidades;
-using AlphaNet.PassagemAerea.Aplicacao.Clientes;
+using AlphaNet.PassagemAerea.Domain.Model.Voos;
+using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.EF;
+using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Memoria;
+using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Mongo;
+using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle;
+using AlphaNet.PassagemAerea.Port.Adapters.Servico;
+using Microsoft.Practices.Unity;
+using System.Web.Http;
+using System.Web.Mvc;
+using System.Web.Optimization;
+using System.Web.Routing;
 namespace IU
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
@@ -36,23 +37,23 @@ namespace IU
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            this.bancoEmMemoria();
+            //this.bancoEmMemoria();
             //this.bancoEF();
-            //this.bancoOracle();
+            this.bancoOracle();
             //this.bancoMongo();
 
             DominioRegistro.obterContainer().RegisterInstance<PublicoService>(new TraduzirPublicoService());
-            AlphaNet.Acesso.Domain.Model.DominioRegistro.obterContainer().RegisterInstance<UsuarioRepositorio>(new MemoriaUsuarioRepositorio());
-
             //SERVICOS
             DominioRegistro.obterContainer().RegisterInstance<VooService>(new VooService());
             DominioRegistro.obterContainer().RegisterInstance<AplicacaoAviaoService>(new AplicacaoAviaoService());
             DominioRegistro.obterContainer().RegisterInstance<CidadeService>(new CidadeService());
-            DominioRegistro.obterContainer().RegisterInstance<ClienteService>(new ClienteService());
-
+            
+            DominioRegistro.obterContainer().RegisterInstance<ClienteService>(new ClienteService());      
+   
 
         }
         private void bancoEmMemoria() {
+            AlphaNet.Acesso.Domain.Model.DominioRegistro.obterContainer().RegisterInstance<UsuarioRepositorio>(new MemoriaUsuarioRepositorio());
             DominioRegistro.obterContainer().RegisterInstance<AviaoRepositorio>(new MemoriaAviaoRepositorio());
             DominioRegistro.obterContainer().RegisterInstance<CidadeRepositorio>(new MemoriaCidadeRepositorio());
             DominioRegistro.obterContainer().RegisterInstance<ClienteRepositorio>(new MemoriaClienteRepositorio());
@@ -65,9 +66,12 @@ namespace IU
         }
         private void bancoOracle()
         {
-            //DominioRegistro.obterContainer().RegisterInstance<Oracle.ManagedDataAccess.Client.OracleConnection>(Bd());
+            AlphaNet.Acesso.Domain.Model.DominioRegistro.obterContainer().RegisterInstance<UsuarioRepositorio>(new OracleUsuarioRepositorio());
             DominioRegistro.obterContainer().RegisterInstance<AviaoRepositorio>(new OracleAviaoRepositorio());
             DominioRegistro.obterContainer().RegisterInstance<CidadeRepositorio>(new OracleCidadeRepositorio());
+            DominioRegistro.obterContainer().RegisterInstance<ClienteRepositorio>(new OracleClienteRepositorio());
+            DominioRegistro.obterContainer().RegisterInstance<VooRepositorio>(new OracleVooRepositorio());
+
         }
         private void bancoMongo() {
             DominioRegistro.obterContainer().RegisterInstance<AviaoRepositorio>(new MongoAviaoRepositorio());

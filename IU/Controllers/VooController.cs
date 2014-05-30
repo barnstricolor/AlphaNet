@@ -35,8 +35,6 @@ namespace IU.Controllers
                 return RedirectToAction("Index", "Home");            
 
 
-            ClienteService clienteService = new ClienteService();
-
             ClienteData cliente = converterClienteParaIu(clienteService.clientePorEmail((string)Session["email"]));
 
             return View("ReservasPessoal", 

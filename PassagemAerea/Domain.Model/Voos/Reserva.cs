@@ -11,7 +11,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
     public class Reserva
     {
         private static double DESCONTO=10;
-        
+        public int _id {get;set;}
         private ClienteId _clienteId;
         private ISet<Assento> _assentos;
         private double _preco;

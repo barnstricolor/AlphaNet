@@ -56,5 +56,11 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Memoria
 
             return result;
         }
+
+
+        public void salvarReservas(Voo voo)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

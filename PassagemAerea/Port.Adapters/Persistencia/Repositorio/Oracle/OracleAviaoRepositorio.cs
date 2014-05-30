@@ -59,6 +59,8 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
         public Aviao obterPeloId(AviaoId aviaoId)
         {
             OracleDataAdapter da = obterAdapter(aviaoId);
+            if (dt.Rows.Count == 0)
+                return null;
 
             return modeloPelaEntidade(dt.Rows[0]);
         }
@@ -126,6 +128,9 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
         }
         private Aviao modeloPelaEntidade(DataRow entidade)
         {
+            if (entidade == null)
+                return null;
+
             Aviao aviao = new Aviao(new AviaoId(entidade["AVIAO_ID"].ToString()),
                                     entidade["NOM_MODELO"].ToString(),
                                     int.Parse(entidade["QTD_ASSENTO"].ToString()));

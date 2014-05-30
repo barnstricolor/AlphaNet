@@ -177,9 +177,14 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos
             foreach (int assento in comando.assentos)
                 lista.Add(a.assento(assento));
 
-            voo(comando.vooId).novaReserva(
-                cliente(comando.clienteId),
-                lista.ToArray());
+            Voo v = voo(comando.vooId);
+                
+            v.novaReserva(
+            cliente(comando.clienteId),
+            lista.ToArray());
+
+            DominioRegistro.vooRepositorio().salvarReservas(v);
+
         }
 
         public void excluir(string vooId) {

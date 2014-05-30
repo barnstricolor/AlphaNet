@@ -15,6 +15,7 @@ namespace AlphaNet.Acesso.Domain.Model.Usuarios
         private string _nome;
         private string _email;
         private Papel _papel;
+        public int _id { get; set; }
 
         public Usuario(
             UsuarioId usuarioId, string login, 
