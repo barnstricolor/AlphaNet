@@ -1,30 +1,117 @@
-﻿@model AlphaNet.PassagemAerea.Aplicacao.Clientes.Data.ClienteData
+﻿@model IU.Models.ClienteData
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@using (Html.BeginForm("NovoCliente","Voo")) {
+    <fieldset>
+        <legend>Cadastro de Cliente</legend>
+        <div id="body">
+            <section class="featured">
+                <div class="content-wrapper">
+                    <hgroup class="title">
+                    
+                    </hgroup>
+                    <ul id="aform">
+                     <table border="0">
+                        <input type="hidden" name="vooId" value="@ViewBag.vooId"/>
+                        <input type="hidden" name="clienteId" value="@Model.clienteId"/>
+                        <li> @Html.LabelFor(model => model.nome)
+                        @Html.EditorFor(model => model.nome)
+                        @Html.ValidationMessageFor(model => model.nome)</li>
+                      
+                       <li> @Html.LabelFor(model => model.email)
+                        @Html.EditorFor(model => model.email)
+                        @Html.ValidationMessageFor(model => model.email)</li>
+                        
+                        <li>
+                        @Html.LabelFor(model => model.rg)
+                        @Html.EditorFor(model => model.rg)
+                        @Html.ValidationMessageFor(model => model.rg)</li>
+                       
+                        <li>
+                        @Html.LabelFor(model => model.cpf)
+                        @Html.EditorFor(model => model.cpf)
+                        @Html.ValidationMessageFor(model => model.cpf)</li>
+                        
+                        <li>
+                        @Html.LabelFor(model => model.renda)
+                        @Html.EditorFor(model => model.renda)
+                        @Html.ValidationMessageFor(model => model.renda)</li>
+                        
+                        <li>
+                        @Html.LabelFor(model => model.desconto)
+                        @Html.EditorFor(model => model.desconto)
+                        @Html.ValidationMessageFor(model => model.desconto)</li>
+                        
+                        <li>
+                        <label>@Html.RadioButtonFor(model => model.sexo, "1")Masculino</label>
+                        <label>@Html.RadioButtonFor(model => model.sexo, "0")Feminino</label></li>
+                        
+                        <li>
+                        @Html.LabelFor(model => model.promocao)
+                        @Html.EditorFor(model => model.promocao)
+                        @Html.ValidationMessageFor(model => model.promocao)</li>
+                        
+                        <li>
+                        @Html.LabelFor(model => model.especial)
+                        @Html.EditorFor(model => model.especial)
+                        @Html.ValidationMessageFor(model => model.especial)</li>
+                        
+                        <li>
+                        @Html.LabelFor(model => model.telefone)
+                        @Html.EditorFor(model => model.telefone)
+                        @Html.ValidationMessageFor(model => model.telefone)</li>
+                        
+                        <li>
+                        @Html.LabelFor(model => model.celular)
+                        @Html.EditorFor(model => model.celular)
+                        @Html.ValidationMessageFor(model => model.celular)</li>
 
- 	<div id="conteudo">
-
-         <div id="conteudo-central">
-<div id="body">
-    <section class="featured">
-        <div class="content-wrapper">
-            <hgroup class="title">
-                <h1>Cliente</h1>
-            </hgroup>
-        
-            <form method="post" action="NovoCliente">
-                <fieldset>
-                    <legend>Cadastro de Cliente</legend>
-                <input type="hidden" name="vooId" value="@ViewBag.vooId"/>
-                <label>Nome: </label><input type="text" name="nome" value="@ViewBag.nome"/>
-                <br>
-                <label>Email: </label><input type="text" name="email" value="@ViewBag.email"/><br />
-                <br><input type="submit" value="Salvar" />
-                </fieldset>
-            </form>
+                        <li>
+                        @Html.LabelFor(model => model.endereco)
+                        @Html.EditorFor(model => model.endereco)
+                        @Html.ValidationMessageFor(model => model.endereco)</li>
+                        
+                        <li>
+                        @Html.LabelFor(model => model.numeroEndereco)
+                        @Html.EditorFor(model => model.numeroEndereco)
+                        @Html.ValidationMessageFor(model => model.numeroEndereco)</li>
+                        
+                        <li>
+                        @Html.LabelFor(model => model.bairro)
+                        @Html.EditorFor(model => model.bairro)
+                        @Html.ValidationMessageFor(model => model.bairro)</li>
+                        
+                        <li>
+                        @Html.LabelFor(model => model.cep)
+                        @Html.EditorFor(model => model.cep)
+                        @Html.ValidationMessageFor(model => model.cep)</li>
+                        
+                        <li>
+                        @Html.LabelFor(model => model.ocupacao)
+                        @Html.EditorFor(model => model.ocupacao)
+                        @Html.ValidationMessageFor(model => model.ocupacao)</li>
+                        
+                        <li>
+                        @Html.LabelFor(model => model.dataCadastro)
+                        @Html.EditorFor(model => model.dataCadastro)
+                        @Html.ValidationMessageFor(model => model.dataCadastro)</li>
+                        
+                        <li>
+                        @Html.LabelFor(model => model.cidade)
+                        @Html.DropDownListFor(
+                            m=>m.cidade, 
+                            new SelectList(
+                                ViewBag.cidades, 
+                                "cidadeId", 
+                                "nome"))
+                        @Html.ValidationMessageFor(model => model.cidade)</li>
+                        <br><input type="submit" value="Salvar" />
+                        </table>
+                    </ul>
+               
+                </div>
+            </section>
         </div>
-    </section>
-</div>
-</div>
-</div>
+    </fieldset>
+}

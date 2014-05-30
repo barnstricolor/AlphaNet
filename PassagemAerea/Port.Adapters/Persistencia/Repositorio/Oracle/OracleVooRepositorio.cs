@@ -42,7 +42,7 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
 
         public void cancelarReservaCliente(Voo voo, Cliente cliente)
         {
-            string str = "select * from RESERVA Where ID_VOO = " + voo._id + " And ID_cliente = " + Bd.aspas(cliente.clienteId().Id);
+            string str = "select * from RESERVA Where ID_VOO = " + voo._id + " And ID_CLIENTE = " + Bd.aspas(cliente.clienteId().Id);
 
             dtReservas.Clear();
 
