@@ -10,43 +10,44 @@ namespace IU.Models
 {
     public class ClienteData
     {
-        [Required(ErrorMessage = "O campo Código é obrigatório", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "Este campo deve ser preenchido!")]
         [Display(Name = "Código")]
-        [RegularExpression("^[0-9]{1,11}$", ErrorMessage = "Este campo deve conter apenas números")]
+        [RegularExpression(@"^[0-9]{1,11}$", ErrorMessage = "Este campo deve conter apenas números")]
         public string clienteId {get; set; }
 
-        [Required(ErrorMessage = "O campo Nome completo é obrigatório", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "Este campo deve ser preenchido!")]
         [Display(Name = "Nome completo")]
-        [RegularExpression("^[a-zA-ZãÃáÁàÀêÊéÉèÈíÍìÌôÔõÕóÓòÒúÚùÙûÛçÇºª' ']{1,60}$", ErrorMessage = "Este campo deve conter apenas letras")]
+        [RegularExpression(@"^[a-zA-Z]{1,60}$", ErrorMessage = "Este campo deve conter apenas letras, limite de 60 caracteres!")]
         public string nome {get; set; }
 
-        [Required(ErrorMessage = "O campo e-mail é obrigatório", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "Este campo deve ser preenchido!", AllowEmptyStrings = false)]
         [Display(Name = "E-mail")]
-        [RegularExpression(@"[\w-]+@([\w-]+\.)+[\w-]+", ErrorMessage = "O e-mail informado não é valido")]
+        [RegularExpression(@"^[\w-]+@([\w-]+\.)+[\w-]+$", ErrorMessage = "O e-mail informado não é valido")]
         public string email {get; set; }
 
         [Display(Name = "RG")]
-        [RegularExpression("^[0-9]{1,11}$", ErrorMessage = "Este campo deve conter apenas números")]
+        [RegularExpression(@"^[0-9]{1,11}$", ErrorMessage = "Este campo deve conter apenas números com até 11 dígitos!")]
         public string rg {get; set; }
-        
 
-        [Required(ErrorMessage = "Campo obrigatório", AllowEmptyStrings = false)]
+
+        [Required(ErrorMessage = "Este campo deve ser preenchido!")]
         [Display(Name = "CPF")]
-        [RegularExpression("^[0-9]{1,11}$", ErrorMessage = "Este campo deve conter apenas números")]
+        [RegularExpression(@"^\d{3}\.?\d{3}\.?\d{3}\-?\d{2}$", ErrorMessage = "Este campo deve conter apenas números, limite de 11 dígitos!")]
         public string cpf {get; set; }
 
         [Display(Name = "Ocupação")]
-        [Required(ErrorMessage = "Campo obrigatório", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "Este campo deve ser preenchido!")]
         public string ocupacao {get; set; }
 
         [Display(Name = "Renda")]
-        [Required(ErrorMessage= "Campo obrigatório")]
-        [RegularExpression("^[0-9]{1,11}$", ErrorMessage = "Este campo deve conter apenas números")]
+        [Required(ErrorMessage = "Este campo deve ser preenchido!")]
+        [RegularExpression(@"^[0-9]{1,11}$", ErrorMessage = "Este campo deve conter apenas números de 1 à 11 dígitos!")]
         public double renda {get; set; }
 
         [Display(Name = "Sexo")]
         public string sexo {get; set; }
 
+        [Required(ErrorMessage = "Este campo deve ser preenchido!")]
         [Display(Name = "Desconto de cliente especial")]
         public double desconto {get; set; }
 
@@ -57,15 +58,16 @@ namespace IU.Models
         public bool especial {get; set; }
 
         [Display(Name = "Telefone")]
-        [Required(ErrorMessage = "Campo obrigatório", AllowEmptyStrings = false)]
-        [RegularExpression("^[0-9]{1,11}$", ErrorMessage = "Este campo deve conter apenas números")]
+        [Required(ErrorMessage = "Este campo deve ser preenchido!", AllowEmptyStrings = false)]
+        [RegularExpression(@"^[0-9]{1,11}$", ErrorMessage = "Este campo deve conter apenas números de 1 à 11 dígitos")]
         public string telefone {get; set; }
 
-        [RegularExpression("^[0-9]{1,9}$", ErrorMessage = "Este campo deve conter apenas números")]
+        [RegularExpression(@"^[0-9]{1,11}$", ErrorMessage = "Este campo deve conter apenas números de 1 à 11 dígitos!")]
         [Display(Name = "Celular")]
         public string celular {get; set; }
 
         [Display(Name = "Endereço")]
+        [RegularExpression(@"^{0,60}$", ErrorMessage = "Limite de 60 caracteres excedido!")]
         public string endereco {get; set; }
 
         [Display(Name = "Nº")]
@@ -75,12 +77,12 @@ namespace IU.Models
         public string bairro {get; set; }
 
         [Display(Name = "CEP")]
-        [RegularExpression("^[0-9]{1,11}$", ErrorMessage = "Este campo deve conter apenas números")]
+        [RegularExpression(@"^[0-9]{7,11}$", ErrorMessage = "Este campo deve conter apenas números, de 8 à 11 dígitos!")]
         public string cep {get; set; }
 
         [Display(Name = "Data de Cadastro")]
-        [Required(ErrorMessage = "Campo obrigatório", AllowEmptyStrings = false)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+        [Required(ErrorMessage = "Este campo deve ser preenchido!")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yyyy}")]
         [DataType(DataType.Date, ErrorMessage = "Data inválida.")]        
         public DateTime dataCadastro { get; set; }
 
