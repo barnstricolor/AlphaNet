@@ -54,7 +54,7 @@ namespace Common.Domain.Model
             else if (numeros[10] != 11 - resultado)
                 throw new InvalidOperationException("C.P.F. Inválido");
             */
-            setCPF(vrCPF);
+            setCPF(valor);
         }
         private void setCPF(string cpf) {
             this._cpf = cpf;
