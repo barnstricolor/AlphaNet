@@ -67,7 +67,7 @@ namespace IU.Models
         public string celular {get; set; }
 
         [Display(Name = "Endereço")]
-        [RegularExpression(@"^{0,60}$", ErrorMessage = "Limite de 60 caracteres excedido!")]
+        [RegularExpression(@"^[a-zA-Z0-9]{0,60}$", ErrorMessage = "Limite de 60 caracteres excedido!")]
         public string endereco {get; set; }
 
         [Display(Name = "Nº")]
