@@ -9,24 +9,26 @@ namespace IU.Models
 {
     public class NovoUsuarioComando
     {
-        [Required(ErrorMessage = "O campo Código é obrigatório", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "Este campo deve ser preenchido!")]
         [Display(Name = "Código")]
-        [RegularExpression("^[0-9]{1,11}$", ErrorMessage = "Este campo deve conter apenas números")]
+        [RegularExpression(@"^[0-9]{1,11}$", ErrorMessage = "Este campo deve conter apenas números")]
         public string usuarioId { get; set; }
 
-        [Required(ErrorMessage = "O campo Login é obrigatório", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "Este campo deve ser preenchido!", AllowEmptyStrings = false)]
+        [RegularExpression(@"{1,50}", ErrorMessage = "O login deve possuir até 50 caracteres.")]
         [Display(Name = "Login")]
         public string login {get; set;}
 
-        [Required(ErrorMessage = "O campo Senha é obrigatório", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "Este campo deve ser preenchido!", AllowEmptyStrings = false)]
+        [RegularExpression(@"{1,50}", ErrorMessage = "A senha deve possuir até 50 caracteres.")]
         [Display(Name = "Senha")]
         public string senha { get; set; }
 
-        [Required(ErrorMessage = "O campo Nome é obrigatório", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "Este campo deve ser preenchido!")]
         [Display(Name = "Nome")]
         public string nome {get; set;}
 
-        [Required(ErrorMessage = "O campo E-mail é obrigatório", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "Este campo deve ser preenchido!")]
         [Display(Name = "E-mail")]
         [RegularExpression(@"[\w-]+@([\w-]+\.)+[\w-]+", ErrorMessage = "O e-mail informado não é valido")]
         public string email {get; set;}
