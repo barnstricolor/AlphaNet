@@ -16,7 +16,7 @@ namespace Common.Domain.Model
 
             valor = valor.Replace("-", "");
 
-            if (valor.Length != 11)
+            /*if (valor.Length != 11)
                 throw new InvalidOperationException("C.P.F. deve conter 11 digitos.");
 
             bool igual = true;
@@ -53,7 +53,7 @@ namespace Common.Domain.Model
             }
             else if (numeros[10] != 11 - resultado)
                 throw new InvalidOperationException("C.P.F. Inválido");
-
+            */
             setCPF(vrCPF);
         }
         private void setCPF(string cpf) {

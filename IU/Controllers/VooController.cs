@@ -394,5 +394,22 @@ namespace IU.Controllers
             }
             return result;
         }
+        private VooReservaData converterReservaParaIu(AlphaNet.PassagemAerea.Aplicacao.Voos.Data.VooReservaData data)
+        {
+            VooReservaData result = new VooReservaData();
+
+            result.vooId = data.vooId;
+            result.aviaoModelo = data.aviaoModelo;
+            result.cidadeOrigemNome = data.cidadeOrigemNome;
+            result.cidadeDestinoNome = data.cidadeDestinoNome;
+            result.partida = data.partida;
+            result.clienteId = data.clienteId;
+            result.clienteNome = data.clienteNome;
+            result.precoReserva = data.precoReserva;
+            result.assentosReservados = data.assentosReservados;
+
+
+            return result;
+        }
     }
 }
