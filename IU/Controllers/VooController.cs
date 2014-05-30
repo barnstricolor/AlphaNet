@@ -71,7 +71,7 @@ namespace IU.Controllers
         {
             vooService.cancelarReserva(vooId, clienteId);
 
-            return View("ReservasPessoal", vooService.reservasCliente(clienteId));
+            return View("ReservasPessoal", converterReservaParaIu(vooService.reservasCliente(clienteId)));
         }
 
         public ActionResult Novo()

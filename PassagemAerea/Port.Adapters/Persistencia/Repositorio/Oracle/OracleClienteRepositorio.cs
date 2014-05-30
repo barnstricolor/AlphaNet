@@ -180,10 +180,10 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
                 cliente.alterarRenda(double.Parse(entidade["VAL_RENDA"].ToString()));
             if (!string.IsNullOrWhiteSpace(entidade["NOM_OCUPACAO"].ToString()))
                 cliente.alterarOcupacao(entidade["NOM_OCUPACAO"].ToString());
-            if (!string.IsNullOrWhiteSpace(entidade["FLG_ESPECIAL"].ToString()))
-                if(entidade["FLG_ESPECIAL"].ToString()=="S")
-                    cliente.definirComoEspecial();
-
+            if (bool.Parse(entidade["FLG_ESPECIAL"].ToString()))
+                cliente.definirComoEspecial();
+            else
+                cliente.definirComoNormal();
             if (!string.IsNullOrWhiteSpace(entidade["NUM_RG"].ToString()))
                 cliente.alterarRg(entidade["NUM_RG"].ToString());
             if (!string.IsNullOrWhiteSpace(entidade["SEXO"].ToString()))

@@ -178,7 +178,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Clientes
         }
         private void setEspecial(bool especial)
         {
-            this._especial = true;
+            this._especial = especial;
         }
         private void setOcupacao(string ocupacao)
         {
