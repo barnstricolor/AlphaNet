@@ -206,7 +206,7 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
 
         public Cliente clientePeloEmail(string email)
         {
-            string str = "select * from CLIENTE EMAIL = " + Bd.aspas(email);
+            string str = "select * from CLIENTE Where NOM_EMAIL = " + Bd.aspas(email);
 
             dt.Clear();
 
@@ -216,6 +216,9 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
 
             da.Fill(dt);
 
+            if (dt.Rows.Count == 0)
+                return null;
+
             return modeloPelaEntidade(dt.Rows[0]);
         }
 
@@ -224,7 +227,7 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
         {
             List<Cliente> result = new List<Cliente>();
 
-            string str = "select * from CLIENTE FLG_PROMOCAO = 'S'";
+            string str = "select * from CLIENTE Where FLG_PROMOCAO = 'S'";
 
             dt.Clear();
 
