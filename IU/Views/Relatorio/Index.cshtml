@@ -8,12 +8,13 @@
             <section class="featured">
                 <div class="content-wrapper">
                     <hgroup class="title">
-                        <h1>Relatorios</h1>
+                       
                     </hgroup>
-                    @Html.ActionLink("Relatorio de Clientes","Clientes")
-                    @Html.ActionLink("Relatorio de Cidades","Cidades")
-                    @Html.ActionLink("Relatorio de Avioes","Avioes")
-                </div>
+                   <p> @Html.ActionLink("Relatório de Clientes","Clientes", new {target = "_blank"})</p>
+                   <p> @Html.ActionLink("Relatório de Cidades","Cidades", new {target = "_blank"})</p>
+                   <p>@Html.ActionLink("Relatório de Avioes","Aviões", new {target = "_blank"})</p> 
+
+               </div>
             </section>
         </div>
     </fieldset>

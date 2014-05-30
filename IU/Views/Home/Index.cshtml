@@ -3,10 +3,17 @@
     ViewBag.Title = "Alphanet - Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
- 	
+
+
+<script type="text/javascript">
+    function mostrar() {
+        document.getElementById('resultado').style.visibility = false;
+    }
+</script>
 
     <div id="conteudo">
         <div id="conteudo_central">
+            <div id="div-absolute">
 <div class="form-busca">
 <div id="titulo">PESQUISA RÁPIDA</div>
     
@@ -34,7 +41,7 @@
       <li><label>Partida:</label> <input type="text" name="partida" id="partida" value="@DateTime.Today.ToShortDateString()"/></li> 
       <li><label>Retorno: </label> <input type="text" name="retorno" id="retorno" value="@DateTime.Today.AddDays(1).ToShortDateString()"/></li> 
       <li><label> No. passagens:</label><input type="text" name="assentos" id="assentos" value="1" size="4" /></li>
-      <li><p><input type="submit" name="button" id="button" value="Pesquisar"></p></li>
+      <li><p><input type="submit" name="button" id="button" value="Pesquisar" onclick="mostrar();"></p></li>
     </li>
   </ol>
   </form>
@@ -44,14 +51,14 @@
 
 </div>
 
-<div>
+<div id="resultado" >
     @if (Model != null) {
-        <table border="0">
+        <table border="0" >
             <caption>Lista de Voos</caption>
             <tr>
-                <th>Modelo</th>
+                @*<th>Modelo</th>
                 <th>Origem</th>
-                <th>Destino</th>
+                <th>Destino</th>*@
                 <th>Partida</th>
                 <th>Reservados</th>
                 <th>Preço</th>
@@ -61,9 +68,9 @@
             @foreach(var voo in Model)
             {            
                 <tr>
-                    <td>@voo.aviaoModelo</td>
+                   @* <td>@voo.aviaoModelo</td>
                     <td>@voo.cidadeOrigemNome</td>
-                    <td>@voo.cidadeDestinoNome</td>
+                    <td>@voo.cidadeDestinoNome</td>*@
                     <td>@voo.partida</td>
                     <td>@voo.reservados/@voo.totalAssentos</td>     
                     <td>@voo.preco.ToString()</td>
@@ -73,6 +80,7 @@
         </table>
     }
 </div>
+                </div>
 
 <div id="banner"><img src="/Content/themes/base/images/banner1.jpg"></div>
 

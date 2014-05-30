@@ -12,12 +12,14 @@ namespace AlphaNet.PassagemAerea.IU.Models
         [Display(Name = "Nome")]
         public string nome { get; set; }
 
-        [Required(ErrorMessage = "O campo E-MAIL é obrigatório!", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "O campo e-mail é obrigatório", AllowEmptyStrings = false)]
         [Display(Name = "E-mail")]
+        [RegularExpression(@"[\w-]+@([\w-]+\.)+[\w-]+", ErrorMessage = "O e-mail informado não é valido")]
         public string email { get; set; }
 
-        [Required(ErrorMessage = "O campo TELEFONE é obrigatório!", AllowEmptyStrings = false)]
         [Display(Name = "Telefone")]
+        [Required(ErrorMessage = "Campo obrigatório", AllowEmptyStrings = false)]
+        [RegularExpression("^[0-9]{1,11}$", ErrorMessage = "Este campo deve conter apenas números")]
         public string telefone { get; set; }
 
         [Required(ErrorMessage = "O campo CIDADE é obrigatório!", AllowEmptyStrings = false)]

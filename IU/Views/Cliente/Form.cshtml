@@ -11,12 +11,13 @@
             <section class="featured">
                 <div class="content-wrapper">
                     <hgroup class="title">
-                        <h1>Cliente</h1>
+                    
                     </hgroup>
                     <ul id="aform">
+                        <table border="0">
                         <input type="hidden" name="clienteId" value="@Model.clienteId"/>
-                      <li>
-                        @Html.LabelFor(model => model.nome)
+                     
+                        <li> @Html.LabelFor(model => model.nome)
                         @Html.EditorFor(model => model.nome)
                         @Html.ValidationMessageFor(model => model.nome)</li>
                       
@@ -108,10 +109,12 @@
                                 "nome"))
                         @Html.ValidationMessageFor(model => model.cidade)</li>
                         <br><input type="submit" value="Salvar" />
+                        </table>
                     </ul>
-                     <a href="@Url.Action("Index","Cliente")"><img src="~/Content/themes/base/images/voltar.png" id="bt-voltar" /></a>  
+               
                 </div>
             </section>
         </div>
     </fieldset>
+           <a href="@Url.Action("Index","Cliente")"><img src="~/Content/themes/base/images/voltar.png" id="bt-voltar" /></a> 
 }

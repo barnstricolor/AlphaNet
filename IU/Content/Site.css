@@ -37,36 +37,7 @@ textarea {
 .editor-field {
     margin: 0.5em 0 0 0;
 }
-/*Formulário de contato
-input#nome, #login, #senha, #email, #telefone, #assunto {
-    width:200px;
-    height:20px;
-    margin-top:3px;
-}
-input#cidade {
-    height:35px;
-    width:247px;
-    margin-top:3px;
-}
-input#uf {
-    height: 35px;
-    width: 45px;
-    text-align: center;
-    margin-right: 236px;
-}
-input#obervacao {
-    width:300px;
-}
-input#enviar {
-    display:block;
-}
-.validation-summary-errors {
-    float: right;
-    margin-right: -14px;
-    margin-top: -8px;
-}
 
-    */
 
 /* Styles for validation helpers
 -----------------------------------------------------------*/
@@ -356,18 +327,25 @@ a:hover {
     background-color: #fff;
 }
 
+
 #banner{
     width: 100%; /* 1000px; */
     height:423px;
 	margin:0;
 }
+#div-absolute {
+  	width: 100%; /* 1000px; */
+	max-width: 1000px; 
+    margin:0;
+    position: absolute;
 
+}
 .form-busca{
-	width: 22%; /* 270px; */ 
-	height: 50%; /* 390px; */
-	margin: 2% 0 0 1%;
-	position: absolute;
+	width: 30%; /* 270px; */ 
+	height: 350px; /* 390px; */
+	margin: 2% 0 0 2%;
 	font-size:0.8em;
+    float: left;
     background-color: rgba(255, 255, 255, 0.70);
 }
 .form-busca ol {
@@ -397,6 +375,14 @@ a:hover {
 
 }
 
+#resultado {
+   width: 62%;
+   float: right;
+   margin: 2%;
+   background-color: #fff;
+ 
+
+}
 
 table{
 	width: 100%;
@@ -431,7 +417,7 @@ th, td {
 }
 
 fieldset {
-    width: 60%;
+    width: 70%;
     margin:2% auto;
     padding: 3%;
     text-align: center;

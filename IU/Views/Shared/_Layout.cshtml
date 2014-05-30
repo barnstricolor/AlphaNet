@@ -12,9 +12,20 @@
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/jqueryval")
         @Scripts.Render("~/bundles/jqueryui")
+
+
+<script type="text/javascript">
+
+
+    function mostrar() {
+        document.getElementById('resultado').style.visibility = true;
+    }
+</script>
+
+
     </head>
 
-    <body>
+    <body >
         <div id="container">
         <div id="top">
         <div id="logo"><a href="@Url.Action("Index","Home")"><img src="/Content/themes/base/images/logo_fca.png" alt="Alphanet" border="0" ></a></div>
