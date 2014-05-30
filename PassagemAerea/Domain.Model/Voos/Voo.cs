@@ -87,6 +87,10 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
             }
             return null;
         }
+        public List<Reserva> obterReservas()
+        {
+            return _reservas.ToList();
+        }
         public void cancelarReserva(Cliente cliente)
         {
             Reserva reserva = obterReservaPeloCliente(cliente);

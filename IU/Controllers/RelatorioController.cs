@@ -30,6 +30,15 @@ namespace IU.Controllers
         {
             return new PdfResult(DominioRegistro.cidadeService().todasCidades(), "Cidades");
         }
+        public ActionResult Ticket(string clienteId="",string vooId="")
+        {
+            List<AlphaNet.PassagemAerea.Aplicacao.Voos.Data.VooReservaData> dados = new List<AlphaNet.PassagemAerea.Aplicacao.Voos.Data.VooReservaData>();
+
+            foreach (AlphaNet.PassagemAerea.Aplicacao.Voos.Data.VooReservaData reserva in DominioRegistro.vooService().todasReservas())
+                dados.Add(reserva);
+
+            return new PdfResult(dados, "Ticket");
+        }
 
     }
 }

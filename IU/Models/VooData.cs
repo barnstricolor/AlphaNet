@@ -140,6 +140,13 @@ namespace IU.Models
         public double precoReserva { get; set; }
 
         [Display(Name = "Assentos Reservados")]
-        public string assentosReservados { get; set; }  
+        public string assentosReservados { get; set; }
+        
+        public string cartao { get; set; }
+        public string validade { get; set; }
+        public string nome { get; set; }
+        public string administradora { get; set; }
+
+
     }
 }

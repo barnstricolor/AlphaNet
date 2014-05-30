@@ -120,7 +120,24 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos
 
             return result;
         }
-        private VooReservaData construirVooReservaData(Voo voo, Reserva reserva) { 
+        public List<VooReservaData> todasReservas()
+        {
+            List<VooReservaData> result = new List<VooReservaData>();
+
+            List<Voo> voos = vooRepositorio().todosVoos();
+
+            foreach (Voo voo in voos)
+            {
+                foreach (Reserva reserva in voo.obterReservas())
+                {
+                    result.Add(construirVooReservaData(voo, reserva));
+                }
+            }
+
+            return result;
+        }
+        private VooReservaData construirVooReservaData(Voo voo, Reserva reserva)
+        { 
             VooReservaData result = new VooReservaData();
 
             result.vooId = voo.vooId().Id;
