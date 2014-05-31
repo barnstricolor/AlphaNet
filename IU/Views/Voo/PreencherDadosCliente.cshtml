@@ -2,12 +2,18 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+  <div id="conteudo">
+
+         <div id="conteudo-central">
 @using (Html.BeginForm("NovoCliente","Voo")) {
+       
     <fieldset>
         <legend>Cadastro de Cliente</legend>
         <div id="body">
             <section class="featured">
                 <div class="content-wrapper">
+
+                 
                     <hgroup class="title">
                     
                     </hgroup>
@@ -113,4 +119,5 @@
             </section>
         </div>
     </fieldset>
-}
+}</div>
+</div>
