@@ -11,10 +11,11 @@ namespace IU.Models
     {
         [Required(ErrorMessage = "O campo Código é obrigatório", AllowEmptyStrings = false)]
         [Display(Name = "Código")]
-        [RegularExpression("^[0-9]{1,11}$", ErrorMessage = "Este campo deve conter apenas números")]
+        [RegularExpression(@"^[0-9]{1,11}$", ErrorMessage = "Este campo deve conter apenas números")]
         public string usuarioId { get; set; }
 
         [Required(ErrorMessage = "O campo Login é obrigatório")]
+        [RegularExpression(@"^[a-zA-Z0-9]{1,60}$", ErrorMessage = "O login deve ter até 60 caracteres.")]
         [Display(Name = "Login")]
         public string login { get; set; }
 
