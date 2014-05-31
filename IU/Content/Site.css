@@ -379,7 +379,7 @@ a:hover {
    width: 62%;
    float: right;
    margin: 2%;
-   background-color: #fff;
+   background-color: rgba(255, 255, 255, 0.60);
  
 }
 
@@ -603,24 +603,18 @@ Label {
         float: left;
     }
 
-    #div-absolute {
-  	width: 100%; /* 1000px; */
-	max-width: 1000px; 
-    margin:0;
-    position: absolute;
 
-}
     .form-busca{
 	    width: 35%; /* 270px; */ 
 	    height: 95%; /* 390px; */
 	    margin: 2% 0 0 1%;
 	    font-size:0.8em;
         background-color: rgba(222, 232, 235, 0.80);
-       
+  
       
 }
     #resultado {
-       width: 62%;
+       width: 58%;
        float: right;
        margin: 2%;
        background-color: #fff;
@@ -660,13 +654,22 @@ Label {
         background-color: #f9f9f9;
     }
 
+
     .form-busca{
 	    width: 40%; /* 270px; */ 
 	    height: 95%; /* 390px; */
 	    margin: 2% 0 0 1%;
 	    font-size:0.8em;
-        background-color: rgba(222, 232, 235, 0.80);
+       background-color: rgba(222, 232, 235, 0.80);
 
+}
+
+     #resultado {
+       width: 53%;
+       float: right;
+       margin: 2%;
+       background-color: #fff;
+ 
 }
 
         .botao {
@@ -685,19 +688,28 @@ Label {
 
     #conteudo {
         width: 100%; /* 1000px; */
-        height: 270px; /* 423px; */
+        height: 570px; /* 423px; */
         margin: 0;
         float: left;
         position: relative;
         background-color: #f9f9f9;
     }
+
+
        .form-busca{
 	        width: 98%; /* 270px; */ 
 	        height: 95%; /* 390px; */
 	        margin: 2% 0 0 1%;
 	        font-size:0.8em;
             background-color: rgba(222, 232, 235, 0.80);
-        
+          
+}
+     #resultado {
+       width: 98%;
+       float: right;
+       margin: 2% 0 0 1%;;
+       background-color: rgba(255, 255, 255, 0.60);
+ 
 }
 
         .botao {
@@ -715,19 +727,40 @@ Label {
 
     #conteudo {
         width: 100%; /* 1000px; */
-        height: 340px; /* 423px; */
+        height: 650px; /* 423px; */
         margin: 0;
         float: left;
         position: relative;
         background-color: #f9f9f9;
     }
 
+
+      #div-absolute {
+  	    width: 100%; /* 1000px; */
+	    max-width: 1000px; 
+        margin:0;
+        position: absolute;
+
+}
        .form-busca{
 	        width: 98%; /* 270px; */ 
 	        height: 100%; /* 390px; */
 	        margin: 2% 0 0 1%;
 	        font-size:0.8em;
-            background-color: rgba(222, 232, 235, 0.80);
+            background-color: rgba(222, 232, 235, 0.70);
+
+}
+
+     #resultado {
+       width: 98%;
+       float: right;
+       margin: 2% 0 0 1%;;
+       background-color: rgba(255, 255, 255, 0.60);
+ 
+}
+     #bt-nova-reserva {
+        width: 200px;
+        margin-bottom:3%;
 }
 
         .botao {
