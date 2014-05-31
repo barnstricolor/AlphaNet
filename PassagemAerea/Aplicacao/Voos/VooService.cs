@@ -71,6 +71,7 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos
             Cidade destino = cidadeRepositorio().obterPeloId(new CidadeId(cidadeDestinoId));
 
             Voo voo = new Voo(vooRepositorio().proximaIdentidade(), aviao, origem,destino,partida,preco);
+
             vooRepositorio().salvar(voo);
             
             return construir(voo);

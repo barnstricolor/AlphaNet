@@ -138,17 +138,6 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
             da.Update(dt);
 
         }
-        private void update(Voo voo)
-        {
-            OracleDataAdapter da = obterAdapter(new VooId(voo.aviaoId().Id));
-
-            DataRow row = dt.Rows[0];
-            
-            preencherEntidade(row, voo);
-
-            da.Update(dt);
-
-        }
 
         public void salvar(Voo voo)
         {
@@ -213,7 +202,7 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
         }
         private void preencherEntidade(DataRow entidade, Voo voo)
         {
-            entidade["VOO_ID"] = voo.aviaoId().Id;
+            entidade["VOO_ID"] = voo.vooId().Id;
             entidade["DAT_PARTIDA"] = voo.partida();
             entidade["DAT_CHEGADA"] = voo.chegada();
             entidade["ID_AVIAO"] = voo.aviaoId().Id;

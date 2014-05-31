@@ -25,13 +25,15 @@ namespace IU.Controllers
 
             foreach(VooData voo in  vooService.todosVoos()){
                 if (voo.cidadeOrigemId.Equals(origem) &
-                    voo.partida.CompareTo(partida) >= 0)
+                    voo.cidadeDestinoId.Equals(destino) &
+                    voo.partida.CompareTo(partida) == 0)
                     voos.Add(voo);
 
                 if (radio == "idavolta")
                 {
-                    if (voo.cidadeDestinoId.Equals(destino) &
-                        voo.partida.CompareTo(partida) >= 0) 
+                    if (voo.cidadeOrigemId.Equals(destino) &
+                        voo.cidadeDestinoId.Equals(origem) &
+                        voo.partida.CompareTo(retorno) == 0)
                         voos.Add(voo);
                 }
             }

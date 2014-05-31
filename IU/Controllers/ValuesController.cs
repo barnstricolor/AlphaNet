@@ -21,51 +21,50 @@ namespace IU.Controllers
         // GET api/values
         public ActionResult Index()
         {            
-            
             novoUsuario("martin", "martin123", "Martin Fowler", "martin@venus.com", "Gestor");
             novoUsuario("kent", "kent123", "Kent Beck", "kent@frio.com", "Atendente");
             novoUsuario("pi", "pi", "pi", "pi@pi.com", "Gestor");
-            DominioRegistro.aplicacaoAviaoService().novoAviao("FOCKER 100", 50);            
-            string aviaoId = DominioRegistro.aplicacaoAviaoService().novoAviao("BOEING 747", 30);
+            aviaoService.novoAviao("FOCKER 100", 50);
+            string aviaoId = aviaoService.novoAviao("BOEING 747", 30);
 
-            string cidadeIdOrigem = DominioRegistro.cidadeService().novaCidade("RIBEIRÃO PRETO - SP", "14100");
-            string cidadeIdDestino = DominioRegistro.cidadeService().novaCidade("SÃO PAULO - SP", "14000");
+            string cidadeIdOrigem = cidadeService.novaCidade("RIBEIRÃO PRETO - SP", "14100");
+            string cidadeIdDestino = cidadeService.novaCidade("SÃO PAULO - SP", "14000");
 
-            AlphaNet.PassagemAerea.Aplicacao.Clientes.Data.ClienteData cliente = DominioRegistro.clienteService().novoCliente("RICARDO","HDR_RICARDO@HOTMAIL.COM");
+            AlphaNet.PassagemAerea.Aplicacao.Clientes.Data.ClienteData cliente = clienteService.novoCliente("RICARDO","HDR_RICARDO@HOTMAIL.COM");
             cliente.especial = true;
             cliente.promocao = true;
             cliente.desconto = 10;
-            DominioRegistro.clienteService().alterarDados(cliente);
+            clienteService.alterarDados(cliente);
 
-            cliente = DominioRegistro.clienteService().novoCliente("ROLLAN", "rollan_paiva@hotmail.com");
+            cliente = clienteService.novoCliente("ROLLAN", "rollan_paiva@hotmail.com");
             cliente.especial = true;
             cliente.promocao = true;
             cliente.desconto = 15;
-            DominioRegistro.clienteService().alterarDados(cliente);
+            clienteService.alterarDados(cliente);
 
-            cliente = DominioRegistro.clienteService().novoCliente("THIAGO", "thiago.marega@gmail.com");
+            cliente = clienteService.novoCliente("THIAGO", "thiago.marega@gmail.com");
             cliente.especial = true;
             cliente.promocao = true;
             cliente.desconto = 20;
-            DominioRegistro.clienteService().alterarDados(cliente);
+            clienteService.alterarDados(cliente);
 
-            cliente = DominioRegistro.clienteService().novoCliente("Francisco", "fcnfilho@gmail.com");
+            cliente = clienteService.novoCliente("Francisco", "fcnfilho@gmail.com");
             cliente.especial = true;
             cliente.promocao = true;
             cliente.desconto = 25;
-            DominioRegistro.clienteService().alterarDados(cliente);
+            clienteService.alterarDados(cliente);
 
-            cliente = DominioRegistro.clienteService().novoCliente("Denise", "denisemcastro@hotmail.com");
+            cliente = clienteService.novoCliente("Denise", "denisemcastro@hotmail.com");
             cliente.especial = true;
             cliente.promocao = true;
             cliente.desconto = 30;
-            DominioRegistro.clienteService().alterarDados(cliente);
+            clienteService.alterarDados(cliente);
 
-            //for (int i = 0; i < 10; i++)
+            for (int i = 1; i < 10; i++){
             
-                DominioRegistro.vooService().novoVoo(aviaoId, cidadeIdOrigem, cidadeIdDestino, DateTime.Today, 1.267);
-                DominioRegistro.vooService().novoVoo(aviaoId, cidadeIdDestino, cidadeIdOrigem, DateTime.Today.AddDays(1), 970);
-            
+                DominioRegistro.vooService().novoVoo(aviaoId, cidadeIdOrigem, cidadeIdDestino, DateTime.Today, 1.267*i);
+                DominioRegistro.vooService().novoVoo(aviaoId, cidadeIdDestino, cidadeIdOrigem, DateTime.Today.AddDays(i+1), 970*i);
+            }
             
             return RedirectToAction("Index", "Home");
         }
