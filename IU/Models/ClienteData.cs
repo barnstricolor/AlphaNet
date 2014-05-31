@@ -17,7 +17,7 @@ namespace IU.Models
 
         [Required(ErrorMessage = "Este campo deve ser preenchido!")]
         [Display(Name = "Nome completo")]
-        [RegularExpression(@"^[a-zA-Z]{1,60}$", ErrorMessage = "Este campo deve conter apenas letras, limite de 60 caracteres!")]
+        [RegularExpression(@"^[a-zA-Z' ']{1,60}$", ErrorMessage = "Este campo deve conter apenas letras, limite de 60 caracteres!")]
         public string nome {get; set; }
 
         [Required(ErrorMessage = "Este campo deve ser preenchido!", AllowEmptyStrings = false)]
@@ -67,7 +67,7 @@ namespace IU.Models
         public string celular {get; set; }
 
         [Display(Name = "Endereço")]
-        [RegularExpression(@"^[a-zA-Z0-9]{0,60}$", ErrorMessage = "Limite de 60 caracteres excedido!")]
+        [RegularExpression(@"^[a-zA-Z0-9' ']{0,60}$", ErrorMessage = "Limite de 60 caracteres excedido!")]
         public string endereco {get; set; }
 
         [Display(Name = "Nº")]
@@ -82,7 +82,7 @@ namespace IU.Models
 
         [Display(Name = "Data de Cadastro")]
         [Required(ErrorMessage = "Este campo deve ser preenchido!")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy/hh:mm}")]
         [DataType(DataType.Date, ErrorMessage = "Data inválida.")]        
         public DateTime dataCadastro { get; set; }
 

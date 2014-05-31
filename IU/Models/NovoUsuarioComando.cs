@@ -15,12 +15,12 @@ namespace IU.Models
         public string usuarioId { get; set; }
 
         [Required(ErrorMessage = "Este campo deve ser preenchido!", AllowEmptyStrings = false)]
-        [RegularExpression(@"{1,50}", ErrorMessage = "O login deve possuir até 50 caracteres.")]
+        [RegularExpression(@"^[a-zA-Z0-9]{1,50}$", ErrorMessage = "O login deve possuir até 50 caracteres.")]
         [Display(Name = "Login")]
         public string login {get; set;}
 
         [Required(ErrorMessage = "Este campo deve ser preenchido!", AllowEmptyStrings = false)]
-        [RegularExpression(@"{1,50}", ErrorMessage = "A senha deve possuir até 50 caracteres.")]
+        [RegularExpression(@"[a-zA-Z0-9]{1,50}", ErrorMessage = "A senha deve possuir até 50 caracteres.")]
         [Display(Name = "Senha")]
         public string senha { get; set; }
 
