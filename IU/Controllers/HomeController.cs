@@ -19,9 +19,25 @@ namespace IU.Controllers
         [HttpPost]
         public ActionResult Index(string radio, string origem, string destino, DateTime partida, DateTime retorno, int assentos)
         {
-            ViewBag.msgAutenticacao = TempData["msgAutenticacao"];
             ViewBag.cidades = DominioRegistro.cidadeService().todasCidades();
-            return View(vooService.todosVoos());
+
+            List<VooData> voos = new List<VooData>();
+
+            foreach(VooData voo in  vooService.todosVoos()){
+                if (voo.cidadeOrigemId.Equals(origem) &
+                    voo.partida.CompareTo(partida) >= 0)
+                    voos.Add(voo);
+
+                if (radio == "idavolta")
+                {
+                    if (voo.cidadeDestinoId.Equals(destino) &
+                        voo.partida.CompareTo(partida) >= 0) 
+                        voos.Add(voo);
+                }
+            }
+
+
+            return View(voos);
         }
 
         public ActionResult Index_adm()

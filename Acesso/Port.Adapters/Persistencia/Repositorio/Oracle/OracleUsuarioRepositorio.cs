@@ -161,8 +161,8 @@ namespace Alphanet.Acesso.Port.Adapters.Persistencia.Repositorio.Oracle
 
         public Usuario usuarioPelaCredencialAutenticacao(string usuario, string senha)
         {
-            string str = "select * from USUARIO Where NOM_USUARIO = " +
-                Bd.aspas(usuario) + " And NOM_SENHA = " + Bd.aspas(senha);
+            string str = "select * from USUARIO Where UPPER(NOM_USUARIO) = " +
+                Bd.aspas(usuario.ToUpper()) + " And UPPER(NOM_SENHA) = " + Bd.aspas(senha.ToUpper());
 
             dt.Clear();
 
@@ -182,7 +182,7 @@ namespace Alphanet.Acesso.Port.Adapters.Persistencia.Repositorio.Oracle
 
         public Usuario obterPeloEmail(string email)
         {
-            string str = "select * from USUARIO Where NOM_EMAIL = " + Bd.aspas(email);
+            string str = "select * from USUARIO Where UPPER(NOM_EMAIL) = " + Bd.aspas(email.ToUpper());
 
             dt.Clear();
 

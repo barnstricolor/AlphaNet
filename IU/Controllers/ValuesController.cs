@@ -21,12 +21,13 @@ namespace IU.Controllers
         // GET api/values
         public ActionResult Index()
         {            
-            /*
+            
             novoUsuario("martin", "martin123", "Martin Fowler", "martin@venus.com", "Gestor");
             novoUsuario("kent", "kent123", "Kent Beck", "kent@frio.com", "Atendente");
             novoUsuario("pi", "pi", "pi", "pi@pi.com", "Gestor");
-
+            DominioRegistro.aplicacaoAviaoService().novoAviao("FOCKER 100", 50);            
             string aviaoId = DominioRegistro.aplicacaoAviaoService().novoAviao("BOEING 747", 30);
+
             string cidadeIdOrigem = DominioRegistro.cidadeService().novaCidade("RIBEIRÃO PRETO - SP", "14100");
             string cidadeIdDestino = DominioRegistro.cidadeService().novaCidade("SÃO PAULO - SP", "14000");
 
@@ -60,10 +61,12 @@ namespace IU.Controllers
             cliente.desconto = 30;
             DominioRegistro.clienteService().alterarDados(cliente);
 
-            DominioRegistro.vooService().novoVoo(aviaoId, cidadeIdOrigem, cidadeIdDestino, new DateTime(), 999.99);
-            DominioRegistro.vooService().novoVoo(aviaoId, cidadeIdDestino, cidadeIdOrigem, new DateTime().AddDays(1), 999.99);
-            */
-
+            //for (int i = 0; i < 10; i++)
+            
+                DominioRegistro.vooService().novoVoo(aviaoId, cidadeIdOrigem, cidadeIdDestino, DateTime.Today, 1.267);
+                DominioRegistro.vooService().novoVoo(aviaoId, cidadeIdDestino, cidadeIdOrigem, DateTime.Today.AddDays(1), 970);
+            
+            
             return RedirectToAction("Index", "Home");
         }
 

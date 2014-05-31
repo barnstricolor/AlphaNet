@@ -206,7 +206,7 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
 
         public Cliente clientePeloEmail(string email)
         {
-            string str = "select * from CLIENTE Where NOM_EMAIL = " + Bd.aspas(email);
+            string str = "select * from CLIENTE Where UPPER(NOM_EMAIL) = " + Bd.aspas(email.ToUpper());
 
             dt.Clear();
 
@@ -227,7 +227,7 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
         {
             List<Cliente> result = new List<Cliente>();
 
-            string str = "select * from CLIENTE Where FLG_PROMOCAO = 'S'";
+            string str = "select * from CLIENTE Where UPPER(FLG_PROMOCAO) = 'TRUE'";
 
             dt.Clear();
 
