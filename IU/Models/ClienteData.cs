@@ -81,13 +81,12 @@ namespace IU.Models
         public string cep {get; set; }
 
         [Display(Name = "Data de Cadastro")]
-        [Required(ErrorMessage = "Este campo deve ser preenchido!")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy/hh:mm}")]
-        [DataType(DataType.Date, ErrorMessage = "Data inválida.")]        
+        //[Required(ErrorMessage = "Este campo deve ser preenchido!")]
+        //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy/hh:mm}")]
+        //[DataType(DataType.Date, ErrorMessage = "Data inválida.")]        
         public DateTime dataCadastro { get; set; }
 
         [Display(Name = "Cidade")]
         public string cidade {get; set; }
-
     }
 }
