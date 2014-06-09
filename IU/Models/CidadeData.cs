@@ -12,8 +12,8 @@ namespace IU.Models
 
         [Required(ErrorMessage = "O campo Nome da Cidade deve ser preenchido.")]
         [Display(Name = "Cidade")]
-        //[RegularExpression(@"{1,50}", ErrorMessage = "O campo NOME deve conter até 50 caracteres.")]
-        [RegularExpression(@"^[a-zA-ZãÃáÁàÀêÊéÉèÈíÍìÌôÔõÕóÓòÒúÚùÙûÛçÇºª' '-]{1,50}$", ErrorMessage = "O campo NOME deve conter até 50 caracteres")]
+        //[RegularExpression(@"{1,100}", ErrorMessage = "O campo NOME deve conter até 100 caracteres.")]
+        [RegularExpression(@"^[a-zA-ZãÃáÁàÀêÊéÉèÈíÍìÌôÔõÕóÓòÒúÚùÙûÛçÇºª' '-]{1,100}$", ErrorMessage = "O campo NOME deve conter até 100 caracteres")]
         public string nome { get; set; }
 
         [Required(ErrorMessage = "O campo CEP deve ser preenchido.", AllowEmptyStrings = false)]

@@ -29,7 +29,7 @@ namespace IU.Controllers
 
             string cidadeIdOrigem = cidadeService.novaCidade("RIBEIRÃO PRETO - SP", "14100");
             string cidadeIdDestino = cidadeService.novaCidade("SÃO PAULO - SP", "14000");
-
+           
             AlphaNet.PassagemAerea.Aplicacao.Clientes.Data.ClienteData cliente = clienteService.novoCliente("RICARDO","HDR_RICARDO@HOTMAIL.COM");
             cliente.especial = true;
             cliente.promocao = true;
