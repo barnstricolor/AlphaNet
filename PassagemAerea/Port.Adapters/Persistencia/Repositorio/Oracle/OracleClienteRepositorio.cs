@@ -153,7 +153,7 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
             entidade["FLG_ESPECIAL"] = cliente.especial();
             entidade["NUM_RG"] = cliente.rg();
             entidade["SEXO"] = cliente.sexo();
-            entidade["NUM_END"] = cliente.endereco();
+            entidade["NUM_END"] = cliente.numeroEndereco();
             entidade["NOM_BAIRRO"] = cliente.bairro();
             entidade["CAD_CEP"] = cliente.cep();
             entidade["NUM_TELEFONE"] = cliente.telefone();
