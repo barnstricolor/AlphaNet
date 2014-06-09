@@ -2,6 +2,7 @@
 using AlphaNet.PassagemAerea.Aplicacao.Voos.Comando;
 using AlphaNet.PassagemAerea.Domain.Model;
 using IU.Models;
+using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 namespace IU.Controllers
@@ -89,8 +90,15 @@ namespace IU.Controllers
         [HttpPost]
         public ActionResult Salvar(VooData voo)
         {
-            if (voo.vooId == null)
-                vooService.novoVoo(voo.aviaoId, voo.cidadeOrigemId, voo.cidadeDestinoId, voo.partida, voo.preco);
+            DateTime dataHoraPartida = new DateTime(
+                voo.partida.Year,
+                voo.partida.Month,
+                voo.partida.Day,
+                voo.horaPartida.Hour,
+                voo.horaPartida.Minute,
+                0);
+
+            vooService.novoVoo(voo.aviaoId, voo.cidadeOrigemId, voo.cidadeDestinoId, dataHoraPartida, (double)voo.preco);
             
             return RedirectToAction("Index", "Voo");
         }
@@ -282,9 +290,10 @@ namespace IU.Controllers
             result.cidadeDestinoId = data.cidadeDestinoId;
             result.cidadeDestinoNome = data.cidadeDestinoNome;
             result.partida = data.partida;
+            result.horaPartida = data.partida;
             result.totalAssentos = data.totalAssentos;
             result.reservados = data.reservados;
-            result.preco = data.preco;
+            result.preco = (decimal)data.preco;
             result.promocional = data.promocional;
             //public List<ReservaData> _reservas = new List<ReservaData>();
 
@@ -392,7 +401,7 @@ namespace IU.Controllers
                 voo.partida = data.partida;
                 voo.totalAssentos = data.totalAssentos;
                 voo.reservados = data.reservados;
-                voo.preco = data.preco;
+                voo.preco = (decimal)data.preco;
                 voo.promocional = data.promocional;
                 //public List<ReservaData> _reservas = new List<ReservaData>();
                 result.Add(voo);

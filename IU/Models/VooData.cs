@@ -46,9 +46,15 @@ namespace IU.Models
 
         [Required(ErrorMessage = "Este campo deve ser preenchido!", AllowEmptyStrings = false)]
         [DataType(DataType.Date, ErrorMessage = "Data inválida.")]
-        [Display(Name="Partida")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy/ hh:mm}",  ApplyFormatInEditMode = true)]
+        [Display(Name="Data partida")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}",  ApplyFormatInEditMode = true)]
         public DateTime partida { get; set; }
+
+        [Required(ErrorMessage = "Este campo deve ser preenchido!", AllowEmptyStrings = false)]
+        [DataType(DataType.Time, ErrorMessage = "Hora inválida.")]
+        [Display(Name = "Hora")]
+        [DisplayFormat(DataFormatString = "{0:hh:mm}", ApplyFormatInEditMode = true)]
+        public DateTime horaPartida { get; set; }
 
         [Required(ErrorMessage = "Este campo deve ser preenchido! Formato HH:. MM (24 horas time)")] 
         [DisplayFormat ( ApplyFormatInEditMode  =  true ,  DataFormatString  =  "{0:HH:mm}" )] 
@@ -62,9 +68,14 @@ namespace IU.Models
         [Display(Name = "Reservados")]
         public int reservados { get; set; }
 
-        [Required(ErrorMessage = "Este campo deve ser preenchido!", AllowEmptyStrings = false)]
-        [RegularExpression(@"^[0-9]{1,7}$", ErrorMessage = "Este campo deve conter apenas números")]
-        public double preco { get; set; }
+        //[Required(ErrorMessage = "Este campo deve ser preenchido!", AllowEmptyStrings = false)]
+        [DataType(DataType.Currency, ErrorMessage = "Valor inválido.")]
+        //[RegularExpression(@"^[0-9,]{1,7}$", ErrorMessage = "Este campo deve conter apenas números")]
+        //[DisplayFormat(ApplyFormatInEditMode = , DataFormatString = "{0:C}")] 
+        //[RegularExpression(@"^\d+,\d{0,2}$", ErrorMessage = "Price must can't have more than 2 decimal places")]
+        //[Range(0, 99999.99, ErrorMessage = "O Preço de Venda deve estar entre " + "10,00 e 99999,99.")] 
+        [Display(Name = "Preço")]
+        public decimal preco { get; set; }
 
         [Display(Name = "Promocional")]
         public bool promocional { get; set; }

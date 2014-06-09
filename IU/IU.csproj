@@ -345,6 +345,7 @@
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Images\chuky-aprove.jpeg" />
     <Content Include="Images\contato.png" />
+    <Content Include="Scripts\method_pt.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.10.4.js" />
