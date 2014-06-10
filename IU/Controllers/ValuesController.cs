@@ -24,12 +24,16 @@ namespace IU.Controllers
             novoUsuario("martin", "martin123", "Martin Fowler", "martin@venus.com", "Gestor");
             novoUsuario("kent", "kent123", "Kent Beck", "kent@frio.com", "Atendente");
             novoUsuario("pi", "pi", "pi", "pi@pi.com", "Gestor");
-            aviaoService.novoAviao("FOCKER 100", 50);
-            string aviaoId = aviaoService.novoAviao("BOEING 747", 30);
+            aviaoService.novoAviao("A219", 98);
+            aviaoService.novoAviao("A230", 208);
+            string aviaoId = aviaoService.novoAviao("A220", 148);
 
-            string cidadeIdOrigem = cidadeService.novaCidade("RIBEIRÃO PRETO - SP", "14100");
-            string cidadeIdDestino = cidadeService.novaCidade("SÃO PAULO - SP", "14000");
-           
+            string cidadeIdOrigem = cidadeService.novaCidade("RIBEIRÃO PRETO - Leite Lopes", "14100");
+            string cidadeIdDestino = cidadeService.novaCidade("SÃO PAULO - Congonhas", "11000");
+            cidadeService.novaCidade("Campinas - Viracopos", "08990");
+            cidadeService.novaCidade("Porto Alegre - Salgado Filho", "19000");
+            cidadeService.novaCidade("SÃO PAULO - Guarulhos", "65444");
+
             AlphaNet.PassagemAerea.Aplicacao.Clientes.Data.ClienteData cliente = clienteService.novoCliente("RICARDO","HDR_RICARDO@HOTMAIL.COM");
             cliente.especial = true;
             cliente.promocao = true;

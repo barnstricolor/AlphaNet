@@ -14,7 +14,7 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
 
         private Bd()
         {
-            string strConexao = "Data Source=XE;User Id=PI;Password=PI;";
+            string strConexao = "DATA SOURCE=XE;PASSWORD=PI;USER ID=PI";
             this.conn = new OracleConnection();
             this.conn.ConnectionString = strConexao;
             try
