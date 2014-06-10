@@ -11,6 +11,7 @@
     }
 </script>
 
+
     <div id="conteudo">
         <div id="conteudo_central">
             <div id="div-absolute">
@@ -19,10 +20,20 @@
     
   <form name="form2" method="post">
   <ol>
-    @*<li><label><input type="radio" name="radio" id="idavolta" value="idavolta" checked="@Request["radio"]">Ida e volta</label></li>
-    <li><label><input type="radio" name="radio" id="ida" value="ida" checked="@Request["radio"]">Somente ida</label></li>*@
-    <li><label>@Html.RadioButton("radio", "idavolta", Request["idavolta"])Ida e Volta</label></li>
-    <li><label>@Html.RadioButton("radio","ida", Request["ida"])Somente ida</label></li>
+@{
+    bool chkIdaVolta=true;
+    bool chkIda=false;
+    
+    if (!Request["ida"].IsBool()){
+        chkIdaVolta = true;
+        chkIda = false;
+    } else {
+        chkIda = true;
+        chkIdaVolta = false;
+    }
+    <li><label>@Html.RadioButton("radio", "idavolta", @chkIdaVolta)Ida e Volta</label></li>
+    <li><label>@Html.RadioButton("radio","ida", @chkIda)Somente ida</label></li>
+}
     <li>  <label>Origem: 
         @Html.DropDownList(
             "origem", 
@@ -40,9 +51,22 @@
                 "nome"))</label>     
 
      </li>
-      <li><label>Partida:</label> <input type="text" name="partida" id="partida" value="@DateTime.Today.ToShortDateString()"/></li> 
-      <li><label>Retorno: </label> <input type="text" name="retorno" id="retorno" value="@DateTime.Today.AddDays(1).ToShortDateString()"/></li> 
-      <li><label> No. passagens:</label><input type="text" name="assentos" id="assentos" value="@Request["assentos"]" size="4" /></li>
+@{
+    string a = DateTime.Today.ToShortDateString();
+    string b = DateTime.Today.AddDays(1).ToShortDateString();    
+    string c = "1";
+    if (!Request["partida"].IsEmpty()){
+        a = Request["partida"].ToString();
+        b = Request["retorno"].ToString();
+    }
+    if (!Request["assentos"].IsEmpty())
+    {
+        c = Request["assentos"];
+    }
+      <li><label>Partida:</label> <input type="text" name="partida" id="partida" value="@a"/></li> 
+      <li><label>Retorno: </label> <input type="text" name="retorno" id="retorno" value="@b"/></li> 
+      <li><label> No. passagens:</label><input type="text" name="assentos" id="assentos" value="@c" size="4" /></li>
+}    
       <li><p><input type="submit" name="button" id="button" value="Pesquisar" onclick="mostrar();"></p></li>
   </ol>
   </form>
@@ -76,14 +100,21 @@
                         <td>@voo.partida</td>
                         <td>@voo.reservados/@voo.totalAssentos</td>     
                         <td>@voo.preco.ToString()</td>
-                        <td><a href="@Url.Action("NovaReservaPessoal","Voo",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/nova_reserva.png" id="bt-nova-reserva" border="0"/></a></td>
+                        <td>@if((voo.totalAssentos - voo.reservados) >= int.Parse(@c)){
+                                <a href="@Url.Action("NovaReservaPessoal","Voo",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/nova_reserva.png" id="bt-nova-reserva" border="0"/></a>
+                        } else {
+                            <a>Assentos insuficientes</a>
+                        }
+                        
+                        </td>
                     </tr>        
                 }
             </table>
         </div>
     }
-}
-                </div>
+
+}                
+            </div>
 
 <div id="banner"><img src="/Content/themes/base/images/banner2.jpg"></div>
 

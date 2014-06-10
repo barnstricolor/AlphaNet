@@ -17,7 +17,7 @@ namespace IU.Controllers
             return View(new List<VooData>());
         }
         [HttpPost]
-        public ActionResult Index(string radio, string origem, string destino, DateTime partida, DateTime retorno, int assentos)
+        public ActionResult Index(string radio, string origem, string destino, DateTime partida, DateTime retorno, int assentos=1)
         {
             ViewBag.cidades = DominioRegistro.cidadeService().todasCidades();
 
@@ -26,14 +26,14 @@ namespace IU.Controllers
             foreach(VooData voo in  vooService.todosVoos()){
                 if (voo.cidadeOrigemId.Equals(origem) &
                     voo.cidadeDestinoId.Equals(destino) &
-                    voo.partida.CompareTo(partida) == 0)
+                    voo.partida.Date.CompareTo(partida.Date) == 0)
                     voos.Add(voo);
 
                 if (radio == "idavolta")
                 {
                     if (voo.cidadeOrigemId.Equals(destino) &
                         voo.cidadeDestinoId.Equals(origem) &
-                        voo.partida.CompareTo(retorno) == 0)
+                        voo.partida.Date.CompareTo(retorno.Date) == 0)
                         voos.Add(voo);
                 }
             }

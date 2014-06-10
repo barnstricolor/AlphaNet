@@ -66,8 +66,8 @@ namespace IU.Controllers
 
             for (int i = 1; i < 10; i++){
 
-                DominioRegistro.vooService().novoVoo(aviaoId, cidadeIdOrigem, cidadeIdDestino, DateTime.Today.AddDays(i - 1), 1.267 * i);
-                DominioRegistro.vooService().novoVoo(aviaoId, cidadeIdDestino, cidadeIdOrigem, DateTime.Today.AddDays(i+1), 970*i);
+                DominioRegistro.vooService().novoVoo(aviaoId, cidadeIdOrigem, cidadeIdDestino, DateTime.Today.AddDays(i - 1).AddHours(i), 1.267 * i);
+                DominioRegistro.vooService().novoVoo(aviaoId, cidadeIdDestino, cidadeIdOrigem, DateTime.Today.AddDays(i + 1).AddHours(i), 970 * i);
             }
             
             return RedirectToAction("Index", "Home");
