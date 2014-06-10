@@ -35,7 +35,8 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
             dt.Columns.Add(new DataColumn("NOM_BAIRRO", typeof(string)));
             dt.Columns.Add(new DataColumn("CAD_CEP", typeof(string)));
             dt.Columns.Add(new DataColumn("NUM_TELEFONE", typeof(string)));
-            dt.Columns.Add(new DataColumn("PER_DESCONTO", typeof(double))); 
+            dt.Columns.Add(new DataColumn("PER_DESCONTO", typeof(double)));
+            dt.Columns.Add(new DataColumn("DAT_CADASTRO", typeof(DateTime))); 
             dt.Columns.Add(new DataColumn("ID", typeof(int)));
         }
 
@@ -158,6 +159,7 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
             entidade["CAD_CEP"] = cliente.cep();
             entidade["NUM_TELEFONE"] = cliente.telefone();
             entidade["PER_DESCONTO"] = cliente.desconto();
+            entidade["DAT_CADASTRO"] = cliente.dataCadastro();
             entidade["ID"] = cliente._id;
         }
         private Cliente modeloPelaEntidade(DataRow entidade)
@@ -198,7 +200,7 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
                 cliente.alterarTelefone(entidade["NUM_TELEFONE"].ToString());
             if (!((double)entidade["PER_DESCONTO"]).Equals(0))
                 cliente.alterarDesconto((double)entidade["PER_DESCONTO"]);
-
+            cliente.alterarDataCadastro((DateTime)entidade["DAT_CADASTRO"]);
             cliente._id = int.Parse(entidade["ID"].ToString());
             return cliente;
 

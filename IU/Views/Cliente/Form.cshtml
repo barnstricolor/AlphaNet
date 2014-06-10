@@ -96,7 +96,8 @@
                         
                         <li>
                         @Html.LabelFor(model => model.dataCadastro)
-                        <input type="text" name="dataCadastro" id="dataCadastro" value="@Model.dataCadastro"/>
+                        <input type="text" name="dataCadastro" id="dataCadastro" value="@Model.dataCadastro.ToShortDateString()"/>
+                        @Html.ValidationMessageFor(model => model.dataCadastro)</li>
                         <li>
                         @Html.LabelFor(model => model.cidade)
                         @Html.DropDownListFor(

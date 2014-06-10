@@ -80,10 +80,10 @@ namespace IU.Models
         [RegularExpression(@"^[0-9]{7,11}$", ErrorMessage = "Este campo deve conter apenas números, de 8 à 11 dígitos!")]
         public string cep {get; set; }
 
+        //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Data de Cadastro")]
-        //[Required(ErrorMessage = "Este campo deve ser preenchido!")]
-        //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy/hh:mm}")]
-        //[DataType(DataType.Date, ErrorMessage = "Data inválida.")]        
+        [Required(ErrorMessage = "Este campo deve ser preenchido!", AllowEmptyStrings = false)]
+        [DataType(DataType.Date, ErrorMessage = "Data inválida.")]
         public DateTime dataCadastro { get; set; }
 
         [Display(Name = "Cidade")]

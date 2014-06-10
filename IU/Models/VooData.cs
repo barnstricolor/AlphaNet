@@ -47,7 +47,7 @@ namespace IU.Models
         [Required(ErrorMessage = "Este campo deve ser preenchido!", AllowEmptyStrings = false)]
         [DataType(DataType.Date, ErrorMessage = "Data inválida.")]
         [Display(Name="Data partida")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}",  ApplyFormatInEditMode = true)]
+        //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}",  ApplyFormatInEditMode = true)]
         public DateTime partida { get; set; }
 
         [Required(ErrorMessage = "Este campo deve ser preenchido!", AllowEmptyStrings = false)]

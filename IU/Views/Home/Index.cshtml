@@ -19,8 +19,10 @@
     
   <form name="form2" method="post">
   <ol>
-    <li><label><input type="radio" name="radio" id="idavolta" value="idavolta" checked="checked">Ida e volta</label></li>
-    <li><label><input type="radio" name="radio" id="ida" value="volta">Somente ida</label></li>
+    @*<li><label><input type="radio" name="radio" id="idavolta" value="idavolta" checked="@Request["radio"]">Ida e volta</label></li>
+    <li><label><input type="radio" name="radio" id="ida" value="ida" checked="@Request["radio"]">Somente ida</label></li>*@
+    <li><label>@Html.RadioButton("radio", "idavolta", Request["idavolta"])Ida e Volta</label></li>
+    <li><label>@Html.RadioButton("radio","ida", Request["ida"])Somente ida</label></li>
     <li>  <label>Origem: 
         @Html.DropDownList(
             "origem", 
@@ -40,9 +42,8 @@
      </li>
       <li><label>Partida:</label> <input type="text" name="partida" id="partida" value="@DateTime.Today.ToShortDateString()"/></li> 
       <li><label>Retorno: </label> <input type="text" name="retorno" id="retorno" value="@DateTime.Today.AddDays(1).ToShortDateString()"/></li> 
-      <li><label> No. passagens:</label><input type="text" name="assentos" id="assentos" value="1" size="4" /></li>
+      <li><label> No. passagens:</label><input type="text" name="assentos" id="assentos" value="@Request["assentos"]" size="4" /></li>
       <li><p><input type="submit" name="button" id="button" value="Pesquisar" onclick="mostrar();"></p></li>
-    </li>
   </ol>
   </form>
 

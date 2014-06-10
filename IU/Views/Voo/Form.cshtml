@@ -13,7 +13,7 @@
                 <fieldset>
                     <legend>Cadastro de Voo</legend>
                 @Html.LabelFor(model => model.partida)
-                @Html.EditorFor(model => model.partida)
+                <input type="text" name="partida" id="dataCadastro" value="@Model.partida.ToShortDateString()"/>
                 @Html.ValidationMessageFor(model => model.partida)
                 <br>
                 @Html.LabelFor(model => model.horaPartida)
@@ -57,6 +57,22 @@
         </div>
     </section>
 </div>
+<script type="text/javascript">
+    $(function () {
+        $("[id$=dataCadastro]").datepicker({
+            //changeMonth: true,
+            //changeYear: true,
+            showOtherMonths: true,
+            selectOtherMonths: true,
+            dateFormat: 'dd/mm/yy',
+            dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
+            dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
+            dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+            monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+            monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
+        });
+    });
+</script>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
