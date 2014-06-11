@@ -38,35 +38,43 @@ namespace IU.Controllers
             cliente.especial = true;
             cliente.promocao = true;
             cliente.desconto = 10;
+
+            AlphaNet.PassagemAerea.Aplicacao.Cidades.Data.CidadeData cidadeData = new AlphaNet.PassagemAerea.Aplicacao.Cidades.Data.CidadeData();
+            cidadeData.cidadeId = cidadeIdOrigem;
+            cliente.cidade = cidadeData;
             clienteService.alterarDados(cliente);
 
             cliente = clienteService.novoCliente("ROLLAN", "rollan_paiva@hotmail.com");
             cliente.especial = true;
             cliente.promocao = true;
             cliente.desconto = 15;
+            cliente.cidade = cidadeData;
             clienteService.alterarDados(cliente);
 
             cliente = clienteService.novoCliente("THIAGO", "thiago.marega@gmail.com");
             cliente.especial = true;
             cliente.promocao = true;
             cliente.desconto = 20;
+            cliente.cidade = cidadeData;
             clienteService.alterarDados(cliente);
 
             cliente = clienteService.novoCliente("Francisco", "fcnfilho@gmail.com");
             cliente.especial = true;
             cliente.promocao = true;
             cliente.desconto = 25;
+            cliente.cidade = cidadeData;
             clienteService.alterarDados(cliente);
 
             cliente = clienteService.novoCliente("Denise", "denisemcastro@hotmail.com");
             cliente.especial = true;
             cliente.promocao = true;
             cliente.desconto = 30;
+            cliente.cidade = cidadeData;
             clienteService.alterarDados(cliente);
 
             for (int i = 1; i < 10; i++){
 
-                DominioRegistro.vooService().novoVoo(aviaoId, cidadeIdOrigem, cidadeIdDestino, DateTime.Today.AddDays(i - 1).AddHours(i), 1.267 * i);
+                DominioRegistro.vooService().novoVoo(aviaoId, cidadeIdOrigem, cidadeIdDestino, DateTime.Today.AddDays(i - 1).AddHours(i), 1267 * i);
                 DominioRegistro.vooService().novoVoo(aviaoId, cidadeIdDestino, cidadeIdOrigem, DateTime.Today.AddDays(i + 1).AddHours(i), 970 * i);
             }
             

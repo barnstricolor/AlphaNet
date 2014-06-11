@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AlphaNet.PassagemAerea.Domain.Model.Voos;
 using AlphaNet.PassagemAerea.Domain.Model.Clientes;
+using AlphaNet.PassagemAerea.Domain.Model.Cidades;
 
 namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Memoria
 {
@@ -29,7 +30,7 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Memoria
 
         public Voo obterPeloId(VooId aviaoId)
         {
-            return store[aviaoId.Id];
+            return store.ContainsKey(aviaoId.Id) ? store[aviaoId.Id] : null;
         }
         
         public void limpar()
@@ -68,5 +69,35 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Memoria
         {
             throw new NotImplementedException();
         }
+
+
+        public List<Voo> voosAviao(Domain.Model.Avioes.AviaoId aviaoId)
+        {
+            List<Voo> result = new List<Voo>();
+
+            foreach (Voo voo in store.Values.ToList())
+            {
+                if (voo.aviaoId().Equals(aviaoId))
+                    result.Add(voo);
+            }
+
+            return result;
+        }
+
+
+        public List<Domain.Model.Voos.Voo> voosCidade(CidadeId cidadeId)
+        {
+            List<Voo> result = new List<Voo>();
+
+            foreach (Voo voo in todosVoos())
+            {
+                if (voo.origemId().Equals(cidadeId) || voo.destinoId().Equals(cidadeId))
+                    result.Add(voo);
+            }
+
+            return result;
+
+        }
+
     }
 }

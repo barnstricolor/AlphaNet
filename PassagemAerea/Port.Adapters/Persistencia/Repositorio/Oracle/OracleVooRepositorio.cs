@@ -271,5 +271,34 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
         }
 
 
+
+
+        public List<Voo> voosAviao(AviaoId aviaoId)
+        {
+            List<Voo> result = new List<Voo>();
+
+            foreach (Voo voo in DominioRegistro.vooRepositorio().todosVoos())
+            {
+                if (voo.aviaoId().Equals(aviaoId))
+                    result.Add(voo);
+            }
+
+            return result;
+        }
+
+
+        public List<Domain.Model.Voos.Voo> voosCidade(CidadeId cidadeId)
+        {
+            List<Voo> result = new List<Voo>();
+
+            foreach (Voo voo in todosVoos())
+            {
+                if (voo.origemId().Equals(cidadeId) || voo.destinoId().Equals(cidadeId))
+                    result.Add(voo);
+            }
+
+            return result;
+
+        }
     }
 }

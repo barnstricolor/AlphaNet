@@ -1,5 +1,8 @@
-﻿@{
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
     Layout = null;
+    var exception = Model.Exception;
 }
 
 <!DOCTYPE html>
@@ -10,8 +13,8 @@
 </head>
 <body>
     <hgroup>
-        <h1>Erro.</h1>
         <h2>Um erro ocorreu enquanto processava sua solicitação.</h2>
+        <h1>@exception.Message</h1>
     </hgroup>
 </body>
 </html>

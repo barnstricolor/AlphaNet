@@ -72,7 +72,10 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Clientes
         }
 
         public void excluirCliente(string clienteId) {
-            clienteRepositorio().excluir(new ClienteId(clienteId));
+            RemoverClienteServico servico = new RemoverClienteServico();
+            Cliente cliente = clienteRepositorio().obterPeloId(new ClienteId(clienteId));
+            servico.remover(cliente);
+
         }
 
         public List<ClienteData> todosClientes() {

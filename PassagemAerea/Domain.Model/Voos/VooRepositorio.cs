@@ -1,4 +1,6 @@
-﻿using AlphaNet.PassagemAerea.Domain.Model.Clientes;
+﻿using AlphaNet.PassagemAerea.Domain.Model.Avioes;
+using AlphaNet.PassagemAerea.Domain.Model.Cidades;
+using AlphaNet.PassagemAerea.Domain.Model.Clientes;
 using AlphaNet.PassagemAerea.Domain.Model.Voos;
 using System;
 using System.Collections.Generic;
@@ -23,5 +25,8 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
         void salvarReservas(Voo voo);
 
         void cancelarReservaCliente(Voo voo, Cliente cliente);
+
+        List<Voo> voosCidade(CidadeId cidadeId);
+        List<Voo> voosAviao(AviaoId aviaoId);
     }
 }

@@ -99,7 +99,7 @@
                         <td>@voo.cidadeDestinoNome</td>*@
                         <td>@voo.partida</td>
                         <td>@voo.reservados/@voo.totalAssentos</td>     
-                        <td>@voo.preco.ToString()</td>
+                        <td>@voo.preco.ToString("C")</td>
                         <td>@if((voo.totalAssentos - voo.reservados) >= int.Parse(@c)){
                                 <a href="@Url.Action("NovaReservaPessoal","Voo",new {vooId = voo.vooId})"><img src="~/Content/themes/base/images/nova_reserva.png" id="bt-nova-reserva" border="0"/></a>
                         } else {

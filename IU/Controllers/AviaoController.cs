@@ -7,7 +7,7 @@ using AlphaNet.PassagemAerea.Aplicacao.Avioes;
 using IU.Models;
 namespace IU.Controllers
 {
-    public class AviaoController : Controller
+    public class AviaoController : AbstractController
     {
 
         public ActionResult Index()

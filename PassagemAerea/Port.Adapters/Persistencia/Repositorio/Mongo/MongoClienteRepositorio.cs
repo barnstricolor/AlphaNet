@@ -110,5 +110,11 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Mongo
         {
             throw new NotImplementedException();
         }
+
+
+        public List<Cliente> clientesCidade(Domain.Model.Cidades.CidadeId cidadeId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

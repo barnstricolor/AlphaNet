@@ -28,7 +28,7 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Memoria
 
         public Cliente obterPeloId(ClienteId clienteId)
         {
-            return store[clienteId.Id];
+            return store.ContainsKey(clienteId.Id) ? store[clienteId.Id] : null;
         }
 
         public List<Cliente> todosClientes()
@@ -61,6 +61,19 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Memoria
             foreach (Cliente cliente in store.Values.ToList())
                 if (cliente.promocao())
                     result.Add(cliente);
+            return result;
+        }
+
+        public List<Cliente> clientesCidade(Domain.Model.Cidades.CidadeId cidadeId)
+        {
+            List<Cliente> result = new List<Cliente>();
+
+            foreach (Cliente cliente in todosClientes())
+            {
+                if (cliente.cidade().Equals(cidadeId))
+                    result.Add(cliente);
+            }
+
             return result;
         }
     }

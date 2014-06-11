@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AlphaNet.PassagemAerea.Domain.Model;
 using AlphaNet.PassagemAerea.Domain.Model.Cidades;
 using AlphaNet.PassagemAerea.Aplicacao.Cidades.Data;
+using PassagemAerea.Domain.Model.Cidades;
 
 
 namespace AlphaNet.PassagemAerea.Aplicacao.Cidades
@@ -35,8 +36,11 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Cidades
             cidadeRepositorio().salvar(cidade);
         }
 
+        
         public void excluirCidade(string cidadeId) {
-            cidadeRepositorio().excluir(new CidadeId(cidadeId));
+            RemoverCidadeServico servico = new RemoverCidadeServico();
+            Cidade cidade = cidadeRepositorio().obterPeloId(new CidadeId(cidadeId));
+            servico.remover(cidade);
         }
 
         public List<CidadeData> todasCidades() {

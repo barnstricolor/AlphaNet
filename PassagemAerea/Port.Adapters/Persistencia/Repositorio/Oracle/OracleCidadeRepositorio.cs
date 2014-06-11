@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AlphaNet.PassagemAerea.Domain.Model.Cidades;
 using Oracle.ManagedDataAccess.Client;
 using System.Data;
+using AlphaNet.PassagemAerea.Domain.Model.Voos;
 
 namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
 {
@@ -136,7 +137,6 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
             return cidade;
 
         }
-
 
 
     }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AlphaNet.PassagemAerea.Domain.Model.Avioes;
 using AlphaNet.PassagemAerea.Domain.Model;
 using AlphaNet.PassagemAerea.Aplicacao.Avioes.Data;
+using PassagemAerea.Domain.Model.Avioes;
 
 
 namespace AlphaNet.PassagemAerea.Aplicacao.Avioes
@@ -35,7 +36,9 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Avioes
         }
 
         public void excluirAviao(string aviaoId) {
-            aviaoRepositorio().excluir(new AviaoId(aviaoId));
+            RemoverAviaoServico servico = new RemoverAviaoServico();
+            Aviao aviao = aviaoRepositorio().obterPeloId(new AviaoId(aviaoId));
+            servico.remover(aviao);
         }
 
         public List<AviaoData> todosAvioes()

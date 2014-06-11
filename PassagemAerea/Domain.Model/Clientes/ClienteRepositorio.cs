@@ -16,5 +16,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Clientes
         void excluir(ClienteId clienteId);
         Cliente clientePeloEmail(string email);
         List<Cliente> clientesParaPromocao();
+
+        List<Cliente> clientesCidade(Cidades.CidadeId cidadeId);
     }
 }

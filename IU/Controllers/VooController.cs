@@ -200,9 +200,11 @@ namespace IU.Controllers
             DominioRegistro.clienteService().alterarDados(converterParaServico(cliente));
             
             ViewBag.vooId = vooId;
-
-            acessoAplicacaoService.alterarPapel((string)Session["email"], "Cliente");
-            Session["papel"] = "Cliente";  
+            if (!((string)Session["papel"] == "Gestor") & !((string)Session["papel"] == "Atendente"))
+            {
+                acessoAplicacaoService.alterarPapel((string)Session["email"], "Cliente");
+                Session["papel"] = "Cliente";
+            }
             
             return this.NovaReservaPessoal(vooId);
         }

@@ -27,7 +27,7 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Memoria
 
         public Aviao obterPeloId(AviaoId aviaoId)
         {
-            return store[aviaoId.Id];
+            return store.ContainsKey(aviaoId.Id)? store[aviaoId.Id]:null;
         }
         
         public void limpar()

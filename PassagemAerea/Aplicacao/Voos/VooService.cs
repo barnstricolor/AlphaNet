@@ -8,6 +8,7 @@ using AlphaNet.PassagemAerea.Domain.Model.Avioes;
 using AlphaNet.PassagemAerea.Domain.Model.Cidades;
 using AlphaNet.PassagemAerea.Domain.Model.Clientes;
 using AlphaNet.PassagemAerea.Domain.Model.Voos;
+using PassagemAerea.Domain.Model.Voos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -210,8 +211,10 @@ namespace AlphaNet.PassagemAerea.Aplicacao.Voos
         }
 
         public void excluir(string vooId) {
+            RemoverVooServico servico = new RemoverVooServico();
+            Voo voo = vooRepositorio().obterPeloId(new VooId(vooId));
+            servico.remover(voo);
 
-            vooRepositorio().excluir(new VooId(vooId));
         }
         private AviaoRepositorio aviaoRepositorio()
         {

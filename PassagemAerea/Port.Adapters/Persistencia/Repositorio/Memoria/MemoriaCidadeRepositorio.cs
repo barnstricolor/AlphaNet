@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AlphaNet.PassagemAerea.Domain.Model.Cidades;
+using AlphaNet.PassagemAerea.Domain.Model.Voos;
 
 namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Memoria
 {
@@ -27,7 +28,7 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Memoria
 
         public Cidade obterPeloId(CidadeId CidadeId)
         {
-            return store[CidadeId.Id];
+            return store.ContainsKey(CidadeId.Id)? store[CidadeId.Id]:null;
         }
 
         public List<Cidade> todasCidades()
@@ -44,5 +45,7 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Memoria
         {
             store.Remove(cidadeId.Id);
         }
+
+
     }
 }

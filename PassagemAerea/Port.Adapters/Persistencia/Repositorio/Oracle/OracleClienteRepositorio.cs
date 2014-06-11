@@ -247,5 +247,20 @@ namespace AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Oracle
 
             return result;
         }
+
+
+        public List<Cliente> clientesCidade(CidadeId cidadeId)
+        {
+            List<Cliente> result = new List<Cliente>();
+
+            foreach (Cliente cliente in todosClientes())
+            {
+                if (cliente.cidade().Equals(cidadeId))
+                    result.Add(cliente);
+            }
+
+            return result;
+
+        }
     }
 }
