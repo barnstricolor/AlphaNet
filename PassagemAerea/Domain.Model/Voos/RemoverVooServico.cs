@@ -12,7 +12,7 @@ namespace PassagemAerea.Domain.Model.Voos
         public void remover(Voo voo)
         {
             if (DominioRegistro.vooRepositorio().obterPeloId(voo.vooId()).assentosReservados().Count > 0)
-                throw new InvalidOperationException("Voo com Reerva");
+                throw new InvalidOperationException("Voo com Reservas");
 
             DominioRegistro.vooRepositorio().excluir(voo.vooId());
         }
