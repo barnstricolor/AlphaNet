@@ -5,10 +5,11 @@ using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.EF;
 using AlphaNet.PassagemAerea.Port.Adapters.Persistencia.Repositorio.Memoria;
 using Microsoft.Practices.Unity;
 using AlphaNet.PassagemAerea.Domain.Model;
-using PassagemAereaTest.Domain.Model.Avioes;
+
 using AlphaNet.PassagemAerea.Domain.Model.Clientes;
 using AlphaNet.PassagemAerea.Domain.Model.Cidades;
 using AlphaNet.PassagemAerea.Domain.Model.Voos;
+using PassagemAerea.Domain.Model.Avioes;
 
 namespace AlphaNet.PassagemAereaTest.Domain.Model.AviaoTest
 {

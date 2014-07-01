@@ -37,9 +37,9 @@ namespace IU
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            //this.bancoEmMemoria();
+            this.bancoEmMemoria();
             //this.bancoEF();
-            this.bancoOracle();
+            //this.bancoOracle();
             //this.bancoMongo();
 
             DominioRegistro.obterContainer().RegisterInstance<PublicoService>(new TraduzirPublicoService());

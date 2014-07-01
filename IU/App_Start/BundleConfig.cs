@@ -44,6 +44,9 @@ namespace IU
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+            
+            bundles.Add(new ScriptBundle("~/bundles/extjs").Include("~/Scripts/ext-all.js"));
+            bundles.Add(new StyleBundle("~/Content/extjs").Include("~/extjs/MyApp-all.css"));
         }
     }
 }
