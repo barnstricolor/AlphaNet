@@ -1,4 +1,5 @@
-﻿using Alphanet.Acesso.Domain.Model.Usuarios;
+﻿using Alphanet.Acesso.Aplicacao;
+using Alphanet.Acesso.Domain.Model.Usuarios;
 using AlphaNet.PassagemAerea.Aplicacao.Avioes;
 using AlphaNet.PassagemAerea.Aplicacao.Cidades;
 using AlphaNet.PassagemAerea.Aplicacao.Clientes;
@@ -13,7 +14,6 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Mvc;
-using IU.Models;
 namespace IU.Controllers
 {
     public class ValuesController : AbstractController

@@ -4,8 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AlphaNet.PassagemAerea.Aplicacao.Avioes;
-using IU.Models;
-using AlphaNet.PassagemAerea.IU.Models;
 using RazorPDF;
 using AlphaNet.PassagemAerea.Domain.Model;
 

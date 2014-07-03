@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AlphaNet.PassagemAerea.Aplicacao.Cidades;
-using IU.Models;
 using AlphaNet.PassagemAerea.Domain.Model;
+using AlphaNet.PassagemAerea.Aplicacao.Cidades.Data;
 
 
 namespace IU.Controllers

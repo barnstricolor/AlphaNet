@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using AlphaNet.PassagemAerea.Aplicacao.Cidades;
 using AlphaNet.PassagemAerea.Aplicacao.Cidades.Data;
 using Alphanet.Acesso.Aplicacao;
-using IU.Models;
+using Alphanet.Acesso.Aplicacao.Data;
 
 
 namespace IU.Controllers

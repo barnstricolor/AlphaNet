@@ -29,6 +29,7 @@ namespace AlphaNet.PassagemAerea.Domain.Model.Voos
             this._origemId = origem.cidadeId();
             this._destinoId = destino.cidadeId();
             this._partida = partida;
+            this._chegada = partida.AddHours(1);
             this._preco = preco;
             this._promocional = false;
             this._reservas = new HashSet<Reserva>();
